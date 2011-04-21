@@ -2,7 +2,7 @@ require 'test_helper'
 
 class ShopsControllerTest < ActionController::TestCase
   setup do
-    @shop = Factory.shop
+    @shop = Factory.create :shop
   end
 
   test "should get index" do
