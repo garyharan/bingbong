@@ -1,4 +1,0 @@
-module ActionView::Helpers::AssetTagHelper
-  JAVASCRIPT_DEFAULT_SOURCES = %w(jquery.js rails.js)
-  reset_javascript_include_default
-end
