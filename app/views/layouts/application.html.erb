@@ -10,7 +10,7 @@
 
     <div id="user_nav">
       <% if user_signed_in? %>
-        Vous êtes connecté comme <%= current_user.email %>. Pas vous?
+        <%= current_user.email %>. Pas vous?
         <%= link_to "Déconnexion", destroy_user_session_path %>
       <% else %>
         <%= link_to "Nouveau compte", new_user_registration_path %> ou <%= link_to "Connexion", new_user_session_path %>
