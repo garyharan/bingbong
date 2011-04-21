@@ -6,3 +6,4 @@ gem 'devise'
 
 gem 'thin'
 gem 'factory_girl_rails'
+gem 'rails3-generators'

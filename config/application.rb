@@ -36,6 +36,10 @@ module Bingbong
     # i18n
     config.i18n.default_locale = :fr
 
+    config.generators do |g|
+      g.test_framework :test_unit, :fixture_replacement => :factory_girl
+    end
+
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"
 

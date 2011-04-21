@@ -1,4 +1,6 @@
 Bingbong::Application.routes.draw do
+  resources :shops
+
   devise_for :users
   root :to => "home#index"
 
