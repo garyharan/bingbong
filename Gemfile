@@ -5,3 +5,4 @@ gem 'sqlite3'
 gem 'devise'
 
 gem 'thin'
+gem 'factory_girl_rails'
