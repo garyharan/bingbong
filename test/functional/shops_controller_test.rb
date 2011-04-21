@@ -3,6 +3,7 @@ require 'test_helper'
 class ShopsControllerTest < ActionController::TestCase
   setup do
     @shop = Factory.create :shop
+    sign_in User.first
   end
 
   test "should get index" do
@@ -18,7 +19,7 @@ class ShopsControllerTest < ActionController::TestCase
 
   test "should create shop" do
     assert_difference('Shop.count') do
-      post :create, :shop => @shop.attributes
+      post :create, :shop => Factory.new(:shop).attributes
     end
 
     assert_redirected_to shop_path(assigns(:shop))

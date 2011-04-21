@@ -1,6 +1,6 @@
 class ShopsController < ApplicationController
-  # GET /shops
-  # GET /shops.xml
+  before_filter :authenticate_user!
+  
   def index
     @shops = Shop.all
 
@@ -10,8 +10,6 @@ class ShopsController < ApplicationController
     end
   end
 
-  # GET /shops/1
-  # GET /shops/1.xml
   def show
     @shop = Shop.find(params[:id])
 
@@ -21,10 +19,8 @@ class ShopsController < ApplicationController
     end
   end
 
-  # GET /shops/new
-  # GET /shops/new.xml
   def new
-    @shop = Shop.new
+    @shop = current_user.shops.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -32,13 +28,10 @@ class ShopsController < ApplicationController
     end
   end
 
-  # GET /shops/1/edit
   def edit
     @shop = Shop.find(params[:id])
   end
 
-  # POST /shops
-  # POST /shops.xml
   def create
     @shop = Shop.new(params[:shop])
 
@@ -53,8 +46,6 @@ class ShopsController < ApplicationController
     end
   end
 
-  # PUT /shops/1
-  # PUT /shops/1.xml
   def update
     @shop = Shop.find(params[:id])
 
@@ -69,8 +60,6 @@ class ShopsController < ApplicationController
     end
   end
 
-  # DELETE /shops/1
-  # DELETE /shops/1.xml
   def destroy
     @shop = Shop.find(params[:id])
     @shop.destroy

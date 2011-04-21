@@ -10,6 +10,8 @@ class User < ActiveRecord::Base
   validates_presence_of :first_name
   validates_presence_of :last_name
 
+  has_many :shops
+
   def name
     [first_name, last_name].join(' ')
   end
