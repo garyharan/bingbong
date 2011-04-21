@@ -5,4 +5,9 @@ class UserTest < ActiveSupport::TestCase
     user = User.new :first_name => "Gary", :last_name => "Haran"
     assert_equal "Gary Haran", user.name
   end
+
+  test "user#admin? returns false by default" do
+    user = User.new :first_name => "Gary", :last_name => "Haran"
+    assert_equal false, user.admin?
+  end
 end
