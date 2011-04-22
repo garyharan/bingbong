@@ -13,8 +13,8 @@
  * The `ajax:aborted:file` event allows you to bind your own handler to process the form submission however you wish.
  *
  * Ex:
- *     $('form').live('ajax:aborted:file', function(){
- *       // Implement own remote file-transfer handler here.
+ *     $('form').live('ajax:aborted:file', function(event, elements){
+ *       // Implement own remote file-transfer handler here for non-blank file inputs passed in `elements`.
  *       // Returning false in this handler tells rails.js to disallow standard form submission
  *       return false;
  *     });
@@ -27,17 +27,18 @@
  * Required fields in rails.js
  * ===========================
  *
- * This adapter aborts AJAX form submissions if any non-blank input[required] fields are detected.
- * Unlike file uploads, however, blank required input fields cancel the whole form submission, by default.
+ * If any blank required inputs (required="required") are detected in the remote form, the whole form submission
+ * is canceled. Note that this is unlike file inputs, which still allow standard (non-AJAX) form submission.
  *
  * The `ajax:aborted:required` event allows you to bind your own handler to inform the user of blank required inputs.
  *
- * !! Note that Opera does not fire the form's submit event if there are blank required inputs,
- *    so this event may never get fired in Opera.
+ * !! Note that Opera does not fire the form's submit event if there are blank required inputs, so this event may never
+ *    get fired in Opera. This event is what causes other browsers to exhibit the same submit-aborting behavior.
  *
  * Ex:
- *     $('form').live('ajax:aborted:required', function(){
- *       // Returning false in this handler tells rails.js to submit the form anyway
+ *     $('form').live('ajax:aborted:required', function(event, elements){
+ *       // Returning false in this handler tells rails.js to submit the form anyway.
+ *       // The blank required inputs are passed to this function in `elements`.
  *       return ! confirm("Would you like to submit the form with missing info?");
  *     });
  */
@@ -57,6 +58,18 @@
 
 		// Form input elements bound by jquery-ujs
 		formInputClickSelector: 'form input[type=submit], form input[type=image], form button[type=submit], form button:not([type])',
+
+		// Form input elements disabled during form submission
+		disableSelector: 'input[data-disable-with], button[data-disable-with], textarea[data-disable-with]',
+
+		// Form input elements re-enabled after form submission
+		enableSelector: 'input[data-disable-with]:disabled, button[data-disable-with]:disabled, textarea[data-disable-with]:disabled',
+
+		// Form required input elements
+		requiredInputSelector: 'input[name][required],textarea[name][required]',
+
+		// Form file input elements
+		fileInputSelector: 'input:file',
 
 		// Make sure that every Ajax request sends the CSRF token
 		CSRFProtection: function(xhr) {
@@ -140,7 +153,7 @@
 			- Adds disabled=disabled attribute
 		*/
 		disableFormElements: function(form) {
-			form.find('input[data-disable-with], button[data-disable-with]').each(function() {
+			form.find(rails.disableSelector).each(function() {
 				var element = $(this), method = element.is('button') ? 'html' : 'val';
 				element.data('ujs:enable-with', element[method]());
 				element[method](element.data('disable-with'));
@@ -153,7 +166,7 @@
 			- Removes disabled attribute
 		*/
 		enableFormElements: function(form) {
-			form.find('input[data-disable-with]:disabled, button[data-disable-with]:disabled').each(function() {
+			form.find(rails.enableSelector).each(function() {
 				var element = $(this), method = element.is('button') ? 'html' : 'val';
 				if (element.data('ujs:enable-with')) element[method](element.data('ujs:enable-with'));
 				element.removeAttr('disabled');
@@ -228,8 +241,8 @@
 	$(rails.formSubmitSelector).live('submit.rails', function(e) {
 		var form = $(this),
 			remote = form.data('remote') !== undefined,
-			blankRequiredInputs = rails.blankInputs(form, 'input[name][required],textarea[name][required]'),
-			nonBlankFileInputs = rails.nonBlankInputs(form, 'input:file');
+			blankRequiredInputs = rails.blankInputs(form, rails.requiredInputSelector),
+			nonBlankFileInputs = rails.nonBlankInputs(form, rails.fileInputSelector);
 
 		if (!rails.allowAction(form)) return rails.stopEverything(e);
 
