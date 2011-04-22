@@ -2,6 +2,10 @@ h1 {
   margin-bottom: 2em;
 }
 
+ul {
+  list-style-type: none;
+}
+
 #user_nav {
   text-align: right;
   width: 100%;
