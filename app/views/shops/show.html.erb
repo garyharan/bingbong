@@ -1,38 +1,11 @@
 <p>
-  <b>Name:</b>
-  <%= @shop.name %>
+  <b>
+    <%= @shop.name %>
+  </b>
 </p>
 
-<p>
-  <b>Phone number:</b>
-  <%= @shop.phone_number %>
-</p>
-
-<p>
-  <b>City:</b>
-  <%= @shop.city %>
-</p>
-
-<p>
-  <b>Address:</b>
-  <%= @shop.address %>
-</p>
-
-<p>
-  <b>Province:</b>
-  <%= @shop.province %>
-</p>
-
-<p>
-  <b>Country:</b>
-  <%= @shop.country %>
-</p>
-
-<p>
-  <b>Postal code:</b>
-  <%= @shop.postal_code %>
-</p>
-
+<p><%= @shop.full_address %></p>
+<p><%= @shop.phone_number %></p>
 
 <%= link_to 'Edit', edit_shop_path(@shop) if @shop.owned_by?(current_user) %>
 <%= link_to 'Back', root_path %>

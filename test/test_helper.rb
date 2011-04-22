@@ -8,4 +8,3 @@ Dir[Rails.root.join("factories/*.rb")].each { |f| require f }
 class ActionController::TestCase
   include Devise::TestHelpers
 end
-
