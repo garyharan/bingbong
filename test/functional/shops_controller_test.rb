@@ -2,8 +2,9 @@ require 'test_helper'
 
 class ShopsControllerTest < ActionController::TestCase
   setup do
+    @user = Factory.create :user
     @shop = Factory.create :shop
-    sign_in User.first
+    sign_in @user
   end
 
   test "should get index" do
@@ -23,6 +24,7 @@ class ShopsControllerTest < ActionController::TestCase
     end
 
     assert_redirected_to shop_path(assigns(:shop))
+    assert_equal @user.id, assigns(:shop).user_id
   end
 
   test "should show shop" do

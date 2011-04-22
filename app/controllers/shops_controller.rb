@@ -33,7 +33,7 @@ class ShopsController < ApplicationController
   end
 
   def create
-    @shop = Shop.new(params[:shop])
+    @shop = current_user.shops.new(params[:shop])
 
     respond_to do |format|
       if @shop.save

@@ -1,3 +1,8 @@
 <% @page_title = "BingBong.ca" %>
 <h2>Acceptez les commandes en ligne.</h2>
 
+<% if user_signed_in? && current_user.shops.any? -%>
+  <div>Mes magasins</div>
+<% else -%>
+  <div>Est ce que vous avez un magasin qui fait des livraisons?</div>
+<% end -%>
