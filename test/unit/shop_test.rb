@@ -9,4 +9,9 @@ class ShopTest < ActiveSupport::TestCase
     @not_mine = Factory.build :shop
     assert @not_mine.owned_by?(@user) == false, "user should not own this shop"
   end
+
+  test "full address displays correctly" do
+    @shop = Factory.build :shop
+    assert_equal "150 Woodland Avenue, Dartmouth, Nova Scotia, B2W 2X6", @shop.full_address
+  end
 end
