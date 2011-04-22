@@ -2,7 +2,12 @@
 <h2>Acceptez les commandes en ligne.</h2>
 
 <% if user_signed_in? && current_user.shops.any? -%>
-  <div>Mes magasins</div>
+  <h3>Mes magasins</h3>
+  <ul>
+    <% current_user.shops.each do |shop| -%>
+      <li><%= link_to shop.name, shop %></li>
+    <% end -%>
+  </ul>
 <% else -%>
   <div>Est ce que vous avez un magasin qui fait des livraisons?</div>
 <% end -%>

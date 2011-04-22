@@ -47,7 +47,7 @@ class ShopsController < ApplicationController
   end
 
   def update
-    @shop = Shop.find(params[:id])
+    @shop = current_user.shops.find(params[:id])
 
     respond_to do |format|
       if @shop.update_attributes(params[:shop])
@@ -61,7 +61,7 @@ class ShopsController < ApplicationController
   end
 
   def destroy
-    @shop = Shop.find(params[:id])
+    @shop = current_user.shops.find(params[:id])
     @shop.destroy
 
     respond_to do |format|
