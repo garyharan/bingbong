@@ -12,12 +12,6 @@
 
 ActiveRecord::Schema.define(:version => 20110422151722) do
 
-  create_table "categories", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "shops", :force => true do |t|
     t.string   "name"
     t.string   "phone_number"
