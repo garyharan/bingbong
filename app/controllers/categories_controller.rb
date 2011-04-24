@@ -5,16 +5,19 @@ class CategoriesController < ApplicationController
     @shop = current_user.shops.find(params[:shop_id])
     @category = @shop.categories.new(params[:category])
     
-    if @category.save
-      flash[:notice] = "Succesfully created category."
+    respond_to do |format|
+      if @category.save
+        flash[:notice] = "Succesfully created category."
+        format.js
+      end
     end
   end
 
   def update
-    
+
   end
 
   def destroy
-    
+
   end
 end

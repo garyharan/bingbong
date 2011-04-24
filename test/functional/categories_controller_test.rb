@@ -9,7 +9,7 @@ class CategoriesControllerTest < ActionController::TestCase
 
   test "should create a category" do
     assert_difference('Category.count') do
-      post :create, :category => Factory.attributes_for(:category), :shop_id => @shop.id
+      xhr :post, :create, :category => Factory.attributes_for(:category), :shop_id => @shop.id
     end
     assert_not_nil assigns(:shop)
     assert_not_nil assigns(:category)
