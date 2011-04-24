@@ -2,8 +2,8 @@ require 'test_helper'
 
 class ShopsControllerTest < ActionController::TestCase
   setup do
-    @user = Factory.create :user
-    @shop = Factory.create :shop, :user_id => @user.id
+    @user = User.create!(Factory.attributes_for :user)
+    @shop = Shop.create!(Factory.attributes_for :shop, :user_id => @user.id)
     sign_in @user
   end
 
@@ -20,9 +20,7 @@ class ShopsControllerTest < ActionController::TestCase
 
   test "should create shop" do
     assert_difference('Shop.count') do
-      assert_difference('@user.shops.count') do
-        post :create, :shop => Factory.new(:shop).attributes
-      end
+      post :create, :shop => Factory.attributes_for(:shop)
     end
 
     assert_redirected_to shop_path(assigns(:shop))

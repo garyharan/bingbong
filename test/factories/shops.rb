@@ -1,5 +1,4 @@
 Factory.define :shop do |f|
-  f.sequence(:id)            { |n| n }
   f.sequence(:name)          { |n| "My Shop #{n}" }
   f.sequence(:phone_number)  { |n| "555-555-#{n.to_s.rjust(4, '0')}" }
   f.city "Dartmouth"
