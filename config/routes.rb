@@ -1,9 +1,11 @@
 Bingbong::Application.routes.draw do
-  resources :categories
 
   root :to => "home#index"
 
-  resources :shops
+  resources :shops do
+    resources :categories
+  end
+
   devise_for :users
 
   # The priority is based upon order of creation:

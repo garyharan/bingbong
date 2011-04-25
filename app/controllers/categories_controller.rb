@@ -7,7 +7,6 @@ class CategoriesController < ApplicationController
     
     respond_to do |format|
       if @category.save
-        flash[:notice] = "Succesfully created category."
         format.js
       end
     end
