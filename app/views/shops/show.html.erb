@@ -10,9 +10,9 @@
 <h4>Menu</h4>
 <div id="categories">
   <%= render @shop.categories %>
-  <% if @shop.categories.none? %><h5>Il faut créez des catégories pour votre menu.</h5><% end %>
   <% if @shop.owned_by?(current_user) -%>
     <%= form_for [@shop, Category.new], :remote => true do |f| %>
+      <% if @shop.categories.none? %><label id="category_instructions">Il faut créez des catégories pour votre menu.</label><% end %>
       <%= f.text_field :name %>
     <% end -%>
   <% end -%>
