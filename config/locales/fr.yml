@@ -171,9 +171,14 @@ fr:
       body: "Veuillez vérifier les champs suivants : "
 
   activerecord:
+    models:
+      shop: "comptoir"
+    attributes:
+      category:
+        name: "nom"
     errors:
       messages:
-        taken: "n'est pas disponible"
+        taken: "a déjà été choisi"
         record_invalid: "La validation a échoué : %{errors}"
         <<: *errors_messages
       template:

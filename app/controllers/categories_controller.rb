@@ -5,11 +5,7 @@ class CategoriesController < ApplicationController
     @shop = current_user.shops.find(params[:shop_id])
     @category = @shop.categories.new(params[:category])
     
-    respond_to do |format|
-      if @category.save
-        format.js
-      end
-    end
+    @category.save
   end
 
   def update

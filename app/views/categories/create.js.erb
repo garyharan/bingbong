@@ -1,2 +1,7 @@
-$('#category_name').before('<%= escape_javascript( render @category ) %>').val('')
-$('#<%= dom_id @category %>').effect('highlight')
+<% if @category.errors.any? -%>
+  $('#category_name').effect('shake')
+  rails_alert('<%= escape_javascript(error_messages_for @category) %>')
+<% else -%>
+  $('#category_name').before('<%= escape_javascript( render @category ) %>').val('')
+  $('#<%= dom_id @category %>').effect('highlight')
+<% end -%>
