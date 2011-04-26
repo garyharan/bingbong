@@ -14,7 +14,7 @@ class ItemsControllerTest < ActionController::TestCase
     end
     assert_not_nil assigns(:category)
     assert_not_nil assigns(:item)
-    assert_nil assigns(:item).errors
+    assert !assigns(:item).errors.any?
     assert_response :success
   end
 
