@@ -11,12 +11,14 @@
 <div id="categories">
   <%= render @shop.categories %>
   <% if @shop.owned_by?(current_user) -%>
-    <%= form_for [@shop, Category.new], :remote => true do |f| %>
-      <% if @shop.categories.none? %><label id="category_instructions">Il faut créez des catégories pour votre menu.</label><% end %>
-      <%= f.text_field :name %>
+    <h5>
+      <%= form_for [@shop, Category.new], :remote => true do |f| %>
+        <% if @shop.categories.none? %><label id="category_instructions">Il faut créez des catégories pour votre menu.</label><% end %>
+        <%= f.text_field :name, :placeholder => "Rajoutez une catégorie" %>
+      <% end -%>
+    </h5>
     <% end -%>
-  <% end -%>
 </div>
 
-<%= link_to 'Edit', edit_shop_path(@shop) if @shop.owned_by?(current_user) %>
-<%= link_to 'Back', root_path %>
+<%= link_to 'Edition', edit_shop_path(@shop) if @shop.owned_by?(current_user) %>
+<%= link_to 'Retour', root_path %>
