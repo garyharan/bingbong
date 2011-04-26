@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
   def create
     @category = Category.find params[:category_id]
     @item = @category.items.new params[:item]
-    puts params[:item]
+
     @item.save
   end
 end
