@@ -8,4 +8,8 @@ class CategoryTest < ActiveSupport::TestCase
     assert pizzas_1.valid?
     assert !pizzas_2.valid?
   end
+
+  test "name cannot be empty" do
+    assert !Category.create.valid?, "Name cannot be empty."
+  end
 end
