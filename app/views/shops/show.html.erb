@@ -8,17 +8,15 @@
 <p><%= @shop.phone_number %></p>
 
 <h4>Menu</h4>
-<ul id="categories">
-  <% @shop.categories.each do |category| %>
-    <li id="<%= dom_id(category) %>"><%= category.name %></li>
-  <% end %>
-  <% if @shop.categories.none? %><li>Il faut créez des catégories pour votre menu.</li><% end %>
+<div id="categories">
+  <%= render @shop.categories %>
+  <% if @shop.categories.none? %><h5>Il faut créez des catégories pour votre menu.</h5><% end %>
   <% if @shop.owned_by?(current_user) -%>
     <%= form_for [@shop, Category.new], :remote => true do |f| %>
       <%= f.text_field :name %>
     <% end -%>
   <% end -%>
-</ul>
+</div>
 
 <%= link_to 'Edit', edit_shop_path(@shop) if @shop.owned_by?(current_user) %>
 <%= link_to 'Back', root_path %>

@@ -1,2 +1,2 @@
-$('#category_name').before('<li id="<%= dom_id @category %>"><%= @category.name %></li>').val('')
+$('#category_name').before('<%= escape_javascript( render @category ) %>').val('')
 $('#<%= dom_id @category %>').effect('highlight')
