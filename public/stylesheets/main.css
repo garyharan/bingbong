@@ -24,6 +24,10 @@ form {
   margin-right: 3em;
 }
 
+.edit_category {
+  display:none;
+}
+
 /* .owner { */
 /*   display: none; */
 /* } */

@@ -9,7 +9,10 @@ class CategoriesController < ApplicationController
   end
 
   def update
+    @shop = current_user.shops.find(params[:shop_id])
+    @category = @shop.categories.find(params[:id])
 
+    @category.update_attributes(params[:category])
   end
 
   def destroy
