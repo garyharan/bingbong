@@ -12,6 +12,7 @@ $(function(){
   })
   if (location.href.match(/localhost/)){
     $('.owner').toggle('slow')
+    $('#edit_menu_link').hide()
   }
 });
 
