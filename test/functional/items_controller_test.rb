@@ -17,4 +17,10 @@ class ItemsControllerTest < ActionController::TestCase
     assert !assigns(:item).errors.any?
     assert_response :success
   end
+
+  test "should update an item" do
+    @item = Item.create Factory.attributes_for(:item, :category_id => @category.id)
+    xhr :put, :update, :item => { :name => "New Name"}, :category_id => @category.id, :id => @item.id
+    assert_equal "New Name", assigns(:item).name
+  end
 end

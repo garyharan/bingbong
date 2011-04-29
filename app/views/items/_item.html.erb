@@ -1,6 +1,6 @@
 <tr>
   <td>
-    <span id="<%= dom_id item %>" class="item_name"><%= item.name %></span>
+    <%= best_in_place item, :name, :path => category_item_path(item.category, item) %>
   </td>
   <%# <% item.prices.each do |size| %>
   <%#   <th>

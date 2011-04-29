@@ -3,12 +3,6 @@
     <tr>
       <th class="category_title">
         <%= best_in_place category, :name, :path => shop_category_path(category.shop, category) %>
-        <!--        <span id="<%= dom_id(category) %>" class="category_name"><%= category.name %></span> -->
-        <%# <% if @shop.owned_by?(current_user) %>
-        <%#   <%= form_for [category.shop, category], :method => :put, :remote => true, :id => dom_id(category, 'update') do |f| %>
-        <%#     <%= f.text_field :name %>
-        <%#   <% end -%>
-        <%# <% end -%>
       </th>
       <% category.sizes.each do |size| %>
         <th>
