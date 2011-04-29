@@ -8,8 +8,10 @@
 <p><%= @shop.phone_number %></p>
 
 <h4>Menu</h4>
-<div id="categories">
 
+<%= link_to "Editez le menu", "#", :id => "edit_menu_link" if @shop.owned_by? current_user %>
+
+<div id="categories">
   <%= render @shop.categories %>
 
   <% if @shop.owned_by?(current_user) -%>
