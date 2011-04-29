@@ -1,12 +1,7 @@
 /* menus */
 $(function(){
-  // update categories in menu
-  $('.category_name').each(function(){
-    $(this).mouseup(function(){
-      $('#' + this.id).hide()
-      $('#edit_' + this.id).show().find('input[type=text]').focus()
-    })
-  });
+  // http://blog.bernatfarrero.com/in-place-editing-with-javascript-jquery-and-rails-3/
+  jQuery(".best_in_place").best_in_place()
 });
 
 /* flashes */

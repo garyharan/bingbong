@@ -30,6 +30,8 @@ GEM
     activesupport (3.0.7)
     arel (2.0.9)
     bcrypt-ruby (2.1.4)
+    best_in_place (0.1.9)
+      rails (~> 3.0.0)
     builder (2.1.2)
     daemons (1.1.0)
     devise (1.1.7)
@@ -90,6 +92,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  best_in_place
   devise
   factory_girl_rails
   jquery-rails

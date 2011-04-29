@@ -12,7 +12,13 @@ class CategoriesController < ApplicationController
     @shop = current_user.shops.find(params[:shop_id])
     @category = @shop.categories.find(params[:id])
 
-    @category.update_attributes(params[:category])
+    respond_to do |format|
+      if @category.update_attributes(params[:category])
+        format.json { head :ok }
+      else
+        format.json { render :json => @category.errors, :status => :unprocessable_entity }
+      end
+    end
   end
 
   def destroy
