@@ -173,8 +173,9 @@ fr:
   activerecord:
     models:
       shop: "comptoir"
+      product: "produit"
     attributes:
-      item:
+      product:
         name: "nom"
       category:
         name: "nom"

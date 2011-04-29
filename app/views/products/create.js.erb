@@ -1,0 +1,9 @@
+<% if @product.errors.any? -%>
+  $('#product_name').effect('shake', {times: 2, distance: 8}, "fast")
+  rails_alert('<%= escape_javascript(error_messages_for @product) %>')
+<% else -%>
+  $('#<%= [dom_id(@product.category), 'new_product'].join('_') %>')
+    .before('<%= escape_javascript( render @product ) %>')
+    .andSelf().val('')
+  $('#<%= dom_id @product %>').effect('highlight')
+<% end -%>

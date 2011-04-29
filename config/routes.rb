@@ -8,7 +8,7 @@ Bingbong::Application.routes.draw do
 
   resources :categories do
     resources :sizes
-    resources :items
+    resources :products
   end
 
   devise_for :users

@@ -29,7 +29,7 @@ th.category_title {
   min-width: 150px;
 }
 
-.edit_category, .edit_item {
+.edit_category, .edit_product {
   display:none;
 }
 
