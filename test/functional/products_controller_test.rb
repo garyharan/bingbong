@@ -15,7 +15,7 @@ class ProductsControllerTest < ActionController::TestCase
     assert_not_nil assigns(:category)
     assert_not_nil assigns(:product)
     assert !assigns(:product).errors.any?
-    assert_response :success
+    assert_redirected_to shop_path(@shop)
   end
 
   test "should update an product" do

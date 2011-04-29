@@ -1,3 +1,4 @@
+# coding: utf-8
 class CategoriesController < ApplicationController
   before_filter :authenticate_user!
 
@@ -14,9 +15,9 @@ class CategoriesController < ApplicationController
 
     respond_to do |format|
       if @category.update_attributes(params[:category])
-        format.json { head :ok }
+        format.html { redirect_to @shop, :notice => "Les changements ont été effectués." }
       else
-        format.json { render :json => @category.errors, :status => :unprocessable_entity }
+        format.html { redirect_to @shop }
       end
     end
   end

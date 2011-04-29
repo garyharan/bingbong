@@ -7,7 +7,7 @@ class SizesController < ApplicationController
 
     respond_to do |format|
       if @size.save
-        format.html { redirect_to(@shop, :notice => 'Le nouveau format de taille a été sauvé.') }
+        format.html { redirect_to(@shop, :notice => 'Le nouveau format de taille a été enregistré.') }
       else
         format.html { redirect_to shop_path(@shop) }
       end

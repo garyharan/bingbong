@@ -6,6 +6,7 @@ class ProductsController < ApplicationController
     @product = @category.products.new params[:product]
 
     @product.save
+    redirect_to shop_path(@category.shop)
   end
 
   def update
