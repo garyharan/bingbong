@@ -35,6 +35,7 @@ th.category_title {
 
 td.owner-child:last-child, th.owner:last-child {
   text-align: right;
+  width: 100px;
 }
 
 .owner {
