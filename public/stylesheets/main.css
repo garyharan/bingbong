@@ -33,7 +33,14 @@ th.category_title {
   display:none;
 }
 
-td.owner-child:last-child, th.owner:last-child {
+td, th {
+  text-align: center;
+}
+
+td:first-child, th:first-child {
+  text-align: left;
+}
+td.owner:last-child, th.owner:last-child {
   text-align: right;
   width: 100px;
 }
