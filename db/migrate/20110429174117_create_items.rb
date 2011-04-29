@@ -1,8 +1,9 @@
 class CreateItems < ActiveRecord::Migration
   def self.up
     create_table :items do |t|
-      t.string :name
-      t.integer :category_id
+      t.decimal :price, :precision => 5, :scale => 2
+      t.integer :product_id
+      t.integer :size_id
 
       t.timestamps
     end
