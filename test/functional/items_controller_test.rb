@@ -17,5 +17,4 @@ class ItemsControllerTest < ActionController::TestCase
     assert !assigns(:item).errors.any?
     assert_response :success
   end
-
 end

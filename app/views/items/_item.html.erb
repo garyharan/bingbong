@@ -1,3 +1,10 @@
-<h6 id="<%= dom_id(item) %>">
-  <%= item.name %>
-</h6>
+<tr>
+  <td>
+    <span id="<%= dom_id item %>" class="item_name"><%= item.name %></span>
+  </td>
+  <%# <% item.prices.each do |size| %>
+  <%#   <th>
+  <%#     <%= size.name %>
+  <%#   </th>
+  <%# <% end %>
+</tr>

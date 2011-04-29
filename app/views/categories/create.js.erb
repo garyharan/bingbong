@@ -2,9 +2,7 @@
   $('#category_name').effect('shake', {times: 2, distance: 8}, "fast")
   rails_alert('<%= escape_javascript(error_messages_for @category) %>')
 <% else -%>
-  $('#category_name')
-    .closest('h5')
-    .before('<%= escape_javascript( render @category ) %>')
-    .andSelf().val('')
+  $('h5.owner').before('<%= escape_javascript( render @category ) %>')
+  $('#new_category_name').val('')
   $('#<%= dom_id @category %>').effect('highlight')
 <% end -%>

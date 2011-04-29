@@ -1,4 +1,5 @@
 Bingbong::Application.routes.draw do
+
   root :to => "home#index"
 
   resources :shops do
@@ -6,6 +7,7 @@ Bingbong::Application.routes.draw do
   end
 
   resources :categories do
+    resources :sizes
     resources :items
   end
 

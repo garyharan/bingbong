@@ -24,7 +24,12 @@ form {
   margin-right: 3em;
 }
 
-.edit_category {
+th.category_title {
+  text-align: left;
+  min-width: 150px;
+}
+
+.edit_category, .edit_item {
   display:none;
 }
 
