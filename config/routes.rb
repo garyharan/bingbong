@@ -9,13 +9,6 @@ Bingbong::Application.routes.draw do
     end
   end
 
-#   resources :categories do
-#     resources :sizes
-#     resources :products
-#   end
-# 
-  # resources :items
-
   devise_for :users
 
   # The priority is based upon order of creation:

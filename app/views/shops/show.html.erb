@@ -16,7 +16,7 @@
 
   <% if @shop.owned_by?(current_user) -%>
     <h5 class="owner">
-      <%= form_for [@shop, Category.new], :remote => true do |f| %>
+      <%= form_for [@shop, Category.new] do |f| %>
         <% if @shop.categories.none? %><label id="category_instructions">Il faut créez des catégories pour votre menu.</label><% end %>
         <%= f.text_field :name, :placeholder => "Rajoutez une catégorie", :id => "new_category_name" %>
       <% end -%>

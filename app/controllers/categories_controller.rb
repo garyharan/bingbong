@@ -4,9 +4,9 @@ class CategoriesController < ApplicationController
 
   def create
     @shop = current_user.shops.find(params[:shop_id])
-    @category = @shop.categories.new(params[:category])
+    @category = @shop.categories.create(params[:category])
     
-    @category.save
+    redirect_to shop_path(@shop)
   end
 
   def update
