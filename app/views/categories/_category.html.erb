@@ -8,6 +8,7 @@
         <% category.sizes.each do |size| %>
           <th>
             <%= best_in_place(size, :name, :path => shop_category_size_path(category.shop, category, size)) %>
+            <%= link_to "✕", shop_category_size_path(@shop, category, size), :method => :delete, :confirm => "Etes vous certain de vouloir éffacer cette taille?", :class => "delete owner" %>
           </th>
         <% end %>
         <th class="owner">
