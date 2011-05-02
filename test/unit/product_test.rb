@@ -9,7 +9,14 @@ class ProductTest < ActiveSupport::TestCase
 
   test "should create items when a new product is created if sizes already exist for it" do
     assert_difference "Item.count" do
-      @size = Product.create Factory.attributes_for(:product, :category_id => @category.id)
+      Product.create Factory.attributes_for(:product, :category_id => @category.id)
+    end
+  end
+
+  test "should delete all connected items when product is deleted" do
+    @product = Product.create Factory.attributes_for(:product, :category_id => @category.id)
+    assert_difference "Item.count", -1 do 
+      @product.destroy
     end
   end
 end

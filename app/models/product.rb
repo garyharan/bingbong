@@ -10,4 +10,9 @@ class Product < ActiveRecord::Base
       Item.create :product_id => id, :size_id => size.id
     end
   end
+
+  after_destroy :destroy_items
+  def destroy_items
+    Item.destroy_all :product_id => id
+  end
 end
