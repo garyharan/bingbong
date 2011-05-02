@@ -1,13 +1,13 @@
 <tr>
   <td>
-    <%= best_in_place product, :name, :path => category_product_path(product.category, product) %>
+    <%= best_in_place product, :name, :path => shop_category_product_path(@shop, product.category, product) %>
   </td>
   <% 
     product.category.sizes.each do |size| 
       @item = Item.first(:conditions => { :size_id => size.id, :product_id => product })
   %>
     <td>
-      <%= @shop.owned_by?(current_user) ? best_in_place(@item, :price) : @item.price %>
+      <%= @shop.owned_by?(current_user) ? best_in_place(@item, :price, :path => shop_category_item_path(@shop, product.category, @item)) : @item.price %>
     </td>
   <% end -%>
 </tr>
