@@ -10,7 +10,7 @@ class SizesControllerTest < ActionController::TestCase
 
   test "should create a size" do
     assert_difference('Size.count') do
-      xhr :post, :create, :size => Factory.attributes_for(:size), :category_id => @category.id
+      xhr :post, :create, :size => Factory.attributes_for(:size), :category_id => @category.id, :shop_id => @shop.id
     end
     assert_not_nil assigns(:category)
     assert_not_nil assigns(:size)

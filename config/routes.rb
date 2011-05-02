@@ -2,15 +2,19 @@ Bingbong::Application.routes.draw do
   root :to => "home#index"
 
   resources :shops do
-    resources :categories
+    resources :categories do
+      resources :sizes
+      resources :products
+      resources :items
+    end
   end
 
-  resources :categories do
-    resources :sizes
-    resources :products
-  end
-
-  resources :items
+#   resources :categories do
+#     resources :sizes
+#     resources :products
+#   end
+# 
+  # resources :items
 
   devise_for :users
 

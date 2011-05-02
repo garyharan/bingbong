@@ -12,7 +12,7 @@ class ItemsControllerTest < ActionController::TestCase
 
   test "should update an item" do
     @item = Item.create(Factory.attributes_for(:item, :product_id => @product.id, :size_id => @size.id))
-    xhr :put, :update, :item => Factory.attributes_for(:item, :price => "1.25"), :id => @item.id
+    xhr :put, :update, :item => Factory.attributes_for(:item, :price => "1.25"), :id => @item.id, :shop_id => @shop.id, :category_id => @category.id
     assert_equal 1.25, assigns(:item).price
   end
 end
