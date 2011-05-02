@@ -17,4 +17,11 @@ class SizesControllerTest < ActionController::TestCase
     assert !assigns(:size).errors.any?
     assert_redirected_to shop_path(@shop)
   end
+
+  test "should update a size's name" do
+    @size = Size.create Factory.attributes_for(:size, :category_id => @category.id)
+    xhr :put, :update, :size => { :name => "macdonald" }, :shop_id => @shop.id, :category_id => @category.id, :id => @size.id
+    assert_equal "macdonald", assigns(:size).name
+    assert_response :success
+  end
 end

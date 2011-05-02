@@ -1,20 +1,29 @@
 <table style="width: 850px;">
   <thead>
     <tr>
-      <th class="category_title">
-        <%= @shop.owned_by?(current_user) ? best_in_place(category, :name, :path => shop_category_path(category.shop, category)) : category.name %>
-      </th>
-      <% category.sizes.each do |size| %>
-        <th>
-          <%= size.name %>
+      <% if @shop.owned_by?(current_user) -%>
+        <th class="category_title">
+          <%= best_in_place(category, :name, :path => shop_category_path(category.shop, category)) %>
         </th>
-      <% end %>
-      <% if @shop.owned_by?(current_user) %>
+        <% category.sizes.each do |size| %>
+          <th>
+            <%= best_in_place(size, :name, :path => shop_category_size_path(category.shop, category, size)) %>
+          </th>
+        <% end %>
         <th class="owner">
           <%= form_for [@shop, category, Size.new] do |f| %>
             <%= f.text_field :name, :placeholder => "Rajoutez une taille.", :size => 17, :id => [dom_id(category), 'new_size'].join('_') %>
           <% end -%>
         </th>
+      <% else -%>
+        <th class="category_title">
+          <%= category.name %>
+        </th>
+        <% category.sizes.each do |size| %>
+          <th>
+            <%= size.name %>
+          </th>
+        <% end %>
       <% end -%>
     </tr>
   </thead>
