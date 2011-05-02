@@ -10,7 +10,7 @@ class ProductsControllerTest < ActionController::TestCase
 
   test "should create a product" do
     assert_difference('Product.count') do
-      xhr :post, :create, :product => Factory.attributes_for(:product), :category_id => @category.id, :shop_id => @shop.id
+      post :create, :product => Factory.attributes_for(:product), :category_id => @category.id, :shop_id => @shop.id
     end
     assert_not_nil assigns(:category)
     assert_not_nil assigns(:product)
@@ -20,7 +20,7 @@ class ProductsControllerTest < ActionController::TestCase
 
   test "should update an product" do
     @product = Product.create Factory.attributes_for(:product, :category_id => @category.id)
-    xhr :put, :update, :product => { :name => "New Name"}, :category_id => @category.id, :id => @product.id, :shop_id => @shop.id
+    put :update, :product => { :name => "New Name"}, :category_id => @category.id, :id => @product.id, :shop_id => @shop.id
     assert_equal "New Name", assigns(:product).name
   end
 end

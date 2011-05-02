@@ -47,11 +47,19 @@ td.owner:last-child, th.owner:last-child {
 
 .owner {
   display: none;
+  background: #ddd;
 }
 
 table {
   margin-top: 25px;
+  border-collapse: collapse;
 }
+
+thead {
+  border-bottom: 1px solid black;
+  background: #dfdfdf;
+}
+
 tr, th {
   height: 25px;
 }
