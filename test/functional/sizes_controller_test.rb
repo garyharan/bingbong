@@ -24,4 +24,12 @@ class SizesControllerTest < ActionController::TestCase
     assert_equal "macdonald", assigns(:size).name
     assert_response :success
   end
+
+  test "should delete a size" do
+    @size = Size.create Factory.attributes_for(:size, :category_id => @category.id)
+    assert_difference 'Size.count', -1 do
+      delete :destroy, :id => @size.id, :shop_id => @shop.id, :category_id => @category.id
+    end
+    assert_redirected_to @shop
+  end
 end

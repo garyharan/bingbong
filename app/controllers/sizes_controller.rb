@@ -1,5 +1,7 @@
 # coding: utf-8
 class SizesController < ApplicationController
+   before_filter :authenticate_user!
+
   def create
     @category = Category.find(params[:category_id])
     @shop = @category.shop
@@ -26,5 +28,15 @@ class SizesController < ApplicationController
         format.json { render :json => @size.errors, :status => :unprocessable_entity }
       end
     end
+  end
+
+  def destroy
+    @shop = current_user.shops.find params[:shop_id]
+    @category = @shop.categories.find params[:category_id]
+    @size = @category.sizes.find params[:id]
+
+    @size.delete
+
+    redirect_to @shop
   end
 end
