@@ -9,7 +9,7 @@ class Size < ActiveRecord::Base
     end
   end
 
-  after_destroy :destroy_related_items
+  before_destroy :destroy_related_items
   def destroy_related_items
     Item.destroy_all :size_id => id
   end

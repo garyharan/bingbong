@@ -35,7 +35,7 @@ class SizesController < ApplicationController
     @category = @shop.categories.find params[:category_id]
     @size = @category.sizes.find params[:id]
 
-    @size.delete
+    @size.destroy
 
     redirect_to @shop
   end
