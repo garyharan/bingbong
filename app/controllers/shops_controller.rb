@@ -52,10 +52,10 @@ class ShopsController < ApplicationController
     respond_to do |format|
       if @shop.update_attributes(params[:shop])
         format.html { redirect_to(@shop, :notice => 'Shop was successfully updated.') }
-        format.xml  { head :ok }
+        format.json { head :ok }
       else
         format.html { render :action => "edit" }
-        format.xml  { render :xml => @shop.errors, :status => :unprocessable_entity }
+        format.json { render :xml => @shop.errors, :status => :unprocessable_entity }
       end
     end
   end

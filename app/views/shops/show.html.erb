@@ -1,11 +1,22 @@
-<p>
-  <b>
-    <%= @shop.name %>
-  </b>
-</p>
+<% if @shop.owned_by?(current_user) -%>
+  <p>
+    <b>
+      <%= best_in_place @shop, :name %>
+    </b>
+  </p>
 
-<p><%= @shop.full_address %></p>
-<p><%= @shop.phone_number %></p>
+  <p><%= best_in_place @shop, :address %>, <%= best_in_place @shop, :city %>, <%= best_in_place @shop, :postal_code %></p>
+  <p><%= best_in_place @shop, :phone_number %></p>
+<% else -%>
+  <p>
+    <b>
+      <%= @shop.name %>
+    </b>
+  </p>
+
+  <p><%= @shop.full_address %></p>
+  <p><%= @shop.phone_number %></p>
+<% end -%>
 
 <h4>Menu</h4>
 
@@ -21,7 +32,7 @@
         <%= f.text_field :name, :placeholder => "Rajoutez une catégorie", :id => "new_category_name" %>
       <% end -%>
     </h5>
-    <% end -%>
+  <% end -%>
 </div>
 
 <%= link_to 'Edition', edit_shop_path(@shop) if @shop.owned_by?(current_user) %>
