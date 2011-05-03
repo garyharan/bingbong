@@ -7,4 +7,9 @@ class Size < ActiveRecord::Base
       Item.create :product_id => product.id, :size_id => id
     end
   end
+
+  after_destroy :destroy_related_items
+  def destroy_related_items
+    Item.destroy_all :size_id => id
+  end
 end
