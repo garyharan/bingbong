@@ -1,5 +1,6 @@
 class Size < ActiveRecord::Base
   belongs_to :category
+  has_many :products, :through => :items
 
   after_create :create_items
   def create_items
