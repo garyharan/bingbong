@@ -10,10 +10,10 @@ $(function(){
       $('.owner').toggle('slow')
     }
   })
-  if (location.href.match(/localhost/)){
-    $('.owner').toggle('slow')
-    $('#edit_menu_link').hide()
-  }
+  // if (location.href.match(/localhost/)){
+  //   $('.owner').toggle('slow')
+  //   $('#edit_menu_link').hide()
+  // }
 });
 
 /* flashes */
