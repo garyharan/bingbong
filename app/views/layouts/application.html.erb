@@ -7,6 +7,7 @@
     <%= csrf_meta_tag %>
   </head>
   <body>
+    <section>
 
     <div id="user_nav">
       <% if user_signed_in? %>
@@ -17,9 +18,7 @@
       <% end %>
     </div>
 
-    <h1><%= link_to image_tag('/images/logo.png', :height => 94, :width => 224), root_path, :class => 'home' %></h1>
-
-    <h2><%= @page_title %></h2>
+    <%= link_to image_tag('/images/logo.png', :height => 94, :width => 224), root_path, :class => 'home' %>
 
     <div id="flashes">
       <p class="notice"><%= notice %></p>
@@ -27,6 +26,6 @@
     </div>
 
     <%= yield %>
-
+    </section>
   </body>
 </html>

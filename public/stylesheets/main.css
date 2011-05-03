@@ -11,6 +11,39 @@ form {
   display: inline;
 }
 
+body {
+  margin: 10px auto;
+}
+
+section {
+  margin-left: auto;
+  margin-right: auto;
+  width: 950px;
+}
+
+#shop_banner {
+  position: relative;
+  height: 200px;
+  width: 950px;
+  background: green;
+}
+
+#shop_address {
+  position: absolute;
+  height: 160px;
+  left: 40px;
+  top: 30px;
+}
+
+#shop_map {
+  position: absolute;
+  top: 23px;
+  right: 20px;
+  height: 160px;
+  width: 230px;
+  border: 1px solid yellow;
+}
+
 #user_nav {
   text-align: right;
   float: right;
@@ -58,11 +91,16 @@ table {
 
 thead {
   border-bottom: 1px solid black;
-  background: #dfdfdf;
+  background: #e35524;
+  color: #FFFFFF;
 }
 
 tr, th {
   height: 25px;
+}
+
+td, th {
+  padding: 7px;
 }
 
 .delete {
