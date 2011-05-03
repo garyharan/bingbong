@@ -23,6 +23,15 @@ class CategoriesController < ApplicationController
   end
 
   def destroy
+    @shop = current_user.shops.find params[:shop_id]
+    @category = @shop.categories.find params[:id]
 
+    respond_to do |format|
+      if @category.destroy
+        format.html { redirect_to @shop, :notice => "La catégorie a été supprimé." }
+      else
+        format.html { redirect_to @shop, :error => "Impossible de supprimé cette catégorie." }
+      end
+    end
   end
 end

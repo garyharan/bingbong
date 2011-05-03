@@ -22,4 +22,12 @@ class CategoriesControllerTest < ActionController::TestCase
     assert_equal "New name", assigns(:category).name
     assert_redirected_to shop_path(@shop)
   end
+
+  test "should delete a category" do
+    @category = Category.create Factory.attributes_for(:category, :name => "Dead on arrival", :shop_id => @shop.id)
+    assert_difference "Category.count", -1 do
+      delete :destroy, :id => @category.id, :shop_id => @shop.id
+    end
+    assert_redirected_to shop_path(@shop)
+  end
 end

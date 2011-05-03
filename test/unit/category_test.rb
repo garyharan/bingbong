@@ -12,4 +12,24 @@ class CategoryTest < ActiveSupport::TestCase
   test "name cannot be empty" do
     assert !Category.create.valid?, "Name cannot be empty."
   end
+  
+  test "when a category is destroyed all product, sizes and items should be destroyed as well" do
+    Product.destroy_all
+    Size.destroy_all
+    Item.destroy_all
+    @shop     = Shop.create Factory.attributes_for(:shop)
+    @category = Category.create Factory.attributes_for(:category, :shop_id   => @shop.id)
+    @product  = Product.create Factory.attributes_for(:product, :category_id => @category.id)
+    @size     = Size.create Factory.attributes_for(:size, :category_id       => @category.id)
+    
+    assert_difference 'Category.count', -1 do
+      assert_difference 'Product.count', -1 do
+        assert_difference 'Size.count', -1 do
+          assert_difference 'Item.count', -1 do
+            @category.destroy
+          end
+        end
+      end
+    end
+  end
 end
