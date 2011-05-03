@@ -1,3 +1,4 @@
+# coding: utf-8
 class ProductsController < ApplicationController
   before_filter :authenticate_user!
 
@@ -18,6 +19,20 @@ class ProductsController < ApplicationController
         format.json { head :ok }
       else
         format.json { render :json => @product.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
+  def destroy
+    @shop = current_user.shops.find params[:shop_id]
+    @category = @shop.categories.find params[:category_id]
+    @product = @category.products.find params[:id]
+
+    respond_to do |format|
+      if @product.destroy
+        format.html { redirect_to shop_path(@shop), :notice => "Le produit a été supprimé." }
+      else
+        format.html { redirect_to shop_path(@shop), :error => "Impossible de supprimé ce produit." }
       end
     end
   end

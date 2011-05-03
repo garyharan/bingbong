@@ -23,4 +23,12 @@ class ProductsControllerTest < ActionController::TestCase
     put :update, :product => { :name => "New Name"}, :category_id => @category.id, :id => @product.id, :shop_id => @shop.id
     assert_equal "New Name", assigns(:product).name
   end
+
+  test "should delete a product" do
+    @product = Product.create Factory.attributes_for(:product, :category_id => @category.id)
+    assert_difference 'Product.count', -1 do
+      delete :destroy, :category_id => @category.id, :id => @product.id, :shop_id => @shop.id
+    end
+    assert_redirected_to shop_path(@shop)
+  end
 end
