@@ -12,6 +12,6 @@ class ShopTest < ActiveSupport::TestCase
 
   test "full address displays correctly" do
     @shop = Factory.build :shop
-    assert_equal "150 Woodland Avenue, Dartmouth, Nova Scotia, B2W 2X6", @shop.full_address
+    assert_equal "1514 Murray Street, Saint-Hubert, Quebec, J4T1C7", @shop.full_address
   end
 end
