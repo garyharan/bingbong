@@ -5,6 +5,7 @@ gem 'jquery-rails'
 gem 'sqlite3'
 gem 'devise'
 gem 'best_in_place'
+gem 'haml'
 
 gem 'thin'
 gem 'factory_girl_rails'
