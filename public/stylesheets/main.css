@@ -1,0 +1,78 @@
+html {
+  font-size: 62.5%; }
+
+body {
+  background-color: #f3f7db;
+  font-size: 1.4rem;
+  padding: 0px;
+  margin: 0px; }
+
+h1 {
+  font-size: 2.8rem; }
+
+body, p, ol, ul, td {
+  font-family: Arial, sans-serif; }
+
+a {
+  color: #000; }
+
+a:visited {
+  color: #666; }
+
+a:hover {
+  color: #fff;
+  background-color: #000; }
+
+a.home:hover {
+  background-color: transparent; }
+
+#notice {
+  color: green; }
+
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table; }
+
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0; }
+
+#error_explanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 1.8rem;
+  margin: -7px;
+  margin-bottom: 0px;
+  background-color: #c00;
+  color: #fff; }
+
+#error_explanation ul li {
+  font-size: 1.6rem;
+  list-style: square; }
+
+#shop_banner {
+  width: 100%;
+  background: #91be54;
+  padding: 10px; }
+  #shop_banner h1 {
+    color: #e1f89b;
+    text-shadow: #546e08 0px 0px 4px;
+    margin-bottom: 0px; }
+  #shop_banner h2 {
+    color: #ccff66;
+    font-size: 1.1rem; }
+
+section {
+  width: 950px;
+  margin: 0 auto; }
+
+#user_nav {
+  float: right;
+  padding-top: 4px;
+  font-size: 11px; }

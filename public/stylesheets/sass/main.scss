@@ -1,2 +1,16 @@
 @import "colors";
 @import "reset";
+@import "errors";
+@import "menu";
+
+section {
+  width: 950px;
+  margin: 0 auto;
+}
+
+#user_nav {
+  float: right;
+  padding-top: 4px;
+  font-size: 11px;
+}
+
