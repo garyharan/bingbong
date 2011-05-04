@@ -1,26 +1,13 @@
 <div id="shop_banner">
   <div id="shop_address">
     <% if @shop.owned_by?(current_user) -%>
-      <p>
-        <b>
-          <%= best_in_place @shop, :name %>
-        </b>
-      </p>
-
-      <p><%= best_in_place @shop, :address %>, <%= best_in_place @shop, :city %>, <%= best_in_place @shop, :postal_code %></p>
-      <p><%= best_in_place @shop, :phone_number %></p>
+      <h1><%= best_in_place @shop, :name %></h1>
+      <h2><%= best_in_place @shop, :address %>, <%= best_in_place @shop, :city %>, <%= best_in_place @shop, :postal_code %>, <%= best_in_place @shop, :phone_number %></h2>
     <% else -%>
-      <p>
-        <b>
-          <%= @shop.name %>
-        </b>
-      </p>
-
+      <h1><%= @shop.name %></h1>
       <p><%= @shop.full_address %></p>
-      <p><%= @shop.phone_number %></p>
     <% end -%>
   </div>
-
   <%= image_tag(map_url(@shop), :id => 'shop_map') %>
 </div>
 

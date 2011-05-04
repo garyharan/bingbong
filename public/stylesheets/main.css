@@ -1,7 +1,15 @@
-h1 {
-  margin-bottom: 2em;
-}
+/*
+MATTES
+green  #91BE54
+red    #E35524
+orange #BE951F
 
+fonts
+beige  #F3F7DB
+yello  #E1F89B
+shado  #546E08
+
+*/
 ul {
   list-style-type: none;
 }
@@ -25,7 +33,18 @@ section {
   position: relative;
   height: 200px;
   width: 950px;
-  background: green;
+  background: #91Be54;
+}
+#shop_banner h1 {
+  font-weight: normal;
+  color: #F3F7Db;
+  text-shadow: #546E08 0px 0px 3px;
+}
+
+#shop_banner h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #E1F89B;
 }
 
 div#shop_address {
@@ -33,6 +52,9 @@ div#shop_address {
   height: 160px;
   left: 40px;
   top: 30px;
+  font-size: 11px;
+  font-weight: bold;
+  text-shadow: #546E08 0px 0px 1px;
 }
 
 #shop_map {
