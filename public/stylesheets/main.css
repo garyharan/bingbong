@@ -28,7 +28,7 @@ section {
   background: green;
 }
 
-#shop_address {
+div#shop_address {
   position: absolute;
   height: 160px;
   left: 40px;
