@@ -27,6 +27,7 @@ a.home:hover {
   background-color: transparent; }
 
 .owner {
+  text-decoration: none;
   display: none; }
 
 #notice {
@@ -93,6 +94,10 @@ a.home:hover {
     margin-bottom: 30px;
     width: 100%;
     border-collapse: collapse; }
+    #categories table td:first-child {
+      width: 250px; }
+    #categories table th:last-child {
+      text-align: right; }
     #categories table thead {
       background: #e35524;
       color: white; }

@@ -23,4 +23,7 @@ a:hover { color: #fff; background-color:#000; }
 a.home:hover { background-color: transparent; }
 
 // development
-.owner { display: none; }
+.owner {
+  text-decoration: none;
+  display: none;
+}
