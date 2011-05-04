@@ -3,9 +3,11 @@ html {
 }
 
 body { 
-  background-color: #F3F7DB;
+  background-color: $background-color;
   color: #333;
   font-size: 1.4rem;
+  padding: 0px;
+  margin: 0px;
 }
 
 h1 {
@@ -65,3 +67,4 @@ div.field, div.actions {
   font-size: 1.6rem;
   list-style: square;
 }
+
