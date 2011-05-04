@@ -4,7 +4,6 @@ $(function(){
   jQuery(".best_in_place").best_in_place()
 
   // edit the menu
-  $('#edit_menu_link').click(function(){ $('.owner').toggle('slow') })
   $('body').keyup(function(event){
     if (event.metaKey && event.keyCode == 69){
       $('.owner').toggle('slow')
