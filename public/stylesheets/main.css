@@ -94,6 +94,11 @@ a.home:hover {
     margin-bottom: 30px;
     width: 100%;
     border-collapse: collapse; }
+    #categories table th.spacer, #categories table td.spacer {
+      width: 100%; }
+    #categories table th, #categories table td {
+      white-space: nowrap;
+      min-width: 60px; }
     #categories table td:first-child {
       width: 250px; }
     #categories table th:last-child {
