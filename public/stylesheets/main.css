@@ -236,11 +236,11 @@ a.home:hover {
 
 header {
   text-align: center; }
-  header section {
+  header div:first-child {
     margin: 0 auto;
     width: 950px;
     text-align: left; }
-    header section #user_nav {
+    header div:first-child #user_nav {
       float: right;
       padding-top: 4px;
       font-size: 11px; }
