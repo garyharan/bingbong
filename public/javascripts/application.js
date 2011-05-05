@@ -1,5 +1,13 @@
-/* menus */
 $(function(){
+  /* home */
+  /* $('input[type=text]').focus(); */
+  $('input[type=text]#search').keypress(function(event){
+    if (event.keyCode == 13) {
+      $('#shops').show('slow')
+    }
+  })
+
+  /* menus */
   // http://blog.bernatfarrero.com/in-place-editing-with-javascript-jquery-and-rails-3/
   jQuery(".best_in_place").best_in_place()
 

@@ -69,12 +69,75 @@ a.home:hover {
   -moz-box-shadow: inset 0px 0px 15px rgba(84, 110, 8, 0.5);
   box-shadow: inset 0px 0px 15px rgba(84, 110, 8, 0.5); }
   #banner div {
-    width: 950px;
+    width: 250px;
     margin: 0 auto;
     position: relative;
     text-align: center; }
     #banner div #logo {
       margin: 21px auto; }
+
+#find {
+  width: 100%;
+  margin-top: 40px; }
+  #find div:first-child {
+    margin: 0 auto;
+    width: 600px; }
+    #find div:first-child input {
+      display: inline-block;
+      outline: none;
+      text-decoration: none;
+      font: 14px/100% Arial, Helvetica, sans-serif;
+      padding: .5em;
+      text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+      -webkit-border-radius: .5em;
+      -moz-border-radius: .5em;
+      border-radius: .5em;
+      -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+      -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+      width: 500px; }
+    #find div:first-child .button {
+      display: inline-block;
+      outline: none;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      font: 14px/100% Arial, Helvetica, sans-serif;
+      padding: .5em 2em .55em;
+      text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+      -webkit-border-radius: .5em;
+      -moz-border-radius: .5em;
+      border-radius: .5em;
+      -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+      -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+      color: white !important;
+      font-weight: bold;
+      border: solid 1px #983513;
+      background: #e35524;
+      background: -webkit-gradient(linear, left top, left bottom, from(#f64c11), to(#a53a15));
+      background: -moz-linear-gradient(top, #f64c11, #a53a15);
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f64c11', endColorstr='#a53a15'); }
+      #find div:first-child .button:hover {
+        text-decoration: none;
+        background: #ef4f18;
+        background: -webkit-gradient(linear, left top, left bottom, from(#e9521e), to(#d34a1b));
+        background: -moz-linear-gradient(top, #e9521e, #d34a1b);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e9521e', endColorstr='#d34a1b'); }
+      #find div:first-child .button:active {
+        position: relative;
+        top: 1px;
+        color: #f64c11;
+        background: -webkit-gradient(linear, left top, left bottom, from(#f64c11), to(#ec8a68));
+        background: -moz-linear-gradient(top, #f64c11, #ec8a68);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f64c11', endColorstr='#ec8a68'); }
+
+#shops {
+  display: none;
+  width: 100%; }
+  #shops div:first-child {
+    width: 500px;
+    margin: 0 auto; }
 
 #shop_banner {
   width: 100%;

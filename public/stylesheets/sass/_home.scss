@@ -5,13 +5,38 @@
   margin-top: 50px;
   @include box-shadow(0px, 0px, 15px, transparentize($shadow, 0.5), true);
   div {
-    width: 950px;
+    width: 250px;
     margin: 0 auto;
     position: relative;
     text-align: center;
     #logo {
       margin: 21px auto;
     }
+  }
+}
+
+#find {
+  width: 100%;
+  margin-top: 40px;
+  div:first-child {
+    margin: 0 auto;
+    width: 600px;
+    input {
+      @include text-field;
+      width: 500px;
+    }
+    .button {
+      @include button($red);
+    }
+  }
+}
+
+#shops {
+  display: none;
+  width: 100%;
+  div:first-child {
+    width: 500px;
+    margin: 0 auto;
   }
 }
 
