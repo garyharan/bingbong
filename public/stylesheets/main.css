@@ -95,7 +95,20 @@ a.home:hover {
   width: 100%; }
   #menu section {
     width: 950px;
-    margin: 0 auto; }
+    margin: 0 auto;
+    position: relative; }
+    #menu section #order {
+      position: absolute;
+      right: 0px;
+      top: 50px;
+      width: 320px;
+      background: #bf9316; }
+      #menu section #order table thead {
+        color: #e1f89b;
+        text-shadow: #546e08 0 0 5px;
+        font-size: 2rem; }
+        #menu section #order table thead th {
+          padding: 10px; }
     #menu section #categories {
       width: 600px;
       background: white;
@@ -115,7 +128,7 @@ a.home:hover {
         #menu section #categories table th:first-child {
           padding-left: 6px; }
         #menu section #categories table th.spacer, #menu section #categories table td.spacer {
-          width: 100%; }
+          width: 80%; }
         #menu section #categories table th:last-child {
           text-align: right; }
         #menu section #categories table thead {
