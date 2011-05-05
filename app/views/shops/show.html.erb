@@ -1,13 +1,14 @@
+<%= render :partial => 'shared/user_nav' %>
+
 <header>
-<section>
-  <%= render :partial => 'shared/user_nav' %>
+<div>
   <%= link_to image_tag('/images/logo.png', :height => 94, :width => 224), root_path, :class => 'home' %>
   <%= render :partial => 'shared/flashes' %>
-</section>
+</div>
 </header>
 
 <div id="shop_banner">
-  <section>
+  <div>
   <div id="shop_address">
     <% if @shop.owned_by?(current_user) -%>
       <h1><%= best_in_place @shop, :name %></h1>
@@ -19,11 +20,11 @@
     <% end -%>
     <%= image_tag(map_url(@shop), :id => 'shop_map') %>
   </div>
-  </section>
+  </div>
 </div>
 
 <div id="menu">
-  <section>
+  <div>
   <div id="order">
     <table>
       <thead>
@@ -42,6 +43,6 @@
       </h5>
     <% end -%>
   </div>
-  </section>
+  </div>
 </div>
 

@@ -2,7 +2,7 @@
   width: 100%;
   background: $green;
   height: 165px;
-  section {
+  div:first-child {
     width: 950px;
     margin: 0 auto;
     position: relative;
@@ -40,7 +40,7 @@
 
 #menu {
   width: 100%;
-  section {
+  div:first-child {
     width: 950px;
     margin: 0 auto;
     position: relative;

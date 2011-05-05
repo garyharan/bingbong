@@ -1,8 +1,15 @@
 <div id="user_nav">
-  <% if user_signed_in? %>
-    <%= current_user.email %>. Pas vous?
-    <%= link_to "Déconnexion", destroy_user_session_path %>
-  <% else %>
-    <%= link_to "Nouveau compte", new_user_registration_path %> ou <%= link_to "Connexion", new_user_session_path %>
-  <% end %>
+  <div>
+    <% if user_signed_in? %>
+      <% if current_user.shops.any? -%>
+        <% current_user.shops.each do |shop| -%>
+          <%= link_to shop.name, shop %>
+        <% end -%>
+      <% end -%>
+      <%= current_user.email %>. Pas vous?
+      <%= link_to "Déconnexion", destroy_user_session_path %>
+    <% else %>
+      <%= link_to "Nouveau compte", new_user_registration_path %> ou <%= link_to "Connexion", new_user_session_path %>
+    <% end %>
+  </div>
 </div>

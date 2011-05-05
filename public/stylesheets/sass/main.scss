@@ -5,6 +5,21 @@
 @import "home";
 @import "menu";
 
+#user_nav {
+  text-align: center;
+  width: 100%;
+  margin: 0 auto;
+  position: absolute;
+  top: 0px;
+  div {
+    text-align: left;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 10px;
+  }
+}
+
 header {
   text-align: center;
   section {
