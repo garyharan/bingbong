@@ -14,15 +14,18 @@
   </section>
 </div>
 
-<div id="categories">
-  <%= render @shop.categories %>
-
-  <% if @shop.owned_by?(current_user) -%>
-    <h5 class="owner">
-      <%= form_for [@shop, Category.new] do |f| %>
-        <% if @shop.categories.none? %><label id="category_instructions">Il faut créez des catégories pour votre menu.</label><% end %>
-        <%= f.text_field :name, :placeholder => "Rajoutez une catégorie", :id => "new_category_name" %>
+<div id="menu">
+  <section>
+    <div id="categories">
+      <%= render @shop.categories %>
+      <% if @shop.owned_by?(current_user) -%>
+        <h5 class="owner">
+          <%= form_for [@shop, Category.new] do |f| %>
+            <% if @shop.categories.none? %><label id="category_instructions">Il faut créez des catégories pour votre menu.</label><% end %>
+            <%= f.text_field :name, :placeholder => "Rajoutez une catégorie", :id => "new_category_name" %>
+          <% end -%>
+        </h5>
       <% end -%>
-    </h5>
-  <% end -%>
+    </div>
+  </section>
 </div>

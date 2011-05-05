@@ -38,45 +38,51 @@
   }
 }
 
-#categories {
-  background: white;
-  width: 700px;
-  padding: 10px;
-  margin-top: 10px;
-  @include box-shadow(0px, 0px, 15px, transparentize($shadow, 0.7));
-  table {
-    th,td {
-      white-space:nowrap;
-      min-width: 60px;
-    }
-    th:first-child, td:first-child {
-      width: 250px;
-      text-align: left;
-    }
-    th:first-child {
-      padding-left: 6px;
-    }
-    th.spacer,td.spacer {
-      width: 100%;
-    }
-    th:last-child {
-      text-align: right;
-    }
-    margin-bottom: 30px;
-    width: 100%;
-    border-collapse: collapse;
-    thead {
-      background: $red;
-      color: white;
-      th {
-        height: 30px;
-        text-align: center;
-      }
-    }
-    tbody {
-      td {
-        padding: 6px;
-        text-align: center;
+#menu {
+  width: 100%;
+  section {
+    width: 950px;
+    margin: 0 auto;
+    #categories {
+      width: 600px;
+      background: white;
+      padding: 15px;
+      @include box-shadow(0px, 0px, 15px, transparentize($shadow, 0.7));
+      table {
+        th,td {
+          white-space:nowrap;
+          min-width: 60px;
+        }
+        th:first-child, td:first-child {
+          width: 250px;
+          text-align: left;
+        }
+        th:first-child {
+          padding-left: 6px;
+        }
+        th.spacer,td.spacer {
+          width: 100%;
+        }
+        th:last-child {
+          text-align: right;
+        }
+        margin-bottom: 30px;
+        border-collapse: collapse;
+        thead {
+          background: $red;
+          color: white;
+          th {
+            height: 30px;
+            text-align: center;
+          }
+        }
+        tbody {
+          td {
+            padding: 6px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+          }
+        }
       }
     }
   }

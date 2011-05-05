@@ -91,39 +91,43 @@ a.home:hover {
       background: #b4c67c;
       border: 3px solid #e1f89b; }
 
-#categories {
-  background: white;
-  width: 700px;
-  padding: 10px;
-  margin-top: 10px;
-  -webkit-box-shadow: 0px 0px 15px rgba(84, 110, 8, 0.3);
-  -moz-box-shadow: 0px 0px 15px rgba(84, 110, 8, 0.3);
-  box-shadow: 0px 0px 15px rgba(84, 110, 8, 0.3); }
-  #categories table {
-    margin-bottom: 30px;
-    width: 100%;
-    border-collapse: collapse; }
-    #categories table th, #categories table td {
-      white-space: nowrap;
-      min-width: 60px; }
-    #categories table th:first-child, #categories table td:first-child {
-      width: 250px;
-      text-align: left; }
-    #categories table th:first-child {
-      padding-left: 6px; }
-    #categories table th.spacer, #categories table td.spacer {
-      width: 100%; }
-    #categories table th:last-child {
-      text-align: right; }
-    #categories table thead {
-      background: #e35524;
-      color: white; }
-      #categories table thead th {
-        height: 30px;
-        text-align: center; }
-    #categories table tbody td {
-      padding: 6px;
-      text-align: center; }
+#menu {
+  width: 100%; }
+  #menu section {
+    width: 950px;
+    margin: 0 auto; }
+    #menu section #categories {
+      width: 600px;
+      background: white;
+      padding: 15px;
+      -webkit-box-shadow: 0px 0px 15px rgba(84, 110, 8, 0.3);
+      -moz-box-shadow: 0px 0px 15px rgba(84, 110, 8, 0.3);
+      box-shadow: 0px 0px 15px rgba(84, 110, 8, 0.3); }
+      #menu section #categories table {
+        margin-bottom: 30px;
+        border-collapse: collapse; }
+        #menu section #categories table th, #menu section #categories table td {
+          white-space: nowrap;
+          min-width: 60px; }
+        #menu section #categories table th:first-child, #menu section #categories table td:first-child {
+          width: 250px;
+          text-align: left; }
+        #menu section #categories table th:first-child {
+          padding-left: 6px; }
+        #menu section #categories table th.spacer, #menu section #categories table td.spacer {
+          width: 100%; }
+        #menu section #categories table th:last-child {
+          text-align: right; }
+        #menu section #categories table thead {
+          background: #e35524;
+          color: white; }
+          #menu section #categories table thead th {
+            height: 30px;
+            text-align: center; }
+        #menu section #categories table tbody td {
+          padding: 6px;
+          text-align: center;
+          border-bottom: 1px solid #ddd; }
 
 header {
   text-align: center; }
