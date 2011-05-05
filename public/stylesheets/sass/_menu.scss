@@ -1,6 +1,6 @@
 #shop_banner {
   @include box-shadow(0px, 0px, 15px, transparentize($shadow, 0.7));
-  width: 100%;
+  min-width: 950px;
   height: 145px;
   background: $green;
   padding: 10px;

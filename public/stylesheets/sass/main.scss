@@ -4,14 +4,17 @@
 @import "errors";
 @import "menu";
 
-section {
-  width: 950px;
-  margin: 0 auto;
-}
-
-#user_nav {
-  float: right;
-  padding-top: 4px;
-  font-size: 11px;
+header {
+  text-align: center;
+  section {
+    margin: 0 auto;
+    width: 950px;
+    text-align: left;
+    #user_nav {
+      float: right;
+      padding-top: 4px;
+      font-size: 11px;
+    }
+  }
 }
 

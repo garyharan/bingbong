@@ -64,7 +64,7 @@ a.home:hover {
   -webkit-box-shadow: 0px 0px 15px rgba(84, 110, 8, 0.3);
   -moz-box-shadow: 0px 0px 15px rgba(84, 110, 8, 0.3);
   box-shadow: 0px 0px 15px rgba(84, 110, 8, 0.3);
-  width: 100%;
+  min-width: 950px;
   height: 145px;
   background: #91be54;
   padding: 10px;
@@ -122,11 +122,13 @@ a.home:hover {
       padding: 6px;
       text-align: center; }
 
-section {
-  width: 950px;
-  margin: 0 auto; }
-
-#user_nav {
-  float: right;
-  padding-top: 4px;
-  font-size: 11px; }
+header {
+  text-align: center; }
+  header section {
+    margin: 0 auto;
+    width: 950px;
+    text-align: left; }
+    header section #user_nav {
+      float: right;
+      padding-top: 4px;
+      font-size: 11px; }
