@@ -8,3 +8,12 @@
   </div>
 </div>
 
+<div id="shops">
+  <div>
+    <ul>
+      <% @shops.each do |shop| -%>
+        <%= link_to shop.name, shop %>
+      <% end -%>
+    </ul>
+  </div>
+</div>
