@@ -1,6 +1,12 @@
 <% @page_title = "BingBong.ca" %>
-<h2>Acceptez les commandes en ligne.</h2>
 
+<div id="banner">
+  <section>
+    <%= image_tag "logo.png", :width => 282, :height => 127, :alt => "Commander en ligne avec BingBong.ca", :id => "logo" %>
+  </section>
+</div>
+
+<h2>Acceptez les commandes en ligne.</h2>
 <% if user_signed_in? && current_user.shops.any? -%>
   <h3>Mes magasins</h3>
   <ul>

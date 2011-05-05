@@ -7,23 +7,6 @@
     <%= csrf_meta_tag %>
   </head>
   <body>
-    <header>
-      <section>
-        <div id="user_nav">
-          <% if user_signed_in? %>
-            <%= current_user.email %>. Pas vous?
-            <%= link_to "Déconnexion", destroy_user_session_path %>
-          <% else %>
-            <%= link_to "Nouveau compte", new_user_registration_path %> ou <%= link_to "Connexion", new_user_session_path %>
-          <% end %>
-        </div>
-        <%= link_to image_tag('/images/logo.png', :height => 94, :width => 224), root_path, :class => 'home' %>
-        <div id="flashes">
-          <p class="notice"><%= notice %></p>
-          <p class="alert"><%= alert %></p>
-        </div>
-      </section>
-    </header>
     <%= yield %>
   </body>
 </html>

@@ -1,0 +1,17 @@
+#banner {
+  width: 100%;
+  background: $green;
+  height: 170px;
+  margin-top: 50px;
+  @include box-shadow(0px, 0px, 15px, transparentize($shadow, 0.5), true);
+  section {
+    width: 950px;
+    margin: 0 auto;
+    position: relative;
+    text-align: center;
+    #logo {
+      margin: 21px auto;
+    }
+  }
+}
+

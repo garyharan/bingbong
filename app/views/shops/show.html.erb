@@ -1,39 +1,47 @@
+<header>
+<section>
+  <%= render :partial => 'shared/user_nav' %>
+  <%= link_to image_tag('/images/logo.png', :height => 94, :width => 224), root_path, :class => 'home' %>
+  <%= render :partial => 'shared/flashes' %>
+</section>
+</header>
+
 <div id="shop_banner">
   <section>
-    <div id="shop_address">
-      <% if @shop.owned_by?(current_user) -%>
-        <h1><%= best_in_place @shop, :name %></h1>
-        <h2><%= best_in_place @shop, :address %>, <%= best_in_place @shop, :city %>, <%= best_in_place @shop, :postal_code %>, <%= best_in_place @shop, :phone_number %></h2>
-        <p><em>Commande minimum</em>: <%= best_in_place @shop, :minimum %>$ | <em>Livraison</em>: <%= best_in_place @shop, :delivery %>min</p>
-      <% else -%>
-        <h1><%= @shop.name %></h1>
-        <p><%= @shop.full_address %></p>
-      <% end -%>
-      <%= image_tag(map_url(@shop), :id => 'shop_map') %>
-    </div>
+  <div id="shop_address">
+    <% if @shop.owned_by?(current_user) -%>
+      <h1><%= best_in_place @shop, :name %></h1>
+      <h2><%= best_in_place @shop, :address %>, <%= best_in_place @shop, :city %>, <%= best_in_place @shop, :postal_code %>, <%= best_in_place @shop, :phone_number %></h2>
+      <p><em>Commande minimum</em>: <%= best_in_place @shop, :minimum %>$ | <em>Livraison</em>: <%= best_in_place @shop, :delivery %>min</p>
+    <% else -%>
+      <h1><%= @shop.name %></h1>
+      <p><%= @shop.full_address %></p>
+    <% end -%>
+    <%= image_tag(map_url(@shop), :id => 'shop_map') %>
+  </div>
   </section>
 </div>
 
 <div id="menu">
   <section>
-    <div id="order">
-      <table>
-        <thead>
-          <th colspan="3">Ta Commande</th>
-        </thead>
-      </table>
-    </div>
-    <div id="categories">
-      <%= render @shop.categories %>
-      <% if @shop.owned_by?(current_user) -%>
-        <h5 class="owner">
-          <%= form_for [@shop, Category.new] do |f| %>
-            <% if @shop.categories.none? %><label id="category_instructions">Il faut créez des catégories pour votre menu.</label><% end %>
-            <%= f.text_field :name, :placeholder => "Rajoutez une catégorie", :id => "new_category_name" %>
-          <% end -%>
-        </h5>
-      <% end -%>
-    </div>
+  <div id="order">
+    <table>
+      <thead>
+        <th colspan="3">Ta Commande</th>
+      </thead>
+    </table>
+  </div>
+  <div id="categories">
+    <%= render @shop.categories %>
+    <% if @shop.owned_by?(current_user) -%>
+      <h5 class="owner">
+        <%= form_for [@shop, Category.new] do |f| %>
+          <% if @shop.categories.none? %><label id="category_instructions">Il faut créez des catégories pour votre menu.</label><% end %>
+          <%= f.text_field :name, :placeholder => "Rajoutez une catégorie", :id => "new_category_name" %>
+        <% end -%>
+      </h5>
+    <% end -%>
+  </div>
   </section>
 </div>
 

@@ -60,6 +60,22 @@ a.home:hover {
   font-size: 1.6rem;
   list-style: square; }
 
+#banner {
+  width: 100%;
+  background: #91be54;
+  height: 170px;
+  margin-top: 50px;
+  -webkit-box-shadow: inset 0px 0px 15px rgba(84, 110, 8, 0.5);
+  -moz-box-shadow: inset 0px 0px 15px rgba(84, 110, 8, 0.5);
+  box-shadow: inset 0px 0px 15px rgba(84, 110, 8, 0.5); }
+  #banner section {
+    width: 950px;
+    margin: 0 auto;
+    position: relative;
+    text-align: center; }
+    #banner section #logo {
+      margin: 21px auto; }
+
 #shop_banner {
   width: 100%;
   background: #91be54;
