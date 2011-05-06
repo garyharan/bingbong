@@ -6,6 +6,7 @@ gem 'sqlite3'
 gem 'devise'
 gem 'best_in_place'
 gem 'haml'
+gem 'geokit'
 
 gem 'thin'
 gem 'factory_girl_rails'
