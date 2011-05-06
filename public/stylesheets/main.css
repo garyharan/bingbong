@@ -27,8 +27,7 @@ a.home:hover {
   background-color: transparent; }
 
 .owner {
-  text-decoration: none;
-  display: none; }
+  text-decoration: none; }
 
 #notice {
   color: green; }
@@ -68,20 +67,37 @@ a.home:hover {
   -webkit-box-shadow: inset 0px 0px 15px rgba(84, 110, 8, 0.5);
   -moz-box-shadow: inset 0px 0px 15px rgba(84, 110, 8, 0.5);
   box-shadow: inset 0px 0px 15px rgba(84, 110, 8, 0.5); }
-  #banner div {
-    width: 250px;
+  #banner div:first-child {
+    width: 650px;
+    height: 170px;
     margin: 0 auto;
-    position: relative;
-    text-align: center; }
-    #banner div #logo {
+    position: relative; }
+    #banner div:first-child #logo {
       margin: 21px auto; }
+    #banner div:first-child #tag_line {
+      float: right;
+      font-size: 2rem;
+      padding-top: 100px;
+      padding-right: 15px;
+      color: #faf4e2;
+      text-shadow: #546e08 0px 0px 4px; }
+    #banner div:first-child #google_map {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      width: 250px;
+      height: 150px;
+      border: 2px solid #e1f89b;
+      padding: 0px;
+      display: none; }
 
 #find {
   width: 100%;
-  margin-top: 40px; }
+  margin-top: 10px; }
   #find div:first-child {
     margin: 0 auto;
-    width: 600px; }
+    width: 650px;
+    text-align: center; }
     #find div:first-child input {
       display: inline-block;
       outline: none;
@@ -95,7 +111,8 @@ a.home:hover {
       -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
       -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
       box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-      width: 500px; }
+      font-size: 3rem;
+      width: 600px; }
     #find div:first-child .button {
       display: inline-block;
       outline: none;

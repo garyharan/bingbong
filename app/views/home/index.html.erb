@@ -5,13 +5,20 @@
 <div id="banner">
   <div>
     <%= image_tag "logo.png", :width => 282, :height => 127, :alt => "Commander en ligne avec BingBong.ca", :id => "logo" %>
+    <div id="tag_line">La meilleure bouffe à faire livrer!</div>
+    <img id="google_map" alt="your location" src="http://maps.google.com/maps/api/staticmap?size=250x150&zoom=13&markers=size:mid|color:0xE35524|1514%20rue%20murray,st-hubert&sensor=false" />
   </div>
 </div>
 
 <div id="find">
   <div>
-    <p id="instructions">Trouver des restaurants qui livrent proche de chez vous.</p>
-    <%= text_field_tag "search", "", :placeholder => "12 rue des Affamés, St-Hubert, QC" %>
+    <span id="address">
+      <%= text_field_tag "search", "", :placeholder => "12 rue des Affamés, St-Hubert, QC" %>
+    </span>
+    <span id="instructions">
+      <p>Tapez votre adresse pour trouver des restaurants proches de vous.</p>
+      <p class="example">Example: 12 rue des Affamés, St-Hubert, QC</p>
+    </span>
   </div>
 </div>
 
