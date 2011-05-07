@@ -8,6 +8,7 @@ gem 'best_in_place'
 gem 'haml'
 gem 'pg'
 gem 'geocoder'
+gem 'rr'
 
 gem 'thin'
 gem 'factory_girl_rails'

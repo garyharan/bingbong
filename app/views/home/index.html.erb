@@ -21,14 +21,3 @@
     </span>
   </div>
 </div>
-
-<div id="shops" class="owner">
-  <div>
-    <h4>Les restaurants qui livrent proche de chez vous.</h4>
-    <ul>
-      <% @shops.each do |shop| -%>
-        <%= link_to shop.name, shop %>
-      <% end -%>
-    </ul>
-  </div>
-</div>

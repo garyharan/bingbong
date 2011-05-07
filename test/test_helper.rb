@@ -7,4 +7,10 @@ Dir[Rails.root.join("factories/*.rb")].each { |f| require f }
 
 class ActionController::TestCase
   include Devise::TestHelpers
+  include RR::Adapters::TestUnit
 end
+
+class ActiveSupport::TestCase
+  include RR::Adapters::TestUnit
+end
+

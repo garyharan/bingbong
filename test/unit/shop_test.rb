@@ -16,6 +16,7 @@ class ShopTest < ActiveSupport::TestCase
   end
 
   test "geocodes shops after validation" do
+    stub(Geocoder).coordinates().returns([45.537405, -73.510726])
     @shop = Shop.create Factory.attributes_for(:shop, :address => "1514 Murray Street")
     assert_equal 45.493409,   @shop.latitude
     assert_equal -73.4576584, @shop.longitude

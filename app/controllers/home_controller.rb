@@ -1,5 +1,9 @@
 class HomeController < ApplicationController
   def index
-    @shops = Shop.all
+  end
+
+  def find
+    @coordinates = Geocoder.coordinates params[:address]
+    @shops = Shop.near(@coordinates)
   end
 end
