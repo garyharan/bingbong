@@ -1,5 +1,7 @@
 Bingbong::Application.routes.draw do
-  root :to => "home#index"
+  resources :searches
+
+  root :to => "searches#index"
 
   resources :shops do
     resources :categories do
@@ -10,8 +12,6 @@ Bingbong::Application.routes.draw do
   end
 
   devise_for :users
-
-  get ':address', :controller => "home", :action => "find", :as => "search"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -1,0 +1,28 @@
+require 'test_helper'
+
+class SearchesControllerTest < ActionController::TestCase
+  test "should get index" do
+    get :index
+    assert_response :success
+    assert_not_nil assigns(:search)
+  end
+
+  test "should get new" do
+    get :new
+    assert_response :success
+  end
+
+  test "should create search" do
+    assert_difference('Search.count') do
+      post :create, :search => Factory.attributes_for(:search)
+    end
+
+    assert_redirected_to search_path(assigns(:search))
+  end
+
+  test "should show search" do
+    @search = Search.create Factory.attributes_for(:search)
+    get :show, :id => @search.to_param
+    assert_response :success
+  end
+end
