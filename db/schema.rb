@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110507134908) do
+ActiveRecord::Schema.define(:version => 20110507152458) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -47,8 +47,8 @@ ActiveRecord::Schema.define(:version => 20110507134908) do
     t.integer  "user_id"
     t.decimal  "minimum",      :precision => 5, :scale => 2, :default => 15.0
     t.integer  "delivery",                                   :default => 30
-    t.float    "lat"
-    t.float    "lng"
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
   create_table "sizes", :force => true do |t|
