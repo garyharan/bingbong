@@ -20,6 +20,15 @@ class SearchesControllerTest < ActionController::TestCase
     assert_redirected_to search_path(assigns(:search))
   end
 
+  test "should not create a second search if the search location already exists" do
+    Search.create Factory.attributes_for(:search)
+    assert_no_difference('Search.count') do
+      post :create, :search => Factory.attributes_for(:search)
+    end
+
+    assert_redirected_to search_path(assigns(:search))
+  end
+
   test "should show search" do
     @search = Search.create Factory.attributes_for(:search)
     get :show, :id => @search.to_param

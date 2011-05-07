@@ -20,11 +20,11 @@ class SearchesController < ApplicationController
   end
 
   def create
-    @search = Search.new(params[:search])
+    @search = Search.find_by_location(params[:search][:location]) || Search.new(params[:search])
 
     respond_to do |format|
       if @search.save
-        format.html { redirect_to(@search, :notice => 'Search was successfully created.') }
+        format.html { redirect_to @search }
       else
         format.html { render :action => "new" }
       end
