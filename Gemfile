@@ -7,6 +7,7 @@ gem 'devise'
 gem 'best_in_place'
 gem 'haml'
 gem 'geokit'
+gem 'geokit-rails'
 gem 'pg'
 
 gem 'thin'
