@@ -20,7 +20,8 @@ class SearchesController < ApplicationController
   end
 
   def create
-    @search = Search.find_by_location(params[:search][:location]) || Search.new(params[:search])
+    @location = params[:location] || params[:search][:location]
+    @search = Search.find_by_location(@location) || Search.new(params[:search])
 
     respond_to do |format|
       if @search.save
