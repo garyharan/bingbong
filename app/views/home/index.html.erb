@@ -13,7 +13,7 @@
 <div id="find">
   <div>
     <span id="address">
-      <%= text_field_tag "search", params[:address], :placeholder => "12 rue des Affamés, St-Hubert, QC" %>
+      <%= render :partial => 'shared/search_form' %>
     </span>
     <span id="instructions">
       <p>Tapez votre adresse pour trouver des restaurants proche de vous.</p>

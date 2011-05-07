@@ -11,7 +11,7 @@ Bingbong::Application.routes.draw do
 
   devise_for :users
 
-  get ':address' => "home#find"
+  get ':address', :controller => "home", :action => "find", :as => "search"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
