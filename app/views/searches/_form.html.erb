@@ -1,5 +1,5 @@
 <%= form_for(Search.new, :method => :post) do |f| %>
   <div class="field">
-    <%= text_field_tag :location, @search.location, :placeholder => "12 rue des affamés, Ville-Famine, QC" %>
+    <%= f.text_field :location, :placeholder => "12 rue des affamés, Ville-Famine, QC" %>
   </div>
 <% end %>
