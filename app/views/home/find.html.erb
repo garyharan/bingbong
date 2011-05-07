@@ -1,2 +1,25 @@
-<%= @coordinates %>
-<%= render @shops %>
+<% @page_title = ["BingBong.ca", params[:address]].join(" :: ") %>
+
+<%= render :partial => 'shared/user_nav' %>
+
+<div id="banner">
+  <div>
+    <%= image_tag "logo.png", :width => 282, :height => 127, :alt => "Commander en ligne avec BingBong.ca", :id => "logo" %>
+    <div id="tag_line">La meilleure bouffe à faire livrer!</div>
+    <img id="google_map" alt="your location" src="" />
+  </div>
+</div>
+
+<div id="find">
+  <div>
+    <span id="address">
+      <%= text_field_tag "search", params[:address], :placeholder => "12 rue des Affamés, St-Hubert, QC" %>
+    </span>
+  </div>
+</div>
+
+<div id="shops">
+  <div>
+    <%= render @shops %>
+  </div>
+</div>

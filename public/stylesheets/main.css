@@ -150,9 +150,10 @@ a.home:hover {
         filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f64c11', endColorstr='#ec8a68'); }
 
 #shops {
-  display: none;
+  background: rgba(0, 0, 0, 0.1);
   width: 100%; }
   #shops div:first-child {
+    background: rgba(0, 0, 0, 0.1);
     width: 500px;
     margin: 0 auto; }
 

@@ -1,4 +1,4 @@
-<% @page_title = "BingBong.ca" %>
+<% @page_title = ["BingBong.ca", params[:address]].join(" :: ") %>
 
 <%= render :partial => 'shared/user_nav' %>
 
@@ -13,10 +13,10 @@
 <div id="find">
   <div>
     <span id="address">
-      <%= text_field_tag "search", "", :placeholder => "12 rue des Affamés, St-Hubert, QC" %>
+      <%= text_field_tag "search", params[:address], :placeholder => "12 rue des Affamés, St-Hubert, QC" %>
     </span>
     <span id="instructions">
-      <p>Tapez votre adresse pour trouver des restaurants proches de vous.</p>
+      <p>Tapez votre adresse pour trouver des restaurants proche de vous.</p>
       <p class="example">Example: 12 rue des Affamés, St-Hubert, QC</p>
     </span>
   </div>
