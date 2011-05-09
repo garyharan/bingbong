@@ -1,0 +1,29 @@
+#shops {
+  width: 100%;
+  >div:first-child {
+    width: 630px;
+    margin: 0 auto;
+    position: relative;
+  }
+  div.shop {
+    width: 608px;
+    border: 3px solid lighten($green, 30%);
+    padding: 0px 10px 10px 10px;
+    margin: 10px 0px;
+    position: relative;
+    @include rounded();
+    @include gradient(lighten($white, 50%), darken($beige, 10%));
+    h1 {  width: 500px; }
+    h1 span.distance {
+      margin-left: 10px;
+      font-size: 1rem;
+    }
+    a.button {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      font-size: 1.8rem;
+      @include button($green);
+    }
+  }
+}

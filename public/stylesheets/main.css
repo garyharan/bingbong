@@ -120,7 +120,6 @@ a.home:hover {
       cursor: pointer;
       text-align: center;
       text-decoration: none;
-      font: 14px/100% Arial, Helvetica, sans-serif;
       padding: .5em 2em .55em;
       text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
       -webkit-border-radius: .5em;
@@ -241,6 +240,68 @@ a.home:hover {
           border-bottom: 1px solid #ddd; }
         #menu div:first-child #categories table .price_field {
           text-align: right; }
+
+#shops {
+  width: 100%; }
+  #shops > div:first-child {
+    width: 630px;
+    margin: 0 auto;
+    position: relative; }
+  #shops div.shop {
+    width: 608px;
+    border: 3px solid #d8e8c3;
+    padding: 0px 10px 10px 10px;
+    margin: 10px 0px;
+    position: relative;
+    -webkit-border-radius: .5em;
+    -moz-border-radius: .5em;
+    border-radius: .5em;
+    background: -webkit-gradient(linear, left top, left bottom, from(white), to(#e5eeb1));
+    background: -moz-linear-gradient(top, white, #e5eeb1);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='white', endColorstr='#e5eeb1'); }
+    #shops div.shop h1 {
+      width: 500px; }
+    #shops div.shop h1 span.distance {
+      margin-left: 10px;
+      font-size: 1rem; }
+    #shops div.shop a.button {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      font-size: 1.8rem;
+      display: inline-block;
+      outline: none;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      padding: .5em 2em .55em;
+      text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+      -webkit-border-radius: .5em;
+      -moz-border-radius: .5em;
+      border-radius: .5em;
+      -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+      -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+      color: white !important;
+      font-weight: bold;
+      border: solid 1px #618432;
+      background: #91be54;
+      background: -webkit-gradient(linear, left top, left bottom, from(#94d042), to(#698f36));
+      background: -moz-linear-gradient(top, #94d042, #698f36);
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#94d042', endColorstr='#698f36'); }
+      #shops div.shop a.button:hover {
+        text-decoration: none;
+        background: #93ca48;
+        background: -webkit-gradient(linear, left top, left bottom, from(#92c44e), to(#85b444));
+        background: -moz-linear-gradient(top, #92c44e, #85b444);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#92c44e', endColorstr='#85b444'); }
+      #shops div.shop a.button:active {
+        position: relative;
+        top: 1px;
+        color: #94d042;
+        background: -webkit-gradient(linear, left top, left bottom, from(#94d042), to(#b5d38b));
+        background: -moz-linear-gradient(top, #94d042, #b5d38b);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#94d042', endColorstr='#b5d38b'); }
 
 #user_nav {
   text-align: center;
