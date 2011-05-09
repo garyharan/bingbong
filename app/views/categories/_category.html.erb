@@ -1,36 +1,35 @@
 <table>
   <thead>
     <tr>
-      <% if @shop.owned_by?(current_user) -%>
         <th class="category_title">
-          <%= best_in_place(category, :name, :path => shop_category_path(category.shop, category)) %>
-          <%= link_to "✕", shop_category_path(@shop, category), :method => :delete, :confirm => "Etes vous certain de vouloir éffacer cette catégorie?", :class => "delete owner" %>
+          <% if @shop.owned_by?(current_user) -%>
+            <%= best_in_place(category, :name, :path => shop_category_path(category.shop, category)) %>
+            <%= link_to "✕", shop_category_path(@shop, category), :method => :delete, :confirm => "Etes vous certain de vouloir éffacer cette catégorie?", :class => "delete owner" %>
+          <% else %>
+            <%= category.name %>
+          <% end %>
         </th>
         <th class="spacer">
         </th>
         <% category.sizes.each do |size| %>
           <th>
-            <%= best_in_place(size, :name, :path => shop_category_size_path(category.shop, category, size)) %>
-            <%= link_to "✕", shop_category_size_path(@shop, category, size), :method => :delete, :confirm => "Etes vous certain de vouloir éffacer cette taille?", :class => "delete owner" %>
+            <% if @shop.owned_by?(current_user) -%>
+              <%= form_for [category.shop, category, size], :method => :put, :remote => true do |f| %>
+                <%= f.text_field :name, :size => 8, :'data-onblur' => :submit  %>
+              <% end -%>
+              <%= link_to "✕", shop_category_size_path(@shop, category, size), :method => :delete, :confirm => "Etes vous certain de vouloir éffacer cette taille?", :class => "delete owner" %>
+            <% else -%>
+              <%= size.name %>
+            <% end -%>
           </th>
         <% end %>
-        <th class="owner">
-          <%= form_for [@shop, category, Size.new] do |f| %>
-            <%= f.text_field :name, :placeholder => "Rajoutez une taille.", :size => 17, :id => [dom_id(category), 'new_size'].join('_') %>
-          <% end -%>
-        </th>
-      <% else -%>
-        <th class="category_title">
-          <%= category.name %>
-        </th>
-        <th class="spacer">
-        </th>
-        <% category.sizes.each do |size| %>
-          <th>
-            <%= size.name %>
+        <% if @shop.owned_by?(current_user) -%>
+          <th class="owner">
+            <%= form_for [@shop, category, Size.new] do |f| %>
+              <%= f.text_field :name, :placeholder => "Rajoutez une taille.", :size => 17, :id => [dom_id(category), 'new_size'].join('_') %>
+            <% end -%>
           </th>
-        <% end %>
-      <% end -%>
+        <% end -%>
     </tr>
   </thead>
   <tbody>

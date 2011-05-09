@@ -1,6 +1,6 @@
 class Category < ActiveRecord::Base
   belongs_to :shop
-  has_many :sizes, :dependent => :destroy
+  has_many :sizes, :dependent => :destroy, :order => 'created_at ASC'
   has_many :products, :dependent => :destroy
 
   validates_presence_of :name
