@@ -239,6 +239,8 @@ a.home:hover {
           padding: 6px;
           text-align: center;
           border-bottom: 1px solid #ddd; }
+        #menu div:first-child #categories table .price_field {
+          text-align: right; }
 
 #user_nav {
   text-align: center;

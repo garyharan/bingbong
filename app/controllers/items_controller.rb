@@ -6,9 +6,9 @@ class ItemsController < ApplicationController
 
     respond_to do |format|
       if @item.update_attributes(params[:item])
-        format.json { head :ok }
+        format.js
       else
-        format.json { render :json => @item.errors, :status => :unprocessable_entity }
+        format.js { render :json => @item.errors, :status => :unprocessable_entity }
       end
     end
   end
