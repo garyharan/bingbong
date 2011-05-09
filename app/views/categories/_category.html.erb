@@ -2,7 +2,7 @@
   <thead>
     <tr>
         <th class="category_title">
-          <% if @shop.owned_by?(current_user) -%>
+          <% if user_signed_in? && @shop.owned_by?(current_user) -%>
             <%= form_for [category.shop, category], :method => :put, :remote => true do |f| %>
               <%= f.text_field :name, :size => 15, :'data-onblur' => :submit %>
             <% end %>
@@ -15,7 +15,7 @@
         </th>
         <% category.sizes.each do |size| %>
           <th>
-            <% if @shop.owned_by?(current_user) -%>
+            <% if user_signed_in? && @shop.owned_by?(current_user) -%>
               <%= form_for [category.shop, category, size], :method => :put, :remote => true do |f| %>
                 <%= f.text_field :name, :size => 8, :'data-onblur' => :submit  %>
               <% end -%>
@@ -25,7 +25,7 @@
             <% end -%>
           </th>
         <% end %>
-        <% if @shop.owned_by?(current_user) -%>
+        <% if user_signed_in? && @shop.owned_by?(current_user) -%>
           <th class="owner">
             <%= form_for [@shop, category, Size.new] do |f| %>
               <%= f.text_field :name, :placeholder => "Rajoutez une taille.", :size => 17, :id => [dom_id(category), 'new_size'].join('_') %>
@@ -36,7 +36,7 @@
   </thead>
   <tbody>
     <%= render category.products %>
-    <% if @shop.owned_by?(current_user) -%>
+    <% if user_signed_in? && @shop.owned_by?(current_user) -%>
       <tr class="owner">
         <td colspan="<%= category.sizes.count + 1 %>">
           <%= form_for [@shop, category, Product.new] do |f| %>

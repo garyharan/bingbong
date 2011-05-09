@@ -1,5 +1,5 @@
 class ShopsController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :except => :show
   
   def index
     @shops = Shop.all

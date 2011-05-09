@@ -198,12 +198,23 @@ a.home:hover {
       top: 50px;
       width: 320px;
       background: #bf9316; }
-      #menu div:first-child #order table thead {
-        color: #e1f89b;
-        text-shadow: #546e08 0 0 5px;
-        font-size: 2rem; }
-        #menu div:first-child #order table thead th {
-          padding: 10px; }
+      #menu div:first-child #order table {
+        border: none;
+        border-collapse: collapse; }
+        #menu div:first-child #order table tr {
+          height: 40px;
+          border-bottom: 1px solid #d7e488; }
+        #menu div:first-child #order table td {
+          width: 20%;
+          text-align: center; }
+        #menu div:first-child #order table thead {
+          color: #e1f89b;
+          text-shadow: #546e08 0 0 5px;
+          font-size: 2rem; }
+          #menu div:first-child #order table thead th {
+            padding: 10px; }
+        #menu div:first-child #order table tbody {
+          background: #f3f7db; }
     #menu div:first-child #categories {
       width: 600px;
       background: white;
