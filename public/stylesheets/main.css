@@ -225,7 +225,7 @@ a.home:hover {
           padding-left: 6px; }
         #menu div:first-child #categories table th.spacer, #menu div:first-child #categories table td.spacer {
           width: 80%; }
-        #menu div:first-child #categories table th:last-child {
+        #menu div:first-child #categories table th.owner:last-child {
           text-align: right; }
         #menu div:first-child #categories table td:first-child {
           font-weight: bold; }

@@ -82,7 +82,7 @@
         th.spacer,td.spacer {
           width: 80%;
         }
-        th:last-child {
+        th.owner:last-child {
           text-align: right;
         }
         td:first-child{
