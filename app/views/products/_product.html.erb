@@ -1,7 +1,6 @@
 <tr>
   <td>
     <% if @shop.owned_by? current_user %>
-      <%#= best_in_place product, :name, :path => shop_category_product_path(@shop, product.category, product) %>
       <%= form_for [@shop, product.category, product], :method => :put, :remote => true do |f| %>
         <%= f.text_field :name, :size => 15, :'data-onblur' => :submit %>
       <% end -%>
@@ -18,7 +17,6 @@
     %>
     <td>
       <% if @shop.owned_by? current_user %>
-        <%#= best_in_place(@item, :price, :path => shop_category_item_path(@shop, product.category, @item)) %>
         <%= form_for [@shop, product.category, @item], :method => :put, :remote => true do |f| %>
           <%= f.text_field :price, :size => 4, :'data-onblur' => :submit, :class => "price_field" %>
         <% end -%>

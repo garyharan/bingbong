@@ -3,7 +3,6 @@
     <tr>
         <th class="category_title">
           <% if @shop.owned_by?(current_user) -%>
-            <%#= best_in_place(category, :name, :path => shop_category_path(category.shop, category)) %>
             <%= form_for [category.shop, category], :method => :put, :remote => true do |f| %>
               <%= f.text_field :name, :size => 15, :'data-onblur' => :submit %>
             <% end %>
