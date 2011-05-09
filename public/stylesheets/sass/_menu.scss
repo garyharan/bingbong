@@ -85,6 +85,9 @@
         th:last-child {
           text-align: right;
         }
+        td:first-child{
+          font-weight: bold;
+        }
         border-collapse: collapse;
         thead {
           background: $red;

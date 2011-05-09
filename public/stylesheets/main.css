@@ -227,6 +227,8 @@ a.home:hover {
           width: 80%; }
         #menu div:first-child #categories table th:last-child {
           text-align: right; }
+        #menu div:first-child #categories table td:first-child {
+          font-weight: bold; }
         #menu div:first-child #categories table thead {
           background: #e35524;
           color: white; }
