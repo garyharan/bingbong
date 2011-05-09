@@ -11,7 +11,7 @@ $(function(){
       case 13:  // enter
         break;
       case 69: // e for admin edit
-        if (event.metaKey){
+        if (e.metaKey){
           $('.owner').toggle('slow')
         }
       default:

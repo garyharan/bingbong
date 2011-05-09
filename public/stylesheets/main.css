@@ -27,7 +27,8 @@ a.home:hover {
   background-color: transparent; }
 
 .owner {
-  text-decoration: none; }
+  text-decoration: none;
+  display: none; }
 
 #notice {
   color: green; }
