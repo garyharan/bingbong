@@ -15,7 +15,7 @@ $(function(){
           $('.owner').toggle('slow')
         }
       default:
-        $('#search').focus()
+        $('#search_location').focus()
         break;
     }
   });
