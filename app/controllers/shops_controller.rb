@@ -6,7 +6,6 @@ class ShopsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @shops }
     end
   end
 
@@ -15,7 +14,6 @@ class ShopsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render :xml => @shop }
     end
   end
 
@@ -24,7 +22,6 @@ class ShopsController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render :xml => @shop }
     end
   end
 
@@ -38,10 +35,8 @@ class ShopsController < ApplicationController
     respond_to do |format|
       if @shop.save
         format.html { redirect_to(@shop, :notice => 'Shop was successfully created.') }
-        format.xml  { render :xml => @shop, :status => :created, :location => @shop }
       else
         format.html { render :action => "new" }
-        format.xml  { render :xml => @shop.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -55,7 +50,6 @@ class ShopsController < ApplicationController
         format.json { head :ok }
       else
         format.html { render :action => "edit" }
-        format.json { render :xml => @shop.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -66,7 +60,6 @@ class ShopsController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to(shops_url) }
-      format.xml  { head :ok }
     end
   end
 end
