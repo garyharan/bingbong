@@ -16,9 +16,9 @@ class ProductsController < ApplicationController
 
     respond_to do |format|
       if @product.update_attributes(params[:product])
-        format.json { head :ok }
+        format.js
       else
-        format.json { render :json => @product.errors, :status => :unprocessable_entity }
+        format.js { render :json => @product.errors, :status => :unprocessable_entity }
       end
     end
   end
