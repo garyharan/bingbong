@@ -16,8 +16,10 @@ class CategoriesController < ApplicationController
     respond_to do |format|
       if @category.update_attributes(params[:category])
         format.html { redirect_to @shop, :notice => "Les changements ont été effectués." }
+        format.js
       else
         format.html { redirect_to @shop }
+        format.js
       end
     end
   end

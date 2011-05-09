@@ -3,7 +3,10 @@
     <tr>
         <th class="category_title">
           <% if @shop.owned_by?(current_user) -%>
-            <%= best_in_place(category, :name, :path => shop_category_path(category.shop, category)) %>
+            <%#= best_in_place(category, :name, :path => shop_category_path(category.shop, category)) %>
+            <%= form_for [category.shop, category], :method => :put, :remote => true do |f| %>
+              <%= f.text_field :name, :size => 12, :'data-onblur' => :submit %>
+            <% end %>
             <%= link_to "✕", shop_category_path(@shop, category), :method => :delete, :confirm => "Etes vous certain de vouloir éffacer cette catégorie?", :class => "delete owner" %>
           <% else %>
             <%= category.name %>

@@ -1,6 +1,6 @@
 class Shop < ActiveRecord::Base
   belongs_to :user
-  has_many :categories
+  has_many :categories, :order => 'created_at ASC'
 
   geocoded_by :full_address
   after_validation :geocode

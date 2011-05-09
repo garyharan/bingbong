@@ -35,11 +35,14 @@ $(function(){
 
   /* admin */
   $('input[data-onblur="submit"]').live('blur', function(){
+    console.info($(this));
     if ($(this).data('changed')) {
       $(this).parents('form:first').submit();
     }
   }).keypress(function(event){
     $(this).data('changed', true);
+    console.info("changed")
+    console.info($(this))
   });
 });
 
