@@ -19,4 +19,9 @@ class ProductTest < ActiveSupport::TestCase
       @product.destroy
     end
   end
+
+  test "should let me know what shop it is" do
+    @product = Product.create Factory.attributes_for(:product, :category_id => @category.id)
+    assert_equal @shop.id, @product.shop.id
+  end
 end
