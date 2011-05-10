@@ -1,5 +1,4 @@
 Bingbong::Application.routes.draw do
-  resources :orders
   resources :searches
 
   root :to => "searches#index"

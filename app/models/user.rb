@@ -11,7 +11,6 @@ class User < ActiveRecord::Base
   validates_presence_of :last_name
 
   has_many :shops
-  has_many :orders
 
   def name
     [first_name, last_name].join(' ')
