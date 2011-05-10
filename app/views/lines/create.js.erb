@@ -1,2 +1,3 @@
-$('#lines').append("<%= escape_javascript(render(@line)) %>").effects('highlight')
+$('#lines').append("<%= escape_javascript(render(@line)) %>")
+$('#<%= dom_id @line %>').effect('highlight')
 $('#order_instructions').hide()
