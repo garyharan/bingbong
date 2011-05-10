@@ -21,7 +21,7 @@
           <%= f.text_field :price, :size => 4, :'data-onblur' => :submit, :class => "price_field" %>
         <% end -%>
       <% else %>
-        <%= @item.price %>
+        <%= link_to @item.price, lines_path(:line => {:shop_id => @shop.id, :item_id => @item.id}), :method => :post, :remote => true  %>
       <% end %>
     </td>
   <% end -%>

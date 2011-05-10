@@ -4,7 +4,7 @@ class CreateLines < ActiveRecord::Migration
       t.integer :user_id
       t.integer :shop_id
       t.integer :item_id
-      t.integer :quantity
+      t.integer :quantity, :default => 1
 
       t.timestamps
     end

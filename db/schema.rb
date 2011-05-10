@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(:version => 20110510130625) do
     t.integer  "user_id"
     t.integer  "shop_id"
     t.integer  "item_id"
-    t.integer  "quantity"
+    t.integer  "quantity",   :default => 1
     t.datetime "created_at"
     t.datetime "updated_at"
   end

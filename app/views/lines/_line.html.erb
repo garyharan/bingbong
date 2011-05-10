@@ -1,0 +1,7 @@
+<tr id="<%= dom_id line %>">
+  <td><%= line.quantity %></td>
+  <td><%= line.item.product.category.name %></td>
+  <td><%= line.item.name %></td>
+  <td><%= line.item.size.name %></td>
+  <td><%= line.item.price * line.quantity %></td>
+</tr>

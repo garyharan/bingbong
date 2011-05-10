@@ -7,10 +7,15 @@ class LinesControllerTest < ActionController::TestCase
   end
 
   test "should create a line" do
-    @shop = Shop.create Factory.attributes_for(:shop)
-    @item = Item.create Factory.attributes_for(:item)
+    @shop     = Shop.create     Factory.attributes_for(:shop)
+    @category = Category.create Factory.attributes_for(:category, :shop_id => @shop.id)
+    @product  = Product.create  Factory.attributes_for(:product, :category_id => @category.id)
+    @size     = Size.create     Factory.attributes_for(:size, :category_id => @category.id)
+    @item     = Item.first
+    @item.update_attribute :price, 2.99
     assert_difference 'Line.count' do
-      xhr :put, :create, :line => { :shop_id => @shop.id, :item_id => @item.id }
+      xhr :post, :create, :line => { :shop_id => @shop.id, :item_id => @item.id }
     end
+    assert_not_nil assigns(:line)
   end
 end

@@ -30,33 +30,16 @@
         <table>
           <thead>
             <tr>
-              <th colspan="5">Ta Commande</th>
+              <th colspan="4">Ta Commande</th>
             </tr>
           </thead>
           <tfoot>
             <tr>
-              <td colspan="5">Cliquer sur un prix pour rajouter à votre commande</td>
+              <td colspan="4">Cliquer sur un prix pour rajouter à votre commande</td>
             </tr>
           </tfoot>
-          <tbody>
-            <tr>
-              <td>
-                <%= text_field_tag :quantity, "1", :size => 1 %>
-              </td>
-              <td>Pizza</td>
-              <td>Nature<td>
-              <td>10"</td>
-              <td>10.99$</td>
-            </tr>
-            <tr>
-              <td>
-                <%= text_field_tag :quantity, "1", :size => 1 %>
-              </td>
-              <td>Pizza</td>
-              <td>Pepperoni<td>
-              <td>10"</td>
-              <td>11.99$</td>
-            </tr>
+          <tbody id="lines">
+            <%= render @lines %>
           </tbody>
         </table>
       <% else -%>

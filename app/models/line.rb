@@ -1,4 +1,4 @@
 class Line < ActiveRecord::Base
   has_one :shop
-  has_one :item
+  belongs_to :item
 end
