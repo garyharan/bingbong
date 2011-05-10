@@ -50,6 +50,7 @@
       top: 50px;
       width: 320px;
       background: $brown;
+      z-index: 1;
       table {
         border: none;
         border-collapse: collapse;
@@ -75,10 +76,13 @@
       }
     }
     #categories {
+      z-index: 2;
       width: 600px;
       background: white;
       padding: 15px;
       @include box-shadow(0px, 0px, 15px, transparentize($shadow, 0.7));
+      position: absolute;
+      left: 0px;
       table {
         color: #666;
         margin-bottom: 30px;
@@ -113,10 +117,20 @@
         }
         tbody {
           td {
+            height: 30px;
             padding: 6px;
             text-align: center;
             border-bottom: 1px solid #ddd;
           }
+        }
+        .price_link {
+          font-size: 1.3rem;
+          padding: 0.5rem;
+          text-decoration: none;
+        }
+        .price_link.selected {
+          font-size: 10px;
+          @include button(lighten($green, 20%), black);
         }
         .price_field {
           text-align: right;
