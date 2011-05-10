@@ -1,7 +1,6 @@
 Bingbong::Application.routes.draw do
-  resources :searches
-
   root :to => "searches#index"
+  resources :searches
 
   resources :shops do
     resources :categories do
@@ -10,6 +9,7 @@ Bingbong::Application.routes.draw do
       resources :items
     end
   end
+  resources :lines
 
   devise_for :users
 
