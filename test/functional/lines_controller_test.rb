@@ -4,13 +4,13 @@ class LinesControllerTest < ActionController::TestCase
   setup do
     @user = User.create!(Factory.attributes_for(:user))
     sign_in @user 
-  end
-
-  test "should create a line" do
     @shop     = Shop.create     Factory.attributes_for(:shop)
     @category = Category.create Factory.attributes_for(:category, :shop_id => @shop.id)
     @product  = Product.create  Factory.attributes_for(:product, :category_id => @category.id)
     @size     = Size.create     Factory.attributes_for(:size, :category_id => @category.id)
+  end
+
+  test "should create a line" do
     @item     = Item.first
     @item.update_attribute :price, 2.99
     assert_difference 'Line.count' do
@@ -21,10 +21,6 @@ class LinesControllerTest < ActionController::TestCase
   end
 
   test "should change quantity on create if a line already exists" do
-    @shop     = Shop.create     Factory.attributes_for(:shop)
-    @category = Category.create Factory.attributes_for(:category, :shop_id => @shop.id)
-    @product  = Product.create  Factory.attributes_for(:product, :category_id => @category.id)
-    @size     = Size.create     Factory.attributes_for(:size, :category_id => @category.id)
     @item     = Item.first
     @item.update_attribute :price, 2.99
     @line     = Line.create(:user_id => @user.id, :shop_id => @shop.id, :item_id => @item.id)
