@@ -199,7 +199,6 @@ a.home:hover {
       width: 320px;
       z-index: 1; }
       #menu div:first-child #order table {
-        border: none;
         border-collapse: collapse; }
         #menu div:first-child #order table tr {
           height: 40px;
@@ -271,13 +270,14 @@ a.home:hover {
           width: 250px;
           text-align: left; }
         #menu div:first-child #categories table th:first-child {
-          padding-left: 6px; }
+          padding-left: 10px; }
         #menu div:first-child #categories table th.spacer, #menu div:first-child #categories table td.spacer {
           width: 80%; }
         #menu div:first-child #categories table th.owner:last-child {
           text-align: right; }
         #menu div:first-child #categories table td:first-child {
-          font-weight: bold; }
+          font-weight: bold;
+          padding-left: 10px; }
         #menu div:first-child #categories table thead {
           background: #e35524;
           color: white; }

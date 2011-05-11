@@ -51,7 +51,6 @@
       width: 320px;
       z-index: 1;
       table {
-        border: none;
         border-collapse: collapse;
         tr { 
           height: 40px;
@@ -100,7 +99,7 @@
           text-align: left;
         }
         th:first-child {
-          padding-left: 6px;
+          padding-left: 10px;
         }
         th.spacer,td.spacer {
           width: 80%;
@@ -110,6 +109,7 @@
         }
         td:first-child{
           font-weight: bold;
+          padding-left: 10px;
         }
         border-collapse: collapse;
         thead {
