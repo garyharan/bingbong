@@ -30,7 +30,8 @@ class LinesControllerTest < ActionController::TestCase
     assert_equal 2, assigns(:line).quantity
   end
 
-  test "should update quantity" do    @line     = Line.create(:user_id => @user.id, :shop_id => @shop.id, :item_id => @item.id)
+  test "should update quantity" do
+    @line     = Line.create(:user_id => @user.id, :shop_id => @shop.id, :item_id => @item.id)
     xhr :put, :update, :line => { :quantity => 3 }, :id => @line.id
     assert_equal 3, assigns(:line).quantity
   end
