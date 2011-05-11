@@ -3,8 +3,7 @@
     <td class="arrow">
       <%= link_to "▲", line_path(line, :line => { :quantity => (line.quantity+1) }), :method => :put, :remote => true, :class => "up" %>
     </td>
-    <td rowspan="2" class="quantity"><%= line.quantity %></td>
-    <td rowspan="2"><%= line.item.product.category.name %></td>
+    <td rowspan="2"><%= pluralize line.quantity, line.item.product.category.name.singularize %></td>
     <td rowspan="2"><%= line.item.name %></td>
     <td rowspan="2"><%= line.item.size.name %></td>
     <td rowspan="2"><%= line.item.price * line.quantity %></td>
