@@ -17,6 +17,7 @@ class LinesControllerTest < ActionController::TestCase
       xhr :post, :create, :line => { :shop_id => @shop.id, :item_id => @item.id }
     end
     assert_not_nil assigns(:line)
+    assert_not_nil assigns(:lines)
   end
 
   test "should change quantity on create if a line already exists" do

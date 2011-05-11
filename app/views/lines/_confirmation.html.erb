@@ -1,0 +1,9 @@
+<tfoot id="confirmation">
+  <tr>
+    <% if @lines.empty? -%>
+      <td colspan="5">Cliques sur un prix pour commander</td>
+    <% else -%>
+      <td colspan="5"><%= link_to "Confirmer", "#", :class => "order_confirmation_link" %></td>
+    <% end -%>
+  </tr>
+</tfoot>

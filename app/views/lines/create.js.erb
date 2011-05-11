@@ -5,3 +5,4 @@ if ($('#<%= dom_id @line %>').length){
 }
 $('#<%= dom_id @line %>').effect('highlight')
 $('#order_instructions').hide()
+$('#confirmation').replaceWith("<%= escape_javascript(render(:partial => "lines/confirmation")) %>")

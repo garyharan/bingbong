@@ -44,19 +44,7 @@
               <th colspan="5">Ta Commande</th>
             </tr>
           </thead>
-          <% if @lines.empty? -%>
-            <tfoot id="order_instructions">
-              <tr>
-                <td colspan="5">Cliques sur un prix pour commander</td>
-              </tr>
-            </tfoot>
-          <% else -%>
-            <tfoot id="order_instructions">
-              <tr>
-                <td colspan="5"><%= link_to "Confirmer", "#", :class => "order_confirmation_link" %></td>
-              </tr>
-            </tfoot>
-          <% end -%>
+          <%= render :partial => "lines/confirmation" %>
           <tbody id="lines">
             <%= render @lines %>
           </tbody>
