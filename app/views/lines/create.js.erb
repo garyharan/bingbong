@@ -1,3 +1,7 @@
-$('#lines').append("<%= escape_javascript(render(@line)) %>")
+if ($('#<%= dom_id @line %>').length){
+  $('#<%= dom_id @line %>').replaceWith("<%= escape_javascript(render(@line)) %>")
+} else {
+  $('#lines').append("<%= escape_javascript(render(@line)) %>")
+}
 $('#<%= dom_id @line %>').effect('highlight')
 $('#order_instructions').hide()
