@@ -42,5 +42,6 @@ class LinesControllerTest < ActionController::TestCase
       xhr :put, :update, :line => { :quantity => 0 }, :id => @line.id
     end
     assert_equal 0, assigns(:line).quantity
+    assert_equal 0, assigns(:lines).count
   end
 end
