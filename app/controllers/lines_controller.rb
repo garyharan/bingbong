@@ -14,4 +14,9 @@ class LinesController < ApplicationController
 
     @lines = Line.find(:all, :conditions => { :user_id => current_user.id, :shop_id => @shop_id, :item_id => @item_id })
   end
+
+  def update
+    @line = current_user.lines.find(params[:id])
+    @line.update_attributes params[:line]
+  end
 end
