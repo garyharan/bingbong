@@ -1,4 +1,7 @@
 <tr id="<%= dom_id line %>">
+  <td>
+    <%= link_to "Up", line_path(line, :line => { :quantity => (line.quantity+1) }), :method => :put, :remote => true %>
+  </td>
   <td><%= line.quantity %></td>
   <td><%= line.item.product.category.name %></td>
   <td><%= line.item.name %></td>
