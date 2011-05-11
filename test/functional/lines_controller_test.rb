@@ -22,7 +22,7 @@ class LinesControllerTest < ActionController::TestCase
 
   test "should change quantity on create if a line already exists" do
     @item.update_attribute :price, 2.99
-    @line     = Line.create(:user_id => @user.id, :shop_id => @shop.id, :item_id => @item.id)
+    @line = Line.create(:user_id => @user.id, :shop_id => @shop.id, :item_id => @item.id)
     assert_no_difference 'Line.count' do
       xhr :post, :create, :line => { :shop_id => @shop.id, :item_id => @item.id }
     end
@@ -31,8 +31,17 @@ class LinesControllerTest < ActionController::TestCase
   end
 
   test "should update quantity" do
-    @line     = Line.create(:user_id => @user.id, :shop_id => @shop.id, :item_id => @item.id)
+    @line = Line.create(:user_id => @user.id, :shop_id => @shop.id, :item_id => @item.id)
     xhr :put, :update, :line => { :quantity => 3 }, :id => @line.id
     assert_equal 3, assigns(:line).quantity
+    assert_not_nil assigns(:lines)
+  end
+
+  test "should delete line if quantity set to 0" do
+    @line = Line.create(:user_id => @user.id, :shop_id => @shop.id, :item_id => @item.id)
+    assert_difference 'Line.count', -1  do
+      xhr :put, :update, :line => { :quantity => 0 }, :id => @line.id
+    end
+    assert_equal 0, assigns(:line).quantity
   end
 end
