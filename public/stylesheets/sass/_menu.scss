@@ -52,13 +52,16 @@
       z-index: 1;
       table {
         border-collapse: collapse;
-        tr { 
-          height: 40px;
-          border-bottom: 1px solid darken($beige, 20%);
-        }
         td {
           width: 20%;
+          padding: 3px;
           text-align: center;
+        }
+        td:first-child, td.quantity {
+          width: 12px;
+        }
+        td:first-child a {
+          text-decoration: none;
         }
         thead {
           background: $brown;
@@ -70,9 +73,12 @@
           }
         }
         tbody {
-          background: $beige;
+          height: 40px;
+          background: lighten($beige, 5%);
+          border-bottom: 1px solid darken($beige, 20%);
         }
         tfoot {
+          background: lighten($beige, 5%);
           a.order_confirmation_link {
             @include button($green);
           }

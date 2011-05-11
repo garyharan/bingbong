@@ -200,12 +200,14 @@ a.home:hover {
       z-index: 1; }
       #menu div:first-child #order table {
         border-collapse: collapse; }
-        #menu div:first-child #order table tr {
-          height: 40px;
-          border-bottom: 1px solid #d7e488; }
         #menu div:first-child #order table td {
           width: 20%;
+          padding: 3px;
           text-align: center; }
+        #menu div:first-child #order table td:first-child, #menu div:first-child #order table td.quantity {
+          width: 12px; }
+        #menu div:first-child #order table td:first-child a {
+          text-decoration: none; }
         #menu div:first-child #order table thead {
           background: #bf9316;
           color: #e1f89b;
@@ -214,41 +216,45 @@ a.home:hover {
           #menu div:first-child #order table thead th {
             padding: 10px; }
         #menu div:first-child #order table tbody {
-          background: #f3f7db; }
-        #menu div:first-child #order table tfoot a.order_confirmation_link {
-          display: inline-block;
-          outline: none;
-          cursor: pointer;
-          text-align: center;
-          text-decoration: none;
-          padding: .5em 2em .55em;
-          text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
-          -webkit-border-radius: .5em;
-          -moz-border-radius: .5em;
-          border-radius: .5em;
-          -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-          -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-          color: white !important;
-          font-weight: bold;
-          border: solid 1px #618432;
-          background: #91be54;
-          background: -webkit-gradient(linear, left top, left bottom, from(#94d042), to(#698f36));
-          background: -moz-linear-gradient(top, #94d042, #698f36);
-          filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#94d042', endColorstr='#698f36'); }
-          #menu div:first-child #order table tfoot a.order_confirmation_link:hover {
+          height: 40px;
+          background: #fafcf0;
+          border-bottom: 1px solid #d7e488; }
+        #menu div:first-child #order table tfoot {
+          background: #fafcf0; }
+          #menu div:first-child #order table tfoot a.order_confirmation_link {
+            display: inline-block;
+            outline: none;
+            cursor: pointer;
+            text-align: center;
             text-decoration: none;
-            background: #93ca48;
-            background: -webkit-gradient(linear, left top, left bottom, from(#92c44e), to(#85b444));
-            background: -moz-linear-gradient(top, #92c44e, #85b444);
-            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#92c44e', endColorstr='#85b444'); }
-          #menu div:first-child #order table tfoot a.order_confirmation_link:active {
-            position: relative;
-            top: 1px;
-            color: #94d042;
-            background: -webkit-gradient(linear, left top, left bottom, from(#94d042), to(#b5d38b));
-            background: -moz-linear-gradient(top, #94d042, #b5d38b);
-            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#94d042', endColorstr='#b5d38b'); }
+            padding: .5em 2em .55em;
+            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+            -webkit-border-radius: .5em;
+            -moz-border-radius: .5em;
+            border-radius: .5em;
+            -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+            -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+            color: white !important;
+            font-weight: bold;
+            border: solid 1px #618432;
+            background: #91be54;
+            background: -webkit-gradient(linear, left top, left bottom, from(#94d042), to(#698f36));
+            background: -moz-linear-gradient(top, #94d042, #698f36);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#94d042', endColorstr='#698f36'); }
+            #menu div:first-child #order table tfoot a.order_confirmation_link:hover {
+              text-decoration: none;
+              background: #93ca48;
+              background: -webkit-gradient(linear, left top, left bottom, from(#92c44e), to(#85b444));
+              background: -moz-linear-gradient(top, #92c44e, #85b444);
+              filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#92c44e', endColorstr='#85b444'); }
+            #menu div:first-child #order table tfoot a.order_confirmation_link:active {
+              position: relative;
+              top: 1px;
+              color: #94d042;
+              background: -webkit-gradient(linear, left top, left bottom, from(#94d042), to(#b5d38b));
+              background: -moz-linear-gradient(top, #94d042, #b5d38b);
+              filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#94d042', endColorstr='#b5d38b'); }
     #menu div:first-child #categories {
       z-index: 2;
       width: 600px;

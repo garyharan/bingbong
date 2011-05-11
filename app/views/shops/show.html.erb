@@ -41,13 +41,11 @@
         <table>
           <thead>
             <tr>
-              <th colspan="5">Ta Commande</th>
+              <th colspan="6">Ta Commande</th>
             </tr>
           </thead>
           <%= render :partial => "lines/confirmation" %>
-          <tbody id="lines">
-            <%= render @lines %>
-          </tbody>
+          <%= render @lines %>
         </table>
       <% else -%>
         <p>
