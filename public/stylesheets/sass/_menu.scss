@@ -51,11 +51,27 @@
       width: 320px;
       z-index: 1;
       table {
+        @include box-shadow(0px, 0px, 15px, transparentize($shadow, 0.7));
         border-collapse: collapse;
+        width: 320px;
         td {
           width: 20%;
           padding: 3px;
           text-align: center;
+        }
+        td.arrow {
+          padding: 0;
+          margin: 0;
+          a {
+            background: transparent;
+            color: $brown;
+          }
+          a:hover {
+            text-shadow: 0px 0px 9px white;
+          }
+          a:active {
+            text-shadow: 0px 0px 9px $brown;
+          }
         }
         td:first-child, td.quantity {
           width: 12px;
@@ -139,9 +155,13 @@
           padding: 0.5rem;
           text-decoration: none;
         }
+        .price_link:hover {
+          color: black;
+          background: white;
+          font-weight: bold;
+        }
         .price_link.selected {
           font-size: 10px;
-          @include button(lighten($green, 20%), black);
         }
         .price_field {
           text-align: right;

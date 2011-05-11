@@ -199,11 +199,25 @@ a.home:hover {
       width: 320px;
       z-index: 1; }
       #menu div:first-child #order table {
-        border-collapse: collapse; }
+        -webkit-box-shadow: 0px 0px 15px rgba(84, 110, 8, 0.3);
+        -moz-box-shadow: 0px 0px 15px rgba(84, 110, 8, 0.3);
+        box-shadow: 0px 0px 15px rgba(84, 110, 8, 0.3);
+        border-collapse: collapse;
+        width: 320px; }
         #menu div:first-child #order table td {
           width: 20%;
           padding: 3px;
           text-align: center; }
+        #menu div:first-child #order table td.arrow {
+          padding: 0;
+          margin: 0; }
+          #menu div:first-child #order table td.arrow a {
+            background: transparent;
+            color: #bf9316; }
+          #menu div:first-child #order table td.arrow a:hover {
+            text-shadow: 0px 0px 9px white; }
+          #menu div:first-child #order table td.arrow a:active {
+            text-shadow: 0px 0px 9px #bf9316; }
         #menu div:first-child #order table td:first-child, #menu div:first-child #order table td.quantity {
           width: 12px; }
         #menu div:first-child #order table td:first-child a {
@@ -299,41 +313,12 @@ a.home:hover {
           font-size: 1.3rem;
           padding: 0.5rem;
           text-decoration: none; }
+        #menu div:first-child #categories table .price_link:hover {
+          color: black;
+          background: white;
+          font-weight: bold; }
         #menu div:first-child #categories table .price_link.selected {
-          font-size: 10px;
-          display: inline-block;
-          outline: none;
-          cursor: pointer;
-          text-align: center;
-          text-decoration: none;
-          padding: .5em 2em .55em;
-          text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
-          -webkit-border-radius: .5em;
-          -moz-border-radius: .5em;
-          border-radius: .5em;
-          -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-          -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-          color: black !important;
-          font-weight: bold;
-          border: solid 1px #96c15b;
-          background: #c1da9e;
-          background: -webkit-gradient(linear, left top, left bottom, from(#c2e494), to(#9dc566));
-          background: -moz-linear-gradient(top, #c2e494, #9dc566);
-          filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#c2e494', endColorstr='#9dc566'); }
-          #menu div:first-child #categories table .price_link.selected:hover {
-            text-decoration: none;
-            background: #c2e197;
-            background: -webkit-gradient(linear, left top, left bottom, from(#c1dd9b), to(#b5d38b));
-            background: -moz-linear-gradient(top, #c1dd9b, #b5d38b);
-            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#c1dd9b', endColorstr='#b5d38b'); }
-          #menu div:first-child #categories table .price_link.selected:active {
-            position: relative;
-            top: 1px;
-            color: #c2e494;
-            background: -webkit-gradient(linear, left top, left bottom, from(#c2e494), to(#e4efd5));
-            background: -moz-linear-gradient(top, #c2e494, #e4efd5);
-            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#c2e494', endColorstr='#e4efd5'); }
+          font-size: 10px; }
         #menu div:first-child #categories table .price_field {
           text-align: right; }
 
