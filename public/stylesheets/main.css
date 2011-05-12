@@ -205,12 +205,12 @@ a.home:hover {
         border-collapse: collapse;
         width: 320px; }
         #menu div:first-child #order table td {
-          width: 20%;
           padding: 3px;
           text-align: center; }
         #menu div:first-child #order table td.arrow {
-          padding: 0;
-          margin: 0; }
+          padding: 0 0 0 10px;
+          margin: 0;
+          width: 10px; }
           #menu div:first-child #order table td.arrow a {
             background: transparent;
             color: #bf9316; }
