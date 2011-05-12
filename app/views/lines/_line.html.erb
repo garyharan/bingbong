@@ -6,7 +6,7 @@
     <td rowspan="2"><%= pluralize line.quantity, line.item.product.category.name.singularize %></td>
     <td rowspan="2"><%= line.item.name %></td>
     <td rowspan="2"><%= line.item.size.name %></td>
-    <td rowspan="2"><%= line.item.price * line.quantity %></td>
+    <td rowspan="2" class="price"><%= number_to_currency(line.item.price * line.quantity, :unit => "$") %></td>
   </tr>
   <tr>
     <td class="arrow">
