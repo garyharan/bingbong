@@ -1,0 +1,16 @@
+Commande: <%= @order.state %>
+
+<table>
+  <% @order.lines.each do |line| %>
+    <tr>
+      <td><%= pluralize line.quantity, line.item.product.category.name.singularize %></td>
+      <td><%= line.item.product.name %></td>
+      <td><%= line.quantity * line.item.price %></td>
+    </tr>
+  <% end -%>
+  <tr>
+    <td colspan="3">
+      <%= @order.subtotal %>
+    </td>
+  </tr>
+</table>

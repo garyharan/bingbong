@@ -19,5 +19,13 @@ class OrdersControllerTest < ActionController::TestCase
     end
     assert_not_nil assigns(:order)
     assert_equal 1, assigns(:order).lines.count
+    assert_redirected_to order_path(assigns(:order))
+  end
+
+  test "should show an order" do
+    @order = Order.create :user_id => @user.id, :shop_id => @shop.id
+    @line = Line.create :user_id => @user.id, :shop_id => @shop.id, :item_id => @item.id, :quantity => 2, :order_id => @order.id
+    get :show, :id => @order.id
+    assert_response :success
   end
 end
