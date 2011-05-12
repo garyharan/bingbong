@@ -36,10 +36,5 @@
         <%= number_to_currency((@subtotal + @tvq + @tps), :unit => "$")  %>
       </td>
     </tr>
-    <tr>
-      <td colspan="5">
-        <%= link_to "Confirmer", orders_path(:order => { :shop_id => @lines.first.shop_id }), :method => :post, :class => "order_confirmation_link" %>
-      </td>
-    </tr>
   <% end -%>
 </tfoot>

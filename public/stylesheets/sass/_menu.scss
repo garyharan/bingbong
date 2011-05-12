@@ -44,13 +44,26 @@
     width: 950px;
     margin: 0 auto;
     position: relative;
+    #bag {
+      position: absolute; 
+      right: 10px;
+      top: 24px;
+      z-index: 2;
+    }
     #order { 
       position: absolute;
       right: 0px;
       top: 50px;
       width: 320px;
       z-index: 1;
+      #confirm_link {
+        font-size: 1.7rem;
+        @include button($green);
+        margin: 10px;
+        float: right;
+      }
       table {
+        background: lighten($beige, 4%);
         @include box-shadow(0px, 0px, 15px, transparentize($shadow, 0.7));
         border-collapse: collapse;
         width: 320px;
@@ -90,7 +103,6 @@
         }
         tbody {
           height: 40px;
-          background: lighten($beige, 5%);
           border-bottom: 1px solid darken($beige, 20%);
           tr {
             height: 1.5em;
@@ -120,9 +132,7 @@
           text-align: right;
         }
         tfoot {
-          background: lighten($beige, 5%);
           a.order_confirmation_link {
-            @include button($green);
           }
         }
       }
