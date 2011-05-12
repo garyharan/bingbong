@@ -1,11 +1,45 @@
 <tfoot id="confirmation">
-  <tr>
-    <% if @lines.empty? -%>
+  <% if @lines.empty? -%>
+    <tr>
       <td colspan="5">Cliques sur un prix pour commander</td>
-    <% else -%>
+    </tr>
+  <% else -%>
+    <tr>
+      <td colspan="4" class="subtotal price">
+        Sous-total:
+      </td>
+      <td class="subtotal price">
+        <%= number_to_currency(@subtotal = @lines.inject(0) { |sum, line| sum + (line.item.price * line.quantity) }, :unit => "$") %>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="4" class="subtotal">
+        TPS:
+      </td>
+      <td class="subtotal">
+        <%= number_to_currency((@tps = @subtotal * 0.05), :unit => "$")  %>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="4" class="subtotal">
+        TVQ:
+      </td>
+      <td class="subtotal">
+        <%= number_to_currency(@tvq = (@subtotal + @tps) * 0.085, :unit => "$")  %>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="4" class="subtotal">
+        Total:
+      </td>
+      <td class="subtotal">
+        <%= number_to_currency((@subtotal + @tvq + @tps), :unit => "$")  %>
+      </td>
+    </tr>
+    <tr>
       <td colspan="5">
         <%= link_to "Confirmer", orders_path(:order => { :shop_id => @lines.first.shop_id }), :method => :post, :class => "order_confirmation_link" %>
       </td>
-    <% end -%>
-  </tr>
+    </tr>
+  <% end -%>
 </tfoot>

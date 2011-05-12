@@ -34,6 +34,7 @@ class LinesControllerTest < ActionController::TestCase
     xhr :put, :update, :line => { :quantity => 3 }, :id => @line.id
     assert_equal 3, assigns(:line).quantity
     assert_not_nil assigns(:lines)
+    assert_equal @line.id, assigns(:lines).first.id
   end
 
   test "should delete line if quantity set to 0" do

@@ -1,7 +1,7 @@
 <% if @line.quantity == 0 -%>
   $('#<%= dom_id @line %>').remove()
 <% else -%>
-  $('#<%= dom_id @line %>').replaceWith("<%= escape_javascript(render(@line)) %>").effect('highlight')
-  $('#<%= dom_id @line %>').effect('highlight')
+  $('#<%= dom_id @line %>').replaceWith("<%= escape_javascript(render(@line)) %>")
 <% end -%>
+$('#<%= dom_id @line %>').effect('highlight')
 $('#confirmation').replaceWith("<%= escape_javascript(render(:partial => "lines/confirmation")) %>")

@@ -7,6 +7,6 @@ class OrderTest < ActiveSupport::TestCase
      3.times do
        Line.create Factory.attributes_for(:line, :order_id => @order.id, :item_id => @item.id)
      end
-    assert_equal (Factory.build(:item).price * 3), @order.subtotal * 1.0
+    assert_equal (Factory.build(:item).price * 3), (@order.subtotal) * 1.0
   end
 end
