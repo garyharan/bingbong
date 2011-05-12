@@ -9,7 +9,10 @@ Bingbong::Application.routes.draw do
       resources :items
     end
   end
+
+  # actual orders
   resources :lines
+  resources :orders
 
   devise_for :users
 
