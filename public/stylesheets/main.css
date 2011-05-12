@@ -233,10 +233,12 @@ a.home:hover {
           height: 40px;
           background: #fafcf0;
           border-bottom: 1px solid #d7e488; }
+          #menu div:first-child #order table tbody tr {
+            height: 1.5em; }
         #menu div:first-child #order table #confirmation tr {
           height: 2.5em; }
         #menu div:first-child #order table .subtotal {
-          border-top: 3px double #bbd234;
+          border-top: 1px solid #d7e488;
           font-weight: bold; }
         #menu div:first-child #order table .subtotal, #menu div:first-child #order table .tps, #menu div:first-child #order table .tvq, #menu div:first-child #order table .total {
           font-size: 1.4rem;
@@ -246,7 +248,7 @@ a.home:hover {
         #menu div:first-child #order table .subtotal, #menu div:first-child #order table .tps, #menu div:first-child #order table .tvq, #menu div:first-child #order table .total, #menu div:first-child #order table .price {
           padding-right: 13px; }
         #menu div:first-child #order table .total_line {
-          border-top: 2px solid #d7e488; }
+          border-top: 1px solid #d7e488; }
         #menu div:first-child #order table td.price {
           font-size: 1.4rem;
           text-align: right; }

@@ -92,12 +92,15 @@
           height: 40px;
           background: lighten($beige, 5%);
           border-bottom: 1px solid darken($beige, 20%);
+          tr {
+            height: 1.5em;
+          }
         }
         #confirmation tr {
           height: 2.5em;
         }
         .subtotal {
-          border-top: 3px double darken($beige, 40%);
+          border-top: 1px solid darken($beige, 20%);
           font-weight: bold;
         }
         .subtotal, .tps, .tvq, .total {
@@ -110,7 +113,7 @@
           padding-right: 13px;
         }
         .total_line {
-          border-top: 2px solid darken($beige, 20%);
+          border-top: 1px solid darken($beige, 20%);
         }
         td.price {
           font-size: 1.4rem;
