@@ -1,1 +1,4 @@
-<%= link_to search.location, search, :class => "previous search button" %>
+<div id="<%= dom_id search, 'link' %>">
+  <%= link_to search.location, search, :class => 'old_search' %>
+  <%= link_to "x", search, :method => "delete", :confirm => "Êtes-vous certain de vouloir effacer cette recherche?", :class => "delete" %>
+</div>

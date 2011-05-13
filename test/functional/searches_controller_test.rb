@@ -42,4 +42,14 @@ class SearchesControllerTest < ActionController::TestCase
       post :create, :search => Factory.attributes_for(:search)
     end
   end
+
+  test "should delete search" do
+    @user = User.create Factory.attributes_for :user
+    @search = Search.create Factory.attributes_for(:search, :user_id => @user.id)
+    sign_in @user
+    assert_difference '@user.searches.count', -1 do
+      delete :destroy, :id => @search.id
+    end
+    assert_redirected_to searches_path
+  end
 end

@@ -45,11 +45,25 @@
       font-size: 3rem;
       width: 600px;
     }
-    .button {
-      width: 570px;
-      margin-top: 10px;
-      font-size: 1.6rem;
-      @include button($green);
+    #instructions {
+      position: relative;
+      .old_search {
+        width: 570px;
+        margin-top: 10px;
+        font-size: 1.6rem;
+        @include button($green);
+      }
+      .delete {
+        position: relative;
+        left: -24px;
+        font-weight: bold;
+        text-decoration: none;
+        text-shadow: 0px 0px 2px lighten($green, 30%);
+        &:hover {
+          background: transparent;
+          text-decoration: none;
+        }
+      }
     }
   }
 }

@@ -1,4 +1,6 @@
 class SearchesController < ApplicationController
+  before_filter :authenticate_user!, :only => :destroy
+
   def index
     @search = Search.new
     if user_signed_in?
@@ -35,5 +37,11 @@ class SearchesController < ApplicationController
         format.html { render :action => "new" }
       end
     end
+  end
+
+  def destroy
+    @search = current_user.searches.find params[:id]
+    @search.destroy
+    redirect_to searches_path
   end
 end
