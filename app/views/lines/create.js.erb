@@ -4,4 +4,5 @@ if ($('#<%= dom_id @line %>').length){
   $('#lines').append("<%= escape_javascript(render(@line)) %>")
 }
 $('#<%= dom_id @line %>').effect('highlight')
+$('#totals').replaceWith("<%= escape_javascript(render(:partial => "lines/totals")) %>")
 $('#confirmation').replaceWith("<%= escape_javascript(render(:partial => "lines/confirmation")) %>")

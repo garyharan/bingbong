@@ -67,31 +67,6 @@
         @include box-shadow(0px, 0px, 15px, transparentize($shadow, 0.7));
         border-collapse: collapse;
         width: 320px;
-        td {
-          padding: 3px;
-          text-align: center;
-        }
-        td.arrow {
-          padding: 0 0 0 10px;
-          margin: 0;
-          width: 10px;
-          a {
-            background: transparent;
-            color: $brown;
-          }
-          a:hover {
-            text-shadow: 0px 0px 9px white;
-          }
-          a:active {
-            text-shadow: 0px 0px 9px $brown;
-          }
-        }
-        td:first-child, td.quantity {
-          width: 12px;
-        }
-        td:first-child a {
-          text-decoration: none;
-        }
         thead {
           background: $brown;
           color: $yellow;
@@ -102,108 +77,128 @@
           }
         }
         tbody {
-          height: 40px;
           border-bottom: 1px solid darken($beige, 20%);
           tr {
-            height: 1.5em;
+            height: 2.5rem;
+            td {
+              color: darken($brown, 10%);
+              &.price {
+                text-align: right;
+                padding-right: 11px;
+              }
+            }
+            td.arrow a {
+              text-decoration: none;
+              color: $brown;
+              margin-left: 10px;
+              &.up {
+                position: relative;
+                top: 5px;
+              }
+              &.down {
+                position: relative;
+                top: -5px;
+              }
+              &:hover {
+                background: none;
+              }
+              &:active {
+                position: relative;
+                top: 1px;
+              }
+            }
           }
         }
-        #confirmation tr {
-          height: 2.5em;
-        }
-        .subtotal {
-          border-top: 1px solid darken($beige, 20%);
-          font-weight: bold;
-        }
-        .subtotal, .tps, .tvq, .total {
-          font-size: 1.4rem;
-          font-weight: bold;
-          color: darken($brown, 5%);
-          text-align: right;
-        }
-        .subtotal, .tps, .tvq, .total, .price {
-          padding-right: 13px;
-        }
-        .total_line {
-          border-top: 1px solid darken($beige, 20%);
-        }
-        td.price {
-          font-size: 1.4rem;
-          text-align: right;
-        }
-        tfoot {
-          a.order_confirmation_link {
+        tfoot#totals {
+          tr {
+            height: 2.5rem;
+            td.subtotal {
+                border-top: 1px solid darken($beige, 20%);
+                font-weight: bold;
+              }
+            }
+            .subtotal, .tps, .tvq, .total {
+              font-size: 1.4rem;
+              font-weight: bold;
+              color: darken($brown, 5%);
+              text-align: right;
+            }
+            .subtotal, .tps, .tvq, .total, .price {
+              padding-right: 13px;
+            }
+            .total_line {
+              border-top: 1px solid darken($beige, 20%);
+            }
           }
         }
       }
-    }
-    #categories {
-      z-index: 2;
-      width: 600px;
-      background: white;
-      padding: 15px;
-      @include box-shadow(0px, 0px, 15px, transparentize($shadow, 0.7));
-      position: absolute;
-      left: 0px;
-      table {
-        color: #666;
-        margin-bottom: 30px;
-        th,td {
-          white-space:nowrap;
-          min-width: 60px;
+      #categories {
+        z-index: 2;
+        width: 600px;
+        background: white;
+        padding: 15px;
+        @include box-shadow(0px, 0px, 15px, transparentize($shadow, 0.7));
+        position: absolute;
+        left: 0px;
+        table {
+          color: #666;
+          margin-bottom: 30px;
+          th,td {
+            white-space:nowrap;
+            min-width: 60px;
+      }
+      th:first-child, td:first-child {
+        width: 250px;
+        text-align: left;
+      }
+      th:first-child {
+        padding-left: 10px;
+      }
+      th.spacer,td.spacer {
+        width: 80%;
+      }
+      th.owner:last-child {
+        text-align: right;
+      }
+      td:first-child{
+        font-weight: bold;
+        padding-left: 10px;
+      }
+      border-collapse: collapse;
+      thead {
+        background: $red;
+        color: white;
+        th {
+          height: 30px;
+          text-align: center;
         }
-        th:first-child, td:first-child {
-          width: 250px;
-          text-align: left;
+      }
+      tbody {
+        td {
+          height: 30px;
+          padding: 6px;
+          text-align: center;
+          border-bottom: 1px solid #ddd;
         }
-        th:first-child {
-          padding-left: 10px;
-        }
-        th.spacer,td.spacer {
-          width: 80%;
-        }
-        th.owner:last-child {
-          text-align: right;
-        }
-        td:first-child{
-          font-weight: bold;
-          padding-left: 10px;
-        }
-        border-collapse: collapse;
-        thead {
-          background: $red;
-          color: white;
-          th {
-            height: 30px;
-            text-align: center;
-          }
-        }
-        tbody {
-          td {
-            height: 30px;
-            padding: 6px;
-            text-align: center;
-            border-bottom: 1px solid #ddd;
-          }
-        }
-        .price_link {
-          font-size: 1.3rem;
-          padding: 0.5rem;
-          text-decoration: none;
-        }
-        .price_link:hover {
-          color: black;
-          background: white;
-          font-weight: bold;
-        }
-        .price_link.selected {
-          font-size: 10px;
-        }
-        .price_field {
-          text-align: right;
-        }
+      }
+      .price_link {
+        font-size: 1.3rem;
+        padding: 0.5rem;
+        text-decoration: none;
+      }
+      .price_link:hover {
+        color: black;
+        background: white;
+        font-weight: bold;
+      }
+      .price_link.selected {
+        font-size: 10px;
+      }
+      .price_field {
+        text-align: right;
       }
     }
   }
+}
 }
 

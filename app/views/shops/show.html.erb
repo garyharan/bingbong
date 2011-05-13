@@ -44,16 +44,17 @@
               <th colspan="5">Ta Commande</th>
             </tr>
           </thead>
-          <%= render :partial => "lines/confirmation" %>
+          <%= render :partial => "lines/totals" %>
           <%= render @lines %>
         </table>
-        <%= link_to "Confirmer", orders_path(:order => { :shop_id => @lines.first.shop_id }), :method => :post, :id => "confirm_link" %>
+        <%= render :partial => "lines/confirmation" %>
+      </div>
       <% else -%>
         <p>
           Il faut s'incrire ou se connecter pour pouvoir faire une commande.
         </p>
       <% end -%>
-    </div>
       <%= image_tag "/images/inside_cart_icon.png", :width => 54, :height => 67, :id => "bag" %>
+    </div>
   </div>
 </div>

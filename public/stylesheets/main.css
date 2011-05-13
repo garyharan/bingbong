@@ -247,24 +247,6 @@ a.home:hover {
         box-shadow: 0px 0px 15px rgba(84, 110, 8, 0.3);
         border-collapse: collapse;
         width: 320px; }
-        #menu div:first-child #order table td {
-          padding: 3px;
-          text-align: center; }
-        #menu div:first-child #order table td.arrow {
-          padding: 0 0 0 10px;
-          margin: 0;
-          width: 10px; }
-          #menu div:first-child #order table td.arrow a {
-            background: transparent;
-            color: #bf9316; }
-          #menu div:first-child #order table td.arrow a:hover {
-            text-shadow: 0px 0px 9px white; }
-          #menu div:first-child #order table td.arrow a:active {
-            text-shadow: 0px 0px 9px #bf9316; }
-        #menu div:first-child #order table td:first-child, #menu div:first-child #order table td.quantity {
-          width: 12px; }
-        #menu div:first-child #order table td:first-child a {
-          text-decoration: none; }
         #menu div:first-child #order table thead {
           background: #bf9316;
           color: #e1f89b;
@@ -273,27 +255,43 @@ a.home:hover {
           #menu div:first-child #order table thead th {
             padding: 10px; }
         #menu div:first-child #order table tbody {
-          height: 40px;
           border-bottom: 1px solid #d7e488; }
           #menu div:first-child #order table tbody tr {
-            height: 1.5em; }
-        #menu div:first-child #order table #confirmation tr {
-          height: 2.5em; }
-        #menu div:first-child #order table .subtotal {
-          border-top: 1px solid #d7e488;
-          font-weight: bold; }
-        #menu div:first-child #order table .subtotal, #menu div:first-child #order table .tps, #menu div:first-child #order table .tvq, #menu div:first-child #order table .total {
+            height: 2.5rem; }
+            #menu div:first-child #order table tbody tr td {
+              color: #917011; }
+              #menu div:first-child #order table tbody tr td.price {
+                text-align: right;
+                padding-right: 11px; }
+            #menu div:first-child #order table tbody tr td.arrow a {
+              text-decoration: none;
+              color: #bf9316;
+              margin-left: 10px; }
+              #menu div:first-child #order table tbody tr td.arrow a.up {
+                position: relative;
+                top: 5px; }
+              #menu div:first-child #order table tbody tr td.arrow a.down {
+                position: relative;
+                top: -5px; }
+              #menu div:first-child #order table tbody tr td.arrow a:hover {
+                background: none; }
+              #menu div:first-child #order table tbody tr td.arrow a:active {
+                position: relative;
+                top: 1px; }
+        #menu div:first-child #order table tfoot#totals tr {
+          height: 2.5rem; }
+          #menu div:first-child #order table tfoot#totals tr td.subtotal {
+            border-top: 1px solid #d7e488;
+            font-weight: bold; }
+        #menu div:first-child #order table tfoot#totals .subtotal, #menu div:first-child #order table tfoot#totals .tps, #menu div:first-child #order table tfoot#totals .tvq, #menu div:first-child #order table tfoot#totals .total {
           font-size: 1.4rem;
           font-weight: bold;
           color: #a88113;
           text-align: right; }
-        #menu div:first-child #order table .subtotal, #menu div:first-child #order table .tps, #menu div:first-child #order table .tvq, #menu div:first-child #order table .total, #menu div:first-child #order table .price {
+        #menu div:first-child #order table tfoot#totals .subtotal, #menu div:first-child #order table tfoot#totals .tps, #menu div:first-child #order table tfoot#totals .tvq, #menu div:first-child #order table tfoot#totals .total, #menu div:first-child #order table tfoot#totals .price {
           padding-right: 13px; }
-        #menu div:first-child #order table .total_line {
+        #menu div:first-child #order table tfoot#totals .total_line {
           border-top: 1px solid #d7e488; }
-        #menu div:first-child #order table td.price {
-          font-size: 1.4rem;
-          text-align: right; }
     #menu div:first-child #categories {
       z-index: 2;
       width: 600px;
