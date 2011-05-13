@@ -203,7 +203,10 @@ a.home:hover {
       top: 50px;
       width: 320px;
       z-index: 1; }
-      #menu div:first-child #order #confirm_link {
+      #menu div:first-child #order #confirmation p {
+        text-align: center;
+        padding: 10px; }
+      #menu div:first-child #order #confirmation #confirm_link {
         font-size: 1.7rem;
         display: inline-block;
         outline: none;
@@ -227,13 +230,13 @@ a.home:hover {
         filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#94d042', endColorstr='#698f36');
         margin: 10px;
         float: right; }
-        #menu div:first-child #order #confirm_link:hover {
+        #menu div:first-child #order #confirmation #confirm_link:hover {
           text-decoration: none;
           background: #93ca48;
           background: -webkit-gradient(linear, left top, left bottom, from(#92c44e), to(#85b444));
           background: -moz-linear-gradient(top, #92c44e, #85b444);
           filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#92c44e', endColorstr='#85b444'); }
-        #menu div:first-child #order #confirm_link:active {
+        #menu div:first-child #order #confirmation #confirm_link:active {
           position: relative;
           top: 1px;
           color: #94d042;

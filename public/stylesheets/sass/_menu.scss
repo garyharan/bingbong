@@ -56,11 +56,17 @@
       top: 50px;
       width: 320px;
       z-index: 1;
-      #confirm_link {
-        font-size: 1.7rem;
-        @include button($green);
-        margin: 10px;
-        float: right;
+      #confirmation {
+        p {
+          text-align: center;
+          padding: 10px;
+        }
+        #confirm_link {
+          font-size: 1.7rem;
+          @include button($green);
+          margin: 10px;
+          float: right;
+        }
       }
       table {
         background: lighten($beige, 4%);

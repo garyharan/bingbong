@@ -1,5 +1,7 @@
-<% if @lines.empty? %>
-  Rajoutez un item en cliquant son prix.
-<% else -%>
-  <%= link_to "Confirmer", orders_path(:order => { :shop_id => @lines.first.shop_id }), :method => :post, :id => "confirm_link" %>
-<% end -%>
+<div id="confirmation">
+  <% if @lines.empty? %>
+    <p>Rajoutez un item en cliquant son prix.</p>
+  <% else -%>
+    <%= link_to "Confirmer", orders_path(:order => { :shop_id => @lines.first.shop_id }), :method => :post, :id => "confirm_link" %>
+  <% end -%>
+</div>
