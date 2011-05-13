@@ -6,4 +6,6 @@ Factory.define :shop do |f|
   f.province "Quebec"
   f.country "Canada"
   f.postal_code "J4T1C7"
+  f.latitude "45.00000"
+  f.longitude "73.0000"
 end

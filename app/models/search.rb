@@ -6,7 +6,17 @@ class Search < ActiveRecord::Base
   end
 
   def find_shops
-    @coordinates = Geocoder.coordinates location
-    @shops = Shop.near(@coordinates)
+    @shops = Shop.near(fetch_coordinates)
+  end
+
+  private
+  def fetch_coordinates
+    if self.latitude.nil? || self.longitude.nil?
+      coordinates    = Geocoder.coordinates location
+      self.latitude  = coordinates[0]
+      self.longitude = coordinates[1]
+      self.save
+    end
+    [self.latitude, self.longitude]
   end
 end
