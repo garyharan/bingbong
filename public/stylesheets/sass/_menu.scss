@@ -100,17 +100,19 @@
               &.up {
                 position: relative;
                 top: 5px;
+                &:active {
+                  top: 6px;
+                }
               }
               &.down {
                 position: relative;
                 top: -5px;
+                &:active {
+                  top: -4px;
+                }
               }
               &:hover {
                 background: none;
-              }
-              &:active {
-                position: relative;
-                top: 1px;
               }
             }
           }

@@ -273,14 +273,15 @@ a.home:hover {
               #menu div:first-child #order table tbody tr td.arrow a.up {
                 position: relative;
                 top: 5px; }
+                #menu div:first-child #order table tbody tr td.arrow a.up:active {
+                  top: 6px; }
               #menu div:first-child #order table tbody tr td.arrow a.down {
                 position: relative;
                 top: -5px; }
+                #menu div:first-child #order table tbody tr td.arrow a.down:active {
+                  top: -4px; }
               #menu div:first-child #order table tbody tr td.arrow a:hover {
                 background: none; }
-              #menu div:first-child #order table tbody tr td.arrow a:active {
-                position: relative;
-                top: 1px; }
         #menu div:first-child #order table tfoot#totals tr {
           height: 2.5rem; }
           #menu div:first-child #order table tfoot#totals tr td.subtotal {
