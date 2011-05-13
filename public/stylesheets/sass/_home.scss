@@ -46,9 +46,15 @@
       width: 600px;
     }
     #instructions {
-      position: relative;
-      .old_search {
+      text-align: center;
+      div {
+        position: relative;
         width: 570px;
+        margin: 0 auto;
+      }
+      .old_search {
+        margin: 0 auto;
+        width: 50%;
         margin-top: 10px;
         font-size: 1.6rem;
         @include button($green);

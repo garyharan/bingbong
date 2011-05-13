@@ -115,9 +115,14 @@ a.home:hover {
       font-size: 3rem;
       width: 600px; }
     #find div:first-child #instructions {
-      position: relative; }
-      #find div:first-child #instructions .old_search {
+      text-align: center; }
+      #find div:first-child #instructions div {
+        position: relative;
         width: 570px;
+        margin: 0 auto; }
+      #find div:first-child #instructions .old_search {
+        margin: 0 auto;
+        width: 50%;
         margin-top: 10px;
         font-size: 1.6rem;
         display: inline-block;
