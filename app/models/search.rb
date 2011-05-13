@@ -1,4 +1,6 @@
 class Search < ActiveRecord::Base
+  belongs_to :user
+
   def shops
     @shops ||= find_shops
   end

@@ -46,10 +46,10 @@
       width: 600px;
     }
     .button {
-      @include button($red);
-    }
-    #address {
-
+      width: 570px;
+      margin-top: 10px;
+      font-size: 1.6rem;
+      @include button($green);
     }
   }
 }

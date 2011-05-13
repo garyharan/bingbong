@@ -13,6 +13,8 @@ class User < ActiveRecord::Base
   has_many :shops
   has_many :lines
 
+  has_many :searches
+
   def name
     [first_name, last_name].join(' ')
   end

@@ -1,6 +1,9 @@
 class SearchesController < ApplicationController
   def index
     @search = Search.new
+    if user_signed_in?
+      @searches = current_user.searches
+    end
   end
 
   def show
@@ -22,6 +25,8 @@ class SearchesController < ApplicationController
   def create
     @location = params[:location] || params[:search][:location]
     @search = Search.find_by_location(@location) || Search.new(params[:search])
+
+    @search.user_id = current_user.id if user_signed_in?
 
     respond_to do |format|
       if @search.save

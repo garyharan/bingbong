@@ -34,4 +34,12 @@ class SearchesControllerTest < ActionController::TestCase
     get :show, :id => @search.to_param
     assert_response :success
   end
+  
+  test "user should have saved search if logged in" do
+    @user = User.create Factory.attributes_for :user
+    sign_in @user
+    assert_difference('@user.searches.count') do
+      post :create, :search => Factory.attributes_for(:search)
+    end
+  end
 end

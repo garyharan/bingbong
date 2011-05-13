@@ -115,6 +115,9 @@ a.home:hover {
       font-size: 3rem;
       width: 600px; }
     #find div:first-child .button {
+      width: 570px;
+      margin-top: 10px;
+      font-size: 1.6rem;
       display: inline-block;
       outline: none;
       cursor: pointer;
@@ -130,24 +133,24 @@ a.home:hover {
       box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
       color: white !important;
       font-weight: bold;
-      border: solid 1px #983513;
-      background: #e35524;
-      background: -webkit-gradient(linear, left top, left bottom, from(#f64c11), to(#a53a15));
-      background: -moz-linear-gradient(top, #f64c11, #a53a15);
-      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f64c11', endColorstr='#a53a15'); }
+      border: solid 1px #618432;
+      background: #91be54;
+      background: -webkit-gradient(linear, left top, left bottom, from(#94d042), to(#698f36));
+      background: -moz-linear-gradient(top, #94d042, #698f36);
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#94d042', endColorstr='#698f36'); }
       #find div:first-child .button:hover {
         text-decoration: none;
-        background: #ef4f18;
-        background: -webkit-gradient(linear, left top, left bottom, from(#e9521e), to(#d34a1b));
-        background: -moz-linear-gradient(top, #e9521e, #d34a1b);
-        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e9521e', endColorstr='#d34a1b'); }
+        background: #93ca48;
+        background: -webkit-gradient(linear, left top, left bottom, from(#92c44e), to(#85b444));
+        background: -moz-linear-gradient(top, #92c44e, #85b444);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#92c44e', endColorstr='#85b444'); }
       #find div:first-child .button:active {
         position: relative;
         top: 1px;
-        color: #f64c11;
-        background: -webkit-gradient(linear, left top, left bottom, from(#f64c11), to(#ec8a68));
-        background: -moz-linear-gradient(top, #f64c11, #ec8a68);
-        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f64c11', endColorstr='#ec8a68'); }
+        color: #94d042;
+        background: -webkit-gradient(linear, left top, left bottom, from(#94d042), to(#b5d38b));
+        background: -moz-linear-gradient(top, #94d042, #b5d38b);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#94d042', endColorstr='#b5d38b'); }
 
 #shops {
   width: 100%; }
