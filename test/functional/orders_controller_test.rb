@@ -12,6 +12,11 @@ class OrdersControllerTest < ActionController::TestCase
     @item.update_attribute :price, 2.99
   end
 
+  test "should get new" do
+    get :new, :order => { :shop_id => @shop.id }
+    assert_response :success
+  end
+
   test "should create an order" do
     @line = Line.create :user_id => @user.id, :shop_id => @shop.id, :item_id => @item.id, :quantity => 2
     assert_difference 'Order.count' do
