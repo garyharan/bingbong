@@ -1,0 +1,53 @@
+<% @page_title = ["BingBong.ca", params[:address]].join(" :: ") %>
+
+<div id="logo_line">
+  <div>
+    <%= image_tag "logo.png", :width => 282, :height => 127, :alt => "Commander en ligne avec BingBong.ca", :id => "logo" %>
+  </div>
+</div>
+
+<div id="potential_container">
+  <div id="potential_center">
+    <%= form_for(@potential) do |f| %>
+      <% if @potential.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@potential.errors.count, "erreur") %>:</h2>
+
+          <ul>
+            <% @potential.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="field">
+        <label for="potential_type_normal">
+          <%= f.radio_button("type", "normal", :checked => true) %> j'aime manger
+        </label>
+      </div>
+
+      <div class="field">
+        <label for="potential_type_restaurant">
+          <%= f.radio_button("type", "restaurant") %> j'ai un resto
+        </label>
+      </div>
+      
+      <div class="field">
+        <%= f.text_field :name, :placeholder => "Guy Moutarde" %>
+      </div>
+      <div class="field">
+        <%= f.text_field :email, :placeholder => "guy24@example.com" %>
+      </div>
+      <div class="field">
+        <%= f.text_field :address, :placeholder => "12 rue des Affamés, St-Famine, QC"  %>
+      </div>
+      <div class="field phone">
+        <%= f.text_field :phone, :placeholder => "450-555-5555" %>
+      </div>
+      <div class="actions">
+        <%= f.submit "Tenez moi au courant" %>
+      </div>
+    <% end %>
+  </div>
+</div>

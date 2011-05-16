@@ -1,4 +1,14 @@
 $(function(){
+  // pre launch
+  $('input:radio').click(function(){
+    if ($('input:radio[name="potential[type]"]:checked').val() == 'normal'){
+      $('.phone').hide()
+    } else {
+      $('.phone').show()
+    }
+  })
+
+
   // home page 
   $(window).keydown(function(e){
     switch (e.which){

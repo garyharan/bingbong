@@ -517,13 +517,87 @@ div#confirm {
     top: 10px;
     font-size: 10px; }
 
-header {
+#header {
   text-align: center; }
-  header div:first-child {
+  #header div:first-child {
     margin: 0 auto;
     width: 950px;
     text-align: left; }
-    header div:first-child #user_nav {
-      float: right;
-      padding-top: 4px;
-      font-size: 11px; }
+
+body.potentials {
+  color: #927318;
+  text-align: center;
+  width: 100%; }
+  body.potentials #user_nav, body.potentials #banner {
+    display: none; }
+  body.potentials #logo_line {
+    width: 100%;
+    background: #91be54; }
+    body.potentials #logo_line img {
+      position: relative;
+      left: -5px; }
+  body.potentials #potential_container {
+    position: relative; }
+    body.potentials #potential_container ul {
+      display: inline; }
+      body.potentials #potential_container ul li {
+        display: inline;
+        list-style: none;
+        margin-left: 0; }
+    body.potentials #potential_container #potential_center {
+      width: 387px;
+      margin: 0 auto;
+      text-align: left; }
+      body.potentials #potential_container #potential_center form {
+        padding-top: 30px; }
+        body.potentials #potential_container #potential_center form div {
+          padding-top: 10px; }
+        body.potentials #potential_container #potential_center form div.phone {
+          display: none; }
+        body.potentials #potential_container #potential_center form input[type='text'] {
+          width: 350px;
+          display: inline-block;
+          outline: none;
+          text-decoration: none;
+          font: 14px/100% Arial, Helvetica, sans-serif;
+          padding: .5em;
+          text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+          -webkit-border-radius: .5em;
+          -moz-border-radius: .5em;
+          border-radius: .5em;
+          -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+          -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2); }
+        body.potentials #potential_container #potential_center form input[type='submit'] {
+          margin: 10px;
+          display: inline-block;
+          outline: none;
+          cursor: pointer;
+          text-align: center;
+          text-decoration: none;
+          padding: .5em 2em .55em;
+          text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+          -webkit-border-radius: .5em;
+          -moz-border-radius: .5em;
+          border-radius: .5em;
+          -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+          -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+          color: white !important;
+          font-weight: bold;
+          border: solid 1px #618432;
+          background: #91be54;
+          background: -webkit-gradient(linear, left top, left bottom, from(#94d042), to(#698f36));
+          background: -moz-linear-gradient(top, #94d042, #698f36);
+          filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#94d042', endColorstr='#698f36'); }
+          body.potentials #potential_container #potential_center form input[type='submit']:hover {
+            text-decoration: none;
+            background: #93ca48;
+            background: -webkit-gradient(linear, left top, left bottom, from(#92c44e), to(#85b444));
+            background: -moz-linear-gradient(top, #92c44e, #85b444);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#92c44e', endColorstr='#85b444'); }
+          body.potentials #potential_container #potential_center form input[type='submit']:active {
+            color: #94d042;
+            background: -webkit-gradient(linear, left top, left bottom, from(#94d042), to(#b5d38b));
+            background: -moz-linear-gradient(top, #94d042, #b5d38b);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#94d042', endColorstr='#b5d38b'); }

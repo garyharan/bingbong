@@ -22,16 +22,61 @@
   }
 }
 
-header {
+#header {
   text-align: center;
   div:first-child {
     margin: 0 auto;
     width: 950px;
     text-align: left;
-    #user_nav {
-      float: right;
-      padding-top: 4px;
-      font-size: 11px;
+  }
+}
+
+body.potentials {
+  color: darken($orange, 10%);
+  #user_nav, #banner {
+    display: none;
+  }
+  #logo_line {
+    width: 100%;
+    background: $green;
+    img {
+      position: relative;
+      left: -5px;
+    }
+  }
+  text-align: center;
+  width: 100%;
+  #potential_container {
+    position: relative;
+    ul {
+      display: inline;
+      li {
+        display: inline;
+        list-style: none;
+        margin-left: 0;
+      }
+    }
+    #potential_center {
+      width: 387px;
+      margin: 0 auto;
+      text-align: left;
+      form {
+        padding-top: 30px;
+        div {
+          padding-top: 10px;
+        }
+        div.phone {
+          display: none;
+        }
+        input[type='text'] {
+          width: 350px;
+          @include text-field;
+        }
+        input[type='submit'] {
+          margin: 10px;
+          @include button($green);
+        }
+      }
     }
   }
 }
