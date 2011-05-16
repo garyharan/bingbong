@@ -24,7 +24,7 @@
 <div id="confirm">
   <div id="container">
     <div id="extras">
-      <%= form_for orders_path(:order => { :shop_id => @lines.first.shop_id }), :method => :post do |f| %>
+      <%= form_for(Order.new, :as => :post, :url => orders_path(:order => { :shop_id => @lines.first.shop_id })) do |f| %>
         <p>Vous recevrez un email lorsque la commande sera reçue.</p>
         <%= f.submit "Confirmer la commande", :id => "confirm_link" %>
       <% end -%>
