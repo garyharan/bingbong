@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(:version => 20110516200048) do
     t.string   "email"
     t.string   "address"
     t.string   "phone"
-    t.string   "type"
+    t.string   "kind"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

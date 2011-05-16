@@ -5,7 +5,7 @@ class CreatePotentials < ActiveRecord::Migration
       t.string :email
       t.string :address
       t.string :phone
-      t.string :type
+      t.string :kind
 
       t.timestamps
     end

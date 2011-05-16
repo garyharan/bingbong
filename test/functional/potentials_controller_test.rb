@@ -12,7 +12,7 @@ class PotentialsControllerTest < ActionController::TestCase
 
   test "should create potential" do
     assert_difference('Potential.count') do
-      post :create, :potential => @potential.attributes
+      post :create, :potential => Factory.attributes_for(:potential)
     end
 
     assert_redirected_to potential_path(assigns(:potential))
