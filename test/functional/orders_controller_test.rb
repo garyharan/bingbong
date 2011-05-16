@@ -14,6 +14,9 @@ class OrdersControllerTest < ActionController::TestCase
 
   test "should get new" do
     get :new, :order => { :shop_id => @shop.id }
+    assert_not_nil assigns(:shop)
+    assert_not_nil assigns(:order)
+    assert_not_nil assigns(:lines)
     assert_response :success
   end
 

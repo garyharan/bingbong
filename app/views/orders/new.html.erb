@@ -1,3 +1,84 @@
-<table>
-  <%= render @lines %>
-</table>
+<header>
+<div>
+  <%= link_to image_tag('/images/logo.png', :height => 94, :width => 224), root_path, :class => 'home' %>
+  <%= render :partial => 'shared/flashes' %>
+</div>
+</header>
+
+<div id="shop_banner">
+  <div>
+    <div id="shop_address">
+      <% if user_signed_in? && @shop.owned_by?(current_user) -%>
+        <h1><%= best_in_place @shop, :name %></h1>
+        <h2><%= best_in_place @shop, :address %>, <%= best_in_place @shop, :city %>, <%= best_in_place @shop, :postal_code %>, <%= best_in_place @shop, :phone_number %></h2>
+        <p><em>Commande minimum</em>: <%= best_in_place @shop, :minimum %>$ | <em>Livraison</em>: <%= best_in_place @shop, :delivery %>min</p>
+      <% else -%>
+        <h1><%= @shop.name %></h1>
+        <p><%= @shop.full_address %></p>
+      <% end -%>
+      <%= image_tag(map_url(@shop), :id => 'shop_map') %>
+    </div>
+  </div>
+</div>
+
+<div id="confirm">
+  <div id="container">
+    <div id="extras">
+      <%= form_for orders_path(:order => { :shop_id => @lines.first.shop_id }), :method => :post do |f| %>
+        <p>Vous recevrez un email lorsque la commande sera reçue.</p>
+        <%= f.submit "Confirmer la commande", :id => "confirm_link" %>
+      <% end -%>
+    </div>
+    <table id="confirm_order">
+      <thead>
+        <th colspan="5">
+          Votre commande
+        </th>
+      </thead>
+      <tfoot id="totals">
+        <tr>
+          <td colspan="3" class="subtotal price">
+            Sous-total:
+          </td>
+          <td class="subtotal">
+            <%= number_to_currency(@subtotal = @lines.inject(0) { |sum, line| sum + (line.item.price * line.quantity) }, :unit => "$") %>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="3" class="tps">
+            TPS:
+          </td>
+          <td class="tps">
+            <%= number_to_currency((@tps = @subtotal * 0.05), :unit => "$")  %>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="3" class="tvq">
+            TVQ:
+          </td>
+          <td class="tvq">
+            <%= number_to_currency(@tvq = (@subtotal + @tps) * 0.085, :unit => "$")  %>
+          </td>
+        </tr>
+        <tr class="total_line">
+          <td colspan="3" class="total">
+            Total:
+          </td>
+          <td class="total">
+            <%= number_to_currency((@subtotal + @tvq + @tps), :unit => "$")  %>
+          </td>
+        </tr>
+      </tfoot>
+      <% @lines.each do |line| -%>
+        <tbody id="<%= dom_id line %>">
+          <tr>
+            <td rowspan="2"><%= pluralize line.quantity, line.item.product.category.name.singularize.downcase %></td>
+            <td rowspan="2"><%= line.item.name.downcase %></td>
+            <td rowspan="2"><%= line.item.size.name.downcase %></td>
+            <td rowspan="2" class="price"><%= number_to_currency(line.item.price * line.quantity, :unit => "$") %></td>
+          </tr>
+        </tbody>
+      <% end -%>
+    </table>
+  </div>
+</div>

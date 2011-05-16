@@ -5,6 +5,7 @@ class OrdersController < ApplicationController
 
   def new
     @order = Order.new params[:order].merge(:user_id => current_user.id)
+    @shop  = @order.shop
     @lines = Line.find(:all, :conditions => { :order_id => nil, :user_id => current_user.id, :shop_id => params[:order][:shop_id] })
   end
 
