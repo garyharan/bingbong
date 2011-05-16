@@ -2,7 +2,7 @@ require 'test_helper'
 
 class PotentialsControllerTest < ActionController::TestCase
   setup do
-    @potential = potentials(:one)
+    @potential = Potential.create Factory.attributes_for(:potential)
   end
 
   test "should get new" do
