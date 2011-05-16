@@ -37,6 +37,7 @@ body.potentials {
     display: none;
   }
   #logo_line {
+    @include box-shadow(0px, 0px, 25px, transparentize($shadow, 0.7));
     width: 100%;
     background: $green;
     img {

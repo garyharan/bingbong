@@ -531,6 +531,9 @@ body.potentials {
   body.potentials #user_nav, body.potentials #banner {
     display: none; }
   body.potentials #logo_line {
+    -webkit-box-shadow: 0px 0px 25px rgba(84, 110, 8, 0.3);
+    -moz-box-shadow: 0px 0px 25px rgba(84, 110, 8, 0.3);
+    box-shadow: 0px 0px 25px rgba(84, 110, 8, 0.3);
     width: 100%;
     background: #91be54; }
     body.potentials #logo_line img {
