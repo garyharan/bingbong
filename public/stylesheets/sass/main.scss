@@ -49,6 +49,7 @@ body.potentials {
   width: 100%;
   #potential_container {
     position: relative;
+    font-size: 1.8rem;
     ul {
       display: inline;
       li {
@@ -75,6 +76,7 @@ body.potentials {
         }
         input[type='submit'] {
           margin: 10px;
+          font-size: 1.6rem;
           @include button($green);
         }
       }
