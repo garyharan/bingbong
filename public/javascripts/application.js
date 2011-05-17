@@ -1,7 +1,7 @@
 $(function(){
   // pre launch
   $('input:radio').click(function(){
-    if ($('input:radio[name="potential[type]"]:checked').val() == 'normal'){
+    if ($(this).val() == 'normal'){
       $('.phone').hide()
     } else {
       $('.phone').show()
