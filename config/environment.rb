@@ -4,4 +4,13 @@ require File.expand_path('../application', __FILE__)
 # Initialize the rails application
 Bingbong::Application.initialize!
 
-# Encoding.default_external = Encoding::UTF_8 
+ActionMailer::Base.delivery_method = :smtp
+ActionMailer::Base.smtp_settings = {
+  :address              => "smtp.gmail.com",
+  :port                 => 587,
+  :domain               => 'bingbong.ca',
+  :user_name            => 'admin',
+  :password             => '2bee4qABZaUz',
+  :authentication       => 'plain',
+  :enable_starttls_auto => true
+}
