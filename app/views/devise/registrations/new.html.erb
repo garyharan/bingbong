@@ -1,21 +1,36 @@
-<h2>Nouveau compte</h2>
+<% @page_title = ["GrandMenu.com", "Nouveau Compte"].join(" :: ") %>
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+<div id="logo_line">
+  <div>
+    <%= image_tag "logo.png", :width => 282, :height => 127, :alt => "Commander en ligne avec GrandMenu.com", :id => "logo" %>
+  </div>
+</div>
 
-  <p><%= f.label :first_name, "Prénom" %><br />
-  <%= f.text_field :first_name %></p>
+<div id="devise">
+  <div id="inner">
+    <h2>Nouveau compte</h2>
 
-  <p><%= f.label :last_name, "Nom" %><br />
-  <%= f.text_field :last_name %></p>
+    <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+      <%= devise_error_messages! %>
 
-  <p><%= f.label :email, "Courriel" %><br />
-  <%= f.text_field :email %></p>
+      <%= f.label :first_name, "Prénom" %>
+      <%= f.text_field :first_name, :placeholder => "Jean" %>
+      <br/>
 
-  <p><%= f.label :password, "Mot de passe" %><br />
-  <%= f.password_field :password %></p>
+      <%= f.label :last_name, "Nom" %>
+      <%= f.text_field :last_name, :placeholder => "Laffamé"  %>
+      <br/>
 
-  <p><%= f.submit "Sign up" %></p>
-<% end %>
+      <%= f.label :email, "Courriel" %>
+      <%= f.text_field :email, :placeholder => "jean.laffame@exemple.com" %>
+      <br/>
 
-<%= render :partial => "devise/shared/links" %>
+      <%= f.label :password, "Mot de passe" %>
+      <%= f.password_field :password, :placeholder => "*********" %>
+
+      <%= f.submit "Envoyez moi le lien de confirmation" %>
+    <% end %>
+
+    <%= render :partial => "devise/shared/links" %>
+  </div>
+</div>
