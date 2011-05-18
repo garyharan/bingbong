@@ -9,6 +9,7 @@ gem 'haml'
 gem 'pg'
 gem 'geocoder'
 gem 'rr'
+gem 'twiliolib'
 
 gem 'thin'
 gem 'factory_girl_rails'
