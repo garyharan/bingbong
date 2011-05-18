@@ -50,7 +50,7 @@ fr:
       send_instructions: 'Vous allez recevoir contenant les instructions nécessaires à la confirmation de votre compte dans quelques minutes'
       confirmed: 'Votre compte a été confirmé avec succès, vous êtes maintenant connectés'
     registrations:
-      signed_up: 'Bienvenue, vous êtes connectés avec succès'
+      signed_up: 'Bienvenue!  Vérifiez vos emails pour le lien de confirmation.'
       edit: "Editer %{resourcename}"
       leave_blank: "laissez vide si vous ne désirez pas le changer"
       current_password_label: "Nous avons besoin de votre mot de passe actuel pour confirmer les changements"

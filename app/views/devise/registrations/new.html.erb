@@ -1,22 +1,19 @@
-<h2>Sign up</h2>
+<h2>Nouveau compte</h2>
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
-  <p><%= f.label :first_name %><br />
+  <p><%= f.label :first_name, "Prénom" %><br />
   <%= f.text_field :first_name %></p>
 
-  <p><%= f.label :last_name %><br />
+  <p><%= f.label :last_name, "Nom" %><br />
   <%= f.text_field :last_name %></p>
 
-  <p><%= f.label :email %><br />
+  <p><%= f.label :email, "Courriel" %><br />
   <%= f.text_field :email %></p>
 
-  <p><%= f.label :password %><br />
+  <p><%= f.label :password, "Mot de passe" %><br />
   <%= f.password_field :password %></p>
-
-  <p><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></p>
 
   <p><%= f.submit "Sign up" %></p>
 <% end %>
