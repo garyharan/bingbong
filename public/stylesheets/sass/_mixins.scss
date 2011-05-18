@@ -1,6 +1,7 @@
 @mixin box-shadow($top, $left, $blur, $color, $inset: false) {
+  $value: $top $left $blur $color;
   @if $inset {
-    -webkit-box-shadow:inset $top $left $blur $color;
+    -webkit-box-shadow:inset $value;
     -moz-box-shadow:inset $top $left $blur $color;
     box-shadow:inset $top $left $blur $color;
   } @else {
@@ -8,6 +9,14 @@
     -moz-box-shadow: $top $left $blur $color;
     box-shadow: $top $left $blur $color;
   }
+}
+
+@mixin text-shadow($h: 0, $v: 0, $c: transparentize(black, 0.3), $b: 3px) {
+  $value: $h $v $b $c;
+  -moz-text-shadow: $value;
+  -webkit-text-shadow: $value;
+  -o-text-shadow: $value;
+  text-shadow: $value;
 }
 
 @mixin text-field {
@@ -51,9 +60,9 @@
 }
 
 @mixin rounded($radius: 0.5em) {
-  -webkit-border-radius: .5em; 
-  -moz-border-radius: .5em;
-  border-radius: .5em;
+  -webkit-border-radius: $radius; 
+  -moz-border-radius: $radius;
+  border-radius: $radius;
 }
 
 @mixin gradient($from, $to) {
