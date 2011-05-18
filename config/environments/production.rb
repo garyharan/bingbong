@@ -36,7 +36,7 @@ Bingbong::Application.configure do
 
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
-  config.action_mailer.default_url_options = { :host => 'bingbong.ca' }
+  config.action_mailer.default_url_options = { :host => 'grandmenu.com' }
 
   # Enable threaded mode
   # config.threadsafe!
