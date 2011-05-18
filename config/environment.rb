@@ -8,12 +8,12 @@ ActionMailer::Base.delivery_method = :smtp
 ActionMailer::Base.smtp_settings = {
   :address              => "smtp.gmail.com",
   :port                 => 587,
-  :domain               => 'bingbong.ca',
-  :user_name            => 'admin',
+  :domain               => 'grandmenu.com',
+  :user_name            => 'admin@grandmenu.com',
   :password             => '2bee4qABZaUz',
   :authentication       => 'plain',
   :enable_starttls_auto => true
 }
 ActionMailer::Base.default_url_options = {
-  :host => "bingbong.ca"
+  :host => "grandmenu.com"
 }

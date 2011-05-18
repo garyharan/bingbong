@@ -1,7 +1,7 @@
 Bingbong::Application.routes.draw do
   resources :potentials # until launch
-  # root :to => "potentials#new"
-  root :to => "searches#index"
+  root :to => "potentials#new"
+  # root :to => "searches#index"
   resources :searches
 
   resources :shops do
