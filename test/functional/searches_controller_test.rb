@@ -38,6 +38,7 @@ class SearchesControllerTest < ActionController::TestCase
   test "user should have saved search if logged in" do
     @user = User.create Factory.attributes_for :user
     sign_in @user
+    @user.confirm!
     assert_difference('@user.searches.count') do
       post :create, :search => Factory.attributes_for(:search)
     end
@@ -45,6 +46,7 @@ class SearchesControllerTest < ActionController::TestCase
 
   test "should delete search" do
     @user = User.create Factory.attributes_for :user
+    @user.confirm!
     @search = Search.create Factory.attributes_for(:search, :user_id => @user.id)
     sign_in @user
     assert_difference '@user.searches.count', -1 do

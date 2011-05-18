@@ -3,6 +3,7 @@ require 'test_helper'
 class OrdersControllerTest < ActionController::TestCase
   setup do
     @user = User.create!(Factory.attributes_for(:user))
+    @user.confirm!
     sign_in @user 
     @shop     = Shop.create     Factory.attributes_for(:shop)
     @category = Category.create Factory.attributes_for(:category, :shop_id => @shop.id)

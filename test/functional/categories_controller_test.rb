@@ -3,6 +3,7 @@ require 'test_helper'
 class CategoriesControllerTest < ActionController::TestCase
   setup do
     @user = User.create!(Factory.attributes_for(:user))
+    @user.confirm!
     @shop = Shop.create!(Factory.attributes_for(:shop, :user_id => @user.id))
     sign_in @user
   end
