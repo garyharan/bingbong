@@ -675,6 +675,16 @@ body.potentials {
       margin: 0 auto;
       text-align: left;
       color: white; }
+      body.potentials #potential_container #potential_center #what_it_does {
+        font-family: 'Kreon', arial, serif;
+        font-weight: bold;
+        line-height: 2.0rem;
+        text-align: center; }
+      body.potentials #potential_container #potential_center #when_we_launch {
+        font-family: 'Kreon', arial, serif;
+        color: #415821;
+        line-height: 2rem;
+        text-align: center; }
       body.potentials #potential_container #potential_center form {
         padding-top: 30px;
         padding-bottom: 30px; }

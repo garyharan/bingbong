@@ -59,6 +59,18 @@ body.potentials {
       margin: 0 auto;
       text-align: left;
       color: white;
+      #what_it_does {
+        font-family: 'Kreon', arial, serif;
+        font-weight: bold;
+        line-height: 2.0rem;
+        text-align: center;
+      }
+      #when_we_launch {
+        font-family: 'Kreon', arial, serif;
+        color: darken($green, 30%);
+        line-height: 2rem;
+        text-align: center;
+      }
       form {
         padding-top: 30px;
         padding-bottom: 30px;
