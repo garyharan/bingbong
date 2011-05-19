@@ -24,16 +24,18 @@
       <p>GrandMenu.com permettra aux petits restaurateurs d'accepter les commandes en ligne.</p>
       <p>Inscrivez-vous pour savoir quand on lance.</p>
 
-      <div class="field">
-        <label for="potential_kind_normal">
-          <%= f.radio_button("kind", "normal", :checked => true) %> j'aime manger
-        </label>
-      </div>
+      <div style="display: none">
+        <div class="field">
+          <label for="potential_kind_normal">
+            <%= f.radio_button("kind", "normal", :checked => true) %> j'aime manger
+          </label>
+        </div>
 
-      <div class="field">
-        <label for="potential_kind_restaurant">
-          <%= f.radio_button("kind", "restaurant") %> j'ai un resto
-        </label>
+        <div class="field">
+          <label for="potential_kind_restaurant">
+            <%= f.radio_button("kind", "restaurant") %> j'ai un resto
+          </label>
+        </div>
       </div>
       
       <div class="field">
