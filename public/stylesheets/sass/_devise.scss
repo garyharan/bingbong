@@ -28,6 +28,7 @@
       float: left;
       font-weight: bold;
       font-size: 1.8rem;
+      white-space: nowrap;
     }
     input[type="text"], input[type="password"] {
       margin-left: 120px;
@@ -36,6 +37,10 @@
       @include text-field();
       position: relative;
       top: -8px;
+    }
+    input[type="checkbox"] {
+      margin-left: 120px;
+      margin-bottom: 25px;
     }
     input[type="submit"] {
       @include button($green);
