@@ -1,4 +1,4 @@
-@mixin box-shadow($top, $left, $blur, $color, $inset: false) {
+@mixin box-shadow($top: 0, $left: 0, $blur: 5px, $color: transparentize(black, 0.3), $inset: false) {
   $value: $top $left $blur $color;
   @if $inset {
     -webkit-box-shadow:inset $value;

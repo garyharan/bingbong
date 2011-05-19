@@ -30,18 +30,19 @@
 body.potentials {
   color: darken($orange, 10%);
   #logo_line {
-    @include box-shadow(0px, 0px, 25px, transparentize($shadow, 0.7));
     width: 100%;
-    background: $green;
-    img {
+    #logo {
       position: relative;
-      left: -5px;
+      left: -50px;
     }
   }
   text-align: center;
   width: 100%;
   #potential_container {
+    background: $green;
+    @include box-shadow();
     position: relative;
+    top: 20px;
     font-size: 1.8rem;
     ul {
       display: inline;
@@ -55,8 +56,10 @@ body.potentials {
       width: 387px;
       margin: 0 auto;
       text-align: left;
+      color: white;
       form {
         padding-top: 30px;
+        padding-bottom: 30px;
         div {
           padding-top: 10px;
         }

@@ -650,16 +650,17 @@ body.potentials {
   text-align: center;
   width: 100%; }
   body.potentials #logo_line {
-    -webkit-box-shadow: 0px 0px 25px rgba(84, 110, 8, 0.3);
-    -moz-box-shadow: 0px 0px 25px rgba(84, 110, 8, 0.3);
-    box-shadow: 0px 0px 25px rgba(84, 110, 8, 0.3);
-    width: 100%;
-    background: #91be54; }
-    body.potentials #logo_line img {
+    width: 100%; }
+    body.potentials #logo_line #logo {
       position: relative;
-      left: -5px; }
+      left: -50px; }
   body.potentials #potential_container {
+    background: #91be54;
+    -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+    -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
     position: relative;
+    top: 20px;
     font-size: 1.8rem; }
     body.potentials #potential_container ul {
       display: inline; }
@@ -670,9 +671,11 @@ body.potentials {
     body.potentials #potential_container #potential_center {
       width: 387px;
       margin: 0 auto;
-      text-align: left; }
+      text-align: left;
+      color: white; }
       body.potentials #potential_container #potential_center form {
-        padding-top: 30px; }
+        padding-top: 30px;
+        padding-bottom: 30px; }
         body.potentials #potential_container #potential_center form div {
           padding-top: 10px; }
         body.potentials #potential_container #potential_center form div.phone {
