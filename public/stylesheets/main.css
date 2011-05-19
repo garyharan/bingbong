@@ -661,7 +661,9 @@ body.potentials {
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
     position: relative;
     top: 20px;
-    font-size: 1.8rem; }
+    font-size: 1.8rem;
+    padding-top: 20px;
+    padding-bottom: 20px; }
     body.potentials #potential_container ul {
       display: inline; }
       body.potentials #potential_container ul li {
