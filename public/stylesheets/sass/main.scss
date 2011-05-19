@@ -75,7 +75,7 @@ body.potentials {
         input[type='submit'] {
           margin: 10px;
           font-size: 1.6rem;
-          @include button($green);
+          @include button($red);
         }
       }
     }
