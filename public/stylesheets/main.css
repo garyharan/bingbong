@@ -656,9 +656,9 @@ body.potentials {
       left: -50px; }
   body.potentials #potential_container {
     background: #91be54;
-    -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
-    -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+    -webkit-box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.7);
+    -moz-box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.7);
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.7);
     position: relative;
     top: 20px;
     font-size: 1.8rem;

@@ -40,7 +40,7 @@ body.potentials {
   width: 100%;
   #potential_container {
     background: $green;
-    @include box-shadow();
+    @include box-shadow(0, 0, 8px, transparentize(black, 0.3), true);
     position: relative;
     top: 20px;
     font-size: 1.8rem;
