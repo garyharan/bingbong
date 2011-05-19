@@ -10,6 +10,7 @@ gem 'pg'
 gem 'geocoder'
 gem 'rr'
 gem 'twiliolib'
+gem "seedbank"
 
 gem 'thin'
 gem 'factory_girl_rails'
