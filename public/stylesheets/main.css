@@ -30,6 +30,9 @@ a.home:hover {
   text-decoration: none;
   display: none; }
 
+.placehold {
+  color: #999; }
+
 #notice {
   color: green; }
 
@@ -651,7 +654,8 @@ body.potentials {
   text-align: center;
   width: 100%; }
   body.potentials #logo_line {
-    width: 100%; }
+    width: 100%;
+    margin-top: 20px; }
     body.potentials #logo_line #logo {
       position: relative;
       left: -50px; }
