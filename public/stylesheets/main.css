@@ -28,32 +28,34 @@ a:hover {
 .owner {
   display: none; }
 
-.field_with_errors {
-  padding: 2px;
-  background-color: red;
-  display: table; }
+.field_with_errors input {
+  border: 1px solid red !important; }
 
 #error_explanation {
-  width: 450px;
+  -webkit-border-radius: 0.5em;
+  -moz-border-radius: 0.5em;
+  border-radius: 0.5em;
+  width: 100%;
   border: 2px solid red;
   padding: 7px;
   padding-bottom: 0;
   margin-bottom: 20px;
-  background-color: #f0f0f0; }
+  background-color: #f0c541; }
 
 #error_explanation h2 {
+  display: none;
   text-align: left;
   font-weight: bold;
   padding: 5px 5px 5px 15px;
   font-size: 1.8rem;
   margin: -7px;
   margin-bottom: 0px;
-  background-color: #c00;
   color: #fff; }
 
 #error_explanation ul li {
   font-size: 1.6rem;
-  list-style: square; }
+  list-style: none;
+  color: #333; }
 
 body.searches #banner {
   width: 100%;
@@ -233,25 +235,34 @@ body.show #shops {
 body.show #shop_banner {
   width: 100%;
   background: #91be54;
-  height: 165px; }
+  -webkit-box-shadow: inset 0px 0px 15px rgba(84, 110, 8, 0.3);
+  -moz-box-shadow: inset 0px 0px 15px rgba(84, 110, 8, 0.3);
+  box-shadow: inset 0px 0px 15px rgba(84, 110, 8, 0.3);
+  height: 165px;
+  margin-bottom: 20px; }
   body.show #shop_banner div:first-child {
     width: 950px;
     margin: 0 auto;
     position: relative; }
-    body.show #shop_banner div:first-child #shop_address h1 {
-      color: #e1f89b;
-      text-shadow: #546e08 0px 0px 4px;
-      margin-bottom: 0px;
-      padding-top: 70px; }
-    body.show #shop_banner div:first-child #shop_address h2 {
-      color: #ccff66;
-      font-size: 1.1rem; }
-    body.show #shop_banner div:first-child #shop_address p {
-      font-size: 1.0rem;
-      opacity: 0.7; }
-      body.show #shop_banner div:first-child #shop_address p em {
-        font-weight: bold;
-        font-style: normal; }
+    body.show #shop_banner div:first-child #shop_address {
+      margin-top: 10px; }
+      body.show #shop_banner div:first-child #shop_address h1 {
+        color: #e1f89b;
+        text-shadow: #546e08 0px 0px 4px;
+        margin-bottom: 0px;
+        padding-top: 50px;
+        margin-top: 0px;
+        padding-bottom: 0px;
+        font-size: 6rem; }
+      body.show #shop_banner div:first-child #shop_address p {
+        font-size: 2.0rem;
+        line-height: 2.4rem;
+        padding-top: 0px;
+        margin-top: 0px;
+        color: rgba(0, 0, 0, 0.7); }
+        body.show #shop_banner div:first-child #shop_address p em {
+          font-weight: bold;
+          font-style: normal; }
     body.show #shop_banner div:first-child #shop_map {
       position: absolute;
       right: 0px;
@@ -524,24 +535,24 @@ div#confirm {
   #flashes p.alert {
     background: #f0c541; }
 
-body.sessions.new #logo_line, body.registrations.new #logo_line {
+body.sessions.new #logo_line, body.registrations #logo_line {
   width: 100%; }
-  body.sessions.new #logo_line div:first-child, body.registrations.new #logo_line div:first-child {
+  body.sessions.new #logo_line div:first-child, body.registrations #logo_line div:first-child {
     width: 329px;
     margin: 30px auto; }
-body.sessions.new #devise, body.registrations.new #devise {
+body.sessions.new #devise, body.registrations #devise {
   width: 100%;
   background: #91be54;
   -webkit-box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.7);
   -moz-box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.7);
   box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.7); }
-  body.sessions.new #devise #inner, body.registrations.new #devise #inner {
+  body.sessions.new #devise #inner, body.registrations #devise #inner {
     position: relative;
     width: 500px;
     margin: 0 auto;
     padding: 30px;
     color: rgba(255, 255, 255, 0.7); }
-    body.sessions.new #devise #inner input[type="text"], body.sessions.new #devise #inner input[type="password"], body.registrations.new #devise #inner input[type="text"], body.registrations.new #devise #inner input[type="password"] {
+    body.sessions.new #devise #inner input[type="text"], body.sessions.new #devise #inner input[type="password"], body.registrations #devise #inner input[type="text"], body.registrations #devise #inner input[type="password"] {
       width: 500px;
       margin-bottom: 25px;
       outline: none;
@@ -557,10 +568,10 @@ body.sessions.new #devise, body.registrations.new #devise {
       -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.7);
       box-shadow: 0 0 3px rgba(0, 0, 0, 0.7);
       font-size: 2.4rem; }
-    body.sessions.new #devise #inner input[type="checkbox"], body.registrations.new #devise #inner input[type="checkbox"] {
+    body.sessions.new #devise #inner input[type="checkbox"], body.registrations #devise #inner input[type="checkbox"] {
       margin: 10px 10px 25px 10px;
       -webkit-transform: scale(1.3, 1.3); }
-    body.sessions.new #devise #inner input[type="submit"], body.registrations.new #devise #inner input[type="submit"] {
+    body.sessions.new #devise #inner input[type="submit"], body.registrations #devise #inner input[type="submit"] {
       display: inline-block;
       outline: none;
       cursor: pointer;
@@ -583,26 +594,26 @@ body.sessions.new #devise, body.registrations.new #devise {
       filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f64c11', endColorstr='#a53a15');
       font-size: 1.8rem;
       float: right; }
-      body.sessions.new #devise #inner input[type="submit"]:hover, body.registrations.new #devise #inner input[type="submit"]:hover {
+      body.sessions.new #devise #inner input[type="submit"]:hover, body.registrations #devise #inner input[type="submit"]:hover {
         text-decoration: none;
         background: #ef4f18;
         background: -webkit-gradient(linear, left top, left bottom, from(#e9521e), to(#d34a1b));
         background: -moz-linear-gradient(top, #e9521e, #d34a1b);
         filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e9521e', endColorstr='#d34a1b'); }
-      body.sessions.new #devise #inner input[type="submit"]:active, body.registrations.new #devise #inner input[type="submit"]:active {
+      body.sessions.new #devise #inner input[type="submit"]:active, body.registrations #devise #inner input[type="submit"]:active {
         color: #f64c11;
         background: -webkit-gradient(linear, left top, left bottom, from(#f64c11), to(#ec8a68));
         background: -moz-linear-gradient(top, #f64c11, #ec8a68);
         filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f64c11', endColorstr='#ec8a68'); }
-  body.sessions.new #devise #shared_devise_links, body.registrations.new #devise #shared_devise_links {
+  body.sessions.new #devise #shared_devise_links, body.registrations #devise #shared_devise_links {
     clear: both;
     padding-top: 10px; }
-    body.sessions.new #devise #shared_devise_links a, body.registrations.new #devise #shared_devise_links a {
+    body.sessions.new #devise #shared_devise_links a, body.registrations #devise #shared_devise_links a {
       color: #5c7d2f;
       display: block;
       text-decoration: none;
       padding-top: 10px; }
-      body.sessions.new #devise #shared_devise_links a:hover, body.registrations.new #devise #shared_devise_links a:hover {
+      body.sessions.new #devise #shared_devise_links a:hover, body.registrations #devise #shared_devise_links a:hover {
         background: none;
         color: #5c7d2f; }
 
@@ -618,3 +629,6 @@ body.sessions.new #devise, body.registrations.new #devise {
     margin: 0 auto;
     width: 950px;
     text-align: left; }
+
+img#logo {
+  border: none; }
