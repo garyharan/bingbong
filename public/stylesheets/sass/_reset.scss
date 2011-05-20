@@ -4,7 +4,7 @@ html {
 
 body { 
   background-color: $background-color;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   padding: 0px;
   margin: 0px;
 }
@@ -13,8 +13,8 @@ h1 {
   font-size: 2.8rem;
 }
 
-body, p, ol, ul, td {
-  font-family: Arial, sans-serif;
+body, p, ol, ul, td, th, input {
+  font-family: 'Kreon', arial, serif;
 }
 
 a { color: #000; }

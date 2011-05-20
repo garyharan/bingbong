@@ -3,16 +3,15 @@
 <div id="banner">
   <div>
     <%= image_tag "logo_home_page.png", :width => 282, :height => 127, :alt => "Commander en ligne avec GrandMenu.com", :id => "logo" %>
-    <div id="tag_line">La meilleure bouffe à faire livrer!</div>
-    <img id="google_map" alt="your location" src="" />
+    <div id="tag_line">Trouvez les restaurants qui <br/>livrent proche de chez vous!</div>
   </div>
 </div>
 
 <div id="find">
-  <div>
-    <span id="address">
-      <%= render :partial => 'searches/form' %>
-    </span>
+  <div id="address">
+    <%= render :partial => 'searches/form' %>
+  </div>
+  <div id="instruction">
     <span id="instructions">
       <% if user_signed_in? -%>
         <%= render @searches %>
