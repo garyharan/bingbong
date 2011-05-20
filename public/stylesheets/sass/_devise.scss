@@ -1,4 +1,4 @@
-body.sessions.new {
+body.sessions.new, body.registrations.new {
   #logo_line {
     width: 100%;
     div:first-child {
@@ -34,6 +34,8 @@ body.sessions.new {
       }
     }
     #shared_devise_links {
+      clear: both;
+      padding-top: 10px;
       a {
         color: darken($green, 20%);
         display: block;

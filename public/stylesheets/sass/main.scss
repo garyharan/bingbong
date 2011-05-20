@@ -3,7 +3,6 @@
 @import "reset";
 @import "errors";
 @import "searches";
-@import "menu";
 @import "shops";
 @import "orders";
 @import "flash";
@@ -12,7 +11,6 @@
 #user_nav {
   width: 100%;
   text-align: right;
-  font-size: 11px;
   div {
     padding: 10px;
   }

@@ -2,30 +2,18 @@
 
 <div id="logo_line">
   <div>
-    <%= link_to image_tag("/images/logo_home_page.png", :width => 224, :height => 94, :alt => "Commander en ligne avec GrandMenu.com", :id => "logo"), root_path, :class => "home" %>
+    <%= link_to image_tag("/images/logo_home_page.png", :width => 329, :height => 145, :alt => "Commander en ligne avec GrandMenu.com", :id => "logo"), root_path, :class => "home" %>
   </div>
 </div>
 
 <div id="devise">
   <div id="inner">
-    <h2>Nouveau compte</h2>
-
     <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
       <%= devise_error_messages! %>
 
-      <%= f.label :first_name, "Prénom" %>
       <%= f.text_field :first_name, :placeholder => "Jean" %>
-      <br/>
-
-      <%= f.label :last_name, "Nom" %>
       <%= f.text_field :last_name, :placeholder => "Laffamé"  %>
-      <br/>
-
-      <%= f.label :email, "Courriel" %>
       <%= f.text_field :email, :placeholder => "jean.laffame@exemple.com" %>
-      <br/>
-
-      <%= f.label :password, "Mot de passe" %>
       <%= f.password_field :password, :placeholder => "*********" %>
 
       <%= f.submit "Envoyez moi le lien de confirmation" %>
