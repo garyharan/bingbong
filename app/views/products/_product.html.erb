@@ -16,15 +16,19 @@
       @item = Item.first(:conditions => { :size_id => size.id, :product_id => product })
     %>
     <td>
-      <% if user_signed_in? && @shop.owned_by?(current_user) %>
-        <%= form_for [@shop, product.category, @item], :method => :put, :remote => true do |f| %>
-          <%= f.text_field :price, :size => 4, :'data-onblur' => :submit, :class => "price_field" %>
-        <% end -%>
-      <% else %>
-        <%= link_to(@item.price, lines_path(:line => {:shop_id => @shop.id, :item_id => @item.id}), 
+      <% if user_signed_in? %>
+        <% if @shop.owned_by?(current_user) -%>
+          <%= form_for [@shop, product.category, @item], :method => :put, :remote => true do |f| %>
+            <%= f.text_field :price, :size => 4, :'data-onblur' => :submit, :class => "price_field" %>
+          <% end -%>
+        <% else -%>
+          <%= link_to(@item.price, lines_path(:line => {:shop_id => @shop.id, :item_id => @item.id}), 
                     :method => :post, :remote => true, 
                     :class => 'price_link',
                     :id => dom_id(@item, 'link')) if @item.price  %>
+        <% end %>
+      <% else %>
+        <%= @item.price %>
       <% end %>
     </td>
   <% end -%>

@@ -1,30 +1,248 @@
-#shops {
-  width: 100%;
-  >div:first-child {
-    width: 630px;
-    margin: 0 auto;
-    position: relative;
-  }
-  div.shop {
-    width: 608px;
-    border: 3px solid lighten($green, 30%);
-    padding: 0px 10px 10px 10px;
-    margin: 10px 0px;
-    position: relative;
-    @include rounded();
-    @include gradient(lighten($white, 50%), darken($beige, 10%));
-    h1 {  width: 500px; }
-    h1 span.distance {
-      margin-left: 10px;
-      font-size: 1.5rem;
-      color: #666;
+body.show {
+  #shops {
+    width: 100%;
+    >div:first-child {
+      width: 630px;
+      margin: 0 auto;
+      position: relative;
     }
-    a.button {
-      position: absolute;
-      bottom: 10px;
-      right: 10px;
-      font-size: 1.8rem;
-      @include button($green);
+    div.shop {
+      width: 608px;
+      border: 3px solid lighten($green, 30%);
+      padding: 0px 10px 10px 10px;
+      margin: 10px 0px;
+      position: relative;
+      @include rounded();
+      @include gradient(lighten($white, 50%), darken($beige, 10%));
+      h1 {  width: 500px; }
+      h1 span.distance {
+        margin-left: 10px;
+        font-size: 1.5rem;
+        color: #666;
+      }
+      a.button {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        font-size: 1.8rem;
+        @include button($green);
+      }
     }
   }
+
+  #shop_banner {
+    width: 100%;
+    background: $green;
+    height: 165px;
+    div:first-child {
+      width: 950px;
+      margin: 0 auto;
+      position: relative;
+      #shop_address {
+        h1 {
+          color: $yellow;
+          text-shadow: $shadow 0px 0px 4px;
+          margin-bottom: 0px;
+          padding-top: 70px;
+        }
+        h2 {
+          color: $subyellow;
+          font-size: 1.1rem;
+        }
+        p {
+          font-size: 1.0rem;
+          opacity: 0.7;
+          em {
+            font-weight: bold;
+            font-style: normal;
+          }
+        }
+      }
+      #shop_map {
+        position: absolute;
+        right: 0px;
+        top: 10px;
+        height: 140px;
+        width:  170px;
+        background: $yellow * 0.8;
+        border: 3px solid $yellow;
+      }
+    }
+  }
+
+  #menu {
+    width: 100%;
+    div:first-child {
+      width: 950px;
+      margin: 0 auto;
+      position: relative;
+      #bag {
+        position: absolute; 
+        right: 10px;
+        top: 24px;
+        z-index: 2;
+      }
+      #order { 
+        position: absolute;
+        right: 0px;
+        top: 50px;
+        width: 320px;
+        z-index: 1;
+        p {
+          padding: 50px;
+        }
+        #confirmation {
+          p {
+            text-align: center;
+            padding: 10px;
+          }
+          #confirm_link {
+            font-size: 1.7rem;
+            @include button($green);
+            margin: 10px;
+            float: right;
+          }
+        }
+        table {
+          background: lighten($beige, 4%);
+          @include box-shadow(0px, 0px, 15px, transparentize($shadow, 0.7));
+          border-collapse: collapse;
+          width: 320px;
+          thead {
+            background: $brown;
+            color: $yellow;
+            text-shadow: $shadow 0 0 5px;
+            font-size: 2rem;
+            th {
+              padding: 10px;
+            }
+          }
+          tbody {
+            border-bottom: 1px solid darken($beige, 20%);
+            tr {
+              height: 2.5rem;
+              td {
+                color: darken($brown, 10%);
+                &.price {
+                  text-align: right;
+                  padding-right: 11px;
+                }
+              }
+              td.arrow a {
+                text-decoration: none;
+                color: $brown;
+                margin-left: 10px;
+                &.up {
+                  position: relative;
+                  top: 5px;
+                  &:active {
+                    top: 6px;
+                  }
+                }
+                &.down {
+                  position: relative;
+                  top: -5px;
+                  &:active {
+                    top: -4px;
+                  }
+                }
+                &:hover {
+                  background: none;
+                }
+              }
+            }
+          }
+          tfoot#totals {
+            tr {
+              height: 2.5rem;
+              td.subtotal {
+                  border-top: 1px solid darken($beige, 20%);
+                  font-weight: bold;
+                }
+              }
+              .subtotal, .tps, .tvq, .total {
+                font-size: 1.4rem;
+                font-weight: bold;
+                color: darken($brown, 5%);
+                text-align: right;
+              }
+              .subtotal, .tps, .tvq, .total, .price {
+                padding-right: 13px;
+              }
+              .total_line {
+                border-top: 1px solid darken($beige, 20%);
+              }
+            }
+          }
+        }
+        #categories {
+          z-index: 2;
+          width: 600px;
+          background: white;
+          padding: 15px;
+          @include box-shadow(0px, 0px, 15px, transparentize($shadow, 0.7));
+          position: absolute;
+          left: 0px;
+          table {
+            color: #666;
+            margin-bottom: 30px;
+            th,td {
+              white-space:nowrap;
+              min-width: 60px;
+        }
+        th:first-child, td:first-child {
+          width: 250px;
+          text-align: left;
+        }
+        th:first-child {
+          padding-left: 10px;
+        }
+        th.spacer,td.spacer {
+          width: 80%;
+        }
+        th.owner:last-child {
+          text-align: right;
+        }
+        td:first-child{
+          font-weight: bold;
+          padding-left: 10px;
+        }
+        border-collapse: collapse;
+        thead {
+          background: $red;
+          color: white;
+          th {
+            height: 30px;
+            text-align: center;
+          }
+        }
+        tbody {
+          td {
+            height: 30px;
+            padding: 6px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+          }
+        }
+        .price_link {
+          font-size: 1.3rem;
+          padding: 0.5rem;
+          text-decoration: none;
+        }
+        .price_link:hover {
+          color: black;
+          background: white;
+          font-weight: bold;
+        }
+        .price_link.selected {
+          font-size: 10px;
+        }
+        .price_field {
+          text-align: right;
+        }
+      }
+    }
+  }
+  }
+
 }

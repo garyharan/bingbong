@@ -2,29 +2,17 @@
 
 <div id="logo_line">
   <div>
-    <%= link_to image_tag("/images/logo_home_page.png", :width => 224, :height => 94, :alt => "Commander en ligne avec GrandMenu.com", :id => "logo"), root_path, :class => "home" %>
+    <%= link_to image_tag("/images/logo_home_page.png", :width => 329, :height => 145, :alt => "Commander en ligne avec GrandMenu.com", :id => "logo"), root_path, :class => "home" %>
   </div>
 </div>
 
 <div id="devise">
   <div id="inner">
-    <h2>Connexion</h2>
-
     <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-      <%= f.label :email %>
-      <%= f.text_field :email %>
-      <br/>
-
-      <%= f.label :password %>
-      <%= f.password_field :password %>
-      <br/>
-
-      <% if devise_mapping.rememberable? -%>
-        <%= f.label :remember_me, "Rappelez-vous de moi" %>
-        <%= f.check_box :remember_me %>
-        <br/>
-      <% end -%>
-
+      <%= f.text_field :email, :placeholder => "email@exemple.com" %>
+      <%= f.password_field :password, :placeholder => "*********" %>
+      <%= f.check_box :remember_me, :checked => true %>
+      <%= f.label :remember_me, "Rappelez-vous de moi" %>
       <%= f.submit "Je veux voir le menu!" %>
     <% end %>
 
