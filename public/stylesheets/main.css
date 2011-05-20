@@ -393,7 +393,8 @@ a.home:hover {
       width: 500px; }
     #shops div.shop h1 span.distance {
       margin-left: 10px;
-      font-size: 1rem; }
+      font-size: 1.5rem;
+      color: #666; }
     #shops div.shop a.button {
       position: absolute;
       bottom: 10px;

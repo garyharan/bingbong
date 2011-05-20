@@ -1,7 +1,8 @@
 <div class="shop">
-  <h1><%= shop.name %><span class="distance"><%= number_to_human shop.distance %>km</span></h1>
+  <h1><%= shop.name %><span class="distance"><%= number_to_human shop.distance %> km</span></h1>
   <p>
-    Livraison gratuite à partir de <%= shop.minimum %>
+    Commande minimum
+    <%= number_to_currency(shop.minimum, :unit => "$") %>
   </p>
   <%= link_to "Voir le menu", shop, :class => "button" %>
 </div>

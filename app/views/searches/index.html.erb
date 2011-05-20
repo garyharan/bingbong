@@ -1,11 +1,6 @@
-<% @page_title = ["GrandMenu.com", params[:address]].join(" :: ") %>
+<% @page_title = ["GrandMenu", params[:address]].compact.join(" :: ") %>
 
-<div id="banner">
-  <div>
-    <%= image_tag "logo_home_page.png", :width => 282, :height => 127, :alt => "Commander en ligne avec GrandMenu.com", :id => "logo" %>
-    <div id="tag_line">Trouvez les restaurants qui <br/>livrent proche de chez vous!</div>
-  </div>
-</div>
+<%= render :partial => "banner" %>
 
 <div id="find">
   <div id="address">
