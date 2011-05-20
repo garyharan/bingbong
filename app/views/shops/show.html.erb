@@ -17,6 +17,7 @@
       <% else -%>
         <h1><%= @shop.name %></h1>
         <p><%= @shop.full_address %></p>
+        <p><em>Commande minimum</em>: <%= @shop.minimum %>$ | <em>Livraison</em>: <%= @shop.delivery %>min</p>
       <% end -%>
       <%= image_tag(map_url(@shop), :id => 'shop_map') %>
     </div>

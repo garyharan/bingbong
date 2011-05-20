@@ -250,15 +250,12 @@ body.show #shop_banner {
         color: #e1f89b;
         text-shadow: #546e08 0px 0px 4px;
         margin-bottom: 0px;
-        padding-top: 50px;
+        padding-top: 30px;
         margin-top: 0px;
         padding-bottom: 0px;
         font-size: 6rem; }
       body.show #shop_banner div:first-child #shop_address p {
-        font-size: 2.0rem;
-        line-height: 2.4rem;
-        padding-top: 0px;
-        margin-top: 0px;
+        font-size: 2rem/2rem;
         color: rgba(0, 0, 0, 0.7); }
         body.show #shop_banner div:first-child #shop_address p em {
           font-weight: bold;
