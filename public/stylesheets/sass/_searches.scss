@@ -1,0 +1,91 @@
+body.searches {
+  #banner {
+    width: 100%;
+    height: 170px;
+    div:first-child {
+      width: 650px;
+      height: 170px;
+      margin: 0 auto;
+      position: relative;
+      #logo {
+        margin: 21px auto;
+      }
+      #tag_line {
+        font-family: 'Kreon', arial, serif;
+        font-weight: bold;
+        font-size: 2.4rem;
+        color: #666;
+        float: right;
+        padding-top: 60px;
+        padding-right: 15px;
+      }
+      #google_map {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        width: 250px;
+        height: 150px;
+        border: 2px solid $yellow;
+        padding: 0px;
+        display: none;
+      }
+    }
+  }
+
+  #find {
+    width: 100%;
+    margin-top: 10px;
+    #address {
+      width: 100%;
+      background: $green;
+      @include box-shadow(0px, 0px, 15px, transparentize($shadow, 0.2), true);
+      position: relative;
+      text-align: center;
+      input {
+        margin: 20px;
+        @include text-field;
+        font-size: 3rem;
+        width: 600px;
+      }
+    }
+    #instruction {
+      margin: 0 auto;
+      width: 650px;
+      text-align: center;
+      #instructions {
+        text-align: center;
+        div {
+          position: relative;
+          width: 570px;
+          margin: 0 auto;
+        }
+        .old_search {
+          margin: 0 auto;
+          width: 50%;
+          margin-top: 10px;
+          font-size: 1.6rem;
+          @include button($green);
+        }
+        .delete {
+          position: relative;
+          left: -24px;
+          font-weight: bold;
+          text-decoration: none;
+          text-shadow: 0px 0px 2px lighten($green, 30%);
+          &:hover {
+            background: transparent;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+
+  #shops {
+    width: 100%;
+    div:first-child {
+      width: 630px;
+      margin: 0 auto;
+    }
+  }
+}

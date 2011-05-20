@@ -2,23 +2,18 @@
   width: 100%;
   text-align: center;
   p {
-    width: 50%;
-    font-size: 1.8rem;
+    font-size: 3rem;
+    padding: 2rem;
     color: white;
     font-weight: bold;
-    padding: 10px;
     @include text-shadow();
-    @include box-shadow(0px, 0px, 25px, transparentize($shadow, 0.7));
-    margin: 0 auto;
-    margin-bottom: 10px;
-    @include rounded();
+    @include box-shadow(0px, 0px, 25px, transparentize($shadow, 0.7), true);
+    margin: 20px auto;
   }
   p.notice {
     background: $green;
-    @include gradient($green, lighten($green, 10%));
   }
   p.alert {
     background: $orange;
-    @include gradient($orange, lighten($orange, 10%));
   }
 }
