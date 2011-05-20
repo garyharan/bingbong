@@ -7,7 +7,10 @@
 </div>
 
 <div id="potential_container">
+  <p id="what_it_does">GrandMenu.com permettra aux petits restaurateurs <br/>d'accepter les commandes en ligne.</p>
+  <p id="when_we_launch">Inscrivez-vous pour savoir quand on lance.</p>
   <div id="potential_center">
+
     <%= form_for(@potential) do |f| %>
       <% if @potential.errors.any? %>
         <div id="error_explanation">
@@ -20,9 +23,6 @@
           </ul>
         </div>
       <% end %>
-
-      <p id="what_it_does">GrandMenu.com permettra aux petits restaurateurs d'accepter les commandes en ligne.</p>
-      <p id="when_we_launch">Inscrivez-vous pour savoir quand on lance.</p>
 
       <div style="display: none">
         <div class="field">

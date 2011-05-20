@@ -20,7 +20,7 @@ class PotentialsController < ApplicationController
 
     respond_to do |format|
       if @potential.save
-        format.html { redirect_to(@potential, :notice => 'Potential was successfully created.') }
+        format.html { redirect_to(@potential) }
       else
         format.html { render :action => "new" }
       end

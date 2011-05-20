@@ -10,6 +10,7 @@
 @import "devise";
 
 #user_nav {
+  display: none;
   width: 100%;
   text-align: right;
   font-size: 11px;
@@ -54,26 +55,29 @@ body.potentials {
         margin-left: 0;
       }
     }
+    #what_it_does {
+      font-family: 'Kreon', arial, serif;
+      font-weight: bold;
+      line-height: 2.8rem;
+      font-size: 2.8rem;
+      text-align: center;
+      color: white;
+    }
+    #when_we_launch {
+      font-family: 'Kreon', arial, serif;
+      color: darken($green, 30%);
+      line-height: 2rem;
+      font-size: 2.1rem;
+      text-align: center;
+    }
     #potential_center {
       width: 387px;
       margin: 0 auto;
       text-align: left;
-      color: white;
-      #what_it_does {
-        font-family: 'Kreon', arial, serif;
-        font-weight: bold;
-        line-height: 2.0rem;
-        text-align: center;
-      }
-      #when_we_launch {
-        font-family: 'Kreon', arial, serif;
-        color: darken($green, 30%);
-        line-height: 2rem;
-        text-align: center;
-      }
       form {
-        padding-top: 30px;
         padding-bottom: 30px;
+        width: 387px;
+        position: relative;
         div {
           padding-top: 10px;
         }
@@ -85,6 +89,7 @@ body.potentials {
           @include text-field;
         }
         input[type='submit'] {
+          width: 340px;
           margin: 10px;
           font-size: 1.6rem;
           @include button($red);
