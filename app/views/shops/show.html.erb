@@ -1,6 +1,8 @@
+<% @page_title = ["GrandMenu.com", @shop.name].join(" :: ") %>
+
 <div id="header">
   <div>
-    <%= link_to image_tag('/images/logo.png', :height => 94, :width => 224), root_path, :class => 'home' %>
+    <%= link_to image_tag("/images/logo_home_page.png", :width => 224, :height => 94, :alt => "Commander en ligne avec GrandMenu.com", :id => "logo"), root_path, :class => "home" %>
     <%= render :partial => 'shared/flashes' %>
   </div>
 </div>
