@@ -1,63 +1,67 @@
-div#confirm {
-  width: 100%;
-  div:first-child {
-    width: 950px;
-    margin: 0 auto;
-    position: relative;
-    #extras {
-      position: absolute;
-      top: 45px;
-      width: 550px;
-      margin: 20px auto 20px 400px;
-      padding: 20px;
-      #confirm_link {
-        @include button($green);
-      }
-    }
-    table#confirm_order {
-      position: absolute;
-      width: 400px;
-      margin: 20px 450px 20px auto;
-      background: lighten($beige, 4%);
-      @include box-shadow(0px, 0px, 15px, transparentize($shadow, 0.7));
-      border-collapse: collapse;
-      thead {
-        background: $brown;
-        color: $yellow;
-        text-shadow: $shadow 0 0 5px;
-        font-size: 2rem;
-        th {
-          padding: 10px;
+@import "shop_banner";
+
+body.orders.new {
+  div#confirm {
+    width: 100%;
+    div:first-child {
+      width: 950px;
+      margin: 0 auto;
+      position: relative;
+      #extras {
+        position: absolute;
+        top: 45px;
+        width: 550px;
+        margin: 20px auto 20px 400px;
+        padding: 20px;
+        #confirm_link {
+          @include button($green);
         }
       }
-      tfoot#totals {
-        tr {
-          height: 2.5rem;
-          td.subtotal {
-              border-top: 1px solid darken($beige, 20%);
-              font-weight: bold;
+      table#confirm_order {
+        position: absolute;
+        width: 400px;
+        margin: 20px 450px 20px auto;
+        background: lighten($beige, 4%);
+        @include box-shadow(0px, 0px, 15px, transparentize($shadow, 0.7));
+        border-collapse: collapse;
+        thead {
+          background: $brown;
+          color: $yellow;
+          text-shadow: $shadow 0 0 5px;
+          font-size: 2rem;
+          th {
+            padding: 10px;
           }
-          .subtotal, .tps, .tvq, .total {
-            font-size: 1.4rem;
-            font-weight: bold;
-            color: darken($brown, 5%);
+        }
+        tfoot#totals {
+          tr {
+            height: 2.5rem;
+            td.subtotal {
+                border-top: 1px solid darken($beige, 20%);
+                font-weight: bold;
+            }
+            .subtotal, .tps, .tvq, .total {
+              font-size: 1.4rem;
+              font-weight: bold;
+              color: darken($brown, 5%);
+              text-align: right;
+            }
+            .subtotal, .tps, .tvq, .total, .price {
+              padding-right: 13px;
+            }
+            .total_line {
+              border-top: 1px solid darken($beige, 20%);
+            }
+          }
+        }
+        tbody {
+          td {
+            color: darken($brown, 10%);
+            padding: 10px;
+          }
+          td:last-child {
             text-align: right;
           }
-          .subtotal, .tps, .tvq, .total, .price {
-            padding-right: 13px;
-          }
-          .total_line {
-            border-top: 1px solid darken($beige, 20%);
-          }
-        }
-      }
-      tbody {
-        td {
-          color: darken($brown, 10%);
-          padding: 10px;
-        }
-        td:last-child {
-          text-align: right;
         }
       }
     }

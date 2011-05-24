@@ -172,13 +172,50 @@ body.searches #shops {
     width: 630px;
     margin: 0 auto; }
 
-body.show #shops {
+#shop_banner {
+  width: 100%;
+  background: #91be54;
+  -webkit-box-shadow: inset 0px 0px 15px rgba(84, 110, 8, 0.3);
+  -moz-box-shadow: inset 0px 0px 15px rgba(84, 110, 8, 0.3);
+  box-shadow: inset 0px 0px 15px rgba(84, 110, 8, 0.3);
+  height: 165px;
+  margin-bottom: 20px; }
+  #shop_banner div:first-child {
+    width: 950px;
+    margin: 0 auto;
+    position: relative; }
+    #shop_banner div:first-child #shop_address {
+      margin-top: 10px; }
+      #shop_banner div:first-child #shop_address h1 {
+        color: #e1f89b;
+        text-shadow: #546e08 0px 0px 4px;
+        margin-bottom: 0px;
+        padding-top: 30px;
+        margin-top: 0px;
+        padding-bottom: 0px;
+        font-size: 6rem; }
+      #shop_banner div:first-child #shop_address p {
+        font-size: 2rem/2rem;
+        color: rgba(0, 0, 0, 0.7); }
+        #shop_banner div:first-child #shop_address p em {
+          font-weight: bold;
+          font-style: normal; }
+    #shop_banner div:first-child #shop_map {
+      position: absolute;
+      right: 0px;
+      top: 10px;
+      height: 140px;
+      width: 170px;
+      background: #b4c67c;
+      border: 3px solid #e1f89b; }
+
+body.shops.show #shops {
   width: 100%; }
-  body.show #shops > div:first-child {
+  body.shops.show #shops > div:first-child {
     width: 630px;
     margin: 0 auto;
     position: relative; }
-  body.show #shops div.shop {
+  body.shops.show #shops div.shop {
     width: 608px;
     border: 3px solid #d8e8c3;
     padding: 0px 10px 10px 10px;
@@ -190,13 +227,13 @@ body.show #shops {
     background: -webkit-gradient(linear, left top, left bottom, from(white), to(#e5eeb1));
     background: -moz-linear-gradient(top, white, #e5eeb1);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='white', endColorstr='#e5eeb1'); }
-    body.show #shops div.shop h1 {
+    body.shops.show #shops div.shop h1 {
       width: 500px; }
-    body.show #shops div.shop h1 span.distance {
+    body.shops.show #shops div.shop h1 span.distance {
       margin-left: 10px;
       font-size: 1.5rem;
       color: #666; }
-    body.show #shops div.shop a.button {
+    body.shops.show #shops div.shop a.button {
       position: absolute;
       bottom: 10px;
       right: 10px;
@@ -221,76 +258,40 @@ body.show #shops {
       background: -webkit-gradient(linear, left top, left bottom, from(#94d042), to(#698f36));
       background: -moz-linear-gradient(top, #94d042, #698f36);
       filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#94d042', endColorstr='#698f36'); }
-      body.show #shops div.shop a.button:hover {
+      body.shops.show #shops div.shop a.button:hover {
         text-decoration: none;
         background: #93ca48;
         background: -webkit-gradient(linear, left top, left bottom, from(#92c44e), to(#85b444));
         background: -moz-linear-gradient(top, #92c44e, #85b444);
         filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#92c44e', endColorstr='#85b444'); }
-      body.show #shops div.shop a.button:active {
+      body.shops.show #shops div.shop a.button:active {
         color: #94d042;
         background: -webkit-gradient(linear, left top, left bottom, from(#94d042), to(#b5d38b));
         background: -moz-linear-gradient(top, #94d042, #b5d38b);
         filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#94d042', endColorstr='#b5d38b'); }
-body.show #shop_banner {
-  width: 100%;
-  background: #91be54;
-  -webkit-box-shadow: inset 0px 0px 15px rgba(84, 110, 8, 0.3);
-  -moz-box-shadow: inset 0px 0px 15px rgba(84, 110, 8, 0.3);
-  box-shadow: inset 0px 0px 15px rgba(84, 110, 8, 0.3);
-  height: 165px;
-  margin-bottom: 20px; }
-  body.show #shop_banner div:first-child {
-    width: 950px;
-    margin: 0 auto;
-    position: relative; }
-    body.show #shop_banner div:first-child #shop_address {
-      margin-top: 10px; }
-      body.show #shop_banner div:first-child #shop_address h1 {
-        color: #e1f89b;
-        text-shadow: #546e08 0px 0px 4px;
-        margin-bottom: 0px;
-        padding-top: 30px;
-        margin-top: 0px;
-        padding-bottom: 0px;
-        font-size: 6rem; }
-      body.show #shop_banner div:first-child #shop_address p {
-        font-size: 2rem/2rem;
-        color: rgba(0, 0, 0, 0.7); }
-        body.show #shop_banner div:first-child #shop_address p em {
-          font-weight: bold;
-          font-style: normal; }
-    body.show #shop_banner div:first-child #shop_map {
-      position: absolute;
-      right: 0px;
-      top: 10px;
-      height: 140px;
-      width: 170px;
-      background: #b4c67c;
-      border: 3px solid #e1f89b; }
-body.show #menu {
+body.shops.show #menu {
   width: 100%; }
-  body.show #menu div:first-child {
+  body.shops.show #menu div:first-child {
     width: 950px;
     margin: 0 auto;
     position: relative; }
-    body.show #menu div:first-child #bag {
+    body.shops.show #menu div:first-child #bag {
       position: absolute;
       right: 10px;
       top: 24px;
       z-index: 2; }
-    body.show #menu div:first-child #order {
+    body.shops.show #menu div:first-child #order {
       position: absolute;
       right: 0px;
       top: 50px;
       width: 320px;
       z-index: 1; }
-      body.show #menu div:first-child #order p {
+      body.shops.show #menu div:first-child #order p {
         padding: 50px; }
-      body.show #menu div:first-child #order #confirmation p {
+      body.shops.show #menu div:first-child #order #confirmation p {
         text-align: center;
         padding: 10px; }
-      body.show #menu div:first-child #order #confirmation #confirm_link {
+      body.shops.show #menu div:first-child #order #confirmation #confirm_link {
         font-size: 1.7rem;
         display: inline-block;
         outline: none;
@@ -314,71 +315,71 @@ body.show #menu {
         filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#94d042', endColorstr='#698f36');
         margin: 10px;
         float: right; }
-        body.show #menu div:first-child #order #confirmation #confirm_link:hover {
+        body.shops.show #menu div:first-child #order #confirmation #confirm_link:hover {
           text-decoration: none;
           background: #93ca48;
           background: -webkit-gradient(linear, left top, left bottom, from(#92c44e), to(#85b444));
           background: -moz-linear-gradient(top, #92c44e, #85b444);
           filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#92c44e', endColorstr='#85b444'); }
-        body.show #menu div:first-child #order #confirmation #confirm_link:active {
+        body.shops.show #menu div:first-child #order #confirmation #confirm_link:active {
           color: #94d042;
           background: -webkit-gradient(linear, left top, left bottom, from(#94d042), to(#b5d38b));
           background: -moz-linear-gradient(top, #94d042, #b5d38b);
           filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#94d042', endColorstr='#b5d38b'); }
-      body.show #menu div:first-child #order table {
+      body.shops.show #menu div:first-child #order table {
         background: #f9fbec;
         -webkit-box-shadow: 0px 0px 15px rgba(84, 110, 8, 0.3);
         -moz-box-shadow: 0px 0px 15px rgba(84, 110, 8, 0.3);
         box-shadow: 0px 0px 15px rgba(84, 110, 8, 0.3);
         border-collapse: collapse;
         width: 320px; }
-        body.show #menu div:first-child #order table thead {
+        body.shops.show #menu div:first-child #order table thead {
           background: #bf9316;
           color: #e1f89b;
           text-shadow: #546e08 0 0 5px;
           font-size: 2rem; }
-          body.show #menu div:first-child #order table thead th {
+          body.shops.show #menu div:first-child #order table thead th {
             padding: 10px; }
-        body.show #menu div:first-child #order table tbody {
+        body.shops.show #menu div:first-child #order table tbody {
           border-bottom: 1px solid #d7e488; }
-          body.show #menu div:first-child #order table tbody tr {
+          body.shops.show #menu div:first-child #order table tbody tr {
             height: 2.5rem; }
-            body.show #menu div:first-child #order table tbody tr td {
+            body.shops.show #menu div:first-child #order table tbody tr td {
               color: #917011; }
-              body.show #menu div:first-child #order table tbody tr td.price {
+              body.shops.show #menu div:first-child #order table tbody tr td.price {
                 text-align: right;
                 padding-right: 11px; }
-            body.show #menu div:first-child #order table tbody tr td.arrow a {
+            body.shops.show #menu div:first-child #order table tbody tr td.arrow a {
               text-decoration: none;
               color: #bf9316;
               margin-left: 10px; }
-              body.show #menu div:first-child #order table tbody tr td.arrow a.up {
+              body.shops.show #menu div:first-child #order table tbody tr td.arrow a.up {
                 position: relative;
                 top: 5px; }
-                body.show #menu div:first-child #order table tbody tr td.arrow a.up:active {
+                body.shops.show #menu div:first-child #order table tbody tr td.arrow a.up:active {
                   top: 6px; }
-              body.show #menu div:first-child #order table tbody tr td.arrow a.down {
+              body.shops.show #menu div:first-child #order table tbody tr td.arrow a.down {
                 position: relative;
                 top: -5px; }
-                body.show #menu div:first-child #order table tbody tr td.arrow a.down:active {
+                body.shops.show #menu div:first-child #order table tbody tr td.arrow a.down:active {
                   top: -4px; }
-              body.show #menu div:first-child #order table tbody tr td.arrow a:hover {
+              body.shops.show #menu div:first-child #order table tbody tr td.arrow a:hover {
                 background: none; }
-        body.show #menu div:first-child #order table tfoot#totals tr {
+        body.shops.show #menu div:first-child #order table tfoot#totals tr {
           height: 2.5rem; }
-          body.show #menu div:first-child #order table tfoot#totals tr td.subtotal {
+          body.shops.show #menu div:first-child #order table tfoot#totals tr td.subtotal {
             border-top: 1px solid #d7e488;
             font-weight: bold; }
-        body.show #menu div:first-child #order table tfoot#totals .subtotal, body.show #menu div:first-child #order table tfoot#totals .tps, body.show #menu div:first-child #order table tfoot#totals .tvq, body.show #menu div:first-child #order table tfoot#totals .total {
+        body.shops.show #menu div:first-child #order table tfoot#totals .subtotal, body.shops.show #menu div:first-child #order table tfoot#totals .tps, body.shops.show #menu div:first-child #order table tfoot#totals .tvq, body.shops.show #menu div:first-child #order table tfoot#totals .total {
           font-size: 1.4rem;
           font-weight: bold;
           color: #a88113;
           text-align: right; }
-        body.show #menu div:first-child #order table tfoot#totals .subtotal, body.show #menu div:first-child #order table tfoot#totals .tps, body.show #menu div:first-child #order table tfoot#totals .tvq, body.show #menu div:first-child #order table tfoot#totals .total, body.show #menu div:first-child #order table tfoot#totals .price {
+        body.shops.show #menu div:first-child #order table tfoot#totals .subtotal, body.shops.show #menu div:first-child #order table tfoot#totals .tps, body.shops.show #menu div:first-child #order table tfoot#totals .tvq, body.shops.show #menu div:first-child #order table tfoot#totals .total, body.shops.show #menu div:first-child #order table tfoot#totals .price {
           padding-right: 13px; }
-        body.show #menu div:first-child #order table tfoot#totals .total_line {
+        body.shops.show #menu div:first-child #order table tfoot#totals .total_line {
           border-top: 1px solid #d7e488; }
-    body.show #menu div:first-child #categories {
+    body.shops.show #menu div:first-child #categories {
       z-index: 2;
       width: 600px;
       background: white;
@@ -388,62 +389,99 @@ body.show #menu {
       box-shadow: 0px 0px 15px rgba(84, 110, 8, 0.3);
       position: absolute;
       left: 0px; }
-      body.show #menu div:first-child #categories table {
+      body.shops.show #menu div:first-child #categories table {
         color: #666;
         margin-bottom: 30px;
         border-collapse: collapse; }
-        body.show #menu div:first-child #categories table th, body.show #menu div:first-child #categories table td {
+        body.shops.show #menu div:first-child #categories table th, body.shops.show #menu div:first-child #categories table td {
           white-space: nowrap;
           min-width: 60px; }
-        body.show #menu div:first-child #categories table th:first-child, body.show #menu div:first-child #categories table td:first-child {
+        body.shops.show #menu div:first-child #categories table th:first-child, body.shops.show #menu div:first-child #categories table td:first-child {
           width: 250px;
           text-align: left; }
-        body.show #menu div:first-child #categories table th:first-child {
+        body.shops.show #menu div:first-child #categories table th:first-child {
           padding-left: 10px; }
-        body.show #menu div:first-child #categories table th.spacer, body.show #menu div:first-child #categories table td.spacer {
+        body.shops.show #menu div:first-child #categories table th.spacer, body.shops.show #menu div:first-child #categories table td.spacer {
           width: 80%; }
-        body.show #menu div:first-child #categories table th.owner:last-child {
+        body.shops.show #menu div:first-child #categories table th.owner:last-child {
           text-align: right; }
-        body.show #menu div:first-child #categories table td:first-child {
+        body.shops.show #menu div:first-child #categories table td:first-child {
           font-weight: bold;
           padding-left: 10px; }
-        body.show #menu div:first-child #categories table thead {
+        body.shops.show #menu div:first-child #categories table thead {
           background: #e35524;
           color: white; }
-          body.show #menu div:first-child #categories table thead th {
+          body.shops.show #menu div:first-child #categories table thead th {
             height: 30px;
             text-align: center; }
-        body.show #menu div:first-child #categories table tbody td {
+        body.shops.show #menu div:first-child #categories table tbody td {
           height: 30px;
           padding: 6px;
           text-align: center;
           border-bottom: 1px solid #ddd; }
-        body.show #menu div:first-child #categories table .price_link {
+        body.shops.show #menu div:first-child #categories table .price_link {
           font-size: 1.3rem;
           padding: 0.5rem;
           text-decoration: none; }
-        body.show #menu div:first-child #categories table .price_link:hover {
+        body.shops.show #menu div:first-child #categories table .price_link:hover {
           color: black;
           background: white;
           font-weight: bold; }
-        body.show #menu div:first-child #categories table .price_link.selected {
+        body.shops.show #menu div:first-child #categories table .price_link.selected {
           font-size: 10px; }
-        body.show #menu div:first-child #categories table .price_field {
+        body.shops.show #menu div:first-child #categories table .price_field {
           text-align: right; }
 
-div#confirm {
-  width: 100%; }
-  div#confirm div:first-child {
+#shop_banner {
+  width: 100%;
+  background: #91be54;
+  -webkit-box-shadow: inset 0px 0px 15px rgba(84, 110, 8, 0.3);
+  -moz-box-shadow: inset 0px 0px 15px rgba(84, 110, 8, 0.3);
+  box-shadow: inset 0px 0px 15px rgba(84, 110, 8, 0.3);
+  height: 165px;
+  margin-bottom: 20px; }
+  #shop_banner div:first-child {
     width: 950px;
     margin: 0 auto;
     position: relative; }
-    div#confirm div:first-child #extras {
+    #shop_banner div:first-child #shop_address {
+      margin-top: 10px; }
+      #shop_banner div:first-child #shop_address h1 {
+        color: #e1f89b;
+        text-shadow: #546e08 0px 0px 4px;
+        margin-bottom: 0px;
+        padding-top: 30px;
+        margin-top: 0px;
+        padding-bottom: 0px;
+        font-size: 6rem; }
+      #shop_banner div:first-child #shop_address p {
+        font-size: 2rem/2rem;
+        color: rgba(0, 0, 0, 0.7); }
+        #shop_banner div:first-child #shop_address p em {
+          font-weight: bold;
+          font-style: normal; }
+    #shop_banner div:first-child #shop_map {
+      position: absolute;
+      right: 0px;
+      top: 10px;
+      height: 140px;
+      width: 170px;
+      background: #b4c67c;
+      border: 3px solid #e1f89b; }
+
+body.orders.new div#confirm {
+  width: 100%; }
+  body.orders.new div#confirm div:first-child {
+    width: 950px;
+    margin: 0 auto;
+    position: relative; }
+    body.orders.new div#confirm div:first-child #extras {
       position: absolute;
       top: 45px;
       width: 550px;
       margin: 20px auto 20px 400px;
       padding: 20px; }
-      div#confirm div:first-child #extras #confirm_link {
+      body.orders.new div#confirm div:first-child #extras #confirm_link {
         display: inline-block;
         outline: none;
         cursor: pointer;
@@ -464,18 +502,18 @@ div#confirm {
         background: -webkit-gradient(linear, left top, left bottom, from(#94d042), to(#698f36));
         background: -moz-linear-gradient(top, #94d042, #698f36);
         filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#94d042', endColorstr='#698f36'); }
-        div#confirm div:first-child #extras #confirm_link:hover {
+        body.orders.new div#confirm div:first-child #extras #confirm_link:hover {
           text-decoration: none;
           background: #93ca48;
           background: -webkit-gradient(linear, left top, left bottom, from(#92c44e), to(#85b444));
           background: -moz-linear-gradient(top, #92c44e, #85b444);
           filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#92c44e', endColorstr='#85b444'); }
-        div#confirm div:first-child #extras #confirm_link:active {
+        body.orders.new div#confirm div:first-child #extras #confirm_link:active {
           color: #94d042;
           background: -webkit-gradient(linear, left top, left bottom, from(#94d042), to(#b5d38b));
           background: -moz-linear-gradient(top, #94d042, #b5d38b);
           filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#94d042', endColorstr='#b5d38b'); }
-    div#confirm div:first-child table#confirm_order {
+    body.orders.new div#confirm div:first-child table#confirm_order {
       position: absolute;
       width: 400px;
       margin: 20px 450px 20px auto;
@@ -484,31 +522,31 @@ div#confirm {
       -moz-box-shadow: 0px 0px 15px rgba(84, 110, 8, 0.3);
       box-shadow: 0px 0px 15px rgba(84, 110, 8, 0.3);
       border-collapse: collapse; }
-      div#confirm div:first-child table#confirm_order thead {
+      body.orders.new div#confirm div:first-child table#confirm_order thead {
         background: #bf9316;
         color: #e1f89b;
         text-shadow: #546e08 0 0 5px;
         font-size: 2rem; }
-        div#confirm div:first-child table#confirm_order thead th {
+        body.orders.new div#confirm div:first-child table#confirm_order thead th {
           padding: 10px; }
-      div#confirm div:first-child table#confirm_order tfoot#totals tr {
+      body.orders.new div#confirm div:first-child table#confirm_order tfoot#totals tr {
         height: 2.5rem; }
-        div#confirm div:first-child table#confirm_order tfoot#totals tr td.subtotal {
+        body.orders.new div#confirm div:first-child table#confirm_order tfoot#totals tr td.subtotal {
           border-top: 1px solid #d7e488;
           font-weight: bold; }
-        div#confirm div:first-child table#confirm_order tfoot#totals tr .subtotal, div#confirm div:first-child table#confirm_order tfoot#totals tr .tps, div#confirm div:first-child table#confirm_order tfoot#totals tr .tvq, div#confirm div:first-child table#confirm_order tfoot#totals tr .total {
+        body.orders.new div#confirm div:first-child table#confirm_order tfoot#totals tr .subtotal, body.orders.new div#confirm div:first-child table#confirm_order tfoot#totals tr .tps, body.orders.new div#confirm div:first-child table#confirm_order tfoot#totals tr .tvq, body.orders.new div#confirm div:first-child table#confirm_order tfoot#totals tr .total {
           font-size: 1.4rem;
           font-weight: bold;
           color: #a88113;
           text-align: right; }
-        div#confirm div:first-child table#confirm_order tfoot#totals tr .subtotal, div#confirm div:first-child table#confirm_order tfoot#totals tr .tps, div#confirm div:first-child table#confirm_order tfoot#totals tr .tvq, div#confirm div:first-child table#confirm_order tfoot#totals tr .total, div#confirm div:first-child table#confirm_order tfoot#totals tr .price {
+        body.orders.new div#confirm div:first-child table#confirm_order tfoot#totals tr .subtotal, body.orders.new div#confirm div:first-child table#confirm_order tfoot#totals tr .tps, body.orders.new div#confirm div:first-child table#confirm_order tfoot#totals tr .tvq, body.orders.new div#confirm div:first-child table#confirm_order tfoot#totals tr .total, body.orders.new div#confirm div:first-child table#confirm_order tfoot#totals tr .price {
           padding-right: 13px; }
-        div#confirm div:first-child table#confirm_order tfoot#totals tr .total_line {
+        body.orders.new div#confirm div:first-child table#confirm_order tfoot#totals tr .total_line {
           border-top: 1px solid #d7e488; }
-      div#confirm div:first-child table#confirm_order tbody td {
+      body.orders.new div#confirm div:first-child table#confirm_order tbody td {
         color: #917011;
         padding: 10px; }
-      div#confirm div:first-child table#confirm_order tbody td:last-child {
+      body.orders.new div#confirm div:first-child table#confirm_order tbody td:last-child {
         text-align: right; }
 
 #flashes {

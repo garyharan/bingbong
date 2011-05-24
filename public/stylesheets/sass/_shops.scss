@@ -1,4 +1,6 @@
-body.show {
+@import "shop_banner";
+
+body.shops.show {
   #shops {
     width: 100%;
     >div:first-child {
@@ -30,47 +32,6 @@ body.show {
     }
   }
 
-  #shop_banner {
-    width: 100%;
-    background: $green;
-    @include box-shadow(0px, 0px, 15px, transparentize($shadow, 0.7), true);
-    height: 165px;
-    margin-bottom: 20px;
-    div:first-child {
-      width: 950px;
-      margin: 0 auto;
-      position: relative;
-      #shop_address {
-        margin-top: 10px;
-        h1 {
-          color: $yellow;
-          text-shadow: $shadow 0px 0px 4px;
-          margin-bottom: 0px;
-          padding-top: 30px;
-          margin-top: 0px;
-          padding-bottom: 0px;
-          font-size: 6rem;
-        }
-        p {
-          font-size: 2.0rem/2.0rem;
-          color: transparentize(black, 0.3);
-          em {
-            font-weight: bold;
-            font-style: normal;
-          }
-        }
-      }
-      #shop_map {
-        position: absolute;
-        right: 0px;
-        top: 10px;
-        height: 140px;
-        width:  170px;
-        background: $yellow * 0.8;
-        border: 3px solid $yellow;
-      }
-    }
-  }
 
   #menu {
     width: 100%;
