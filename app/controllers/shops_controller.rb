@@ -11,7 +11,7 @@ class ShopsController < ApplicationController
 
   def show
     @shop = Shop.find(params[:id])
-    @lines = Line.find(:all, :conditions => { :shop_id => @shop.id, :user_id => current_user.id }) if user_signed_in?
+    @lines = Line.find(:all, :conditions => { :shop_id => @shop.id, :user_id => current_user.id, :order_id => nil }) if user_signed_in?
 
     respond_to do |format|
       format.html # show.html.erb
