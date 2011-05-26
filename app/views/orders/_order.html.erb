@@ -1,7 +1,4 @@
 <div class="order">
-  <%= order.user.name %>
-  <%= order.user.email %>
-  <br/>
-  <%= order.shop.name %>
-  <%= order.subtotal %>
+  <%= link_to "#{order.shop.name} #{order.subtotal}", order_path(order) %>
+  <%= l order.updated_at :format => :long %>
 </div>

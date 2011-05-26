@@ -10,6 +10,82 @@ body.orders.index {
       .order {
         padding: 10px;
         margin-bottom: 10px;
+        margin-top: 50px;
+        a {
+          font-size: 2.4rem;
+        }
+      }
+    }
+  }
+}
+
+body.orders.show {
+  #banner {
+    width: 100%;
+    height: 170px;
+    div:first-child {
+      width: 650px;
+      height: 170px;
+      margin: 0 auto;
+      position: relative;
+      #logo {
+        margin: 21px auto;
+      }
+      #tag_line {
+        display: none;
+      }
+    }
+  }
+  #orders {
+    div:first-child {
+      width: 950px;
+      margin: 0 auto;
+      table {
+        position: absolute;
+        width: 400px;
+        margin: 20px 450px 20px auto;
+        background: lighten($beige, 4%);
+        @include box-shadow(0px, 0px, 15px, transparentize($shadow, 0.7));
+        border-collapse: collapse;
+        thead {
+          background: $brown;
+          color: $yellow;
+          text-shadow: $shadow 0 0 5px;
+          font-size: 2rem;
+          th {
+            padding: 10px;
+          }
+        }
+        tfoot#totals {
+          tr {
+            height: 2.5rem;
+            td.subtotal {
+              border-top: 1px solid darken($beige, 20%);
+              font-weight: bold;
+            }
+            .subtotal, .tps, .tvq, .total {
+              font-size: 1.4rem;
+              font-weight: bold;
+              color: darken($brown, 5%);
+              text-align: right;
+            }
+            .subtotal, .tps, .tvq, .total, .price {
+              padding-right: 13px;
+            }
+            .total_line {
+              border-top: 1px solid darken($beige, 20%);
+            }
+          }
+        }
+        tbody {
+          td {
+            color: darken($brown, 10%);
+            padding: 10px;
+          }
+          td:last-child {
+            text-align: right;
+          }
+        }
       }
     }
   }
