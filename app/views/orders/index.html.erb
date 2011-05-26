@@ -1,0 +1,11 @@
+<div id="header">
+  <div>
+    <%= link_to image_tag("/images/logo_home_page.png", :width => 224, :height => 94, :alt => "Commander en ligne avec GrandMenu.com", :id => "logo"), root_path, :class => "home" %>
+  </div>
+</div>
+
+<div id="orders">
+  <div id="container">
+    <%= render @orders %>
+  </div>
+</div>

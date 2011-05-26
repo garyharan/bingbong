@@ -1,5 +1,20 @@
 @import "shop_banner";
 
+body.orders.index {
+  #orders {
+    width: 100%;
+    #container {
+      width: 950px;
+      margin: 0 auto;
+      position: relative;
+      .order {
+        padding: 10px;
+        margin-bottom: 10px;
+      }
+    }
+  }
+}
+
 body.orders.new {
   div#confirm {
     width: 100%;
@@ -38,8 +53,8 @@ body.orders.new {
           tr {
             height: 2.5rem;
             td.subtotal {
-                border-top: 1px solid darken($beige, 20%);
-                font-weight: bold;
+              border-top: 1px solid darken($beige, 20%);
+              font-weight: bold;
             }
             .subtotal, .tps, .tvq, .total {
               font-size: 1.4rem;

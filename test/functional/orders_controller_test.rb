@@ -13,6 +13,12 @@ class OrdersControllerTest < ActionController::TestCase
     @item.update_attribute :price, 2.99
   end
 
+  test "should get index orders for current user" do
+    get :index
+    assert_not_nil assigns(:orders)
+    assert_response :success
+  end
+
   test "should get new" do
     @line = Line.create Factory.attributes_for(:line, :shop_id => @shop.id, :item_id => @item.id, :user_id => @user.id)
     get :new, :order => { :shop_id => @shop.id }

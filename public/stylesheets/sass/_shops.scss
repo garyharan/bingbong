@@ -119,93 +119,92 @@ body.shops.show {
             tr {
               height: 2.5rem;
               td.subtotal {
-                  border-top: 1px solid darken($beige, 20%);
-                  font-weight: bold;
-                }
-              }
-              .subtotal, .tps, .tvq, .total {
-                font-size: 1.4rem;
-                font-weight: bold;
-                color: darken($brown, 5%);
-                text-align: right;
-              }
-              .subtotal, .tps, .tvq, .total, .price {
-                padding-right: 13px;
-              }
-              .total_line {
                 border-top: 1px solid darken($beige, 20%);
+                font-weight: bold;
               }
+            }
+            .subtotal, .tps, .tvq, .total {
+              font-size: 1.4rem;
+              font-weight: bold;
+              color: darken($brown, 5%);
+              text-align: right;
+            }
+            .subtotal, .tps, .tvq, .total, .price {
+              padding-right: 13px;
+            }
+            .total_line {
+              border-top: 1px solid darken($beige, 20%);
             }
           }
         }
-        #categories {
-          z-index: 2;
-          width: 600px;
-          background: white;
-          padding: 15px;
-          @include box-shadow(0px, 0px, 15px, transparentize($shadow, 0.7));
-          position: absolute;
-          left: 0px;
-          table {
-            color: #666;
-            margin-bottom: 30px;
-            th,td {
-              white-space:nowrap;
-              min-width: 60px;
-        }
-        th:first-child, td:first-child {
-          width: 250px;
-          text-align: left;
-        }
-        th:first-child {
-          padding-left: 10px;
-        }
-        th.spacer,td.spacer {
-          width: 80%;
-        }
-        th.owner:last-child {
-          text-align: right;
-        }
-        td:first-child{
-          font-weight: bold;
-          padding-left: 10px;
-        }
-        border-collapse: collapse;
-        thead {
-          background: $red;
-          color: white;
-          th {
-            height: 30px;
-            text-align: center;
+      }
+      #categories {
+        z-index: 2;
+        width: 600px;
+        background: white;
+        padding: 15px;
+        @include box-shadow(0px, 0px, 15px, transparentize($shadow, 0.7));
+        position: absolute;
+        left: 0px;
+        table {
+          color: #666;
+          margin-bottom: 30px;
+          th,td {
+            white-space:nowrap;
+            min-width: 60px;
           }
-        }
-        tbody {
-          td {
-            height: 30px;
-            padding: 6px;
-            text-align: center;
-            border-bottom: 1px solid #ddd;
+          th:first-child, td:first-child {
+            width: 250px;
+            text-align: left;
           }
-        }
-        .price_link {
-          font-size: 1.3rem;
-          padding: 0.5rem;
-          text-decoration: none;
-        }
-        .price_link:hover {
-          color: black;
-          background: white;
-          font-weight: bold;
-        }
-        .price_link.selected {
-          font-size: 10px;
-        }
-        .price_field {
-          text-align: right;
+          th:first-child {
+            padding-left: 10px;
+          }
+          th.spacer,td.spacer {
+            width: 80%;
+          }
+          th.owner:last-child {
+            text-align: right;
+          }
+          td:first-child{
+            font-weight: bold;
+            padding-left: 10px;
+          }
+          border-collapse: collapse;
+          thead {
+            background: $red;
+            color: white;
+            th {
+              height: 30px;
+              text-align: center;
+            }
+          }
+          tbody {
+            td {
+              height: 30px;
+              padding: 6px;
+              text-align: center;
+              border-bottom: 1px solid #ddd;
+            }
+          }
+          .price_link {
+            font-size: 1.3rem;
+            padding: 0.5rem;
+            text-decoration: none;
+          }
+          .price_link:hover {
+            color: black;
+            background: white;
+            font-weight: bold;
+          }
+          .price_link.selected {
+            font-size: 10px;
+          }
+          .price_field {
+            text-align: right;
+          }
         }
       }
     }
   }
-  }
-
 }

@@ -86,6 +86,34 @@ body.searches {
     div:first-child {
       width: 630px;
       margin: 0 auto;
+      div.shop {
+        width: 608px;
+        padding: 10px;
+        margin: 10px 0px;
+        position: relative;
+        @include rounded();
+        @include gradient($green, lighten($green, 10%));
+        @include box-shadow(0px, 0px, 15px, transparentize($shadow, 0.2), true);
+        color: $shadow;
+        h1 {
+          width: 500px;
+          color: $yellow;
+          text-shadow: $shadow 0px 0px 4px;
+        }
+        h1 span.distance {
+          margin-left: 10px;
+          font-size: 1.5rem;
+          color: transparentize(darken($yellow, 20%), 0.5);
+          text-shadow: transparentize($shadow, 0.5) 0px 0px 4px;
+        }
+        a.button {
+          position: absolute;
+          bottom: 10px;
+          right: 10px;
+          font-size: 1.8rem;
+          @include button($red);
+        }
+      }
     }
   }
 }
