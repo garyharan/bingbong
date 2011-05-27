@@ -1,7 +1,23 @@
 <%= render :partial => "searches/banner" %>
 
-<div id="orders">
-  <div>
+<div id="order">
+  <div id="container">
+    <div id="state">
+      <% case 'pending'# @order.state %>
+      <% when 'pending' %>
+        <div class="pending">
+          Votre commande n'a pas encore été acceptée. Nous attendons confirmation du restaurateur.
+        </div>
+      <% when 'refused' %>
+        <div class="refused">
+          Cette commande a été refusée. Le restauranteur vous a envoyé un message ou vous a appelé pour vous en parler.
+        </div>
+      <% when 'accepted' %>
+        <div class="accepted">
+          Votre commande a été acceptée. Si elle n'est pas encore arrivée ce sera dans pas longtemps.
+        </div>
+      <% end -%>
+    </div>
     <table>
       <thead>
         <tr>

@@ -9,3 +9,7 @@ $shadow:  #546E08;
 $white:   #FFF;
 
 $background-color: $beige;
+
+$pending: lighten($orange, 5%);
+$accepted: $green;
+$refused: lighten($red, 5%);

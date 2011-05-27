@@ -36,14 +36,44 @@ body.orders.show {
       }
     }
   }
-  #orders {
-    div:first-child {
+  #order {
+    position: relative;
+    #container {
+      position: relative;
       width: 950px;
       margin: 0 auto;
+      #state {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        width: 450px;
+        margin: 0 0 0 400px;
+        .pending, .refused, .accepted {
+          padding: 20px;
+          font-size: 2rem;
+          font-weight: bold;
+          line-height: 2.4rem;
+          text-shadow: $shadow 0px 0px 4px;
+          @include rounded();
+          @include box-shadow(0px, 0px, 5px, $shadow, true);
+        }
+        .refused {
+          color: white;
+          background: $refused;
+        }
+        .accepted {
+          background: $accepted;
+          color: $yellow;
+        }
+        .pending {
+          color: white;
+          background: $pending;
+        }
+      }
       table {
         position: absolute;
         width: 400px;
-        margin: 20px 450px 20px auto;
+        margin: 0px 450px 20px auto;
         background: lighten($beige, 4%);
         @include box-shadow(0px, 0px, 15px, transparentize($shadow, 0.7));
         border-collapse: collapse;
