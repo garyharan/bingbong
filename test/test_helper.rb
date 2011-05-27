@@ -13,4 +13,3 @@ end
 class ActiveSupport::TestCase
   include RR::Adapters::TestUnit
 end
-
