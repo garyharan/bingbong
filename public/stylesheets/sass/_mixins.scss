@@ -70,3 +70,9 @@
   background: -moz-linear-gradient(top,  $from, $to);
   filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$from}', endColorstr='#{$to}');
 }
+@mixin opacity($value: 0.5) {
+  filter: alpha(opacity=($value * 100));
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=($value*100))";
+  -moz-opacity: $value;
+  opacity: $value;
+}

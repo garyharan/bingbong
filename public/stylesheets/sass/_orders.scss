@@ -3,7 +3,7 @@
 body.orders.index {
   #orders {
     width: 100%;
-    #container {
+    #container { // this is the /orders page
       width: 950px;
       margin: 0 auto;
       position: relative;
@@ -15,6 +15,27 @@ body.orders.index {
           font-size: 2.4rem;
         }
       }
+    }
+  }
+  #container_shops { // this is the /shops/:shop_id/orders/ index
+    position: relative;
+    width: 950px;
+    margin: 0 auto;
+    div.order {
+      padding: 10px;
+      @include rounded();
+      @include box-shadow(0px, 0px, 5px, $shadow, false);
+    }
+    div.order.refused {
+      @include opacity();
+      background: $red;
+    }
+    div.order.accepted {
+      @include opacity();
+      background: $green;
+    }
+    div.order.pending {
+      background: $orange;
     }
   }
 }
