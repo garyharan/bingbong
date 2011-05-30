@@ -1,4 +1,20 @@
-<div id="<% dom_id order %>">
-  <%= order.id %>
+<div id="<%= dom_id order %>" class="order <%= order.state %>">
   <%= order.state %>
+
+  <% case order.state %>
+  <% when 'pending' %>
+    <div class="pending">
+      <%= link_to "accepter" %>
+      ou 
+      <%= link_to "refuser" %>
+    </div>
+  <% when 'refused' %>
+    <div class="refused">
+      Cette commande a été refusée.
+    </div>
+  <% when 'accepted' %>
+    <div class="accepted">
+      Votre commande a été acceptée.
+    </div>
+  <% end -%>
 </div>

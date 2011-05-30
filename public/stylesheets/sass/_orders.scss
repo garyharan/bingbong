@@ -22,9 +22,10 @@ body.orders.index {
     width: 950px;
     margin: 0 auto;
     div.order {
-      padding: 10px;
+      padding: 20px;
       @include rounded();
       @include box-shadow(0px, 0px, 5px, $shadow, false);
+      margin-bottom: 20px;
     }
     div.order.refused {
       @include opacity();

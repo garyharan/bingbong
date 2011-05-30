@@ -554,13 +554,14 @@ body.orders.index #container_shops {
   width: 950px;
   margin: 0 auto; }
   body.orders.index #container_shops div.order {
-    padding: 10px;
+    padding: 20px;
     -webkit-border-radius: 0.5em;
     -moz-border-radius: 0.5em;
     border-radius: 0.5em;
     -webkit-box-shadow: 0px 0px 5px #546e08;
     -moz-box-shadow: 0px 0px 5px #546e08;
-    box-shadow: 0px 0px 5px #546e08; }
+    box-shadow: 0px 0px 5px #546e08;
+    margin-bottom: 20px; }
   body.orders.index #container_shops div.order.refused {
     filter: alpha(opacity=50);
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=($value*100))";

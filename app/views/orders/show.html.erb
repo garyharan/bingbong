@@ -3,7 +3,7 @@
 <div id="order">
   <div id="container">
     <div id="state">
-      <% case 'pending'# @order.state %>
+      <% case @order.state %>
       <% when 'pending' %>
         <div class="pending">
           Votre commande n'a pas encore été acceptée. Nous attendons confirmation du restaurateur.
