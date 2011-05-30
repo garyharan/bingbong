@@ -5,6 +5,7 @@ Bingbong::Application.routes.draw do
   resources :searches
 
   resources :shops do
+    resources :orders, :controller => 'shops/orders', :as => 'shop_orders'
     resources :categories do
       resources :sizes
       resources :products
