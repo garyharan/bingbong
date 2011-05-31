@@ -13,7 +13,7 @@ class Shops::OrdersControllerTest < ActionController::TestCase
     @item.update_attribute :price, 2.99
   end
 
-  test "should show index" do
+  test "should get index" do
     get :index, :shop_id => @shop.id
     assert_not_nil assigns(:shop)
     assert_not_nil assigns(:orders)
