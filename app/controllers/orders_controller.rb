@@ -7,6 +7,7 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find params[:id]
+    @lines = @order.lines
   end
 
   def new

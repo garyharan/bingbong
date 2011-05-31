@@ -33,7 +33,7 @@
               Sous-total:
             </td>
             <td class="subtotal">
-              <%= number_to_currency(@subtotal = @order.lines.inject(0) { |sum, line| sum + (line.item.price * line.quantity) }, :unit => "$") %>
+              <%= number_to_currency(@subtotal = @lines.inject(0) { |sum, line| sum + (line.item.price * line.quantity) }, :unit => "$") %>
             </td>
           </tr>
           <tr>
