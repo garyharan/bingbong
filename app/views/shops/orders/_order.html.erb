@@ -49,6 +49,14 @@
       </tr>
     <% end -%>
   </table>
+
+  <div id="address">
+    <%= order.address %>
+    <%= order.appartment %>
+    <%= order.phone_number %>
+    <%= order.note %>
+  </div>
+
   <% case order.state %>
   <% when 'pending' %>
     <div class="pending">
