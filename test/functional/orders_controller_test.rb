@@ -31,8 +31,11 @@ class OrdersControllerTest < ActionController::TestCase
   test "should create an order" do
     @line = Line.create :user_id => @user.id, :shop_id => @shop.id, :item_id => @item.id, :quantity => 2
     assert_difference 'Order.count' do
-      post :create, :order => { :shop_id => @shop.id }
+      post :create, :order => { :shop_id => @shop.id, :note => "note is note", :address => "1 rue Emile", :phone_number => "555-123-4567" }
     end
+    assert_equal "1 rue Emile", assigns(:order).address
+    assert_equal "555-123-4567", assigns(:order).phone_number
+    assert_equal "note is note", assigns(:order).note
     assert_not_nil assigns(:order)
     assert_equal 1, assigns(:order).lines.count
     assert_redirected_to order_path(assigns(:order))

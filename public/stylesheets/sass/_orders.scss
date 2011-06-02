@@ -156,7 +156,16 @@ body.orders.new {
         width: 450px;
         margin: 20px auto 20px 400px;
         padding: 20px;
+        label {
+          float: left;
+          width: 170px;
+        }
+        input, textarea {
+          width: 180px;
+          margin-bottom: 5px;
+        }
         #confirm_link {
+          width: auto;
           font-size: 2.2rem;
           @include button($green);
         }
