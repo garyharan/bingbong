@@ -21,6 +21,14 @@ class LinesControllerTest < ActionController::TestCase
     assert_not_nil assigns(:lines)
   end
 
+  test "should only returns lines not already part of an order" do
+    Line.create(:user_id => @user.id, :shop_id => @shop.id, :item_id => @item.id, :order_id => 3816716)
+    assert_difference 'Line.count' do
+      xhr :post, :create, :line => { :shop_id => @shop.id, :item_id => @item.id }
+    end
+    assert_equal 1, assigns(:lines).count
+  end
+
   test "should change quantity on create if a line already exists" do
     @line = Line.create(:user_id => @user.id, :shop_id => @shop.id, :item_id => @item.id)
     assert_no_difference 'Line.count' do
@@ -35,7 +43,6 @@ class LinesControllerTest < ActionController::TestCase
     xhr :put, :update, :line => { :quantity => 3 }, :id => @line.id
     assert_equal 3, assigns(:line).quantity
     assert_not_nil assigns(:lines)
-    assert_equal @line.id, assigns(:lines).first.id
   end
 
   test "should delete line if quantity set to 0" do
