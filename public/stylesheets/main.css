@@ -666,9 +666,9 @@ body.orders.new div#confirm {
     position: relative; }
     body.orders.new div#confirm div:first-child #extras {
       position: absolute;
-      top: 45px;
+      top: 0px;
       width: 450px;
-      margin: 20px auto 20px 400px;
+      margin: 20px 400px 20px auto;
       padding: 20px; }
       body.orders.new div#confirm div:first-child #extras label {
         float: left;
@@ -676,6 +676,8 @@ body.orders.new div#confirm {
       body.orders.new div#confirm div:first-child #extras input, body.orders.new div#confirm div:first-child #extras textarea {
         width: 180px;
         margin-bottom: 5px; }
+      body.orders.new div#confirm div:first-child #extras textarea {
+        height: 50px; }
       body.orders.new div#confirm div:first-child #extras #confirm_link {
         width: auto;
         font-size: 2.2rem;
@@ -713,7 +715,7 @@ body.orders.new div#confirm {
     body.orders.new div#confirm div:first-child table#confirm_order {
       position: absolute;
       width: 400px;
-      margin: 20px 450px 20px auto;
+      margin: 20px auto 20px 450px;
       background: #f9fbec;
       -webkit-box-shadow: 0px 0px 15px rgba(84, 110, 8, 0.3);
       -moz-box-shadow: 0px 0px 15px rgba(84, 110, 8, 0.3);

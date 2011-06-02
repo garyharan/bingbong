@@ -152,9 +152,9 @@ body.orders.new {
       position: relative;
       #extras {
         position: absolute;
-        top: 45px;
+        top: 0px;
         width: 450px;
-        margin: 20px auto 20px 400px;
+        margin: 20px 400px 20px auto;
         padding: 20px;
         label {
           float: left;
@@ -163,6 +163,9 @@ body.orders.new {
         input, textarea {
           width: 180px;
           margin-bottom: 5px;
+        }
+        textarea {
+          height: 50px;
         }
         #confirm_link {
           width: auto;
@@ -173,7 +176,7 @@ body.orders.new {
       table#confirm_order {
         position: absolute;
         width: 400px;
-        margin: 20px 450px 20px auto;
+        margin: 20px auto 20px 450px;
         background: lighten($beige, 4%);
         @include box-shadow(0px, 0px, 15px, transparentize($shadow, 0.7));
         border-collapse: collapse;
