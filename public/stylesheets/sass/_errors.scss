@@ -28,3 +28,7 @@
   list-style: none;
   color: #333;
 }
+
+input.required_failed {
+  background: lighten(red, 15%);
+}

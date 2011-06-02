@@ -57,6 +57,9 @@ a:hover {
   list-style: none;
   color: #333; }
 
+input.required_failed {
+  background: #ff4d4d; }
+
 body.searches #banner {
   width: 100%;
   height: 170px; }

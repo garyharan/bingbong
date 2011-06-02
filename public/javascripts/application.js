@@ -51,6 +51,21 @@ $(function(){
   }).keypress(function(event){
     $(this).data('changed', true);
   });
+
+
+  $('body.orders.new #post_new').submit(function(){
+    $('#post_new input').removeClass('required_failed')
+    var address = $('#post_address').val();
+    var phone   = $('#post_phone_number').val();
+    if (address == '') {
+      $("#post_address").focus().addClass('required_failed')
+      return false;
+    } else if (phone == '') {
+      $("#post_phone_number").focus().addClass('required_failed')
+      return false;
+    }
+    return true;
+  })
 });
 
 function googleMapUrl(address){
