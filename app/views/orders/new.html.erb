@@ -24,7 +24,7 @@
 <div id="confirm">
   <div id="container">
     <div id="extras">
-      <%= form_for(Order.new, :as => :post, :url => orders_path(:order => { :shop_id => @lines.first.shop_id })) do |f| %>
+      <%= form_for(@order, :url => orders_path(:order => { :shop_id => @lines.first.shop_id })) do |f| %>
         <p>
           <%= f.label :address, "Adresse:" %>
           <%= f.text_field :address %>

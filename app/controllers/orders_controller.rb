@@ -11,7 +11,9 @@ class OrdersController < ApplicationController
   end
 
   def new
-    @order = Order.new params[:order].merge(:user_id => current_user.id)
+    @addy  = current_user.searches.last.try(:location)
+    @phone = current_user.orders.last.try(:phone_number)
+    @order = Order.new params[:order].merge(:user_id => current_user.id, :address => @addy, :phone_number => @phone)
     @shop  = @order.shop
     @lines = Line.find(:all, :conditions => { :order_id => nil, :user_id => current_user.id, :shop_id => params[:order][:shop_id] })
   end

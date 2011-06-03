@@ -33,7 +33,7 @@ class OrdersControllerTest < ActionController::TestCase
     assert_difference 'Order.count' do
       post :create, :order => { :shop_id => @shop.id, :note => "note is note", :address => "1 rue Emile", :phone_number => "555-123-4567" }
     end
-    assert_equal "1 rue Emile", assigns(:order).address
+    assert_equal "1 rue Emile",  assigns(:order).address
     assert_equal "555-123-4567", assigns(:order).phone_number
     assert_equal "note is note", assigns(:order).note
     assert_not_nil assigns(:order)
