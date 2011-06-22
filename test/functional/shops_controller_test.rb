@@ -33,6 +33,12 @@ class ShopsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  test "should require login" do
+    sign_out @user
+    get :show, :id => @shop.to_param
+    assert_response :redirect # login
+  end
+
   test "should get edit" do
     get :edit, :id => @shop.to_param
     assert_response :success
