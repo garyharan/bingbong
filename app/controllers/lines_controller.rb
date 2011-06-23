@@ -19,6 +19,6 @@ class LinesController < ApplicationController
     @line = current_user.lines.find(params[:id])
     @line.update_attributes params[:line]
     @line.destroy if @line.quantity == 0
-    @lines = Line.find(:all, :conditions => { :user_id => current_user.id, :shop_id => @shop_id, :order_id => nil })
+    @lines = Line.find(:all, :conditions => { :user_id => current_user.id, :shop_id => @line.shop_id, :order_id => nil })
   end
 end
