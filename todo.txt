@@ -1,0 +1,28 @@
+Todos for beta
+
+Vocabulary:
+  owner: restaurant owner
+  client: person who orders in a restaurant
+
+/resto (je suis un restaurateur)
+/about (pour owner et client)
+/how_it_works (FAQ) (pour owner et client)
+add flashes for js updates (menu editing for restaurant owners)
+add description to restaurant to make it easier to scan restaurant results
+sur la page principale (for the client)
+  historique de commande (do last order)
+  historique de restaurants (check their menu again)
+sur la page de restaurant
+  refaire ma derniere commande
+
+BIG:
+  show pending fees (that will be invoiced at +/- 40$)
+  page d'acceptation de commande (with print command)
+  rapport de commandes
+  twillio
+    build a sentence to be spoken
+
+Good to haves:
+  point system
+  delivery fee per order configurable by restaurant by distance (or geographical area)
+  delivery status
