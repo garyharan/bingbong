@@ -8,6 +8,8 @@ class Product < ActiveRecord::Base
 
   delegate :shop, :to => :category
 
+  private
+
   after_create :create_items
   def create_items
     category.sizes.each do |size|
