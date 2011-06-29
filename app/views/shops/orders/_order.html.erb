@@ -60,9 +60,9 @@
   <% case order.state %>
   <% when 'pending' %>
     <div class="pending">
-      <%= link_to "accepter" %>
-      ou 
-      <%= link_to "refuser" %>
+      <%= link_to "accepter", accept_shop_shop_order_url(order.shop, order), :method => :post %>
+      ou
+      <%= link_to "refuser", refuse_shop_shop_order_url(order.shop, order), :method => :post %>
     </div>
   <% when 'refused' %>
     <div class="refused">
@@ -70,7 +70,7 @@
     </div>
   <% when 'accepted' %>
     <div class="accepted">
-      Votre commande a été acceptée.
+      Vous avez accepté cette commande.
     </div>
   <% end -%>
 </div>
