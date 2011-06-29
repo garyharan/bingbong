@@ -9,7 +9,7 @@ class Order < ActiveRecord::Base
     state :pending
     state :accepted
     state :refused
-    
+
     event :refuse do
       transitions :to => :refused, :from => :pending, :on_transition => :do_refuse
     end
