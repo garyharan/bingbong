@@ -14,6 +14,10 @@
 
 <div id="shops">
   <div>
-    <%= render @search.shops %>
+    <% if @search.shops.blank? then %>
+      <p>Désolé, nous n'avons aucun restaurants à proximité de votre adresse.</p>
+    <% else %>
+      <%= render @search.shops %>
+    <% end %>
   </div>
 </div>
