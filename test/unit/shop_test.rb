@@ -4,7 +4,7 @@ class ShopTest < ActiveSupport::TestCase
   test "owned_by?(user) works" do
     @user = Factory.build :user
     @shop = Factory.build :shop, :user_id => @user.id
-    assert @shop.owned_by?(@user), "user should owne this shop."
+    assert @shop.owned_by?(@user), "user should own this shop."
 
     @not_mine = Factory.build(:shop, :user_id => -1)
     assert @not_mine.owned_by?(@user) == false, "user should not own this shop"
