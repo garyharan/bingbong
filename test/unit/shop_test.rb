@@ -1,6 +1,9 @@
 require 'test_helper'
 
 class ShopTest < ActiveSupport::TestCase
+  should have_many(:orders)
+  should have_many(:categories)
+
   test "owned_by?(user) works" do
     @user = Factory.build :user
     @shop = Factory.build :shop, :user_id => @user.id
