@@ -12,11 +12,14 @@ class Search < ActiveRecord::Base
   private
   def fetch_coordinates
     if self.latitude.nil? || self.longitude.nil?
-      coordinates    = Geocoder.coordinates location
-      self.latitude  = coordinates[0]
-      self.longitude = coordinates[1]
-      self.save
+      coordinates = Geocoder.coordinates location
+      if coordinates then
+        self.latitude  = coordinates[0]
+        self.longitude = coordinates[1]
+        self.save
+      end
     end
+
     [self.latitude, self.longitude]
   end
 end

@@ -10,4 +10,15 @@ class SearchTest < ActiveSupport::TestCase
     assert_equal @coordinates[0], @search.latitude
     assert_equal @coordinates[1], @search.longitude
   end
+
+  test "don't break when Geocoder returns nothing from a call" do
+    @shop = Factory.build :shop
+    @coordinates = [45.55555, -73.55555]
+    stub(Geocoder).coordinates().returns(nil)
+    @search = Search.create Factory.attributes_for :search
+
+    assert_nothing_raised do
+      @search.find_shops
+    end
+  end
 end
