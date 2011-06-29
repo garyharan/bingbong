@@ -6,9 +6,7 @@ class Product < ActiveRecord::Base
   validates_presence_of :name
   validates_uniqueness_of :name, :scope => :category_id
 
-  def shop
-    category.shop
-  end
+  delegate :shop, :to => :category
 
   after_create :create_items
   def create_items
