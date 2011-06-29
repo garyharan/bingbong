@@ -13,5 +13,16 @@ gem 'twiliolib'
 gem "seedbank"
 
 gem 'thin'
-gem 'factory_girl_rails'
 gem 'rails3-generators'
+
+gem 'rake', '~> 0.8.7'
+
+group :development, :test do
+  gem 'autotest-rails'
+  gem 'autotest-growl'
+  gem 'autotest-fsevent'
+
+  gem 'factory_girl_rails'
+
+  gem 'ruby-debug19', :platform => :mri_19
+end
