@@ -1,6 +1,14 @@
 require 'test_helper'
 
 class CategoryTest < ActiveSupport::TestCase
+  should belong_to(:shop)
+  should have_many(:sizes)
+  should have_many(:products)
+
+  should validate_presence_of(:name)
+  # FIXME: Make this validation pass
+  # should validate_uniqueness_of(:name).scoped_to(:shop_id)
+
   test "names are unique within each shop" do
     shop   = Shop.create Factory.attributes_for(:shop)
     pizzas_1 = Category.create :name => "Pizzas", :shop_id => shop.id
