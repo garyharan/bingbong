@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110531195006) do
+ActiveRecord::Schema.define(:version => 20110629151335) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -104,7 +104,6 @@ ActiveRecord::Schema.define(:version => 20110531195006) do
   create_table "users", :force => true do |t|
     t.string   "email",                               :default => "",    :null => false
     t.string   "encrypted_password",   :limit => 128, :default => "",    :null => false
-    t.string   "password_salt",                       :default => "",    :null => false
     t.string   "reset_password_token"
     t.string   "remember_token"
     t.datetime "remember_created_at"
@@ -126,5 +125,24 @@ ActiveRecord::Schema.define(:version => 20110531195006) do
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+
+  add_foreign_key "categories", ["shop_id"], "shops", ["id"], :name => "categories_shop_id_fkey"
+
+  add_foreign_key "items", ["product_id"], "products", ["id"], :on_delete => :cascade, :name => "items_product_id_fkey"
+  add_foreign_key "items", ["size_id"], "sizes", ["id"], :name => "items_size_id_fkey"
+
+  add_foreign_key "lines", ["item_id"], "items", ["id"], :name => "lines_item_id_fkey"
+  add_foreign_key "lines", ["order_id"], "orders", ["id"], :name => "lines_order_id_fkey"
+
+  add_foreign_key "orders", ["shop_id"], "shops", ["id"], :name => "orders_shop_id_fkey"
+  add_foreign_key "orders", ["user_id"], "users", ["id"], :name => "orders_user_id_fkey"
+
+  add_foreign_key "products", ["category_id"], "categories", ["id"], :name => "products_category_id_fkey"
+
+  add_foreign_key "searches", ["user_id"], "users", ["id"], :name => "searches_user_id_fkey"
+
+  add_foreign_key "shops", ["user_id"], "users", ["id"], :name => "shops_user_id_fkey"
+
+  add_foreign_key "sizes", ["category_id"], "categories", ["id"], :name => "sizes_category_id_fkey"
 
 end

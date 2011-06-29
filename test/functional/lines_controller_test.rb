@@ -4,11 +4,11 @@ class LinesControllerTest < ActionController::TestCase
   setup do
     @user = User.create!(Factory.attributes_for(:user))
     @user.confirm!
-    sign_in @user 
+    sign_in @user
     @shop     = Shop.create     Factory.attributes_for(:shop)
-    @category = Category.create Factory.attributes_for(:category, :shop_id => @shop.id)
-    @product  = Product.create  Factory.attributes_for(:product, :category_id => @category.id)
-    @size     = Size.create     Factory.attributes_for(:size, :category_id => @category.id)
+    @category = Category.create Factory.attributes_for(:category, :shop => @shop)
+    @product  = Product.create  Factory.attributes_for(:product, :category => @category)
+    @size     = Size.create     Factory.attributes_for(:size, :category => @category)
     @item     = Item.first
     @item.update_attribute :price, 2.99
   end
@@ -21,8 +21,8 @@ class LinesControllerTest < ActionController::TestCase
     assert_not_nil assigns(:lines)
   end
 
-  test "should only returns lines not already part of an order" do
-    Line.create(:user_id => @user.id, :shop_id => @shop.id, :item_id => @item.id, :order_id => 3816716)
+  test "should only return lines not already part of an order" do
+    Line.create(:shop => @shop, :item => @item, :order => Factory.create(:order))
     assert_difference 'Line.count' do
       xhr :post, :create, :line => { :shop_id => @shop.id, :item_id => @item.id }
     end
