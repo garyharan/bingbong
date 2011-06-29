@@ -2,7 +2,7 @@ Todos for beta
 
 Vocabulary:
   owner: restaurant owner
-  client: person who orders in a restaurant
+  client: person which orders at a restaurant
 
 /resto (je suis un restaurateur)
 /about (pour owner et client)
