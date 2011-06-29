@@ -1,5 +1,6 @@
 class Product < ActiveRecord::Base
   belongs_to :category
+  has_many :items
   has_many :sizes, :through => :items
 
   validates_presence_of :name
