@@ -21,4 +21,16 @@ class ShopTest < ActiveSupport::TestCase
   #   assert_equal 45.493409,   @shop.latitude
   #   assert_equal -73.4576584, @shop.longitude
   # end
+
+  test "normalizes postal code" do
+    shop = Factory.build(:shop)
+
+    # Uppercases the postal code
+    shop.postal_code = "j1g3n3"; shop.valid?
+    assert_equal "J1G 3N3", shop.postal_code
+
+    # Trims and strips extraneous spaces
+    shop.postal_code = " J1g   3x3 "; shop.valid?
+    assert_equal "J1G 3X3", shop.postal_code
+  end
 end
