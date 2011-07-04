@@ -1,3 +1,4 @@
+# coding : utf-8
 # use incremental values for ids for consistency
 shop = category = size = item = 0
 
