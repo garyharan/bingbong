@@ -10,13 +10,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110629151335) do
+ActiveRecord::Schema.define(:version => 20110704160759) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
     t.integer  "shop_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "delivery_addresses", :force => true do |t|
+    t.string "address"
+    t.string "apartment"
+    t.string "phone_number"
+    t.string "note"
   end
 
   create_table "items", :force => true do |t|
@@ -120,6 +127,7 @@ ActiveRecord::Schema.define(:version => 20110629151335) do
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
+    t.integer  "delivery_address_id"
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
