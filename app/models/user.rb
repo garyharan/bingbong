@@ -9,9 +9,9 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :remember_me, :first_name, :last_name
 
   validates_uniqueness_of :email
-  validates_presence_of :email, :first_name, :last_name, :delivery_address
+  validates_presence_of :email, :first_name, :last_name
 
-  belongs_to :delivery_address
+  has_many :delivery_addresses
 
   has_many :shops
   has_many :lines

@@ -2,7 +2,7 @@ require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
   setup do 
-    @user = User.new :email => "gary.haran@grandmenu.com", :password => "my password", :first_name => "Gary", :last_name => "Haran", :delivery_address => Factory(:delivery_address).id
+    @user = User.new :email => "gary.haran@grandmenu.com", :password => "my password", :first_name => "Gary", :last_name => "Haran"
   end
   test "user#name returns full name" do
     assert_equal "Gary Haran", @user.name

@@ -2,7 +2,7 @@ require 'test_helper'
 
 class DeliveryAddressTest < ActiveSupport::TestCase
   setup do 
-    @delivery_address = DeliveryAddress.new :address => "1514 Murray, St-Hubert", :apartment => nil, :phone_number => "555-555-5555", :note => nil
+    @delivery_address = DeliveryAddress.new :user_id => Factory(:user).id, :address => "1514 Murray, St-Hubert", :apartment => nil, :phone_number => "555-555-5555", :note => nil
   end
 
   test "delivery address#phone_number is a valid phone number" do

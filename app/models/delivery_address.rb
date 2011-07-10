@@ -1,8 +1,8 @@
 class DeliveryAddress < ActiveRecord::Base
-  has_many :user
+  belongs_to :user
 
-  attr_accessible :address, :apartment, :phone_number, :note
+  attr_accessible :user_id, :address, :apartment, :phone_number, :note
 
-  validates_presence_of :address, :phone_number
+  validates_presence_of :user_id, :address, :phone_number
   validates_format_of :phone_number, :with => /\d{3}-\d{3}-\d{4}/
 end
