@@ -2,7 +2,7 @@ class Order < ActiveRecord::Base
   include ActiveRecord::Transitions
 
   belongs_to :shop
-  belongs_to :user
+  belongs_to :delivery_address
   has_many :lines
 
   state_machine do

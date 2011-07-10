@@ -7,6 +7,8 @@ class AddAddressForUsers < ActiveRecord::Migration
       t.string :phone_number
       t.string :note
     end
+
+    add_foreign_key :delivery_addresses, :user_id, :users, :id
   end
 
   def self.down

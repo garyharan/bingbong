@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110704160759) do
+ActiveRecord::Schema.define(:version => 20110710161649) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -46,17 +46,13 @@ ActiveRecord::Schema.define(:version => 20110704160759) do
   end
 
   create_table "orders", :force => true do |t|
-    t.string   "state",        :default => "pending"
-    t.integer  "user_id"
+    t.string   "state",               :default => "pending"
     t.integer  "shop_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "refused_at"
     t.datetime "accepted_at"
-    t.string   "address"
-    t.string   "appartment"
-    t.string   "phone_number"
-    t.text     "note"
+    t.integer  "delivery_address_id"
   end
 
   create_table "potentials", :force => true do |t|
@@ -136,14 +132,16 @@ ActiveRecord::Schema.define(:version => 20110704160759) do
 
   add_foreign_key "categories", ["shop_id"], "shops", ["id"], :name => "categories_shop_id_fkey"
 
+  add_foreign_key "delivery_addresses", ["user_id"], "users", ["id"], :name => "delivery_addresses_user_id_fkey"
+
   add_foreign_key "items", ["product_id"], "products", ["id"], :on_delete => :cascade, :name => "items_product_id_fkey"
   add_foreign_key "items", ["size_id"], "sizes", ["id"], :name => "items_size_id_fkey"
 
   add_foreign_key "lines", ["item_id"], "items", ["id"], :name => "lines_item_id_fkey"
   add_foreign_key "lines", ["order_id"], "orders", ["id"], :name => "lines_order_id_fkey"
 
+  add_foreign_key "orders", ["delivery_address_id"], "delivery_addresses", ["id"], :name => "orders_delivery_address_id_fkey"
   add_foreign_key "orders", ["shop_id"], "shops", ["id"], :name => "orders_shop_id_fkey"
-  add_foreign_key "orders", ["user_id"], "users", ["id"], :name => "orders_user_id_fkey"
 
   add_foreign_key "products", ["category_id"], "categories", ["id"], :name => "products_category_id_fkey"
 
