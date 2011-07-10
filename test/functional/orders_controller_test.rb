@@ -11,6 +11,7 @@ class OrdersControllerTest < ActionController::TestCase
     @size     = Size.create     Factory.attributes_for(:size, :category_id => @category.id)
     @item     = Item.first
     @item.update_attribute :price, 2.99
+    @delivery_address = Factory(:delivery_address, :user_id => @user.id)
   end
 
   test "should get index orders for current user" do
@@ -31,18 +32,16 @@ class OrdersControllerTest < ActionController::TestCase
   test "should create an order" do
     @line = Line.create :user_id => @user.id, :shop_id => @shop.id, :item_id => @item.id, :quantity => 2
     assert_difference 'Order.count' do
-      post :create, :order => { :shop_id => @shop.id, :note => "note is note", :address => "1 rue Emile", :phone_number => "555-123-4567" }
+      post :create, :order => { :shop_id => @shop.id, :delivery_address_id => @delivery_address.id }
     end
-    assert_equal "1 rue Emile",  assigns(:order).address
-    assert_equal "555-123-4567", assigns(:order).phone_number
-    assert_equal "note is note", assigns(:order).note
+    assert_equal @delivery_address.id, assigns(:order).delivery_address_id
     assert_not_nil assigns(:order)
     assert_equal 1, assigns(:order).lines.count
     assert_redirected_to order_path(assigns(:order))
   end
 
   test "should show an order" do
-    @order = Order.create :user_id => @user.id, :shop_id => @shop.id
+    @order = Order.create :delivery_address_id => @delivery_address.id, :shop_id => @shop.id
     @line = Line.create :user_id => @user.id, :shop_id => @shop.id, :item_id => @item.id, :quantity => 2, :order_id => @order.id
     get :show, :id => @order.id
     assert_response :success

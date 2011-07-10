@@ -51,10 +51,10 @@
   </table>
 
   <div id="address">
-    <%= order.address %>
-    <%= order.appartment %>
-    <%= order.phone_number %>
-    <%= order.note %>
+    <%= order.delivery_address.address %>
+    <%= order.delivery_address.apartment %>
+    <%= order.delivery_address.phone_number %>
+    <%= order.delivery_address.note %>
   </div>
 
   <% case order.state %>

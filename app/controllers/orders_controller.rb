@@ -11,15 +11,19 @@ class OrdersController < ApplicationController
   end
 
   def new
-    @addy  = current_user.searches.last.try(:location)
-    @phone = current_user.orders.last.try(:phone_number)
-    @order = Order.new params[:order].merge(:user_id => current_user.id, :address => @addy, :phone_number => @phone)
+    delivery_address = current_user.orders.last.try(:delivery_address)
+    if delivery_address.nil?
+      delivery_address = DeliveryAddress.create(:user_id => current_user.id, 
+                                               :address => current_user.searches.last.try(:location), 
+                                               :phone_number => current_user.orders.last.try(:phone_number))
+    end
+    @order = Order.new params[:order].merge(:delivery_address => delivery_address)
     @shop  = @order.shop
     @lines = Line.find(:all, :conditions => { :order_id => nil, :user_id => current_user.id, :shop_id => params[:order][:shop_id] })
   end
 
   def create
-    @order = Order.create params[:order].merge(:user_id => current_user.id)
+    @order = Order.create params[:order] #.merge(:user_id => current_user.id)
     Line.find(:all, :conditions => { :order_id => nil, :user_id => current_user.id, :shop_id => params[:order][:shop_id]}).each do |line|
       line.update_attribute :order_id, @order.id
     end

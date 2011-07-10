@@ -3,6 +3,7 @@ class Order < ActiveRecord::Base
 
   belongs_to :shop
   belongs_to :delivery_address
+  delegate :user, :to => :delivery_address
   has_many :lines
 
   state_machine do
@@ -17,6 +18,10 @@ class Order < ActiveRecord::Base
     event :accept do
       transitions :to => :accepted, :from => :pending, :on_transition => :do_accept
     end
+  end
+
+  def self.find_all_by_user_id(*args)
+    where( :delivery_address_id => DeliveryAddress.find_all_by_user_id(*args) ).all
   end
 
   def subtotal

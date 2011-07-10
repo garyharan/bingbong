@@ -25,21 +25,22 @@
   <div id="container">
     <div id="extras">
       <%= form_for(@order, :url => orders_path(:order => { :shop_id => @lines.first.shop_id })) do |f| %>
+        TODO : MANAGE DELIVERY ADDRESS
         <p>
           <%= f.label :address, "Adresse:" %>
-          <%= f.text_field :address %>
+          <%#= f.text_field :address %>
         </p>
         <p>
-          <%= f.label :appartment, "Appartement:" %>
-          <%= f.text_field :appartment %>
+          <%= f.label :apartment, "Appartement:" %>
+          <%#= f.text_field :apartment %>
         </p>
         <p>
           <%= f.label :phone_number, "Téléphone:" %>
-          <%= f.text_field :phone_number %>
+          <%#= f.text_field :phone_number %>
         </p>
         <p>
           <%= f.label :note, "Instructions spéciales:" %>
-          <%= f.text_area :note %>
+          <%#= f.text_area :note %>
         </p>
         <p>Vous recevrez un email lorsque la commande sera reçue.</p>
         <%= f.submit "Confirmer la commande", :id => "confirm_link" %>

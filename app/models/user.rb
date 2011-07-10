@@ -11,13 +11,12 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :email
   validates_presence_of :email, :first_name, :last_name
 
-  has_many :delivery_addresses
-
   has_many :shops
   has_many :lines
 
   has_many :searches
-  has_many :orders
+  has_many :delivery_addresses
+  has_many :orders, :through => :delivery_addresses
 
   def name
     [first_name, last_name].join(' ')
