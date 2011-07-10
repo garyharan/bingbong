@@ -11,11 +11,4 @@ class UserTest < ActiveSupport::TestCase
   test "user#admin? returns false by default" do
     assert_equal false, @user.admin?
   end
-
-=begin
-  test "user#email need to be unique" do
-    @user.save!
-    @user.dup
-  end
-=end
 end
