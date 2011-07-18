@@ -2,7 +2,7 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.0.7'
 gem 'jquery-rails'
-gem "transitions", :require => ["transitions", "active_record/transitions"]
+gem 'transitions', :require => ['transitions', 'active_record/transitions']
 gem 'devise'
 gem 'best_in_place'
 gem 'sass'
@@ -10,7 +10,7 @@ gem 'pg'
 gem 'geocoder'
 gem 'rr'
 gem 'twiliolib'
-gem "seedbank"
+gem 'seedbank'
 
 gem 'thin'
 gem 'rails3-generators'
