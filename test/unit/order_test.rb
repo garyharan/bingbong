@@ -24,4 +24,9 @@ class OrderTest < ActiveSupport::TestCase
     assert_equal 'accepted', @order.state
     assert_not_nil :accepted_at
   end
+
+  test "should transition call_state when ringing" do
+    @order.ring!
+    assert_equal "called", @order.call_state
+  end
 end

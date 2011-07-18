@@ -1,22 +1,33 @@
 class Order < ActiveRecord::Base
-  include ActiveRecord::Transitions
-
   belongs_to :shop
   belongs_to :delivery_address
   delegate :user, :to => :delivery_address
   has_many :lines
 
-  state_machine do
+  state_machine :initial => :pending do
     state :pending
     state :accepted
     state :refused
 
     event :refuse do
-      transitions :to => :refused, :from => :pending, :on_transition => :do_refuse
+      transition :pending => :refused do |order|
+        order.refused_at = Time.now.utc
+      end
     end
 
     event :accept do
-      transitions :to => :accepted, :from => :pending, :on_transition => :do_accept
+      transition :pending => :accepted do |order|
+        order.accepted_at = Time.now.utc
+      end
+    end
+  end
+
+  state_machine :call_state, :initial => :call_pending do
+    state :call_pending
+    state :called
+
+    event :ring do
+      transition :from => :call_pending, :to => :called
     end
   end
 
@@ -26,15 +37,5 @@ class Order < ActiveRecord::Base
 
   def subtotal
     lines.inject(0) { |sum, line| sum + (line.item.price * line.quantity) }
-  end
-
-  private
-
-  def do_refuse(refused_at = Time.now)
-    self.refused_at = refused_at
-  end
-
-  def do_accept(accepted_at = Time.now)
-    self.accepted_at = accepted_at
   end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110710161649) do
+ActiveRecord::Schema.define(:version => 20110718202142) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(:version => 20110710161649) do
     t.datetime "refused_at"
     t.datetime "accepted_at"
     t.integer  "delivery_address_id"
+    t.string   "call_state",          :default => "pending", :null => false
   end
 
   create_table "potentials", :force => true do |t|
