@@ -38,10 +38,35 @@ class OrderTest < ActiveSupport::TestCase
     assert_equal [{"call_pending" => "calling"}], @order.state_transitions.map{|st| {st.from => st.to}}
   end
 
-  test "should create an order_state_transition record when answering the call" do
+  test "should transition :call_state to answered when the order is refused" do
     @order.ring!
+    @order.refuse!
     @order.answer!
     expected = {"calling" => "answered"}
+    assert_equal expected, @order.state_transitions.map{|st| {st.from => st.to}}.last
+  end
+
+  test "should transition :call_state to answered when the order is accepted" do
+    @order.ring!
+    @order.accept!
+    @order.answer!
+    expected = {"calling" => "answered"}
+    assert_equal expected, @order.state_transitions.map{|st| {st.from => st.to}}.last
+  end
+
+  test "should transition call_state to calling again when answer didn't #accept!" do
+    @order.ring!
+    # No calls to #accept!
+    @order.answer!
+    expected = {"calling" => "calling"}
+    assert_equal expected, @order.state_transitions.map{|st| {st.from => st.to}}.last
+  end
+
+  test "should transition call_state to calling again when answer didn't #refuse!" do
+    @order.ring!
+    # No calls to #refuse!
+    @order.answer!
+    expected = {"calling" => "calling"}
     assert_equal expected, @order.state_transitions.map{|st| {st.from => st.to}}.last
   end
 end

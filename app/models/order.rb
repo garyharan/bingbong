@@ -2,10 +2,11 @@ class Order < ActiveRecord::Base
   belongs_to :shop
   belongs_to :delivery_address
   delegate :user, :to => :delivery_address
-  has_many :lines
 
   attr_accessible :delivery_address_id, :shop_id
-  has_many :state_transitions, :class_name => "OrderStateTransition", :order => :created_at
+
+  has_many :lines, :dependent => :delete_all
+  has_many :state_transitions, :class_name => "OrderStateTransition", :order => :created_at, :dependent => :delete_all
 
   state_machine :initial => :pending do
     event :refuse do
@@ -25,15 +26,12 @@ class Order < ActiveRecord::Base
 
   state_machine :call_state, :initial => :call_pending do
     event :ring do
-      transition :call_pending => :calling do |order|
-        order.ringing_at = Time.now.utc
-      end
+      transition :call_pending => :calling
     end
 
     event :answer do
-      transition :calling => :answered do |order|
-        order.called_at = Time.now.utc
-      end
+      transition :calling => :answered, :if => lambda {|order| order.accepted? || order.refused?}
+      transition :calling => same
     end
 
     before_transition OrderStateMachineObserver.method(:audit_order)
