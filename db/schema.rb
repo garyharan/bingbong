@@ -47,6 +47,16 @@ ActiveRecord::Schema.define(:version => 20110724021351) do
     t.integer  "order_id"
   end
 
+  create_table "order_state_transitions", :force => true do |t|
+    t.integer  "order_id",   :null => false
+    t.string   "column",     :null => false
+    t.string   "from",       :null => false
+    t.string   "to",         :null => false
+    t.string   "event",      :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "orders", :force => true do |t|
     t.string   "state",               :default => "pending"
     t.integer  "shop_id"
@@ -57,6 +67,8 @@ ActiveRecord::Schema.define(:version => 20110724021351) do
     t.integer  "delivery_address_id"
     t.string   "call_state",          :default => "pending", :null => false
   end
+
+  add_index "orders", ["call_state"], :name => "index_orders_on_call_state"
 
   create_table "potentials", :force => true do |t|
     t.string   "name"

@@ -1,6 +1,9 @@
 require 'test_helper'
 
 class OrderTest < ActiveSupport::TestCase
+
+  should have_many(:state_transitions)
+
   setup do
     @order = Factory.create :order
     @item  = Factory.create :item
@@ -27,6 +30,18 @@ class OrderTest < ActiveSupport::TestCase
 
   test "should transition call_state when ringing" do
     @order.ring!
-    assert_equal "called", @order.call_state
+    assert_equal "calling", @order.call_state
+  end
+
+  test "should create an order_state_transition record when ringing" do
+    @order.ring!
+    assert_equal [{"call_pending" => "calling"}], @order.state_transitions.map{|st| {st.from => st.to}}
+  end
+
+  test "should create an order_state_transition record when answering the call" do
+    @order.ring!
+    @order.answer!
+    expected = {"calling" => "answered"}
+    assert_equal expected, @order.state_transitions.map{|st| {st.from => st.to}}.last
   end
 end

@@ -3,13 +3,11 @@ class Order < ActiveRecord::Base
   belongs_to :delivery_address
   delegate :user, :to => :delivery_address
   has_many :lines
+
   attr_accessible :delivery_address_id, :shop_id
+  has_many :state_transitions, :class_name => "OrderStateTransition", :order => :created_at
 
   state_machine :initial => :pending do
-    state :pending
-    state :accepted
-    state :refused
-
     event :refuse do
       transition :pending => :refused do |order|
         order.refused_at = Time.now.utc
@@ -21,15 +19,24 @@ class Order < ActiveRecord::Base
         order.accepted_at = Time.now.utc
       end
     end
+
+    before_transition OrderStateMachineObserver.method(:audit_order)
   end
 
   state_machine :call_state, :initial => :call_pending do
-    state :call_pending
-    state :called
-
     event :ring do
-      transition :from => :call_pending, :to => :called
+      transition :call_pending => :calling do |order|
+        order.ringing_at = Time.now.utc
+      end
     end
+
+    event :answer do
+      transition :calling => :answered do |order|
+        order.called_at = Time.now.utc
+      end
+    end
+
+    before_transition OrderStateMachineObserver.method(:audit_order)
   end
 
   def self.find_all_by_user_id(*args)
