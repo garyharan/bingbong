@@ -26,3 +26,15 @@ Good to haves:
   point system
   delivery fee per order configurable by restaurant by distance (or geographical area)
   delivery status
+
+
+
+
+Bugs :
+  Edit shops
+    X are not displayed at the good places on Firefox
+    ctrl-e need to be called if categories are empty
+    Add a string to say to do ctrl-e to go into edit mode - Or edit mode need to be always enabled
+  
+  Searches
+    Searches could have more than 1 user, make a many-to-many relationship
