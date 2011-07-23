@@ -1,0 +1,23 @@
+.address
+  -if @delivery_address.errors.any?
+    #error_explanation
+      %ul
+        - @delivery_address.errors.full_messages.each do |msg|
+          %li= msg
+
+
+  = form_for(@delivery_address) do |f|
+    .name
+      = label :address, "Adresse:"
+      = f.text_field :address
+    .appartment
+      = label :apartment, "Appartement:"
+      = f.text_field :apartment
+    .phone_number
+      = label :phone_number, "Téléphone:"
+      = f.text_field :phone_number
+    .note
+      = label :note, "Instructions spéciales:"
+      = f.text_area :note
+
+      = f.submit

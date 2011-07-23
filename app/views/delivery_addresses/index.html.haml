@@ -1,0 +1,5 @@
+%h1 Vos addresses enregistrées
+
+= render "delivery_addresses/list", :addresses => @delivery_addresses
+
+= link_to 'Nouvelle addresse', new_delivery_address_path

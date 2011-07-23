@@ -1,0 +1,17 @@
+.addresses
+  - addresses.each_with_index do |address, index|
+    .address{:class => index == 0 ? "selected" : ""}
+      .full
+        = address.address
+        - unless address.apartment.blank?
+          = "Apt. #{address.apartment}"
+      .phone_number
+        = address.phone_number
+      .note
+        = address.note
+
+      .actions
+        = link_to 'Modifier', edit_delivery_address_path(address)
+        = "-"
+        = link_to 'Supprimer', address, :confirm => 'Êtes-vous certain?', :method => :delete
+.clear

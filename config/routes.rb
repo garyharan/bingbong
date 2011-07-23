@@ -1,8 +1,10 @@
 Bingbong::Application.routes.draw do
+
   resources :potentials # until launch
   # root :to => "potentials#new"
   root :to => "searches#index"
   resources :searches
+  resources :delivery_addresses, :except => :show
 
   resources :shops do
     resources :orders, :controller => 'shops/orders', :as => 'shop_orders' do
