@@ -12,4 +12,4 @@ $(function(){
       $(this).val(placeholder).css('color', '#999')
     }
   });
-})(jQuery);
+});
