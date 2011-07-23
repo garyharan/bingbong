@@ -146,7 +146,7 @@ body.orders.show {
 body.orders.new {
   div#confirm {
     width: 100%;
-    div:first-child {
+    #container {
       width: 950px;
       margin: 0 auto;
       position: relative;
@@ -171,6 +171,9 @@ body.orders.new {
           width: auto;
           font-size: 2.2rem;
           @include button($green);
+        }
+        .addresses {
+          width: 90%;
         }
       }
       table#confirm_order {
