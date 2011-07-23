@@ -4,11 +4,7 @@
 
 <div id="find">
   <div id="address">
-      <%= form_for(Search.new) do |f| %>
-        <div class="field">
-          <%= text_field_tag :location, @search.location, :placeholder => "12 rue des affamés, Ville-Famine, QC" %>
-        </div>
-      <% end %>
+    <%= render :partial => 'searches/form' %>
   </div>
 </div>
 
