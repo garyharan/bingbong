@@ -30,7 +30,8 @@ class DeliveryAddressesController < ApplicationController
 
     respond_to do |format|
       if @delivery_address.save
-        format.html { redirect_to(:action => :index, :notice => 'Votre nouvelle adresse est enregistrée.') }
+        flash[:notice] = 'Votre nouvelle adresse est enregistrée.'
+        format.html { redirect_to(:action => :index) }
         format.xml  { render :xml => @delivery_address, :status => :created, :location => @delivery_address }
       else
         format.html { render :action => "new" }

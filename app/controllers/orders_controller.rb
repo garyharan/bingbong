@@ -11,7 +11,7 @@ class OrdersController < ApplicationController
   end
 
   def new
-    @current_address_id = current_user.orders.last.delivery_address_id || "new"
+    @current_address_id = current_user.orders.last.try(:delivery_address_id) || "new"
     @delivery_address = DeliveryAddress.new(:user_id => current_user.id, 
                                             :address => current_user.searches.last.try(:location), 
                                             :phone_number => DeliveryAddress.where(:user_id => current_user.id).order("updated_at desc").limit(1).first.try(:phone_number))

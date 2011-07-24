@@ -26,6 +26,8 @@ class OrdersControllerTest < ActionController::TestCase
     assert_not_nil assigns(:shop)
     assert_not_nil assigns(:order)
     assert_not_nil assigns(:lines)
+    assert_not_nil assigns(:delivery_address)
+    assert_equal "new", assigns(:current_address_id)
     assert_response :success
   end
 
