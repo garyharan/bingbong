@@ -38,3 +38,7 @@ Bugs :
   
   Searches
     Searches could have more than 1 user, make a many-to-many relationship
+    Geocoder API-KEY is not good anymore ?
+
+  Delivery Addresses
+    Error messages are bilingual
