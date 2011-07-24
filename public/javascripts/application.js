@@ -66,6 +66,15 @@ $(function(){
     }
     return true;
   })
+
+
+  $('#confirm').find('.address[delivery_address_id='+$('#order_delivery_address_id').val()+']').addClass('selected');
+  $('#confirm').find('.address').click( function(){
+  	var addresses = $('#confirm').find('.address');
+    addresses.removeClass('selected');
+    $(this).addClass('selected');
+    $('#order_delivery_address_id').val($(this).attr('delivery_address_id'));
+  });
 });
 
 function googleMapUrl(address){

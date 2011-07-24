@@ -1,6 +1,6 @@
 .addresses
-  - addresses.each_with_index do |address, index|
-    .address{:class => index == 0 ? "selected" : ""}
+  - addresses.each do |address|
+    .address{"delivery_address_id" => address.id}
       .full
         = address.address
         - unless address.apartment.blank?
