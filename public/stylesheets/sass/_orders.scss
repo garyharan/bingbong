@@ -151,9 +151,13 @@ body.orders.new {
       margin: 0 auto;
       position: relative;
       #extras {
+        z-index: 2;
+        background: white;
+        padding: 15px;
+        @include box-shadow(0px, 0px, 15px, transparentize($shadow, 0.7));
         position: absolute;
         top: 0px;
-        width: 450px;
+        width: 590px;
         margin: 20px 400px 20px auto;
         padding: 20px;
         label {
@@ -172,14 +176,11 @@ body.orders.new {
           font-size: 2.2rem;
           @include button($green);
         }
-        .addresses {
-          width: 90%;
-        }
       }
       table#confirm_order {
         position: absolute;
-        width: 400px;
-        margin: 20px auto 20px 450px;
+        width: 320px;
+        margin: 20px auto 20px 630px;
         background: lighten($beige, 4%);
         @include box-shadow(0px, 0px, 15px, transparentize($shadow, 0.7));
         border-collapse: collapse;

@@ -668,9 +668,15 @@ body.orders.new div#confirm {
     margin: 0 auto;
     position: relative; }
     body.orders.new div#confirm #container #extras {
+      z-index: 2;
+      background: white;
+      padding: 15px;
+      -webkit-box-shadow: 0px 0px 15px rgba(84, 110, 8, 0.3);
+      -moz-box-shadow: 0px 0px 15px rgba(84, 110, 8, 0.3);
+      box-shadow: 0px 0px 15px rgba(84, 110, 8, 0.3);
       position: absolute;
       top: 0px;
-      width: 450px;
+      width: 590px;
       margin: 20px 400px 20px auto;
       padding: 20px; }
       body.orders.new div#confirm #container #extras label {
@@ -715,12 +721,10 @@ body.orders.new div#confirm {
           background: -webkit-gradient(linear, left top, left bottom, from(#94d042), to(#b5d38b));
           background: -moz-linear-gradient(top, #94d042, #b5d38b);
           filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#94d042', endColorstr='#b5d38b'); }
-      body.orders.new div#confirm #container #extras .addresses {
-        width: 90%; }
     body.orders.new div#confirm #container table#confirm_order {
       position: absolute;
-      width: 400px;
-      margin: 20px auto 20px 450px;
+      width: 320px;
+      margin: 20px auto 20px 630px;
       background: #f9fbec;
       -webkit-box-shadow: 0px 0px 15px rgba(84, 110, 8, 0.3);
       -moz-box-shadow: 0px 0px 15px rgba(84, 110, 8, 0.3);
@@ -855,6 +859,16 @@ body.sessions.new #devise, body.registrations #devise {
       body.sessions.new #devise #shared_devise_links a:hover, body.registrations #devise #shared_devise_links a:hover {
         background: none;
         color: #5c7d2f; }
+
+.addresses .selected {
+  background: #e35524;
+  color: white; }
+.addresses .address {
+  border-bottom: 1px solid #d7e488;
+  padding: 7px;
+  line-height: 2rem; }
+.addresses .phone_number, .addresses .note {
+  font-size: 85%; }
 
 #user_nav {
   width: 100%;
