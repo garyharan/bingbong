@@ -3,6 +3,7 @@ class Order < ActiveRecord::Base
   belongs_to :delivery_address
   delegate :user, :to => :delivery_address
   has_many :lines
+  attr_accessible :delivery_address_id, :shop_id
 
   state_machine :initial => :pending do
     state :pending
