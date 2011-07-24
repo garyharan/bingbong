@@ -1,6 +1,7 @@
 .addresses
   - addresses.each do |address|
     .address{"delivery_address_id" => address.id}
+      = link_to "✕", address, :method => :delete, :confirm => "Etes vous certain de vouloir éffacer cette catégorie?", :class => "delete"
       .full
         = address.address
         - unless address.apartment.blank?
@@ -12,5 +13,3 @@
 
       .actions
         = link_to 'Modifier', edit_delivery_address_path(address)
-        = "-"
-        = link_to 'Supprimer', address, :confirm => 'Êtes-vous certain?', :method => :delete

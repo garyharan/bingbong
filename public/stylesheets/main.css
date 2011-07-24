@@ -867,8 +867,11 @@ body.sessions.new #devise, body.registrations #devise {
   border-bottom: 1px solid #d7e488;
   padding: 7px;
   line-height: 2rem; }
-.addresses .phone_number, .addresses .note {
-  font-size: 85%; }
+  .addresses .address .phone_number, .addresses .address .note {
+    font-size: 85%; }
+  .addresses .address .delete {
+    font-size: 80%;
+    float: right; }
 
 #user_nav {
   width: 100%;
