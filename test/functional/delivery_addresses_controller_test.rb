@@ -2,7 +2,10 @@ require 'test_helper'
 
 class DeliveryAddressesControllerTest < ActionController::TestCase
   setup do
-    @delivery_address = delivery_addresses(:one)
+    @user = User.create!(Factory.attributes_for(:user))
+    @user.confirm!
+    sign_in @user 
+    @delivery_address = Factory.attributes_for(:delivery_address)
   end
 
   test "should get index" do
@@ -22,11 +25,6 @@ class DeliveryAddressesControllerTest < ActionController::TestCase
     end
 
     assert_redirected_to delivery_address_path(assigns(:delivery_address))
-  end
-
-  test "should show delivery_address" do
-    get :show, :id => @delivery_address.to_param
-    assert_response :success
   end
 
   test "should get edit" do

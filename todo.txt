@@ -42,3 +42,5 @@ Bugs :
 
   Delivery Addresses
     Error messages are bilingual
+
+TODO MARTIN : Stop being lazy and test your stuff
