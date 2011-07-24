@@ -143,7 +143,7 @@ body.orders.show {
   }
 }
 
-body.orders.new {
+body.orders.new, body.orders.create  {
   div#confirm {
     width: 100%;
     #container {

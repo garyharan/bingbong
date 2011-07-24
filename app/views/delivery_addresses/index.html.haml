@@ -1,5 +1,8 @@
 %h1 Vos addresses enregistrées
 
-= render "delivery_addresses/list", :addresses => @delivery_addresses
+= form_for @delivery_address do |f|
+  = render "delivery_addresses/list", :addresses => @delivery_addresses
+  = f.submit "Créer l'adresse"
 
+%br
 = link_to 'Nouvelle addresse', new_delivery_address_path

@@ -1,6 +1,10 @@
 <h1>Editing delivery_address</h1>
 
-<%= render 'form' %>
+<%= form_for @delivery_address do |f| %>
+  <%= render 'form' %>
+  <%= f.submit "Modifier l'adresse" %>
+<% end %>
 
+<br/>
 <%= link_to 'Show', @delivery_address %> |
 <%= link_to 'Back', delivery_addresses_path %>

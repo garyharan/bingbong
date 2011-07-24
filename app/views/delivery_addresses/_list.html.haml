@@ -11,5 +11,8 @@
       .note
         = address.note
 
-      .actions
-        = link_to 'Modifier', edit_delivery_address_path(address)
+      -# .actions
+        -# TODO : implement for orders/new= link_to 'Modifier', edit_delivery_address_path(address)
+
+  #new_delivery_address.address{"delivery_address_id"=>"new"}
+    = render "delivery_addresses/form"

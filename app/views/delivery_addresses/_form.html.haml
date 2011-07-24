@@ -1,23 +1,18 @@
-.address
-  -if @delivery_address.errors.any?
-    #error_explanation
-      %ul
-        - @delivery_address.errors.full_messages.each do |msg|
-          %li= msg
+-if @delivery_address.errors.any?
+  #error_explanation
+    %ul
+      - @delivery_address.errors.full_messages.each do |msg|
+        %li= msg
 
-
-  = form_for(@delivery_address) do |f|
-    .name
-      = label :address, "Adresse:"
-      = f.text_field :address
-    .appartment
-      = label :apartment, "Appartement:"
-      = f.text_field :apartment
-    .phone_number
-      = label :phone_number, "Téléphone:"
-      = f.text_field :phone_number
-    .note
-      = label :note, "Instructions spéciales:"
-      = f.text_area :note
-
-      = f.submit
+.new_name
+  = label :address, "Adresse:"
+  = text_field_tag :address, @delivery_address.address, :name => "delivery_address[address]"
+.new_appartment
+  = label :apartment, "Appartement:"
+  = text_field_tag :apartment, @delivery_address.apartment, :name => "delivery_address[apartment]"
+.new_phone_number
+  = label :phone_number, "Téléphone:"
+  = text_field_tag :phone_number, @delivery_address.phone_number, :name => "delivery_address[phone_number]"
+.new_note
+  = label :note, "Instructions spéciales:"
+  = text_area_tag :note, @delivery_address.note, :name => "delivery_address[note]"

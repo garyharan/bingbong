@@ -5,6 +5,7 @@ class DeliveryAddressesController < ApplicationController
 
   def index
     @delivery_addresses = current_user.delivery_addresses
+    @delivery_address = DeliveryAddress.new
 
     respond_to do |format|
       format.html # index.html.erb
@@ -41,7 +42,8 @@ class DeliveryAddressesController < ApplicationController
   def update
     respond_to do |format|
       if @delivery_address.update_attributes(params[:delivery_address])
-        format.html { redirect_to(:action => :index, :notice => 'Votre adresse a été modifiée avec succès.') }
+        flash[:notice] = 'Votre adresse a été modifiée avec succès.'
+        format.html { redirect_to :back }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -64,7 +66,8 @@ class DeliveryAddressesController < ApplicationController
   def find_delivery_address
     @delivery_address = DeliveryAddress.where(:id => params[:id], :user_id => current_user.id).first
     if @delivery_address.nil?
-      redirect_to :back, :error => "Désolé, l'adresse que vous voulez accéder ne vous appartient pas."
+      flash[:notice] = "Désolé, l'adresse que vous voulez accéder ne vous appartient pas."
+      redirect_to :back
       return
     end
   end

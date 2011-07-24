@@ -1,5 +1,8 @@
 <h1>New delivery_address</h1>
 
-<%= render 'form' %>
-
+<%= form_for @delivery_address do |f| %>
+  <%= render 'form' %>
+  <%= f.submit "Créer l'adresse" %>
+<% end %>
+<br/>
 <%= link_to 'Back', delivery_addresses_path %>

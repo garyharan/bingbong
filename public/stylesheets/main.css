@@ -661,13 +661,13 @@ body.orders.show #order {
       body.orders.show #order #container table tbody td:last-child {
         text-align: right; }
 
-body.orders.new div#confirm {
+body.orders.new div#confirm, body.orders.create div#confirm {
   width: 100%; }
-  body.orders.new div#confirm #container {
+  body.orders.new div#confirm #container, body.orders.create div#confirm #container {
     width: 950px;
     margin: 0 auto;
     position: relative; }
-    body.orders.new div#confirm #container #extras {
+    body.orders.new div#confirm #container #extras, body.orders.create div#confirm #container #extras {
       z-index: 2;
       background: white;
       padding: 15px;
@@ -679,15 +679,15 @@ body.orders.new div#confirm {
       width: 590px;
       margin: 20px 400px 20px auto;
       padding: 20px; }
-      body.orders.new div#confirm #container #extras label {
+      body.orders.new div#confirm #container #extras label, body.orders.create div#confirm #container #extras label {
         float: left;
         width: 170px; }
-      body.orders.new div#confirm #container #extras input, body.orders.new div#confirm #container #extras textarea {
+      body.orders.new div#confirm #container #extras input, body.orders.new div#confirm #container #extras textarea, body.orders.create div#confirm #container #extras input, body.orders.create div#confirm #container #extras textarea {
         width: 180px;
         margin-bottom: 5px; }
-      body.orders.new div#confirm #container #extras textarea {
+      body.orders.new div#confirm #container #extras textarea, body.orders.create div#confirm #container #extras textarea {
         height: 50px; }
-      body.orders.new div#confirm #container #extras #confirm_link {
+      body.orders.new div#confirm #container #extras #confirm_link, body.orders.create div#confirm #container #extras #confirm_link {
         width: auto;
         font-size: 2.2rem;
         display: inline-block;
@@ -710,18 +710,18 @@ body.orders.new div#confirm {
         background: -webkit-gradient(linear, left top, left bottom, from(#94d042), to(#698f36));
         background: -moz-linear-gradient(top, #94d042, #698f36);
         filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#94d042', endColorstr='#698f36'); }
-        body.orders.new div#confirm #container #extras #confirm_link:hover {
+        body.orders.new div#confirm #container #extras #confirm_link:hover, body.orders.create div#confirm #container #extras #confirm_link:hover {
           text-decoration: none;
           background: #93ca48;
           background: -webkit-gradient(linear, left top, left bottom, from(#92c44e), to(#85b444));
           background: -moz-linear-gradient(top, #92c44e, #85b444);
           filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#92c44e', endColorstr='#85b444'); }
-        body.orders.new div#confirm #container #extras #confirm_link:active {
+        body.orders.new div#confirm #container #extras #confirm_link:active, body.orders.create div#confirm #container #extras #confirm_link:active {
           color: #94d042;
           background: -webkit-gradient(linear, left top, left bottom, from(#94d042), to(#b5d38b));
           background: -moz-linear-gradient(top, #94d042, #b5d38b);
           filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#94d042', endColorstr='#b5d38b'); }
-    body.orders.new div#confirm #container table#confirm_order {
+    body.orders.new div#confirm #container table#confirm_order, body.orders.create div#confirm #container table#confirm_order {
       position: absolute;
       width: 320px;
       margin: 20px auto 20px 630px;
@@ -730,31 +730,31 @@ body.orders.new div#confirm {
       -moz-box-shadow: 0px 0px 15px rgba(84, 110, 8, 0.3);
       box-shadow: 0px 0px 15px rgba(84, 110, 8, 0.3);
       border-collapse: collapse; }
-      body.orders.new div#confirm #container table#confirm_order thead {
+      body.orders.new div#confirm #container table#confirm_order thead, body.orders.create div#confirm #container table#confirm_order thead {
         background: #bf9316;
         color: #e1f89b;
         text-shadow: #546e08 0 0 5px;
         font-size: 2rem; }
-        body.orders.new div#confirm #container table#confirm_order thead th {
+        body.orders.new div#confirm #container table#confirm_order thead th, body.orders.create div#confirm #container table#confirm_order thead th {
           padding: 10px; }
-      body.orders.new div#confirm #container table#confirm_order tfoot#totals tr {
+      body.orders.new div#confirm #container table#confirm_order tfoot#totals tr, body.orders.create div#confirm #container table#confirm_order tfoot#totals tr {
         height: 2.5rem; }
-        body.orders.new div#confirm #container table#confirm_order tfoot#totals tr td.subtotal {
+        body.orders.new div#confirm #container table#confirm_order tfoot#totals tr td.subtotal, body.orders.create div#confirm #container table#confirm_order tfoot#totals tr td.subtotal {
           border-top: 1px solid #d7e488;
           font-weight: bold; }
-        body.orders.new div#confirm #container table#confirm_order tfoot#totals tr .subtotal, body.orders.new div#confirm #container table#confirm_order tfoot#totals tr .tps, body.orders.new div#confirm #container table#confirm_order tfoot#totals tr .tvq, body.orders.new div#confirm #container table#confirm_order tfoot#totals tr .total {
+        body.orders.new div#confirm #container table#confirm_order tfoot#totals tr .subtotal, body.orders.new div#confirm #container table#confirm_order tfoot#totals tr .tps, body.orders.new div#confirm #container table#confirm_order tfoot#totals tr .tvq, body.orders.new div#confirm #container table#confirm_order tfoot#totals tr .total, body.orders.create div#confirm #container table#confirm_order tfoot#totals tr .subtotal, body.orders.create div#confirm #container table#confirm_order tfoot#totals tr .tps, body.orders.create div#confirm #container table#confirm_order tfoot#totals tr .tvq, body.orders.create div#confirm #container table#confirm_order tfoot#totals tr .total {
           font-size: 1.4rem;
           font-weight: bold;
           color: #a88113;
           text-align: right; }
-        body.orders.new div#confirm #container table#confirm_order tfoot#totals tr .subtotal, body.orders.new div#confirm #container table#confirm_order tfoot#totals tr .tps, body.orders.new div#confirm #container table#confirm_order tfoot#totals tr .tvq, body.orders.new div#confirm #container table#confirm_order tfoot#totals tr .total, body.orders.new div#confirm #container table#confirm_order tfoot#totals tr .price {
+        body.orders.new div#confirm #container table#confirm_order tfoot#totals tr .subtotal, body.orders.new div#confirm #container table#confirm_order tfoot#totals tr .tps, body.orders.new div#confirm #container table#confirm_order tfoot#totals tr .tvq, body.orders.new div#confirm #container table#confirm_order tfoot#totals tr .total, body.orders.new div#confirm #container table#confirm_order tfoot#totals tr .price, body.orders.create div#confirm #container table#confirm_order tfoot#totals tr .subtotal, body.orders.create div#confirm #container table#confirm_order tfoot#totals tr .tps, body.orders.create div#confirm #container table#confirm_order tfoot#totals tr .tvq, body.orders.create div#confirm #container table#confirm_order tfoot#totals tr .total, body.orders.create div#confirm #container table#confirm_order tfoot#totals tr .price {
           padding-right: 13px; }
-        body.orders.new div#confirm #container table#confirm_order tfoot#totals tr .total_line {
+        body.orders.new div#confirm #container table#confirm_order tfoot#totals tr .total_line, body.orders.create div#confirm #container table#confirm_order tfoot#totals tr .total_line {
           border-top: 1px solid #d7e488; }
-      body.orders.new div#confirm #container table#confirm_order tbody td {
+      body.orders.new div#confirm #container table#confirm_order tbody td, body.orders.create div#confirm #container table#confirm_order tbody td {
         color: #917011;
         padding: 10px; }
-      body.orders.new div#confirm #container table#confirm_order tbody td:last-child {
+      body.orders.new div#confirm #container table#confirm_order tbody td:last-child, body.orders.create div#confirm #container table#confirm_order tbody td:last-child {
         text-align: right; }
 
 #flashes {
@@ -873,6 +873,10 @@ body.sessions.new #devise, body.registrations #devise {
   .addresses .address .delete {
     font-size: 80%;
     float: right; }
+.addresses #new_delivery_address {
+  padding: 25px 15px 25px 15px; }
+.addresses #error_explanation {
+  width: auto; }
 
 #user_nav {
   width: 100%;
