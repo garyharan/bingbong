@@ -68,6 +68,12 @@ $(function(){
   })
 
 
+  $('#new_delivery_address_link').click( function() {
+    $('#new_delivery_address').click();
+    $('#new_delivery_address_link').toggle("normal");
+    $('#new_delivery_address').slideToggle("normal");
+  });
+
   $('#confirm').find('.address[delivery_address_id='+$('#order_delivery_address_id').val()+']').addClass('selected');
   $('#confirm').find('.address').click( function(){
   	var addresses = $('#confirm').find('.address');

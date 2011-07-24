@@ -874,7 +874,13 @@ body.sessions.new #devise, body.registrations #devise {
     font-size: 80%;
     float: right; }
 .addresses #new_delivery_address {
-  padding: 25px 15px 25px 15px; }
+  padding: 25px 15px 25px 15px;
+  display: none; }
+.addresses #new_delivery_address_link {
+  margin-top: 15px;
+  cursor: pointer; }
+  .addresses #new_delivery_address_link:hover {
+    text-decoration: underline; }
 .addresses #error_explanation {
   width: auto; }
 

@@ -14,5 +14,10 @@
       -# .actions
         -# TODO : implement for orders/new= link_to 'Modifier', edit_delivery_address_path(address)
 
-  #new_delivery_address.address{"delivery_address_id"=>"new"}
-    = render "delivery_addresses/form"
+  - if addresses.empty? || @delivery_address.errors.empty?
+    #new_delivery_address_link Ajouter une adresse
+    #new_delivery_address.address{"delivery_address_id"=>"new"}
+      = render "delivery_addresses/form"
+  - else
+    #new_delivery_address.address{"delivery_address_id"=>"new", :style => "display: block"}
+      = render "delivery_addresses/form"
