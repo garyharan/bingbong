@@ -1,0 +1,24 @@
+<div style="width:80%;margin:4em auto">
+  <h2>Tester les commandes</h2>
+
+  <%= form_tag(demo_url, :method => :put) do %>
+    <div class="field">
+      <%= label_tag :name, "Nom du restaurateur" %><br/>
+      <%= text_field_tag :name, @name %>
+    </div>
+    <br/>
+    <div class="field">
+      <%= label_tag :number, "Numéro du restaurateur" %><br/>
+      <%= text_field_tag :number, @number %>
+    </div>
+    <br/>
+    <div class="field">
+      <%= label_tag :order, "Commande" %><br/>
+      <%= text_area_tag :order, @order, :size => "80x5" %>
+    </div>
+
+    <div class="field">
+      <%= submit_tag "Passer la commande", :name => nil %>
+    </div>
+  <% end %>
+</div>

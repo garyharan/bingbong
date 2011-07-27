@@ -6,6 +6,8 @@ Bingbong::Application.routes.draw do
   resources :searches
   resources :delivery_addresses, :except => :show
 
+  resource :demo, :only => %w(show update)
+
   resources :shops do
     resources :orders, :controller => 'shops/orders', :as => 'shop_orders' do
       member do
