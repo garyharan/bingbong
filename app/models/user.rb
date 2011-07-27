@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
   has_many :lines
 
   has_many :searches
-  has_many :delivery_addresses
+  has_many :delivery_addresses, :conditions => {:deleted => false}
   has_many :orders, :through => :delivery_addresses
 
   def name

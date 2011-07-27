@@ -54,7 +54,8 @@ class DeliveryAddressesController < ApplicationController
   end
 
   def destroy
-    @delivery_address.destroy
+    @delivery_address.deleted = true
+    @delivery_address.save!
 
     respond_to do |format|
       format.html { redirect_to(:back) }
@@ -65,7 +66,7 @@ class DeliveryAddressesController < ApplicationController
   private
 
   def find_delivery_address
-    @delivery_address = DeliveryAddress.where(:id => params[:id], :user_id => current_user.id).first
+    @delivery_address = DeliveryAddress.where(:id => params[:id], :user_id => current_user.id, :deleted => false).first
     if @delivery_address.nil?
       flash[:notice] = "Désolé, l'adresse que vous voulez accéder ne vous appartient pas."
       redirect_to :back

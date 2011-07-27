@@ -14,7 +14,7 @@ class OrdersController < ApplicationController
     @current_address_id = current_user.orders.last.try(:delivery_address_id) || "new"
     @delivery_address = DeliveryAddress.new(:user_id => current_user.id, 
                                             :address => current_user.searches.last.try(:location), 
-                                            :phone_number => DeliveryAddress.where(:user_id => current_user.id).order("updated_at desc").limit(1).first.try(:phone_number))
+                                            :phone_number => DeliveryAddress.where(:user_id => current_user.id).where(:deleted => false).order("updated_at desc").limit(1).first.try(:phone_number))
     @order = Order.new params[:order]
     @shop  = @order.shop
     @lines = Line.find(:all, :conditions => { :order_id => nil, :user_id => current_user.id, :shop_id => @order.shop_id })
@@ -29,7 +29,7 @@ class OrdersController < ApplicationController
           params[:order][:delivery_address_id] = @delivery_address.id
         end
 
-        if DeliveryAddress.where(:id => params[:order][:delivery_address_id], :user_id => current_user.id).blank?
+        if DeliveryAddress.where(:id => params[:order][:delivery_address_id], :user_id => current_user.id, :deleted => false).blank?
           flash[:notice] = "Mauvaise adresse, veuillez en choisir une nouvelle"
           raise
         else
@@ -45,7 +45,7 @@ class OrdersController < ApplicationController
       if @delivery_address.nil?
         @delivery_address = DeliveryAddress.new(:user_id => current_user.id,
                                                 :address => current_user.searches.last.try(:location), 
-                                                :phone_number => DeliveryAddress.where(:user_id => current_user.id).order("updated_at desc").limit(1).first.try(:phone_number))
+                                                :phone_number => DeliveryAddress.where(:user_id => current_user.id).where(:deleted => false).order("updated_at desc").limit(1).first.try(:phone_number))
       end
 
       @order = Order.new params[:order] if @order.nil?
