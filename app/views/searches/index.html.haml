@@ -9,10 +9,13 @@
     #instructions
       - if user_signed_in?
         %span.default_searches
+          .title Anciennes recherches
           = render :partial => "searches/search", :collection => @searches
         %span.default_searches
+          .title Adresses
           = render :partial => "searches/delivery_address", :collection => @delivery_addresses
         %span.default_searches
+          .title Anciennes commandes
           = render :partial => "searches/order", :collection => @orders
         .clear
       - else

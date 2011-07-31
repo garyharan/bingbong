@@ -170,7 +170,10 @@ body.searches #find {
           text-decoration: none; }
       body.searches #find #instruction #instructions .default_searches {
         float: left;
+        margin-top: 10px;
         width: 33%; }
+        body.searches #find #instruction #instructions .default_searches .title {
+          color: #666; }
 body.searches .clear {
   clear: both; }
 body.searches #shops {
