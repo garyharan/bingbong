@@ -11,7 +11,17 @@ class ShopsController < ApplicationController
 
   def show
     @shop = Shop.find(params[:id])
-    @lines = Line.find(:all, :conditions => { :shop_id => @shop.id, :user_id => current_user.id, :order_id => nil }) if user_signed_in?
+    if user_signed_in?
+      if params[:order_id]
+        order = current_user.orders.where(:id => params[:order_id]).first
+        order.lines.each do |line|
+          new_line = line.clone
+          new_line.order_id = nil
+          new_line.save!
+        end
+      end
+      @lines = Line.find(:all, :conditions => { :shop_id => @shop.id, :user_id => current_user.id, :order_id => nil })
+    end
 
     respond_to do |format|
       format.html # show.html.erb

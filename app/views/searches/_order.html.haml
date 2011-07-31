@@ -1,2 +1,2 @@
 %div{:id => dom_id(order, 'link')}
-  = link_to "order.shop.name - #{number_to_currency(order.subtotal, :format => "%n%u", :unit => "$")}".html_safe, new_order_path(order), :class => 'old_search'
+  = link_to "#{order.shop.name} - #{number_to_currency(order.subtotal, :format => "%n%u", :unit => "$")}".html_safe, shop_path(:id => order.shop.id, :order_id => order), :class => 'old_search'
