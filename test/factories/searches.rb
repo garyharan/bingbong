@@ -2,4 +2,5 @@
 
 Factory.define :search do |f|
   f.location "1514 Rue Murray, St-Hubert"
+  f.association   :user
 end
