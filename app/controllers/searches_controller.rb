@@ -6,7 +6,7 @@ class SearchesController < ApplicationController
     if user_signed_in?
       @searches = current_user.searches.limit(5).order("updated_at DESC").all
       @delivery_addresses = current_user.delivery_addresses.limit(5).order("updated_at DESC").all
-      @orders = current_user.orders.limit(5).order("updated_at DESC").all
+      @orders = current_user.all_orders.limit(5).order("updated_at DESC").all
     end
   end
 

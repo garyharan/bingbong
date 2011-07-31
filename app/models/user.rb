@@ -21,4 +21,8 @@ class User < ActiveRecord::Base
   def name
     [first_name, last_name].join(' ')
   end
+
+  def all_orders
+    Order.where(:delivery_address_id => DeliveryAddress.where(:user_id => id))
+  end
 end
