@@ -1,0 +1,3 @@
+.{:id => dom_id order, 'link'}
+  = link_to order.id, search, :class => 'old_search'
+  = link_to "x", search, :method => "delete", :confirm => "Êtes-vous certain de vouloir effacer cette recherche?", :class => "delete"
