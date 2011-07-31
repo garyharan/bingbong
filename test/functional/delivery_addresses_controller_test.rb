@@ -40,7 +40,7 @@ class DeliveryAddressesControllerTest < ActionController::TestCase
 
   test "should destroy delivery_address" do
     @request.env["HTTP_REFERER"] = "back"
-    assert_difference('DeliveryAddress.count', -1) do
+    assert_difference('DeliveryAddress.where(:deleted => true).count', 1) do
       delete :destroy, :id => @delivery_address.to_param
     end
 
