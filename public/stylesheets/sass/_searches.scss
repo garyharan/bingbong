@@ -50,25 +50,23 @@ body.searches {
     }
     #instruction {
       margin: 0 auto;
-      width: 650px;
+      width: 900px;
       text-align: center;
       #instructions {
         text-align: center;
-        div {
-          position: relative;
-          width: 570px;
-          margin: 0 auto;
-        }
         .old_search {
           margin: 0 auto;
-          width: 50%;
+          width: 65%;
           margin-top: 10px;
           font-size: 1.8rem;
           @include button($green);
         }
         .delete {
+          display: inline;
           position: relative;
-          left: -24px;
+          right: 30px;
+          top: 15px;
+          float: right;
           font-weight: bold;
           text-decoration: none;
           text-shadow: 0px 0px 2px lighten($green, 30%);
@@ -77,8 +75,20 @@ body.searches {
             text-decoration: none;
           }
         }
+        .default_searches {
+          float: left;
+          margin-top: 10px;
+          width: 33%;
+
+          .title {
+            color: #666;
+          }
+        }
       }
     }
+  }
+  .clear {
+    clear: both;
   }
 
   #shops {

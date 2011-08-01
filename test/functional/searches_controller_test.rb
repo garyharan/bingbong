@@ -55,4 +55,18 @@ class SearchesControllerTest < ActionController::TestCase
     end
     assert_redirected_to searches_path
   end
+
+  test "should have default search" do
+    @user = User.create Factory.attributes_for :user
+    @user.confirm!
+    search = Search.create(Factory.attributes_for(:search, :user_id => @user.id))
+    delivery_address = DeliveryAddress.create(Factory.attributes_for(:delivery_address, :user_id => @user.id))
+    order = Order.create(Factory.attributes_for(:order, :delivery_address_id => delivery_address.id, :shop_id => Factory(:shop).id))
+    sign_in @user
+
+    get :index
+    assert_equal [search], assigns(:searches)
+    assert_equal [delivery_address], assigns(:delivery_addresses)
+    assert_equal [order], assigns(:orders)
+  end
 end
