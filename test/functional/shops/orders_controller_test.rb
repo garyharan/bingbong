@@ -15,7 +15,7 @@ class Shops::OrdersControllerTest < ActionController::TestCase
 
     @client = Factory.create(:user)
     @client.confirm!
-    @delivery_address = Factory(:delivery_address, :user_id => @client.id)
+    @delivery_address = Factory(:delivery_address, :user_id => @owner.id)
 
     @order = Factory.create(:order, :shop => @shop, :delivery_address => @delivery_address)
     @order.lines << Factory.create(:line, :shop => @shop, :item => @item)

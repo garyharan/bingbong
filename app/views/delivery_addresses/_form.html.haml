@@ -17,11 +17,11 @@
   *
 .new_zip_code
   = label :zip_code, "Code postal:"
-  = text_field_tag :zip_code, @delivery_address.zip_code, :name => "delivery_address[zip_code]"
+  = text_field_tag :zip_code, @delivery_address.zip_code, :name => "delivery_address[zip_code]", :value => @delivery_address.formatted_zip_code
   *
 .new_phone_number
   = label :phone_number, "Téléphone:"
-  = text_field_tag :phone_number, @delivery_address.phone_number, :name => "delivery_address[phone_number]"
+  = text_field_tag :phone_number, @delivery_address.phone_number, :name => "delivery_address[phone_number]", :value => @delivery_address.formatted_phone_number
   *
 .new_note
   = label :note, "Instructions spéciales:"
