@@ -5,10 +5,11 @@ class OrderTest < ActiveSupport::TestCase
   should have_many(:state_transitions)
 
   setup do
-    @order = Factory.create :order
-    @item  = Factory.create :item
+    @order  = Factory.create(:order, :shop => Factory.create(:shop))
+    @client = Factory.create(:client)
+    @item   = Factory.create(:item)
     3.times do
-      Line.create Factory.attributes_for(:line, :order_id => @order.id, :item_id => @item.id)
+      @order.lines.create!( :item => @item, :shop_id => @order.shop.id, :client => @client )
     end
   end
 

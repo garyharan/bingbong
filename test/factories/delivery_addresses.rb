@@ -6,5 +6,5 @@ Factory.define :delivery_address do |f|
   f.phone_number  "123-456-7890"
   f.note          "Knock 3 times"
 
-  f.association   :user
+  f.association   :client
 end

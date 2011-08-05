@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110804003629) do
+ActiveRecord::Schema.define(:version => 20110805155134) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(:version => 20110804003629) do
   end
 
   create_table "delivery_addresses", :force => true do |t|
-    t.integer  "user_id"
+    t.integer  "client_id"
     t.string   "address"
     t.string   "apartment"
     t.string   "phone_number"
@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(:version => 20110804003629) do
   end
 
   create_table "lines", :force => true do |t|
-    t.integer  "user_id"
+    t.integer  "client_id"
     t.integer  "shop_id"
     t.integer  "item_id"
     t.integer  "quantity",   :default => 1
@@ -94,7 +94,7 @@ ActiveRecord::Schema.define(:version => 20110804003629) do
     t.string   "location"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
+    t.integer  "client_id"
     t.float    "latitude"
     t.float    "longitude"
   end
@@ -109,7 +109,7 @@ ActiveRecord::Schema.define(:version => 20110804003629) do
     t.string   "postal_code"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
+    t.integer  "owner_id"
     t.decimal  "minimum",      :precision => 5, :scale => 2, :default => 15.0
     t.integer  "delivery",                                   :default => 30
     t.float    "latitude"
@@ -150,7 +150,7 @@ ActiveRecord::Schema.define(:version => 20110804003629) do
 
   add_foreign_key "categories", ["shop_id"], "shops", ["id"], :name => "categories_shop_id_fkey"
 
-  add_foreign_key "delivery_addresses", ["user_id"], "users", ["id"], :name => "delivery_addresses_user_id_fkey"
+  add_foreign_key "delivery_addresses", ["client_id"], "users", ["id"], :name => "delivery_addresses_user_id_fkey"
 
   add_foreign_key "items", ["product_id"], "products", ["id"], :on_delete => :cascade, :name => "items_product_id_fkey"
   add_foreign_key "items", ["size_id"], "sizes", ["id"], :name => "items_size_id_fkey"
@@ -163,9 +163,9 @@ ActiveRecord::Schema.define(:version => 20110804003629) do
 
   add_foreign_key "products", ["category_id"], "categories", ["id"], :name => "products_category_id_fkey"
 
-  add_foreign_key "searches", ["user_id"], "users", ["id"], :name => "searches_user_id_fkey"
+  add_foreign_key "searches", ["client_id"], "users", ["id"], :name => "searches_user_id_fkey"
 
-  add_foreign_key "shops", ["user_id"], "users", ["id"], :name => "shops_user_id_fkey"
+  add_foreign_key "shops", ["owner_id"], "users", ["id"], :name => "shops_user_id_fkey"
 
   add_foreign_key "sizes", ["category_id"], "categories", ["id"], :name => "sizes_category_id_fkey"
 

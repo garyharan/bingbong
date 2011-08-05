@@ -1,5 +1,5 @@
 class Search < ActiveRecord::Base
-  belongs_to :user
+  belongs_to :client, :class_name => "User"
 
   def shops
     @shops ||= find_shops

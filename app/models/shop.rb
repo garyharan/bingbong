@@ -1,5 +1,5 @@
 class Shop < ActiveRecord::Base
-  belongs_to :user
+  belongs_to :owner, :class_name => "User"
   has_many :orders
   has_many :categories, :order => 'created_at ASC'
 
@@ -16,6 +16,6 @@ class Shop < ActiveRecord::Base
   end
 
   def owned_by?(owner)
-    owner.id == user_id
+    self.owner == owner
   end
 end

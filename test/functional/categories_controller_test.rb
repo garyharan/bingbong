@@ -2,10 +2,8 @@ require 'test_helper'
 
 class CategoriesControllerTest < ActionController::TestCase
   setup do
-    @user = User.create!(Factory.attributes_for(:user))
-    @user.confirm!
-    @shop = Shop.create!(Factory.attributes_for(:shop, :user_id => @user.id))
-    sign_in @user
+    @shop = Factory.create(:shop)
+    sign_in @shop.owner
   end
 
   test "should create a category" do
@@ -18,14 +16,14 @@ class CategoriesControllerTest < ActionController::TestCase
   end
 
   test "should update a category" do
-    @category = Category.create(Factory.attributes_for(:category, :name => "Old Name", :shop_id => @shop.id))
+    @category = Factory.create(:category, :name => "Old Name", :shop => @shop)
     put :update, :category => Factory.attributes_for(:category, :name => "New name"), :shop_id => @shop.id, :id => @category.id
     assert_equal "New name", assigns(:category).name
     assert_redirected_to shop_path(@shop)
   end
 
   test "should delete a category" do
-    @category = Category.create Factory.attributes_for(:category, :name => "Dead on arrival", :shop_id => @shop.id)
+    @category = Factory.create(:category, :name => "Dead on arrival", :shop => @shop)
     assert_difference "Category.count", -1 do
       delete :destroy, :id => @category.id, :shop_id => @shop.id
     end

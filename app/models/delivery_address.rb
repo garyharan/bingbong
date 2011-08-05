@@ -1,12 +1,12 @@
 class DeliveryAddress < ActiveRecord::Base
 
-  belongs_to :user
+  belongs_to :client, :class_name => "User"
 
   has_many :orders
 
-  attr_accessible :user_id, :address,:apartment, :city,  :zip_code, :phone_number, :note
+  attr_accessible :client_id, :address, :apartment, :city,  :zip_code, :phone_number, :note
 
-  named_scope :current, where(:deleted => false)
+  scope :current, where(:deleted => false)
 
   validates_presence_of :client_id, :address, :city, :zip_code, :phone_number
   validates_format_of :phone_number, :with => /\A\(?\d{3}\)?[-\s]*\d{3}[-\s]*\d{4}\z/ # Accepts separators for data entry, but normalized to no separators

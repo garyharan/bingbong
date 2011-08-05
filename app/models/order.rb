@@ -1,7 +1,7 @@
 class Order < ActiveRecord::Base
   belongs_to :shop
   belongs_to :delivery_address
-  delegate :user, :to => :delivery_address
+  delegate :client, :to => :delivery_address
 
   attr_accessible :delivery_address_id, :shop_id
 
@@ -37,8 +37,8 @@ class Order < ActiveRecord::Base
     before_transition OrderStateMachineObserver.method(:audit_order)
   end
 
-  def self.find_all_by_user_id(*args)
-    where( :delivery_address_id => DeliveryAddress.find_all_by_user_id(*args) ).all
+  def self.find_all_by_client_id(*args)
+    where( :delivery_address_id => DeliveryAddress.find_all_by_client_id(*args) ).all
   end
 
   def subtotal

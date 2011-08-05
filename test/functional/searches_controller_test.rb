@@ -21,7 +21,7 @@ class SearchesControllerTest < ActionController::TestCase
   end
 
   test "should not create a second search if the search location already exists" do
-    Search.create Factory.attributes_for(:search)
+    Factory.create(:search, :client => nil)
     assert_no_difference('Search.count') do
       post :create, :search => Factory.attributes_for(:search)
     end
@@ -30,39 +30,34 @@ class SearchesControllerTest < ActionController::TestCase
   end
 
   test "should show search" do
-    @search = Search.create Factory.attributes_for(:search)
+    @search = Factory.create(:search, :client => nil)
     get :show, :id => @search.to_param
     assert_not_nil assigns(:search)
     assert_response :success
   end
-  
+
   test "user should have saved search if logged in" do
-    @user = User.create Factory.attributes_for :user
-    sign_in @user
-    @user.confirm!
-    assert_difference('@user.searches.count') do
+    @client = Factory.create(:client)
+    sign_in @client
+    assert_difference('@client.searches.count') do
       post :create, :search => Factory.attributes_for(:search)
     end
   end
 
   test "should delete search" do
-    @user = User.create Factory.attributes_for :user
-    @user.confirm!
-    @search = Search.create Factory.attributes_for(:search, :user_id => @user.id)
-    sign_in @user
-    assert_difference '@user.searches.count', -1 do
+    @search = Factory.create(:search)
+    sign_in @search.client
+    assert_difference '@search.client.searches.count', -1 do
       delete :destroy, :id => @search.id
     end
     assert_redirected_to searches_path
   end
 
   test "should have default search" do
-    @user = User.create Factory.attributes_for :user
-    @user.confirm!
-    search = Search.create(Factory.attributes_for(:search, :user_id => @user.id))
-    delivery_address = DeliveryAddress.create(Factory.attributes_for(:delivery_address, :user_id => @user.id))
-    order = Order.create(Factory.attributes_for(:order, :delivery_address_id => delivery_address.id, :shop_id => Factory(:shop).id))
-    sign_in @user
+    search = Factory.create(:search)
+    delivery_address = Factory.create(:delivery_address, :client => search.client)
+    order = Factory.create(:order, :delivery_address => delivery_address, :shop => Factory(:shop))
+    sign_in search.client
 
     get :index
     assert_equal [search], assigns(:searches)
