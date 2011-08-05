@@ -1,7 +1,7 @@
 .addresses
   - addresses.each do |address|
     .address{"delivery_address_id" => address.id}
-      = link_to "✕", address, :method => :delete, :confirm => "Etes vous certain de vouloir éffacer cette catégorie?", :class => "delete"
+      = link_to "✕", address, :method => :delete, :confirm => "Êtes vous certain de vouloir effacer cette adresse?", :class => "delete"
       .full
         = succeed "," do
           = address.address
