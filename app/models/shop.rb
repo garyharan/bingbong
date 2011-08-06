@@ -18,4 +18,8 @@ class Shop < ActiveRecord::Base
   def owned_by?(owner)
     self.owner == owner
   end
+
+  def delivery_fee_to(delivery_address)
+    BigDecimal.new("4.99")
+  end
 end

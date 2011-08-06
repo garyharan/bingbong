@@ -444,12 +444,12 @@ body.shops.show #menu {
           body.shops.show #menu div:first-child #order table tfoot#totals tr td.subtotal {
             border-top: 1px solid #d7e488;
             font-weight: bold; }
-        body.shops.show #menu div:first-child #order table tfoot#totals .subtotal, body.shops.show #menu div:first-child #order table tfoot#totals .tps, body.shops.show #menu div:first-child #order table tfoot#totals .tvq, body.shops.show #menu div:first-child #order table tfoot#totals .total {
+        body.shops.show #menu div:first-child #order table tfoot#totals .subtotal, body.shops.show #menu div:first-child #order table tfoot#totals .delivery, body.shops.show #menu div:first-child #order table tfoot#totals .tps, body.shops.show #menu div:first-child #order table tfoot#totals .tvq, body.shops.show #menu div:first-child #order table tfoot#totals .total {
           font-size: 1.4rem;
           font-weight: bold;
           color: #a88113;
           text-align: right; }
-        body.shops.show #menu div:first-child #order table tfoot#totals .subtotal, body.shops.show #menu div:first-child #order table tfoot#totals .tps, body.shops.show #menu div:first-child #order table tfoot#totals .tvq, body.shops.show #menu div:first-child #order table tfoot#totals .total, body.shops.show #menu div:first-child #order table tfoot#totals .price {
+        body.shops.show #menu div:first-child #order table tfoot#totals .subtotal, body.shops.show #menu div:first-child #order table tfoot#totals .delivery, body.shops.show #menu div:first-child #order table tfoot#totals .tps, body.shops.show #menu div:first-child #order table tfoot#totals .tvq, body.shops.show #menu div:first-child #order table tfoot#totals .total, body.shops.show #menu div:first-child #order table tfoot#totals .price {
           padding-right: 13px; }
         body.shops.show #menu div:first-child #order table tfoot#totals .total_line {
           border-top: 1px solid #d7e488; }
