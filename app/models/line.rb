@@ -1,5 +1,5 @@
 class Line < ActiveRecord::Base
-  has_one :shop
+  belongs_to :shop
   belongs_to :item
   belongs_to :order
   belongs_to :client, :class_name => "User"
