@@ -19,7 +19,17 @@ class Shop < ActiveRecord::Base
     self.owner == owner
   end
 
-  def delivery_fee_to(delivery_address)
+  def delivery_fee_to(order)
     BigDecimal.new("4.99")
+  end
+
+  # TODO: Move to database-backed table/column
+  def gst_rate
+    BigDecimal.new("0.05")
+  end
+
+  # TODO: Move to database-backed table/column
+  def pst_rate
+    BigDecimal.new("0.085")
   end
 end

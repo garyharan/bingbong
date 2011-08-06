@@ -5,7 +5,7 @@
         Sous-total:
       </td>
       <td class="subtotal">
-        <%= number_to_currency(@subtotal = @lines.inject(0) { |sum, line| sum + (line.item.price * line.quantity) }) %>
+        <%= number_to_currency(@order.subtotal_amount) %>
       </td>
     </tr>
     <tr>
@@ -13,7 +13,7 @@
         Livraison:
       </td>
       <td class="delivery">
-        <%= number_to_currency(@delivery = @shop.delivery_fee_to(@delivery_address)) %>
+        <%= number_to_currency(@order.delivery_fee_amount) %>
       </td>
     </tr>
     <tr>
@@ -21,7 +21,9 @@
         TPS:
       </td>
       <td class="tps">
-        <%= number_to_currency((@tps = (@subtotal + @delivery) * 0.05))  %>
+        <span title="sous-total + livraison = <%= number_to_currency(@order.gst_subtotal) %>">
+          <%= number_to_currency(@order.gst_amount)  %>
+        </span>
       </td>
     </tr>
     <tr>
@@ -29,7 +31,9 @@
         TVQ:
       </td>
       <td class="tvq">
-        <%= number_to_currency(@tvq = (@subtotal + @delivery + @tps) * 0.085)  %>
+        <span title="sous-total + livraison + TPS = <%= number_to_currency(@order.pst_subtotal) %>">
+          <%= number_to_currency(@order.pst_amount) %>
+        </span>
       </td>
     </tr>
     <tr class="total_line">
@@ -37,7 +41,7 @@
         Total:
       </td>
       <td class="total">
-        <%= number_to_currency((@subtotal + @delivery + @tvq + @tps))  %>
+        <%= number_to_currency(@order.total_amount) %>
       </td>
     </tr>
   <% end -%>

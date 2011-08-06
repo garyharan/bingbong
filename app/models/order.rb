@@ -41,7 +41,46 @@ class Order < ActiveRecord::Base
     where( :delivery_address_id => DeliveryAddress.find_all_by_client_id(*args) ).all
   end
 
-  def subtotal
-    lines.inject(0) { |sum, line| sum + (line.item.price * line.quantity) }
+  def subtotal_amount
+    lines.inject(0) { |sum, line| sum + line.extension }
+  end
+
+  def delivery_fee_amount
+    shop.delivery_fee_to(self)
+  end
+
+  def gst_subtotal
+    [subtotal_amount, delivery_fee_amount].sum
+  end
+
+  def gst_amount
+    val = gst_subtotal * shop.gst_rate * 100
+    val = val.ceil
+    val / 100.0
+  end
+
+  def pst_subtotal
+    [subtotal_amount, delivery_fee_amount, gst_amount].sum
+  end
+
+  def pst_amount
+    val = pst_subtotal * shop.pst_rate * 100
+    val = val.ceil
+    val / 100.0
+  end
+
+  def total_amount
+    [subtotal_amount, delivery_fee_amount, gst_amount, pst_amount].sum
+  end
+
+  def self.fake_from(lines)
+    return Order.new if lines.blank?
+
+    Order.new do |order|
+      order.shop = lines.first.shop
+      order.lines.concat(lines)
+      order.delivery_address = lines.first.client.delivery_addresses.first || DeliveryAddress.new
+      order.readonly! # Musn't let the Order escape: the UI must really go through the #create operation, indicating intent
+    end
   end
 end

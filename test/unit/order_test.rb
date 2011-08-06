@@ -13,8 +13,8 @@ class OrderTest < ActiveSupport::TestCase
     end
   end
 
-  test "order subtotal should display proper price" do
-    assert_equal (Factory.build(:item).price * 3), (@order.subtotal) * 1.0
+  test "order subtotal_amount should display proper price" do
+    assert_equal (Factory.build(:item).price * 3), (@order.subtotal_subtotal) * 1.0
   end
 
   test "should allow for refusal of order" do

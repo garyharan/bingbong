@@ -13,6 +13,9 @@ class LinesController < ApplicationController
     end
 
     @lines = Line.find(:all, :conditions => { :client_id => current_user.id, :shop_id => @shop.id, :order_id => nil })
+
+    # Need logic to calculate fees and such: can't put that in the view
+    @order = Order.fake_from(@lines)
   end
 
   def update
@@ -22,5 +25,8 @@ class LinesController < ApplicationController
     @line.destroy if @line.quantity == 0
 
     @lines = Line.find(:all, :conditions => { :client_id => current_user.id, :shop_id => @shop.id, :order_id => nil })
+
+    # Need logic to calculate fees and such: can't put that in the view
+    @order = Order.fake_from(@lines)
   end
 end
