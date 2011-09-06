@@ -13,14 +13,17 @@ class ShopsController < ApplicationController
     @shop = Shop.find(params[:id])
     if user_signed_in?
       if params[:order_id]
-        order = current_user.orders.where(:id => params[:order_id]).first
+        order = current_user.orders.find(params[:order_id])
         order.lines.each do |line|
           new_line = line.clone
           new_line.order_id = nil
           new_line.save!
         end
       end
-      @lines = Line.find(:all, :conditions => { :shop_id => @shop.id, :user_id => current_user.id, :order_id => nil })
+      @lines = Line.find(:all, :conditions => { :shop_id => @shop.id, :client_id => current_user.id, :order_id => nil })
+
+      # Need logic to calculate fees and such: can't put that in the view
+      @order = Order.fake_from(@lines)
     end
 
     respond_to do |format|

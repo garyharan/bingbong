@@ -5,15 +5,16 @@ class OrderTest < ActiveSupport::TestCase
   should have_many(:state_transitions)
 
   setup do
-    @order = Factory.create :order
-    @item  = Factory.create :item
+    @order  = Factory.create(:order, :shop => Factory.create(:shop))
+    @client = Factory.create(:client)
+    @item   = Factory.create(:item)
     3.times do
-      Line.create Factory.attributes_for(:line, :order_id => @order.id, :item_id => @item.id)
+      @order.lines.create!( :item => @item, :shop_id => @order.shop.id, :client => @client )
     end
   end
 
-  test "order subtotal should display proper price" do
-    assert_equal (Factory.build(:item).price * 3), (@order.subtotal) * 1.0
+  test "order subtotal_amount should display proper price" do
+    assert_equal (Factory.build(:item).price * 3), (@order.subtotal_subtotal) * 1.0
   end
 
   test "should allow for refusal of order" do

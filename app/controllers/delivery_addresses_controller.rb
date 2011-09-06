@@ -66,11 +66,10 @@ class DeliveryAddressesController < ApplicationController
   private
 
   def find_delivery_address
-    @delivery_address = DeliveryAddress.where(:id => params[:id], :user_id => current_user.id, :deleted => false).first
-    if @delivery_address.nil?
-      flash[:notice] = "Désolé, l'adresse que vous voulez accéder ne vous appartient pas."
-      redirect_to :back
-      return
-    end
+    @delivery_address = current_user.delivery_addresses.current.find(params[:id])
+    return if @delivery_address
+
+    flash[:notice] = "Désolé, l'adresse que vous voulez accéder n'existe pas."
+    redirect_to :back
   end
 end

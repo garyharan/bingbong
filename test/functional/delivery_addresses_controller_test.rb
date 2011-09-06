@@ -2,10 +2,8 @@ require 'test_helper'
 
 class DeliveryAddressesControllerTest < ActionController::TestCase
   setup do
-    @user = User.create!(Factory.attributes_for(:user))
-    @user.confirm!
-    sign_in @user 
-    @delivery_address = DeliveryAddress.create!(Factory.attributes_for(:delivery_address).merge(:user_id => @user.id))
+    @delivery_address = Factory.create(:delivery_address)
+    sign_in @delivery_address.client
   end
 
   test "should get index" do

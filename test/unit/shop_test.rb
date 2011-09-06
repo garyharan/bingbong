@@ -4,13 +4,12 @@ class ShopTest < ActiveSupport::TestCase
   should have_many(:orders)
   should have_many(:categories)
 
-  test "owned_by?(user) works" do
-    @user = Factory.build :user
-    @shop = Factory.build :shop, :user_id => @user.id
-    assert @shop.owned_by?(@user), "user should own this shop."
+  test "owned_by?(owner) works" do
+    @shop = Factory.build :shop
+    assert @shop.owned_by?(@shop.owner), "owner should own this shop."
 
-    @not_mine = Factory.build(:shop, :user_id => -1)
-    assert @not_mine.owned_by?(@user) == false, "user should not own this shop"
+    @not_mine = Factory.build(:shop)
+    assert @not_mine.owned_by?(@shop.owner) == false, "owner should not own this shop"
   end
 
   test "full address displays correctly" do

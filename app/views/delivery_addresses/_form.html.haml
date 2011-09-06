@@ -7,12 +7,22 @@
 .new_name
   = label :address, "Adresse:"
   = text_field_tag :address, @delivery_address.address, :name => "delivery_address[address]"
+  *
 .new_appartment
   = label :apartment, "Appartement:"
   = text_field_tag :apartment, @delivery_address.apartment, :name => "delivery_address[apartment]"
+.new_city
+  = label :city, "Ville:"
+  = text_field_tag :city, @delivery_address.city, :name => "delivery_address[city]"
+  *
+.new_zip_code
+  = label :zip_code, "Code postal:"
+  = text_field_tag :zip_code, @delivery_address.zip_code, :name => "delivery_address[zip_code]", :value => @delivery_address.formatted_zip_code
+  *
 .new_phone_number
   = label :phone_number, "Téléphone:"
-  = text_field_tag :phone_number, @delivery_address.phone_number, :name => "delivery_address[phone_number]"
+  = text_field_tag :phone_number, @delivery_address.phone_number, :name => "delivery_address[phone_number]", :value => @delivery_address.formatted_phone_number
+  *
 .new_note
   = label :note, "Instructions spéciales:"
   = text_area_tag :note, @delivery_address.note, :name => "delivery_address[note]"

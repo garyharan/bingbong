@@ -123,13 +123,13 @@ body.shops.show {
                 font-weight: bold;
               }
             }
-            .subtotal, .tps, .tvq, .total {
+            .subtotal, .delivery, .tps, .tvq, .total {
               font-size: 1.4rem;
               font-weight: bold;
               color: darken($brown, 5%);
               text-align: right;
             }
-            .subtotal, .tps, .tvq, .total, .price {
+            .subtotal, .delivery, .tps, .tvq, .total, .price {
               padding-right: 13px;
             }
             .total_line {

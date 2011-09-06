@@ -27,20 +27,20 @@ class SearchesController < ApplicationController
   end
 
   def create
-    begin
-      @location = params[:search][:location]
-      @search = Search.find_by_location(@location) || Search.new(params[:search])
+    @location = params[:search][:location]
+    @search = Search.find_by_location(@location) || Search.new(params[:search])
 
-      @search.user_id = current_user.id if user_signed_in?
+    @search.client = current_user if user_signed_in?
 
-      respond_to do |format|
-        if @search.save
-          format.html { redirect_to @search }
-        else
-          format.html { render :action => "new" }
-        end
+    respond_to do |format|
+      if @search.save
+        format.html { redirect_to @search }
+      else
+        format.html { render :action => "new" }
       end
-    rescue
+    end
+  rescue
+    respond_to do |format|
       format.html { redirect_to @search }
     end
   end

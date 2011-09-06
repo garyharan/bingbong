@@ -2,11 +2,9 @@ require 'test_helper'
 
 class SizesControllerTest < ActionController::TestCase
    setup do
-    @user = User.create!(Factory.attributes_for(:user))
-    @user.confirm!
-    @shop = Shop.create!(Factory.attributes_for(:shop, :user_id => @user.id))
-    @category = Category.create!(Factory.attributes_for(:category, :shop_id => @shop.id))
-    sign_in @user
+    @shop     = Factory.create(:shop)
+    @category = Factory.create(:category, :shop => @shop)
+    sign_in @shop.owner
   end
 
   test "should create a size" do
@@ -20,14 +18,14 @@ class SizesControllerTest < ActionController::TestCase
   end
 
   test "should update a size's name" do
-    @size = Size.create Factory.attributes_for(:size, :category_id => @category.id)
+    @size = Factory.create(:size, :category_id => @category.id)
     xhr :put, :update, :size => { :name => "macdonald" }, :shop_id => @shop.id, :category_id => @category.id, :id => @size.id
     assert_equal "macdonald", assigns(:size).name
     assert_response :success
   end
 
   test "should delete a size" do
-    @size = Size.create Factory.attributes_for(:size, :category_id => @category.id)
+    @size = Factory.create(:size, :category_id => @category.id)
     assert_difference 'Size.count', -1 do
       delete :destroy, :id => @size.id, :shop_id => @shop.id, :category_id => @category.id
     end

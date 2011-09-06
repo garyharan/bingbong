@@ -2,16 +2,15 @@ require 'test_helper'
 
 class OrdersControllerTest < ActionController::TestCase
   setup do
-    @user = User.create!(Factory.attributes_for(:user))
-    @user.confirm!
-    sign_in @user 
-    @shop     = Shop.create     Factory.attributes_for(:shop)
-    @category = Category.create Factory.attributes_for(:category, :shop_id => @shop.id)
-    @product  = Product.create  Factory.attributes_for(:product, :category_id => @category.id)
-    @size     = Size.create     Factory.attributes_for(:size, :category_id => @category.id)
+    @shop     = Factory.create(:shop)
+    @category = Factory.create(:category, :shop     => @shop)
+    @product  = Factory.create(:product,  :category => @category)
+    @size     = Factory.create(:size,     :category => @category)
     @item     = Item.first
     @item.update_attribute :price, 2.99
-    @delivery_address = Factory(:delivery_address, :user_id => @user.id)
+
+    @delivery_address = Factory(:delivery_address)
+    sign_in @delivery_address.client
   end
 
   test "should get index orders for current user" do
@@ -21,8 +20,9 @@ class OrdersControllerTest < ActionController::TestCase
   end
 
   test "should get new" do
-    @line = Line.create Factory.attributes_for(:line, :shop_id => @shop.id, :item_id => @item.id, :user_id => @user.id)
+    @line = Factory.create(:line, :shop_id => @shop.id, :item => @item, :client => @delivery_address.client)
     get :new, :order => { :shop_id => @shop.id }
+
     assert_not_nil assigns(:shop)
     assert_not_nil assigns(:order)
     assert_not_nil assigns(:lines)
@@ -32,7 +32,7 @@ class OrdersControllerTest < ActionController::TestCase
   end
 
   test "should create an order" do
-    @line = Line.create :user_id => @user.id, :shop_id => @shop.id, :item_id => @item.id, :quantity => 2
+    @line = Factory.create(:line, :client => @delivery_address.client, :shop_id => @shop.id, :item => @item, :quantity => 2)
     assert_difference 'Order.count' do
       post :create, :order => { :shop_id => @shop.id, :delivery_address_id => @delivery_address.id }
     end
@@ -43,8 +43,9 @@ class OrdersControllerTest < ActionController::TestCase
   end
 
   test "should show an order" do
-    @order = Order.create :delivery_address_id => @delivery_address.id, :shop_id => @shop.id
-    @line = Line.create :user_id => @user.id, :shop_id => @shop.id, :item_id => @item.id, :quantity => 2, :order_id => @order.id
+    @order = Factory.create(:order, :delivery_address => @delivery_address, :shop => @shop)
+    @line  = @order.lines.create!(
+      Factory.attributes_for(:line, :client => @delivery_address.client, :shop_id => @shop.id, :item => @item, :quantity => 2))
     get :show, :id => @order.id
     assert_response :success
   end

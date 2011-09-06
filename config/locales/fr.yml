@@ -84,7 +84,7 @@ fr:
     currency:
       format:
         format: "%n %u"
-        unit: "€"
+        unit: "$"
         separator: ","
         delimiter: " "
         precision: 2

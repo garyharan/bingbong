@@ -2,23 +2,20 @@ require 'test_helper'
 
 class Shops::OrdersControllerTest < ActionController::TestCase
   setup do
-    @owner = User.create!(Factory.attributes_for(:user))
-    @owner.confirm!
-    sign_in @owner
-
-    @shop     = Shop.create     Factory.attributes_for(:shop, :user => @owner)
-    @category = Category.create Factory.attributes_for(:category, :shop_id => @shop.id)
-    @product  = Product.create  Factory.attributes_for(:product, :category_id => @category.id)
-    @size     = Size.create     Factory.attributes_for(:size, :category_id => @category.id)
+    @shop     = Factory.create(:shop)
+    @category = Factory.create(:category, :shop     => @shop)
+    @product  = Factory.create(:product,  :category => @category)
+    @size     = Factory.create(:size,     :category => @category)
     @item     = Item.first
     @item.update_attribute :price, 2.99
 
-    @client = Factory.create(:user)
-    @client.confirm!
-    @delivery_address = Factory(:delivery_address, :user_id => @client.id)
+    @client = Factory.create(:client)
+    @delivery_address = Factory(:delivery_address, :client => @shop.owner)
 
     @order = Factory.create(:order, :shop => @shop, :delivery_address => @delivery_address)
-    @order.lines << Factory.create(:line, :shop => @shop, :item => @item)
+    @order.lines << Factory.build(:line, :shop_id => @shop.id, :item => @item)
+
+    sign_in @shop.owner
   end
 
   test "should render list of order" do

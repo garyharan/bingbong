@@ -8,4 +8,5 @@ Factory.define :shop do |f|
   f.postal_code "J4T1C7"
   f.latitude "45.00000"
   f.longitude "73.0000"
+  f.association :owner
 end

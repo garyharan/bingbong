@@ -1,13 +1,17 @@
 .addresses
   - addresses.each do |address|
     .address{"delivery_address_id" => address.id}
-      = link_to "✕", address, :method => :delete, :confirm => "Etes vous certain de vouloir éffacer cette catégorie?", :class => "delete"
+      = link_to "✕", address, :method => :delete, :confirm => "Êtes vous certain de vouloir effacer cette adresse?", :class => "delete"
       .full
-        = address.address
-        - unless address.apartment.blank?
-          = "Apt. #{address.apartment}"
+        = succeed "," do
+          = address.address
+          - unless address.apartment.blank?
+            = "Apt. #{address.apartment}"
+        = succeed "," do
+          = address.city
+        = address.formatted_zip_code
       .phone_number
-        = address.phone_number
+        = address.formatted_phone_number
       .note
         = address.note
 
@@ -19,5 +23,5 @@
     #new_delivery_address.address{"delivery_address_id"=>"new"}
       = render "delivery_addresses/form"
   - else
-    #new_delivery_address.address{"delivery_address_id"=>"new", :style => "display: block"}
+    #new_delivery_address.address{"delivery_address_id"=>"new", :style => "display:none"}
       = render "delivery_addresses/form"

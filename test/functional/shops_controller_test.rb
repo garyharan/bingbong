@@ -2,10 +2,8 @@ require 'test_helper'
 
 class ShopsControllerTest < ActionController::TestCase
   setup do
-    @user = User.create!(Factory.attributes_for :user)
-    @user.confirm!
-    @shop = Shop.create!(Factory.attributes_for :shop, :user_id => @user.id)
-    sign_in @user
+    @shop = Factory.create(:shop)
+    sign_in @shop.owner
   end
 
   test "should get index" do
@@ -25,7 +23,7 @@ class ShopsControllerTest < ActionController::TestCase
     end
 
     assert_redirected_to shop_path(assigns(:shop))
-    assert_equal @user.id, assigns(:shop).user_id
+    assert_equal @shop.owner_id, assigns(:shop).owner_id
   end
 
   test "should show shop" do
@@ -34,7 +32,7 @@ class ShopsControllerTest < ActionController::TestCase
   end
 
   test "should require login" do
-    sign_out @user
+    sign_out @shop.owner
     get :show, :id => @shop.to_param
     assert_response :redirect # login
   end
