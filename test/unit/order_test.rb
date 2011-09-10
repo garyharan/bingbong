@@ -7,9 +7,12 @@ class OrderTest < ActiveSupport::TestCase
   setup do
     @order  = Factory.create(:order, :shop => Factory.create(:shop))
     @client = Factory.create(:client)
-    @item   = Factory.create(:item)
+    @items  = []
     3.times do
-      @order.lines.create!( :item => @item, :shop_id => @order.shop.id, :client => @client )
+      @items << Factory.create(:item)
+    end
+    3.times do |i|
+      Line.create Factory.attributes_for(:line, :order_id => @order.id, :item_id => @items[i].id)
     end
   end
 
@@ -69,5 +72,20 @@ class OrderTest < ActiveSupport::TestCase
     @order.answer!
     expected = {"calling" => "calling"}
     assert_equal expected, @order.state_transitions.map{|st| {st.from => st.to}}.last
+  end
+
+  test "should build the order string" do
+    # I don't like that test since I cannot control FactoryGirl sequence
+    @order.lines.each_with_index do |line, index|
+      line.quantity = index + 1
+    end
+
+    expected = ""
+    @items.each_with_index do |item, index|
+      expected << "#{index + 1}, #{item.product.name}, #{item.size.name},"
+    end
+    expected = expected[0..-2]
+
+    assert_equal expected, @order.order_string
   end
 end
