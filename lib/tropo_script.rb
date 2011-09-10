@@ -1,20 +1,9 @@
+def slow_message(message)
+  "<prosody rate='-95%'>#{message}</prosody>"
+end
+
 def talk(message)
-  say("<speak><prosody rate='-95%'>#{message}</prosody></speak>", :voice => "Juliette");
-end
-
-def say_order
-  $orders.split(";").each do |order|
-    talk(order)
-    wait(300)
-  end
-end
-
-def say_name
-  talk($name)
-end
-
-def say_address
-  talk($address.gsub(/(\d+)/, "<say-as interpret-as='vxml:digits'>\\1</say-as>"))
+  say("<speak>#{message}</speak>", :voice => "Juliette")
 end
 
 def new_options(digit, message, &block)
@@ -46,6 +35,19 @@ menu_options["#"] = new_options("carré", "refuser la commande") do
   {:result => :refused}
 end
 
+# Say strings
+orders_string = $orders.split(";").map do |order|
+    slow_message(order)
+  end.join(".") + ". "
+
+name_string = "#{$name}."
+
+address_string = "#{$address.gsub(/(\d+)/, "<say-as interpret-as='vxml:digits'>\\1</say-as>")}. "
+
+menu_string =  menu_options.map do |digit, o|
+    "Faites le #{o[:digit]} pour #{o[:message]}"
+  end.join(", ") + ". "
+
 call("+1#{$number}");
 
 talk("Bonjour #{$shop_name}.")
@@ -53,26 +55,23 @@ talk("Bonjour #{$shop_name}.")
 accepted = false;
 to_say = [:order, :name, :address]
 while (!accepted) do
+  asked_string = ""
+
   if to_say.include? :order
-    say_order
-    wait(500)
+    asked_string << orders_string
   end
 
   if to_say.include? :name
-    say_name
-    wait(500)
+    asked_string << name_string
   end
 
   if to_say.include? :address
-    say_address
-    wait(500)
+    asked_string << address_string
   end
 
-  asked_string = menu_options.map do |digit, o|
-    "Faites le #{o[:digit]} pour #{o[:message]}"
-  end.join(", ")
+  asked_string << menu_string
 
-  result = ask(asked_string,
+  result = ask("<speak>#{asked_string}</speak>",
     :mode => "dtmf",
     :choices => menu_options.keys.join(","),
     :attempts => 99,
