@@ -1,5 +1,6 @@
 @import "shop_banner";
 
+
 body.shops.show {
   #shops {
     width: 100%;
@@ -81,7 +82,7 @@ body.shops.show {
             }
           }
           tbody {
-            border-bottom: 1px solid darken($beige, 20%);
+            // border-bottom: 1px solid darken($beige, 20%);
             tr {
               height: 2.5rem;
               td {
@@ -184,7 +185,17 @@ body.shops.show {
               height: 30px;
               padding: 6px;
               text-align: center;
+              padding-top: 15px;
+            }
+            td[colspan] {
+              height: 20px;
               border-bottom: 1px solid #ddd;
+              padding-top: 0px;
+              padding-bottom: 15px;
+              &.description {
+                color: transparentize(#666, 0.5);
+                font-size: 11px;
+              }
             }
           }
           .price_link {

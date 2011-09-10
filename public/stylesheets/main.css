@@ -414,31 +414,29 @@ body.shops.show #menu {
           font-size: 2rem; }
           body.shops.show #menu div:first-child #order table thead th {
             padding: 10px; }
-        body.shops.show #menu div:first-child #order table tbody {
-          border-bottom: 1px solid #d7e488; }
-          body.shops.show #menu div:first-child #order table tbody tr {
-            height: 2.5rem; }
-            body.shops.show #menu div:first-child #order table tbody tr td {
-              color: #917011; }
-              body.shops.show #menu div:first-child #order table tbody tr td.price {
-                text-align: right;
-                padding-right: 11px; }
-            body.shops.show #menu div:first-child #order table tbody tr td.arrow a {
-              text-decoration: none;
-              color: #bf9316;
-              margin-left: 10px; }
-              body.shops.show #menu div:first-child #order table tbody tr td.arrow a.up {
-                position: relative;
-                top: 5px; }
-                body.shops.show #menu div:first-child #order table tbody tr td.arrow a.up:active {
-                  top: 6px; }
-              body.shops.show #menu div:first-child #order table tbody tr td.arrow a.down {
-                position: relative;
-                top: -5px; }
-                body.shops.show #menu div:first-child #order table tbody tr td.arrow a.down:active {
-                  top: -4px; }
-              body.shops.show #menu div:first-child #order table tbody tr td.arrow a:hover {
-                background: none; }
+        body.shops.show #menu div:first-child #order table tbody tr {
+          height: 2.5rem; }
+          body.shops.show #menu div:first-child #order table tbody tr td {
+            color: #917011; }
+            body.shops.show #menu div:first-child #order table tbody tr td.price {
+              text-align: right;
+              padding-right: 11px; }
+          body.shops.show #menu div:first-child #order table tbody tr td.arrow a {
+            text-decoration: none;
+            color: #bf9316;
+            margin-left: 10px; }
+            body.shops.show #menu div:first-child #order table tbody tr td.arrow a.up {
+              position: relative;
+              top: 5px; }
+              body.shops.show #menu div:first-child #order table tbody tr td.arrow a.up:active {
+                top: 6px; }
+            body.shops.show #menu div:first-child #order table tbody tr td.arrow a.down {
+              position: relative;
+              top: -5px; }
+              body.shops.show #menu div:first-child #order table tbody tr td.arrow a.down:active {
+                top: -4px; }
+            body.shops.show #menu div:first-child #order table tbody tr td.arrow a:hover {
+              background: none; }
         body.shops.show #menu div:first-child #order table tfoot#totals tr {
           height: 2.5rem; }
           body.shops.show #menu div:first-child #order table tfoot#totals tr td.subtotal {
@@ -492,7 +490,15 @@ body.shops.show #menu {
           height: 30px;
           padding: 6px;
           text-align: center;
-          border-bottom: 1px solid #ddd; }
+          padding-top: 15px; }
+        body.shops.show #menu div:first-child #categories table tbody td[colspan] {
+          height: 20px;
+          border-bottom: 1px solid #ddd;
+          padding-top: 0px;
+          padding-bottom: 15px; }
+          body.shops.show #menu div:first-child #categories table tbody td[colspan].description {
+            color: rgba(102, 102, 102, 0.5);
+            font-size: 11px; }
         body.shops.show #menu div:first-child #categories table .price_link {
           font-size: 1.3rem;
           padding: 0.5rem;
