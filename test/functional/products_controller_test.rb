@@ -18,10 +18,18 @@ class ProductsControllerTest < ActionController::TestCase
     assert_redirected_to shop_path(@shop)
   end
 
-  test "should update an product" do
+  test "should update a product name" do
     @product = Factory.create(:product, :category => @category)
-    put :update, :product => { :name => "New Name"}, :category_id => @category.id, :id => @product.id, :shop_id => @shop.id
+    put :update, :product => { :name => "New Name" }, :category_id => @category.id, :id => @product.id, :shop_id => @shop.id
     assert_equal "New Name", assigns(:product).name
+    assert_equal "name", assigns(:attribute)
+  end
+
+  test "should update a product description" do
+    @product = Factory.create(:product, :category => @category)
+    put :update, :product => { :description => "New description"}, :category_id => @category.id, :id => @product.id, :shop_id => @shop.id
+    assert_equal "New description", assigns(:product).description
+    assert_equal "description", assigns(:attribute)
   end
 
   test "should delete a product" do

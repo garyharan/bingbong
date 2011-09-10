@@ -11,11 +11,12 @@ class ProductsController < ApplicationController
   end
 
   def update
-    @category = Category.find params[:category_id]
-    @product = @category.products.find params[:id]
+    @category  = Category.find params[:category_id]
+    @product   = @category.products.find params[:id]
 
     respond_to do |format|
       if @product.update_attributes(params[:product])
+        @attribute = params[:product][:description] ? 'description' : 'name'
         format.js
       else
         format.js { render :json => @product.errors, :status => :unprocessable_entity }
