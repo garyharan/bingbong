@@ -62,11 +62,8 @@ body.searches {
           @include button($green);
         }
         .delete {
-          display: inline;
           position: relative;
-          right: 30px;
-          top: 15px;
-          float: right;
+          right: 23px;
           font-weight: bold;
           text-decoration: none;
           text-shadow: 0px 0px 2px lighten($green, 30%);
@@ -76,11 +73,10 @@ body.searches {
           }
         }
         .default_searches {
-          float: left;
-          margin-top: 10px;
+          margin: 10px auto;
           width: 33%;
-
           .title {
+            margin-top: 10px;
             color: #666;
           }
         }

@@ -1,4 +1,4 @@
 %div{:id => dom_id(delivery_address, 'link')}
-  = link_to "x", delivery_address, :method => "delete", :confirm => "Êtes-vous certain de vouloir effacer cette address?", :class => "delete"
   - search_address = "#{delivery_address.address}, #{delivery_address.city}, #{delivery_address.zip_code}"
   = link_to search_address, {:action => :create, :search => {:location => search_address}}, :method => :post, :class => 'old_search'
+  = link_to "x", delivery_address, :method => "delete", :confirm => "Êtes-vous certain de vouloir effacer cette address?", :class => "delete"
