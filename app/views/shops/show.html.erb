@@ -13,10 +13,12 @@
         <h1><%= best_in_place @shop, :name %></h1>
         <h2><%= best_in_place @shop, :address %>, <%= best_in_place @shop, :city %>, <%= best_in_place @shop, :postal_code %>, <%= best_in_place @shop, :phone_number %></h2>
         <p><em>Commande minimum</em>: <%= best_in_place @shop, :minimum %>$ | <em>Livraison</em>: <%= best_in_place @shop, :delivery %>min</p>
+        <p class="description"><%= best_in_place @shop, :description %></p>
       <% else -%>
         <h1><%= @shop.name %></h1>
         <p><%= @shop.full_address %></p>
         <p><em>Commande minimum</em>: <%= @shop.minimum %>$ | <em>Livraison</em>: <%= @shop.delivery %>min</p>
+        <p class="description"><%= @shop.description %></p>
       <% end -%>
       <%= image_tag(map_url(@shop), :id => 'shop_map') %>
     </div>

@@ -258,13 +258,13 @@ body.searches #shops {
         color: #e1f89b;
         text-shadow: #546e08 0px 0px 4px;
         margin-bottom: 0px;
-        padding-top: 30px;
+        padding-top: 20px;
         margin-top: 0px;
         padding-bottom: 0px;
         font-size: 4rem; }
       #shop_banner div:first-child #shop_address h2, .shop_banner div:first-child #shop_address h2 {
         color: #546e08;
-        line-height: 2rem; }
+        line-height: 1rem; }
       #shop_banner div:first-child #shop_address p, .shop_banner div:first-child #shop_address p {
         font-size: 1.8rem;
         line-height: 0rem;
@@ -272,6 +272,14 @@ body.searches #shops {
         #shop_banner div:first-child #shop_address p em, .shop_banner div:first-child #shop_address p em {
           font-weight: bold;
           font-style: normal; }
+      #shop_banner div:first-child #shop_address p.description, .shop_banner div:first-child #shop_address p.description {
+        font-size: 1.6rem;
+        margin-top: 30px;
+        color: #425606;
+        font-weight: bold; }
+        #shop_banner div:first-child #shop_address p.description input, .shop_banner div:first-child #shop_address p.description input {
+          display: block;
+          width: 500px; }
     #shop_banner div:first-child #shop_map, .shop_banner div:first-child #shop_map {
       position: absolute;
       right: 0px;
@@ -528,13 +536,13 @@ body.shops.show #menu {
         color: #e1f89b;
         text-shadow: #546e08 0px 0px 4px;
         margin-bottom: 0px;
-        padding-top: 30px;
+        padding-top: 20px;
         margin-top: 0px;
         padding-bottom: 0px;
         font-size: 4rem; }
       #shop_banner div:first-child #shop_address h2, .shop_banner div:first-child #shop_address h2 {
         color: #546e08;
-        line-height: 2rem; }
+        line-height: 1rem; }
       #shop_banner div:first-child #shop_address p, .shop_banner div:first-child #shop_address p {
         font-size: 1.8rem;
         line-height: 0rem;
@@ -542,6 +550,14 @@ body.shops.show #menu {
         #shop_banner div:first-child #shop_address p em, .shop_banner div:first-child #shop_address p em {
           font-weight: bold;
           font-style: normal; }
+      #shop_banner div:first-child #shop_address p.description, .shop_banner div:first-child #shop_address p.description {
+        font-size: 1.6rem;
+        margin-top: 30px;
+        color: #425606;
+        font-weight: bold; }
+        #shop_banner div:first-child #shop_address p.description input, .shop_banner div:first-child #shop_address p.description input {
+          display: block;
+          width: 500px; }
     #shop_banner div:first-child #shop_map, .shop_banner div:first-child #shop_map {
       position: absolute;
       right: 0px;
