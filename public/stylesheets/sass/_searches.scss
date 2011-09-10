@@ -60,6 +60,7 @@ body.searches {
           margin-top: 10px;
           font-size: 1.8rem;
           @include button($green);
+          padding-top: 14px;
         }
         .delete {
           position: relative;
