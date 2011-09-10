@@ -122,7 +122,7 @@ body.searches #find {
       text-align: center; }
       body.searches #find #instruction #instructions .old_search {
         margin: 0 auto;
-        width: 65%;
+        width: 450px;
         margin-top: 10px;
         font-size: 1.8rem;
         display: inline-block;
