@@ -33,4 +33,7 @@ group :development, :test do
   gem 'ruby-debug19', :platform => :mri_19
 
   gem 'foreman'
+
+  gem 'ZenTest'
+  gem 'autotest-rails'
 end

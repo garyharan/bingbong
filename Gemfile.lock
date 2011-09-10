@@ -138,6 +138,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  ZenTest
   autotest-fsevent
   autotest-growl
   autotest-rails
