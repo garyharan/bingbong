@@ -2,4 +2,6 @@
 
 Factory.define :item do |f|
   f.price "9.99"
+  f.association :product
+  f.association :size
 end
