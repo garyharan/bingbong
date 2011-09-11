@@ -1,7 +1,7 @@
 GEM
   remote: http://rubygems.org/
   specs:
-    ZenTest (4.6.0)
+    ZenTest (4.5.0)
     abstract (1.0.0)
     actionmailer (3.0.7)
       actionpack (= 3.0.7)
@@ -35,8 +35,8 @@ GEM
     autotest-fsevent (0.2.5)
       sys-uname
     autotest-growl (0.2.9)
-    autotest-rails (4.1.0)
-      ZenTest
+    autotest-rails (4.1.1)
+      ZenTest (= 4.5)
     bcrypt-ruby (2.1.4)
     best_in_place (0.1.9)
       rails (~> 3.0.0)
