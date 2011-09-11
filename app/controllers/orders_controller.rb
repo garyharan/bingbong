@@ -35,9 +35,10 @@ class OrdersController < ApplicationController
 
         @order = Order.create params[:order] #.merge(:user_id => current_user.id)
         Line.update_all({:order_id => @order.id}, {:order_id => nil, :client_id => current_user.id, :shop_id => params[:order][:shop_id]})
-
-        redirect_to @order
       end
+      @order.ring!
+
+      redirect_to @order
     rescue
       logger.error { "#{$!.class}: #{$!.message}\n#{ $!.backtrace.join("\n") }" }
       @current_address_id = params[:order][:delivery_address_id]
