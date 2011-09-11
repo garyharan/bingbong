@@ -5,14 +5,16 @@ class OrderTest < ActiveSupport::TestCase
   should have_many(:state_transitions)
 
   setup do
-    @order  = Factory.create(:order, :shop => Factory.create(:shop))
+    @shop = Factory.create(:shop)
+    @order  = Factory.create(:order, :shop => @shop)
     @client = Factory.create(:client)
+    @order.delivery_address.client = @client
     @items  = []
     3.times do
       @items << Factory.create(:item)
     end
     3.times do |i|
-      @order.lines.create!( :item => @items[i], :shop_id => @order.shop.id, :client => @client )
+      @order.lines.create!( :item => @items[i], :shop_id => @shop.id, :client => @client )
     end
   end
 
@@ -82,10 +84,22 @@ class OrderTest < ActiveSupport::TestCase
 
     expected = ""
     @items.each_with_index do |item, index|
-      expected << "#{index + 1}, #{item.product.name}, #{item.size.name},"
+      expected << "#{index + 1}, #{item.product.name}, #{item.size.name};"
     end
     expected = expected[0..-2]
 
     assert_equal expected, @order.order_string
+  end
+
+  test "#call_options should return options for Tropo" do
+    expected = {
+      :name      => @client.name,
+      :address   => @order.delivery_address.address_string,
+      :shop_name => @shop.name,
+      :number    => @shop.phone_number,
+      :orders    => @order.order_string
+    }
+    assert_equal expected, @order.call_options
+
   end
 end

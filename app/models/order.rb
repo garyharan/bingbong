@@ -25,6 +25,7 @@ class Order < ActiveRecord::Base
   end
 
   state_machine :call_state, :initial => :call_pending do
+    before_transition :on => :ring, :do => :call
     event :ring do
       transition :call_pending => :calling
     end
@@ -87,6 +88,27 @@ class Order < ActiveRecord::Base
   def order_string
     lines.map do |line|
       "#{line.quantity}, #{line.item.product.name}, #{line.item.size.name}"
-    end.join(",")
+    end.join(";")
+  end
+
+  def call
+    unless Rails.env.test?
+      result = RestClient.post(TROPO_SESSION_API_URL, call_options.merge(
+        :action => "create",
+        :token  => TROPO_TOKEN_ID
+      ))
+
+      # result
+    end
+  end
+
+  def call_options
+    {
+      :name      => delivery_address.client.name,
+      :address   => delivery_address.address_string,
+      :shop_name => shop.name,
+      :number    => shop.phone_number,
+      :orders    => order_string
+    }
   end
 end
