@@ -12,7 +12,7 @@ class OrderTest < ActiveSupport::TestCase
       @items << Factory.create(:item)
     end
     3.times do |i|
-      Line.create Factory.attributes_for(:line, :order_id => @order.id, :item_id => @items[i].id)
+      @order.lines.create!( :item => @items[i], :shop_id => @order.shop.id, :client => @client )
     end
   end
 
