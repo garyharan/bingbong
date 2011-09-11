@@ -87,7 +87,7 @@ class Order < ActiveRecord::Base
 
   def order_string
     lines.map do |line|
-      "#{line.quantity}, #{line.item.product.name}, #{line.item.size.name}"
+      "#{line.quantity} #{line.item.product.category.name}, #{line.item.size.order_name}, #{line.item.product.name}"
     end.join(";")
   end
 

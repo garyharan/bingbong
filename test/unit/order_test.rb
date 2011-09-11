@@ -84,7 +84,7 @@ class OrderTest < ActiveSupport::TestCase
 
     expected = ""
     @items.each_with_index do |item, index|
-      expected << "#{index + 1}, #{item.product.name}, #{item.size.name};"
+      expected << "#{index + 1} #{item.product.category.name}, #{item.size.order_name}, #{item.product.name};"
     end
     expected = expected[0..-2]
 
