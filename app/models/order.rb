@@ -83,4 +83,10 @@ class Order < ActiveRecord::Base
       order.readonly! # Musn't let the Order escape: the UI must really go through the #create operation, indicating intent
     end
   end
+
+  def order_string
+    lines.map do |line|
+      "#{line.quantity}, #{line.item.product.name}, #{line.item.size.name}"
+    end.join(",")
+  end
 end

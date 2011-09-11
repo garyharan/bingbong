@@ -2,4 +2,5 @@
 
 Factory.define :size do |f|
   f.sequence(:name) { |n| "#{n} inches" }
+  f.association :category
 end
