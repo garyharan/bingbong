@@ -2,7 +2,7 @@
 
 <table>
   <tr>
-    <th>Weekday</th>
+    <th>Jour</th>
     <th>Starting</th>
     <th>Ending</th>
     <th></th>
@@ -12,7 +12,7 @@
 
 <% @time_blocks.each do |time_block| %>
   <tr>
-    <td><%= time_block.weekday %></td>
+    <td><%= human_weekday time_block.weekday %></td>
     <td><%= time_block.starting %></td>
     <td><%= time_block.ending %></td>
     <td><%= link_to 'Show', [@shop, time_block] %></td>

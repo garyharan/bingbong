@@ -13,16 +13,19 @@
 
   <div class="field">
     <%= f.label :weekday %><br />
-    <%= f.text_field :weekday %>
+    <%= f.select :weekday, TimeBlocksHelper::WEEKDAYS.each_with_index.collect {|day, index| [day, index + 1] } %>
   </div>
+
   <div class="field">
-    <%= f.label :starting %><br />
+    <%= f.label :starting, "Début" %><br />
     <%= f.text_field :starting %>
   </div>
+
   <div class="field">
-    <%= f.label :ending %><br />
+    <%= f.label :ending, "Fin" %><br />
     <%= f.text_field :ending %>
   </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

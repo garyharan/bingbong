@@ -1,22 +1,17 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Shop:</b>
-  <%= @time_block.shop_id %>
+  <b>Jour:</b>
+  <%= human_weekday @time_block.weekday %>
 </p>
 
 <p>
-  <b>Weekday:</b>
-  <%= @time_block.weekday %>
-</p>
-
-<p>
-  <b>Starting:</b>
+  <b>Début:</b>
   <%= @time_block.starting %>
 </p>
 
 <p>
-  <b>Ending:</b>
+  <b>Fin:</b>
   <%= @time_block.ending %>
 </p>
 
