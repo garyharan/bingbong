@@ -1,5 +1,4 @@
 Bingbong::Application.routes.draw do
-
   resources :potentials # until launch
   # root :to => "potentials#new"
   root :to => "searches#index"
@@ -9,6 +8,7 @@ Bingbong::Application.routes.draw do
   resource :demo, :only => %w(show update)
 
   resources :shops do
+    resources :time_blocks
     resources :orders, :controller => 'shops/orders', :as => 'shop_orders' do
       member do
         post :accept

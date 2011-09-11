@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Shop:</b>
+  <%= @time_block.shop_id %>
+</p>
+
+<p>
+  <b>Weekday:</b>
+  <%= @time_block.weekday %>
+</p>
+
+<p>
+  <b>Starting:</b>
+  <%= @time_block.starting %>
+</p>
+
+<p>
+  <b>Ending:</b>
+  <%= @time_block.ending %>
+</p>
+
+
+<%= link_to 'Edit', edit_shop_time_block_path(@shop, @time_block) %> |
+<%= link_to 'Back', shop_time_blocks_path %>

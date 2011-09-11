@@ -2,6 +2,7 @@ class Shop < ActiveRecord::Base
   belongs_to :owner, :class_name => "User"
   has_many :orders
   has_many :categories, :order => 'created_at ASC'
+  has_many :time_blocks
 
   geocoded_by :full_address
   after_validation :geocode
