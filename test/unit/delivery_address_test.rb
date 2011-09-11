@@ -30,4 +30,8 @@ class DeliveryAddressTest < ActiveSupport::TestCase
     @delivery_address.zip_code = "H1W 3N5"
     assert @delivery_address.valid?, "Zip code : 'H1W 3N5' should be valid"
   end
+
+  test "#address_string" do
+    assert_equal @delivery_address.address_string, "1234 Any road, A City"
+  end
 end

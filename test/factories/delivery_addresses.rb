@@ -1,5 +1,5 @@
 Factory.define :delivery_address do |f|
-  f.address       "1234 Any road, Any city"
+  f.address       "1234 Any road"
   f.apartment     "1"
   f.city          "A City"
   f.zip_code      "a1a 1a1"
