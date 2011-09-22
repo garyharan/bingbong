@@ -13,5 +13,5 @@ end
 Factory.define :owner,  :parent => :confirmed_user do
 end
 
-Factory.define :client, :parent => :confirmed_user do
+Factory.define :client, :parent => :confirmed_user do |f|
 end

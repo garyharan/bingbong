@@ -35,6 +35,10 @@ class DeliveryAddress < ActiveRecord::Base
     "#{ zip_code[0, 3] } #{ zip_code[3, 3] }"
   end
 
+  def address_string
+    "#{address}, #{city}"
+  end
+
   private
 
   def normalize_phone_number
