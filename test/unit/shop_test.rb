@@ -17,6 +17,14 @@ class ShopTest < ActiveSupport::TestCase
     assert_equal "1514 Murray Street, Saint-Hubert, Quebec, J4T1C7", @shop.full_address
   end
 
+  test "open? should work" do
+    @shop = Factory.build :shop
+    @shop.save!
+    monday_block = Factory.build :time_block, :shop_id => @shop.id
+    stub(Time).now { Time.new 2011, 7, 11, 11, 30 } # monday 11th of July 2011 11h30AM
+    assert @shop.open?, "shop should be opened"
+  end
+
   # test "geocodes shops after validation" do
   #   stub(Geocoder).coordinates().returns([45.537405, -73.510726])
   #   @shop = Shop.create Factory.attributes_for(:shop, :address => "1514 Murray Street")

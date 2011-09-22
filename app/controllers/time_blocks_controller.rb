@@ -4,7 +4,7 @@ class TimeBlocksController < ApplicationController
   # GET /time_blocks
   # GET /time_blocks.xml
   def index
-    @time_blocks = TimeBlock.find_all_by_shop_id @shop.id
+    @time_blocks = @shop.time_blocks
   end
 
   # GET /time_blocks/1

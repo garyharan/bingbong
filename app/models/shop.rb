@@ -4,6 +4,12 @@ class Shop < ActiveRecord::Base
   has_many :categories, :order => 'created_at ASC'
   has_many :time_blocks
 
+  def open?
+    t = Time.now
+    current_time = "#{t.hour}#{t.min}"
+    time_blocks.where("starting <= #{current_time} AND ending >= #{current_time} AND weekday = #{t.wday}").count > 0
+  end
+
   geocoded_by :full_address
   after_validation :geocode
   before_validation do
