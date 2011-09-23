@@ -1,0 +1,6 @@
+<% if @shop.owned_by? current_user -%>
+  <div id="owner_nav">
+    Votre magasin est <%= @shop.open? ? "ouvert" : "fermé" %>
+    <%= link_to "changer les heures d'ouvertures", shop_time_blocks_path(@shop) %>
+  </div>
+<% end -%>

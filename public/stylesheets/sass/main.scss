@@ -9,8 +9,17 @@
 @import "devise";
 @import "delivery_addresses";
 
+#owner_nav {
+  width: 950px;
+  margin: 0 auto;
+  div {
+    padding: 10px;
+  }
+}
+
 #user_nav {
-  width: 100%;
+  width: 950px;
+  margin: 0 auto;
   text-align: right;
   div {
     padding: 10px;

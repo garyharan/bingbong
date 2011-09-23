@@ -911,8 +911,15 @@ body.sessions.new #devise, body.registrations #devise {
 .addresses #error_explanation {
   width: auto; }
 
+#owner_nav {
+  width: 950px;
+  margin: 0 auto; }
+  #owner_nav div {
+    padding: 10px; }
+
 #user_nav {
-  width: 100%;
+  width: 950px;
+  margin: 0 auto;
   text-align: right; }
   #user_nav div {
     padding: 10px; }
