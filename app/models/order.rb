@@ -8,6 +8,10 @@ class Order < ActiveRecord::Base
   has_many :lines, :dependent => :delete_all
   has_many :state_transitions, :class_name => "OrderStateTransition", :order => :created_at, :dependent => :delete_all
 
+  before_create do
+    self.validation_code = Digest::SHA1.new.update("#{Time.now}#{rand()}").hexdigest
+  end
+
   state_machine :initial => :pending do
     event :refuse do
       transition :pending => :refused do |order|
@@ -93,12 +97,10 @@ class Order < ActiveRecord::Base
 
   def call
     unless Rails.env.test?
-      result = RestClient.post(TROPO_SESSION_API_URL, call_options.merge(
+      RestClient.post(TROPO_SESSION_API_URL, call_options.merge(
         :action => "create",
         :token  => TROPO_TOKEN_ID
       ))
-
-      # result
     end
   end
 
@@ -106,9 +108,12 @@ class Order < ActiveRecord::Base
     {
       :name      => delivery_address.client.name,
       :address   => delivery_address.address_string,
+      :order_id  => id,
+      :shop_id   => shop.id,
       :shop_name => shop.name,
       :number    => shop.phone_number,
-      :orders    => order_string
+      :orders    => order_string,
+      :code      => validation_code
     }
   end
 end

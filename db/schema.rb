@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110911152432) do
+ActiveRecord::Schema.define(:version => 20110924175252) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -69,6 +69,7 @@ ActiveRecord::Schema.define(:version => 20110911152432) do
     t.datetime "accepted_at"
     t.integer  "delivery_address_id"
     t.string   "call_state",          :default => "pending", :null => false
+    t.text     "validation_code"
   end
 
   add_index "orders", ["call_state"], :name => "index_orders_on_call_state"

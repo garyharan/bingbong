@@ -1,3 +1,28 @@
+require "net/http"
+require "uri"
+
+def answer_server(answer)
+  count = 0
+  while count < 3
+    message = {
+      :result => answer[:result].to_s,
+      :code => $code
+    }
+    url = URI.parse("http://www.grandmenu.com/shops/#{$shop_id}/orders/#{$order_id}/tropo_answer")
+
+    req = Net::HTTP::Post.new(url.path)
+    req.set_form_data(message, ';')
+    res = Net::HTTP.new(url.host, url.port).start {|http| http.request(req) }
+    case res
+    when Net::HTTPSuccess
+      break
+    else
+      log "CALLBACK ERROR -> count : #{count}, shop_id : '#{$shop_id}', order_id : '#{$order_id}', result : '#{answer[:result]}', code : '#{$code}' => #{res.error}"
+      count += 1
+    end
+  end
+end
+
 def slow_message(message)
   "<prosody rate='-95%'>#{message}</prosody>"
 end
@@ -28,11 +53,11 @@ menu_options["6"] = new_options("6", "appeler le client") do
 end
 menu_options["*"] = new_options("étoile", "accepter la commande") do
   talk("Vous avez accepté la commande. Merci!")
-  {:result => :accepted}
+  {:result => :accept}
 end
 menu_options["#"] = new_options("carré", "refuser la commande") do
   talk("Vous refusez la commande. Au revoir.")
-  {:result => :refused}
+  {:result => :refuse}
 end
 
 # Say strings
@@ -52,9 +77,10 @@ call("+1#{$number}");
 
 talk("Bonjour #{$shop_name}.")
 
-accepted = false;
+stop = false;
 to_say = [:order, :name, :address]
-while (!accepted) do
+answer = nil
+while (!stop) do
   asked_string = ""
 
   if to_say.include? :order
@@ -94,7 +120,7 @@ while (!accepted) do
 
   log("SCRIPT_LOGGING : result.value: #{result.value}, event.choice.utterance: #{result.choice.utterance}, event.choice.interpretation: #{result.choice.interpretation}");
 
-  r = menu_options.fetch(result.value) do
+  answer = menu_options.fetch(result.value) do
     block = lambda do
       talk("Je n'ai pas reconnu votre réponse.")
       {:to_say => "menu"}
@@ -102,8 +128,10 @@ while (!accepted) do
     {:block => block}
   end[:block].call
 
-  to_say = r[:to_say]
-  accepted = true if r[:result]
+  to_say = answer[:to_say]
+  stop = true if answer[:result]
 end
+
+answer_server(answer)
 
 hangup();

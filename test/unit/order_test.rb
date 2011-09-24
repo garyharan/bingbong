@@ -95,9 +95,12 @@ class OrderTest < ActiveSupport::TestCase
     expected = {
       :name      => @client.name,
       :address   => @order.delivery_address.address_string,
+      :order_id  => @order.id,
+      :shop_id   => @shop.id,
       :shop_name => @shop.name,
       :number    => @shop.phone_number,
-      :orders    => @order.order_string
+      :orders    => @order.order_string,
+      :code      => @order.validation_code
     }
     assert_equal expected, @order.call_options
 

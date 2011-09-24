@@ -13,6 +13,7 @@ Bingbong::Application.routes.draw do
       member do
         post :accept
         post :refuse
+        post :tropo_answer
       end
     end
     resources :categories do
