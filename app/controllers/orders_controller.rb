@@ -12,7 +12,7 @@ class OrdersController < ApplicationController
 
   def new
     @current_address_id = current_user.orders.last.try(:delivery_address_id) || "new"
-    @delivery_address = current_user.delivery_addresses.build(
+    @delivery_address = current_user.delivery_addresses.new(
                                             :address => current_user.searches.last.try(:location),
                                             :phone_number => current_user.delivery_addresses.current.order("updated_at DESC").first.try(:phone_number))
     @order = Order.new params[:order]

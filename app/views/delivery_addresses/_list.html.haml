@@ -1,7 +1,7 @@
 .addresses
   - addresses.each do |address|
     .address{"delivery_address_id" => address.id}
-      = link_to "✕", address, :method => :delete, :confirm => "Êtes vous certain de vouloir effacer cette adresse?", :class => "delete"
+      = link_to "✕", delivery_address_path(address), :method => :delete, :confirm => "Êtes vous certain de vouloir effacer cette adresse?", :class => "delete"
       .full
         = succeed "," do
           = address.address
@@ -18,7 +18,7 @@
       -# .actions
         -# TODO : implement for orders/new= link_to 'Modifier', edit_delivery_address_path(address)
 
-  - if addresses.empty? || @delivery_address.errors.empty?
+  - if addresses.empty?
     #new_delivery_address_link Ajouter une adresse
     #new_delivery_address.address{"delivery_address_id"=>"new"}
       = render "delivery_addresses/form"
