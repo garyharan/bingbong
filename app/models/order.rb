@@ -113,7 +113,8 @@ class Order < ActiveRecord::Base
       :shop_name => shop.name,
       :number    => shop.phone_number,
       :orders    => order_string,
-      :code      => validation_code
+      :code      => validation_code,
+      :url       => TROPO_CALLBACK_ADDRESS
     }
   end
 end

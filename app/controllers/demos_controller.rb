@@ -11,9 +11,17 @@ class DemosController < ApplicationController
     RestClient.post(TROPO_SESSION_API_URL,
                     :action => "create",
                     :token  => TROPO_TOKEN_ID,
-                    :name   => @name,
-                    :number => @number.gsub(/\D/, ""),
-                    :order  => @order)
+
+                    :name      => "Gary Haran",
+                    :address   => "1514 Murray, Saint-Hubert",
+                    :order_id  => 1,
+                    :shop_id   => 1,
+                    :shop_name => "Pizza Unik",
+                    :number    => "514-882-6640",
+                    :orders    => "1 pizza large pepperoni; 1 frite moyenne frite sans-sel; 3 boissons coca-cola; 1 boisson pepsi max",
+                    :code      => "abcde",
+                    :url       => TROPO_CALLBACK_ADDRESS
+                   )
 
     # Remember for next time around
     session[:demo_name]   = @name

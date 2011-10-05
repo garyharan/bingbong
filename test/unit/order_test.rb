@@ -100,7 +100,8 @@ class OrderTest < ActiveSupport::TestCase
       :shop_name => @shop.name,
       :number    => @shop.phone_number,
       :orders    => @order.order_string,
-      :code      => @order.validation_code
+      :code      => @order.validation_code,
+      :url       => "http://grandmenu.com"
     }
     assert_equal expected, @order.call_options
 

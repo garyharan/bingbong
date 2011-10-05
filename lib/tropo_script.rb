@@ -8,7 +8,7 @@ def answer_server(answer)
       :result => answer[:result].to_s,
       :code => $code
     }
-    url = URI.parse("http://www.grandmenu.com/shops/#{$shop_id}/orders/#{$order_id}/tropo_answer")
+    url = URI.parse("#{$url}/shops/#{$shop_id}/orders/#{$order_id}/tropo_answer")
 
     req = Net::HTTP::Post.new(url.path)
     req.set_form_data(message, ';')
