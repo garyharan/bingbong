@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110924175252) do
+ActiveRecord::Schema.define(:version => 20111005172644) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -70,6 +70,7 @@ ActiveRecord::Schema.define(:version => 20110924175252) do
     t.integer  "delivery_address_id"
     t.string   "call_state",          :default => "pending", :null => false
     t.text     "validation_code"
+    t.integer  "gm_points"
   end
 
   add_index "orders", ["call_state"], :name => "index_orders_on_call_state"
@@ -138,7 +139,6 @@ ActiveRecord::Schema.define(:version => 20110924175252) do
   create_table "users", :force => true do |t|
     t.string   "email",                               :default => "",    :null => false
     t.string   "encrypted_password",   :limit => 128, :default => "",    :null => false
-    t.string   "password_salt",                       :default => "",    :null => false
     t.string   "reset_password_token"
     t.string   "remember_token"
     t.datetime "remember_created_at"

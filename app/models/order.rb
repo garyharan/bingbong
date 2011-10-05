@@ -12,6 +12,20 @@ class Order < ActiveRecord::Base
     self.validation_code = Digest::SHA1.new.update("#{Time.now}#{rand()}").hexdigest
   end
 
+  def gm_points
+    @gm_points ||= calculate_gm_points
+  end
+
+  def calculate_gm_points(subtotal=subtotal_amount)
+    if subtotal == 0
+      0
+    elsif subtotal < 20
+      100
+    else
+      (((subtotal.to_f-15)/5).floor + 1) * 100
+    end
+  end
+
   state_machine :initial => :pending do
     event :refuse do
       transition :pending => :refused do |order|

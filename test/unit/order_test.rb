@@ -104,6 +104,19 @@ class OrderTest < ActiveSupport::TestCase
       :url       => "http://grandmenu.com"
     }
     assert_equal expected, @order.call_options
+  end
 
+  test "#calculate_gm_points" do
+    assert_equal 0, @order.calculate_gm_points(0)
+    assert_equal 100, @order.calculate_gm_points(10.00)
+    assert_equal 100, @order.calculate_gm_points(10)
+    assert_equal 100, @order.calculate_gm_points(15)
+    assert_equal 200, @order.calculate_gm_points(20)
+    assert_equal 200, @order.calculate_gm_points(21)
+    assert_equal 300, @order.calculate_gm_points(25)
+    assert_equal 400, @order.calculate_gm_points(30)
+    assert_equal 800, @order.calculate_gm_points(50)
+    assert_equal 1800, @order.calculate_gm_points(100)
+    assert_equal 19800, @order.calculate_gm_points(1000)
   end
 end

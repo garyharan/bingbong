@@ -29,7 +29,7 @@
             Sous-total:
           </td>
           <td class="subtotal">
-            <%= number_to_currency(@subtotal = @lines.inject(0) { |sum, line| sum + (line.item.price * line.quantity) }, :unit => "$") %>
+            <%= number_to_currency(@order.subtotal_amount, :unit => "$") %>
           </td>
         </tr>
         <tr>
@@ -37,7 +37,7 @@
             TPS:
           </td>
           <td class="tps">
-            <%= number_to_currency((@tps = @subtotal * 0.05), :unit => "$")  %>
+            <%= number_to_currency(@order.gst_amount, :unit => "$")  %>
           </td>
         </tr>
         <tr>
@@ -45,7 +45,7 @@
             TVQ:
           </td>
           <td class="tvq">
-            <%= number_to_currency(@tvq = (@subtotal + @tps) * 0.085, :unit => "$")  %>
+            <%= number_to_currency(@order.pst_amount, :unit => "$")  %>
           </td>
         </tr>
         <tr class="total_line">
@@ -53,11 +53,19 @@
             Total:
           </td>
           <td class="total">
-            <%= number_to_currency((@subtotal + @tvq + @tps), :unit => "$")  %>
+            <%= number_to_currency(@order.total_amount, :unit => "$")  %>
+          </td>
+        </tr>
+        <tr class="total_gm_points">
+          <td colspan="3" class="total">
+            Points gagnés:
+          </td>
+          <td class="total">
+            <%= @order.gm_points %>
           </td>
         </tr>
       </tfoot>
-      <% @lines.each do |line| -%>
+      <% @order.lines.each do |line| -%>
         <tbody id="<%= dom_id line %>">
           <tr>
             <td rowspan="2"><%= pluralize line.quantity, line.item.product.category.name.singularize.downcase %></td>

@@ -17,7 +17,7 @@ class OrdersController < ApplicationController
                                             :phone_number => current_user.delivery_addresses.current.order("updated_at DESC").first.try(:phone_number))
     @order = Order.new params[:order]
     @shop  = @order.shop
-    @lines = Line.find(:all, :conditions => { :order_id => nil, :client_id => current_user.id, :shop_id => @order.shop_id })
+    @order.lines = Line.find(:all, :conditions => { :order_id => nil, :client_id => current_user.id, :shop_id => @order.shop_id })
   end
 
   def create

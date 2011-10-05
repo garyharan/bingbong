@@ -46,5 +46,13 @@
         <%= number_to_currency(@order.total_amount) %>
       </td>
     </tr>
+    <tr class="total_gm_points">
+      <td colspan="4" class="total">
+        Points gagnés:
+      </td>
+      <td class="total">
+        <%= @order.gm_points %>
+      </td>
+    </tr>
   <% end -%>
 </tfoot>
