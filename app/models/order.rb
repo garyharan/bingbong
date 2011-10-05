@@ -110,7 +110,7 @@ class Order < ActiveRecord::Base
   end
 
   def call
-    unless Rails.env.test?
+    if Rails.env.production?
       RestClient.post(TROPO_SESSION_API_URL, call_options.merge(
         :action => "create",
         :token  => TROPO_TOKEN_ID
