@@ -7,7 +7,7 @@
     = render :partial => 'searches/form'
   #instruction
     #instructions
-      - if user_signed_in?
+      - if user_signed_in? && @delivery_addresses.any?
         %span.default_searches
           .title Mes addresses
           = render :partial => "searches/delivery_address", :collection => @delivery_addresses

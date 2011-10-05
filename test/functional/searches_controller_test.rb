@@ -56,12 +56,9 @@ class SearchesControllerTest < ActionController::TestCase
   test "should have default search" do
     search = Factory.create(:search)
     delivery_address = Factory.create(:delivery_address, :client => search.client)
-    order = Factory.create(:order, :delivery_address => delivery_address, :shop => Factory(:shop))
     sign_in search.client
 
     get :index
-    assert_equal [search], assigns(:searches)
     assert_equal [delivery_address], assigns(:delivery_addresses)
-    assert_equal [order], assigns(:orders)
   end
 end

@@ -4,9 +4,7 @@ class SearchesController < ApplicationController
   def index
     @search = Search.new
     if user_signed_in?
-      @searches = current_user.searches.limit(5).order("updated_at DESC").all
       @delivery_addresses = current_user.delivery_addresses.limit(5).order("updated_at DESC").all
-      @orders = current_user.all_orders.limit(5).order("updated_at DESC").all
     end
   end
 
@@ -28,7 +26,11 @@ class SearchesController < ApplicationController
 
   def create
     @location = params[:search][:location]
-    @search = Search.find_by_location(@location) || Search.new(params[:search])
+    if user_signed_in?
+      @search = current_user.searches.find_by_location(@location) || current_user.searches.new(params[:search])
+    else
+      @search = Search.find_by_location(@location) || Search.new(params[:search])
+    end
 
     @search.client = current_user if user_signed_in?
 
