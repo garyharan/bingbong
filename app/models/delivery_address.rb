@@ -8,9 +8,12 @@ class DeliveryAddress < ActiveRecord::Base
 
   scope :current, where(:deleted => false)
 
+  REGEXP_PHONE_NUMBER = /\A\(?(\d{3})\)?[-\s]*(\d{3})[-\s]*(\d{4})\z/
+  REGEXP_ZIP_CODE = /\A([a-z]\d[a-z]) ?(\d[a-z]\d\z)/i
+
   validates_presence_of :client_id, :address, :city, :zip_code, :phone_number
-  validates_format_of :phone_number, :with => /\A\(?\d{3}\)?[-\s]*\d{3}[-\s]*\d{4}\z/ # Accepts separators for data entry, but normalized to no separators
-  validates_format_of :zip_code,     :with => /\A[a-z]\d[a-z] ?\d[a-z]\d\z/i          # Accepts separators for data entry, but normalized to no separators
+  validates_format_of :phone_number, :with => REGEXP_PHONE_NUMBER
+  validates_format_of :zip_code, :with => REGEXP_ZIP_CODE
 
   # Removes leading and trailing spaces
   before_validation { self.phone_number = self.phone_number.strip }
@@ -20,19 +23,19 @@ class DeliveryAddress < ActiveRecord::Base
   before_save :normalize_zip_code,     :if => :zip_code_changed?
 
   def formatted_phone_number
-    return "" if phone_number.blank?
-
-    area_code = phone_number[0, 3]
-    exchange  = phone_number[3, 3]
-    number    = phone_number[6, 4]
-
-    "(#{area_code}) #{exchange}-#{number}"
+    if phone_number.blank? || !(REGEXP_PHONE_NUMBER === phone_number)
+      ""
+    else
+      "(#{$1}) #{$2}-#{$3}"
+    end
   end
 
   def formatted_zip_code
-    return "" if zip_code.blank?
-
-    "#{ zip_code[0, 3] } #{ zip_code[3, 3] }"
+    if zip_code.blank? || !(REGEXP_ZIP_CODE === zip_code)
+      ""
+    else
+      "#{ $1.upcase } #{ $2.upcase }"
+    end
   end
 
   def address_string

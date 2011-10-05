@@ -15,6 +15,44 @@ class DeliveryAddressTest < ActiveSupport::TestCase
 
     @delivery_address.phone_number = "123-4567"
     assert !@delivery_address.valid?, "Phone number : '123-4567' should be invalid"
+
+    @delivery_address.phone_number = "514-123-4567"
+    assert @delivery_address.valid?, "Phone number : '514-123-4567' should be valid"
+
+    @delivery_address.phone_number = "(514)123-4567"
+    assert @delivery_address.valid?, "Phone number : '(514)123-4567' should be valid"
+
+    @delivery_address.phone_number = "(514) 123-4567"
+    assert @delivery_address.valid?, "Phone number : '(514) 123-4567' should be valid"
+
+    @delivery_address.phone_number = "(514)1234567"
+    assert @delivery_address.valid?, "Phone number : '(514)1234567' should be valid"
+
+    @delivery_address.phone_number = "5141234567"
+    assert @delivery_address.valid?, "Phone number : '5141234567' should be valid"
+  end
+
+  test "delivery address#formatted_phone_number" do
+    @delivery_address.phone_number = "514-123-4567"
+    assert_equal "(514) 123-4567", @delivery_address.formatted_phone_number
+
+    @delivery_address.phone_number = "(514)1234567"
+    assert_equal "(514) 123-4567", @delivery_address.formatted_phone_number
+
+    @delivery_address.phone_number = "(514) 1234567"
+    assert_equal "(514) 123-4567", @delivery_address.formatted_phone_number
+
+    @delivery_address.phone_number = "(514)1234567"
+    assert_equal "(514) 123-4567", @delivery_address.formatted_phone_number
+
+    @delivery_address.phone_number = "5141234567"
+    assert_equal "(514) 123-4567", @delivery_address.formatted_phone_number
+
+    @delivery_address.phone_number = ""
+    assert_equal "", @delivery_address.formatted_phone_number
+
+    @delivery_address.phone_number = "invalid phone number"
+    assert_equal "", @delivery_address.formatted_phone_number
   end
 
   test "delivery address#zip_code is a valid zip code" do
@@ -29,6 +67,29 @@ class DeliveryAddressTest < ActiveSupport::TestCase
 
     @delivery_address.zip_code = "H1W 3N5"
     assert @delivery_address.valid?, "Zip code : 'H1W 3N5' should be valid"
+  end
+
+  test "delivery_address#formatted_zip_code" do
+    @delivery_address.zip_code = "H1W 3N5"
+    assert_equal "H1W 3N5", @delivery_address.formatted_zip_code
+
+    @delivery_address.zip_code = "H1W3N5"
+    assert_equal "H1W 3N5", @delivery_address.formatted_zip_code
+
+    @delivery_address.zip_code = "h1w 3n5"
+    assert_equal "H1W 3N5", @delivery_address.formatted_zip_code
+
+    @delivery_address.zip_code = "H1W 3n5"
+    assert_equal "H1W 3N5", @delivery_address.formatted_zip_code
+
+    @delivery_address.zip_code = "H1w3n5"
+    assert_equal "H1W 3N5", @delivery_address.formatted_zip_code
+
+    @delivery_address.zip_code = ""
+    assert_equal "", @delivery_address.formatted_zip_code
+
+    @delivery_address.zip_code = "invalid zip code"
+    assert_equal "", @delivery_address.formatted_zip_code
   end
 
   test "#address_string" do

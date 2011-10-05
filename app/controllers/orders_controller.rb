@@ -12,9 +12,7 @@ class OrdersController < ApplicationController
 
   def new
     @current_address_id = current_user.orders.last.try(:delivery_address_id) || "new"
-    @delivery_address = current_user.delivery_addresses.new(
-                                            :address => current_user.searches.last.try(:location),
-                                            :phone_number => current_user.delivery_addresses.current.order("updated_at DESC").first.try(:phone_number))
+    @delivery_address = DeliveryAddress.new(:client_id => current_user.id)
     @order = Order.new params[:order]
     @shop  = @order.shop
     @order.lines = Line.find(:all, :conditions => { :order_id => nil, :client_id => current_user.id, :shop_id => @order.shop_id })
@@ -24,7 +22,8 @@ class OrdersController < ApplicationController
     begin
       Order.transaction do
         if params[:order][:delivery_address_id] == "new"
-          @delivery_address = current_user.delivery_addresses.create!(params[:delivery_address])
+          @delivery_address = DeliveryAddress.create(params[:delivery_address].merge(:client_id => current_user.id))
+          @delivery_address.save!
           params[:order][:delivery_address_id] = @delivery_address.id
         end
 
@@ -43,9 +42,7 @@ class OrdersController < ApplicationController
       logger.error { "#{$!.class}: #{$!.message}\n#{ $!.backtrace.join("\n") }" }
       @current_address_id = params[:order][:delivery_address_id]
       if @delivery_address.nil?
-        @delivery_address = current_user.delivery_addresses.build(
-                                                :address => current_user.searches.last.try(:location),
-                                                :phone_number => current_user.delivery_addresses.current.order("updated_at DESC").first.try(:phone_number))
+        @delivery_address = DeliveryAddress.new(:client_id => current_user.id)
       end
 
       @order = Order.new params[:order] if @order.nil?
