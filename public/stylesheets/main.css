@@ -239,6 +239,13 @@ body.searches #shops {
           background: -webkit-gradient(linear, left top, left bottom, from(#f64c11), to(#ec8a68));
           background: -moz-linear-gradient(top, #f64c11, #ec8a68);
           filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f64c11', endColorstr='#ec8a68'); }
+      body.searches #shops div:first-child div.shop:hover {
+        background: -webkit-gradient(linear, left top, left bottom, from(#9dc566), to(#b5d38b));
+        background: -moz-linear-gradient(top, #9dc566, #b5d38b);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#9dc566', endColorstr='#b5d38b');
+        -webkit-box-shadow: inset 0px 0px 15px rgba(84, 110, 8, 0.9);
+        -moz-box-shadow: inset 0px 0px 15px rgba(84, 110, 8, 0.9);
+        box-shadow: inset 0px 0px 15px rgba(84, 110, 8, 0.9); }
 
 #shop_banner, .shop_banner {
   width: 100%;
