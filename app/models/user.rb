@@ -25,4 +25,8 @@ class User < ActiveRecord::Base
   def all_orders
     Order.where(:delivery_address_id => DeliveryAddress.where(:client_id => id))
   end
+
+  def active_for_authentication?
+    true # Confirmation is not mandatory
+  end
 end
