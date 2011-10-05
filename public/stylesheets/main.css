@@ -357,173 +357,171 @@ body.shops.show #shops {
         background: -moz-linear-gradient(top, #94d042, #b5d38b);
         filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#94d042', endColorstr='#b5d38b'); }
 body.shops.show #menu {
-  width: 100%; }
-  body.shops.show #menu div:first-child {
-    width: 950px;
-    margin: 0 auto;
-    position: relative; }
-    body.shops.show #menu div:first-child #bag {
-      position: absolute;
-      right: 10px;
-      top: 24px;
-      z-index: 2; }
-    body.shops.show #menu div:first-child #order {
-      position: absolute;
-      right: 0px;
-      top: 50px;
-      width: 320px;
-      z-index: 1; }
-      body.shops.show #menu div:first-child #order p {
-        padding: 50px; }
-      body.shops.show #menu div:first-child #order #confirmation p {
-        text-align: center;
-        padding: 10px; }
-      body.shops.show #menu div:first-child #order #confirmation #confirm_link {
-        font-size: 1.7rem;
-        display: inline-block;
-        outline: none;
-        cursor: pointer;
-        text-align: center;
+  width: 950px;
+  margin: 0 auto;
+  position: relative; }
+  body.shops.show #menu #bag {
+    position: absolute;
+    right: 10px;
+    top: 24px;
+    z-index: 2; }
+  body.shops.show #menu #order {
+    position: absolute;
+    right: 0px;
+    top: 50px;
+    width: 320px;
+    z-index: 1; }
+    body.shops.show #menu #order p {
+      padding: 50px; }
+    body.shops.show #menu #order #confirmation p {
+      text-align: center;
+      padding: 10px; }
+    body.shops.show #menu #order #confirmation #confirm_link {
+      font-size: 1.7rem;
+      display: inline-block;
+      outline: none;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      padding: .5em 2em .55em;
+      text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+      -webkit-border-radius: 0.5em;
+      -moz-border-radius: 0.5em;
+      border-radius: 0.5em;
+      -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+      -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+      color: white !important;
+      font-weight: bold;
+      border: solid 1px #618432;
+      background: #91be54;
+      background: -webkit-gradient(linear, left top, left bottom, from(#94d042), to(#698f36));
+      background: -moz-linear-gradient(top, #94d042, #698f36);
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#94d042', endColorstr='#698f36');
+      margin: 10px;
+      float: right; }
+      body.shops.show #menu #order #confirmation #confirm_link:hover {
         text-decoration: none;
-        padding: .5em 2em .55em;
-        text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
-        -webkit-border-radius: 0.5em;
-        -moz-border-radius: 0.5em;
-        border-radius: 0.5em;
-        -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-        -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-        color: white !important;
-        font-weight: bold;
-        border: solid 1px #618432;
-        background: #91be54;
-        background: -webkit-gradient(linear, left top, left bottom, from(#94d042), to(#698f36));
-        background: -moz-linear-gradient(top, #94d042, #698f36);
-        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#94d042', endColorstr='#698f36');
-        margin: 10px;
-        float: right; }
-        body.shops.show #menu div:first-child #order #confirmation #confirm_link:hover {
-          text-decoration: none;
-          background: #93ca48;
-          background: -webkit-gradient(linear, left top, left bottom, from(#92c44e), to(#85b444));
-          background: -moz-linear-gradient(top, #92c44e, #85b444);
-          filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#92c44e', endColorstr='#85b444'); }
-        body.shops.show #menu div:first-child #order #confirmation #confirm_link:active {
-          color: #94d042;
-          background: -webkit-gradient(linear, left top, left bottom, from(#94d042), to(#b5d38b));
-          background: -moz-linear-gradient(top, #94d042, #b5d38b);
-          filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#94d042', endColorstr='#b5d38b'); }
-      body.shops.show #menu div:first-child #order table {
-        background: #f9fbec;
-        -webkit-box-shadow: 0px 0px 15px rgba(84, 110, 8, 0.3);
-        -moz-box-shadow: 0px 0px 15px rgba(84, 110, 8, 0.3);
-        box-shadow: 0px 0px 15px rgba(84, 110, 8, 0.3);
-        border-collapse: collapse;
-        width: 320px; }
-        body.shops.show #menu div:first-child #order table thead {
-          background: #bf9316;
-          color: #e1f89b;
-          text-shadow: #546e08 0 0 5px;
-          font-size: 2rem; }
-          body.shops.show #menu div:first-child #order table thead th {
-            padding: 10px; }
-        body.shops.show #menu div:first-child #order table tbody tr {
-          height: 2.5rem; }
-          body.shops.show #menu div:first-child #order table tbody tr td {
-            color: #917011; }
-            body.shops.show #menu div:first-child #order table tbody tr td.price {
-              text-align: right;
-              padding-right: 11px; }
-          body.shops.show #menu div:first-child #order table tbody tr td.arrow a {
-            text-decoration: none;
-            color: #bf9316;
-            margin-left: 10px; }
-            body.shops.show #menu div:first-child #order table tbody tr td.arrow a.up {
-              position: relative;
-              top: 5px; }
-              body.shops.show #menu div:first-child #order table tbody tr td.arrow a.up:active {
-                top: 6px; }
-            body.shops.show #menu div:first-child #order table tbody tr td.arrow a.down {
-              position: relative;
-              top: -5px; }
-              body.shops.show #menu div:first-child #order table tbody tr td.arrow a.down:active {
-                top: -4px; }
-            body.shops.show #menu div:first-child #order table tbody tr td.arrow a:hover {
-              background: none; }
-        body.shops.show #menu div:first-child #order table tfoot#totals tr {
-          height: 2.5rem; }
-          body.shops.show #menu div:first-child #order table tfoot#totals tr td.subtotal {
-            border-top: 1px solid #d7e488;
-            font-weight: bold; }
-        body.shops.show #menu div:first-child #order table tfoot#totals .subtotal, body.shops.show #menu div:first-child #order table tfoot#totals .delivery, body.shops.show #menu div:first-child #order table tfoot#totals .tps, body.shops.show #menu div:first-child #order table tfoot#totals .tvq, body.shops.show #menu div:first-child #order table tfoot#totals .total {
-          font-size: 1.4rem;
-          font-weight: bold;
-          color: #a88113;
-          text-align: right; }
-        body.shops.show #menu div:first-child #order table tfoot#totals .subtotal, body.shops.show #menu div:first-child #order table tfoot#totals .delivery, body.shops.show #menu div:first-child #order table tfoot#totals .tps, body.shops.show #menu div:first-child #order table tfoot#totals .tvq, body.shops.show #menu div:first-child #order table tfoot#totals .total, body.shops.show #menu div:first-child #order table tfoot#totals .price {
-          padding-right: 13px; }
-        body.shops.show #menu div:first-child #order table tfoot#totals .total_line {
-          border-top: 1px solid #d7e488; }
-    body.shops.show #menu div:first-child #categories {
-      z-index: 2;
-      width: 600px;
-      background: white;
-      padding: 15px;
+        background: #93ca48;
+        background: -webkit-gradient(linear, left top, left bottom, from(#92c44e), to(#85b444));
+        background: -moz-linear-gradient(top, #92c44e, #85b444);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#92c44e', endColorstr='#85b444'); }
+      body.shops.show #menu #order #confirmation #confirm_link:active {
+        color: #94d042;
+        background: -webkit-gradient(linear, left top, left bottom, from(#94d042), to(#b5d38b));
+        background: -moz-linear-gradient(top, #94d042, #b5d38b);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#94d042', endColorstr='#b5d38b'); }
+    body.shops.show #menu #order table {
+      background: #f9fbec;
       -webkit-box-shadow: 0px 0px 15px rgba(84, 110, 8, 0.3);
       -moz-box-shadow: 0px 0px 15px rgba(84, 110, 8, 0.3);
       box-shadow: 0px 0px 15px rgba(84, 110, 8, 0.3);
-      position: absolute;
-      left: 0px; }
-      body.shops.show #menu div:first-child #categories table {
-        color: #666;
-        margin-bottom: 30px;
-        border-collapse: collapse; }
-        body.shops.show #menu div:first-child #categories table th, body.shops.show #menu div:first-child #categories table td {
-          white-space: nowrap;
-          min-width: 60px; }
-        body.shops.show #menu div:first-child #categories table th:first-child, body.shops.show #menu div:first-child #categories table td:first-child {
-          width: 250px;
-          text-align: left; }
-        body.shops.show #menu div:first-child #categories table th:first-child {
-          padding-left: 10px; }
-        body.shops.show #menu div:first-child #categories table th.spacer, body.shops.show #menu div:first-child #categories table td.spacer {
-          width: 80%; }
-        body.shops.show #menu div:first-child #categories table th.owner:last-child {
-          text-align: right; }
-        body.shops.show #menu div:first-child #categories table td:first-child {
-          font-weight: bold;
-          padding-left: 10px; }
-        body.shops.show #menu div:first-child #categories table thead {
-          background: #e35524;
-          color: white; }
-          body.shops.show #menu div:first-child #categories table thead th {
-            height: 30px;
-            text-align: center; }
-        body.shops.show #menu div:first-child #categories table tbody td {
-          height: 30px;
-          padding: 6px;
-          text-align: center;
-          padding-top: 15px; }
-        body.shops.show #menu div:first-child #categories table tbody td[colspan] {
-          height: 20px;
-          border-bottom: 1px solid #ddd;
-          padding-top: 0px;
-          padding-bottom: 15px; }
-          body.shops.show #menu div:first-child #categories table tbody td[colspan].description {
-            color: rgba(102, 102, 102, 0.5);
-            font-size: 11px; }
-        body.shops.show #menu div:first-child #categories table .price_link {
-          font-size: 1.3rem;
-          padding: 0.5rem;
-          text-decoration: none; }
-        body.shops.show #menu div:first-child #categories table .price_link:hover {
-          color: black;
-          background: white;
+      border-collapse: collapse;
+      width: 320px; }
+      body.shops.show #menu #order table thead {
+        background: #bf9316;
+        color: #e1f89b;
+        text-shadow: #546e08 0 0 5px;
+        font-size: 2rem; }
+        body.shops.show #menu #order table thead th {
+          padding: 10px; }
+      body.shops.show #menu #order table tbody tr {
+        height: 2.5rem; }
+        body.shops.show #menu #order table tbody tr td {
+          color: #917011; }
+          body.shops.show #menu #order table tbody tr td.price {
+            text-align: right;
+            padding-right: 11px; }
+        body.shops.show #menu #order table tbody tr td.arrow a {
+          text-decoration: none;
+          color: #bf9316;
+          margin-left: 10px; }
+          body.shops.show #menu #order table tbody tr td.arrow a.up {
+            position: relative;
+            top: 5px; }
+            body.shops.show #menu #order table tbody tr td.arrow a.up:active {
+              top: 6px; }
+          body.shops.show #menu #order table tbody tr td.arrow a.down {
+            position: relative;
+            top: -5px; }
+            body.shops.show #menu #order table tbody tr td.arrow a.down:active {
+              top: -4px; }
+          body.shops.show #menu #order table tbody tr td.arrow a:hover {
+            background: none; }
+      body.shops.show #menu #order table tfoot#totals tr {
+        height: 2.5rem; }
+        body.shops.show #menu #order table tfoot#totals tr td.subtotal {
+          border-top: 1px solid #d7e488;
           font-weight: bold; }
-        body.shops.show #menu div:first-child #categories table .price_link.selected {
-          font-size: 10px; }
-        body.shops.show #menu div:first-child #categories table .price_field {
-          text-align: right; }
+      body.shops.show #menu #order table tfoot#totals .subtotal, body.shops.show #menu #order table tfoot#totals .delivery, body.shops.show #menu #order table tfoot#totals .tps, body.shops.show #menu #order table tfoot#totals .tvq, body.shops.show #menu #order table tfoot#totals .total {
+        font-size: 1.4rem;
+        font-weight: bold;
+        color: #a88113;
+        text-align: right; }
+      body.shops.show #menu #order table tfoot#totals .subtotal, body.shops.show #menu #order table tfoot#totals .delivery, body.shops.show #menu #order table tfoot#totals .tps, body.shops.show #menu #order table tfoot#totals .tvq, body.shops.show #menu #order table tfoot#totals .total, body.shops.show #menu #order table tfoot#totals .price {
+        padding-right: 13px; }
+      body.shops.show #menu #order table tfoot#totals .total_line {
+        border-top: 1px solid #d7e488; }
+  body.shops.show #menu #categories {
+    z-index: 2;
+    width: 600px;
+    background: white;
+    padding: 15px;
+    -webkit-box-shadow: 0px 0px 15px rgba(84, 110, 8, 0.3);
+    -moz-box-shadow: 0px 0px 15px rgba(84, 110, 8, 0.3);
+    box-shadow: 0px 0px 15px rgba(84, 110, 8, 0.3);
+    position: absolute;
+    left: 0px; }
+    body.shops.show #menu #categories table {
+      color: #666;
+      margin-bottom: 30px;
+      border-collapse: collapse; }
+      body.shops.show #menu #categories table th, body.shops.show #menu #categories table td {
+        white-space: nowrap;
+        min-width: 60px; }
+      body.shops.show #menu #categories table th:first-child, body.shops.show #menu #categories table td:first-child {
+        width: 250px;
+        text-align: left; }
+      body.shops.show #menu #categories table th:first-child {
+        padding-left: 10px; }
+      body.shops.show #menu #categories table th.spacer, body.shops.show #menu #categories table td.spacer {
+        width: 80%; }
+      body.shops.show #menu #categories table th.owner:last-child {
+        text-align: right; }
+      body.shops.show #menu #categories table td:first-child {
+        font-weight: bold;
+        padding-left: 10px; }
+      body.shops.show #menu #categories table thead {
+        background: #e35524;
+        color: white; }
+        body.shops.show #menu #categories table thead th {
+          height: 30px;
+          text-align: center; }
+      body.shops.show #menu #categories table tbody td {
+        height: 30px;
+        padding: 6px;
+        text-align: center;
+        padding-top: 15px; }
+      body.shops.show #menu #categories table tbody td[colspan] {
+        height: 20px;
+        border-bottom: 1px solid #ddd;
+        padding-top: 0px;
+        padding-bottom: 15px; }
+        body.shops.show #menu #categories table tbody td[colspan].description {
+          color: rgba(102, 102, 102, 0.5);
+          font-size: 11px; }
+      body.shops.show #menu #categories table .price_link {
+        font-size: 1.3rem;
+        padding: 0.5rem;
+        text-decoration: none; }
+      body.shops.show #menu #categories table .price_link:hover {
+        color: black;
+        background: white;
+        font-weight: bold; }
+      body.shops.show #menu #categories table .price_link.selected {
+        font-size: 10px; }
+      body.shops.show #menu #categories table .price_field {
+        text-align: right; }
 
 #shop_banner, .shop_banner {
   width: 100%;

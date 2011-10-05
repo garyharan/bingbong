@@ -9,37 +9,34 @@
 <%= render "shops/banner" %>
 
 <div id="menu">
-  <div>
-    <div id="categories">
-      <%= render @shop.categories %>
-      <% if user_signed_in? && @shop.owned_by?(current_user) -%>
-        <h5 class="owner">
-          <%= form_for [@shop, Category.new] do |f| %>
-            <% if @shop.categories.none? %><label id="category_instructions">Il faut créez des catégories pour votre menu.</label><% end %>
-            <%= f.text_field :name, :placeholder => "Rajoutez une catégorie", :id => "new_category_name" %>
-          <% end -%>
-        </h5>
-      <% end -%>
-    </div>
-    <div id="order">
-      <% if user_signed_in? -%>
-        <table id="lines">
-          <thead>
-            <tr>
-              <th colspan="5">Ta Commande</th>
-            </tr>
-          </thead>
-          <%= render :partial => "lines/totals" %>
-          <%= render @lines %>
-        </table>
-        <%= render :partial => "lines/confirmation" %>
-      </div>
-      <% else -%>
-        <p>
-          Il faut s'incrire ou se connecter pour passer une commande.
-        </p>
-      <% end -%>
-      <%= image_tag("/images/inside_cart_icon.png", :width => 54, :height => 67, :id => "bag") if user_signed_in? %>
-    </div>
+  <div id="categories">
+    <%= render @shop.categories %>
+    <% if user_signed_in? && @shop.owned_by?(current_user) -%>
+      <h5 class="owner">
+        <%= form_for [@shop, Category.new] do |f| %>
+          <% if @shop.categories.none? %><label id="category_instructions">Il faut créez des catégories pour votre menu.</label><% end %>
+          <%= f.text_field :name, :placeholder => "Rajoutez une catégorie", :id => "new_category_name" %>
+        <% end -%>
+      </h5>
+    <% end -%>
+  </div>
+  <div id="order">
+    <% if user_signed_in? -%>
+      <table id="lines">
+        <thead>
+          <tr>
+            <th colspan="5">Ta Commande</th>
+          </tr>
+        </thead>
+        <%= render :partial => "lines/totals" %>
+        <%= render @lines %>
+      </table>
+      <%= render :partial => "lines/confirmation" %>
+    <% else -%>
+      <p>
+        Il faut s'incrire ou se connecter pour passer une commande.
+      </p>
+    <% end -%>
+    <%= image_tag("/images/inside_cart_icon.png", :width => 54, :height => 67, :id => "bag") if user_signed_in? %>
   </div>
 </div>
