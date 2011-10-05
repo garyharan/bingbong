@@ -6,7 +6,9 @@ class Search < ActiveRecord::Base
   end
 
   def find_shops
-    @shops = Shop.near(fetch_coordinates).opened
+    @shops = Shop.near(fetch_coordinates).select { |shop| 
+      shop.open? # FIXME why the fuck can't I use the scope here?
+    }
   end
 
   private
