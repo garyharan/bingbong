@@ -34,7 +34,7 @@ class Shop < ActiveRecord::Base
   end
 
   def delivery_fee_to(order)
-    BigDecimal.new("4.99")
+    BigDecimal.new("0")
   end
 
   # TODO: Move to database-backed table/column

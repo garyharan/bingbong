@@ -8,14 +8,16 @@
         <%= number_to_currency(@order.subtotal_amount) %>
       </td>
     </tr>
-    <tr>
-      <td colspan="4" class="delivery price">
-        Livraison:
-      </td>
-      <td class="delivery">
-        <%= number_to_currency(@order.delivery_fee_amount) %>
-      </td>
-    </tr>
+    <% if @order.delivery_fee_amount > 0 %>
+      <tr>
+        <td colspan="4" class="delivery price">
+          Livraison:
+        </td>
+        <td class="delivery">
+          <%= number_to_currency(@order.delivery_fee_amount) %>
+        </td>
+      </tr>
+    <% end %>
     <tr>
       <td colspan="4" class="tps">
         TPS:
