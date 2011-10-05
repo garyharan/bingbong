@@ -471,7 +471,7 @@ body.shops.show #menu {
     -moz-box-shadow: 0px 0px 15px rgba(84, 110, 8, 0.3);
     box-shadow: 0px 0px 15px rgba(84, 110, 8, 0.3);
     float: left;
-    margin-bottom: 200px; }
+    margin-bottom: 50px; }
     body.shops.show #menu #categories table {
       color: #666;
       margin-bottom: 30px;
