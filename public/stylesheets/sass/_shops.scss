@@ -91,21 +91,22 @@ body.shops.show {
               }
             }
             td.arrow a {
+              font-size: 18px;
               text-decoration: none;
               color: $brown;
               margin-left: 10px;
               &.up {
                 position: relative;
-                top: 5px;
+                top: 2px;
                 &:active {
-                  top: 6px;
+                  top: 3px;
                 }
               }
               &.down {
                 position: relative;
-                top: -5px;
+                top: -2px;
                 &:active {
-                  top: -4px;
+                  top: -3px;
                 }
               }
               &:hover {
@@ -179,6 +180,9 @@ body.shops.show {
           }
         }
         tbody {
+          tr.description {
+            border-bottom: 1px solid #ddd;
+          }
           td {
             height: 30px;
             padding: 6px;
@@ -187,7 +191,6 @@ body.shops.show {
           }
           td[colspan] {
             height: 20px;
-            border-bottom: 1px solid #ddd;
             padding-top: 0px;
             padding-bottom: 15px;
             &.description {

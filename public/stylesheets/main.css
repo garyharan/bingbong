@@ -433,19 +433,20 @@ body.shops.show #menu {
             text-align: right;
             padding-right: 11px; }
         body.shops.show #menu #order table tbody tr td.arrow a {
+          font-size: 18px;
           text-decoration: none;
           color: #bf9316;
           margin-left: 10px; }
           body.shops.show #menu #order table tbody tr td.arrow a.up {
             position: relative;
-            top: 5px; }
+            top: 2px; }
             body.shops.show #menu #order table tbody tr td.arrow a.up:active {
-              top: 6px; }
+              top: 3px; }
           body.shops.show #menu #order table tbody tr td.arrow a.down {
             position: relative;
-            top: -5px; }
+            top: -2px; }
             body.shops.show #menu #order table tbody tr td.arrow a.down:active {
-              top: -4px; }
+              top: -3px; }
           body.shops.show #menu #order table tbody tr td.arrow a:hover {
             background: none; }
       body.shops.show #menu #order table tfoot#totals tr {
@@ -497,6 +498,8 @@ body.shops.show #menu {
         body.shops.show #menu #categories table thead th {
           height: 30px;
           text-align: center; }
+      body.shops.show #menu #categories table tbody tr.description {
+        border-bottom: 1px solid #ddd; }
       body.shops.show #menu #categories table tbody td {
         height: 30px;
         padding: 6px;
@@ -504,7 +507,6 @@ body.shops.show #menu {
         padding-top: 15px; }
       body.shops.show #menu #categories table tbody td[colspan] {
         height: 20px;
-        border-bottom: 1px solid #ddd;
         padding-top: 0px;
         padding-bottom: 15px; }
         body.shops.show #menu #categories table tbody td[colspan].description {
