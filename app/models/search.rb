@@ -6,7 +6,7 @@ class Search < ActiveRecord::Base
   end
 
   def find_shops
-    @shops = Shop.near(fetch_coordinates)
+    @shops = Shop.near(fetch_coordinates).opened
   end
 
   private

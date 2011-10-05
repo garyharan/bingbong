@@ -20,10 +20,19 @@ class ShopTest < ActiveSupport::TestCase
   test "open? should work" do
     @shop = Factory.build :shop
     @shop.save!
-    # monday_block = Factory.build :time_block, :shop_id => @shop.id # 
     @shop.time_blocks.create :starting => 1000, :ending => 2200, :weekday => 1
     stub(Time).now { Time.new 2011, 7, 11, 11, 30 } # monday 11th of July 2011 11h30AM
     assert @shop.open?, "shop should be opened"
+  end
+
+  test "opened scope should work" do
+    @shop = Factory.build :shop
+    @shop.save!
+    @shop.time_blocks.create :starting => 1000, :ending => 2200, :weekday => 1
+    stub(Time).now { Time.new 2011, 7, 11, 11, 30 } # monday 11th of July 2011 11h30AM
+    assert_equal 1, Shop.opened.count
+    @shop.time_blocks.delete_all
+    assert_equal 0, Shop.opened.count
   end
 
   # test "geocodes shops after validation" do

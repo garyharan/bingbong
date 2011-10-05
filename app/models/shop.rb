@@ -4,6 +4,13 @@ class Shop < ActiveRecord::Base
   has_many :categories, :order => 'created_at ASC'
   has_many :time_blocks
 
+  scope :opened, lambda {
+    t = Time.now
+    current_time = "#{t.hour}#{t.min}"
+    joins(:time_blocks).
+    where("time_blocks.starting <= #{current_time} AND time_blocks.ending >= #{current_time} AND time_blocks.weekday = #{t.wday}")
+  }
+
   def open?
     t = Time.now
     current_time = "#{t.hour}#{t.min}"
