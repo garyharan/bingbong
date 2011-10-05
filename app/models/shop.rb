@@ -6,14 +6,14 @@ class Shop < ActiveRecord::Base
 
   scope :opened, lambda {
     t = Time.now
-    current_time = "#{t.hour}#{t.min}"
+    current_time = t.strftime("%H%M")
     joins(:time_blocks).
     where("time_blocks.starting <= #{current_time} AND time_blocks.ending >= #{current_time} AND time_blocks.weekday = #{t.wday}")
   }
 
   def open?
     t = Time.now
-    current_time = "#{t.hour}#{t.min}"
+    current_time = t.strftime("%H%M")
     time_blocks.where("starting <= #{current_time} AND ending >= #{current_time} AND weekday = #{t.wday}").count > 0
   end
 
