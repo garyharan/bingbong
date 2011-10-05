@@ -4,21 +4,25 @@ html {
 
 body { 
   background-color: $background-color;
+  font-size: 18px;
   font-size: 1.8rem;
   padding: 0px;
   margin: 0px;
 }
 
 h1 {
+  font-size: 28px;
   font-size: 2.8rem;
 }
 
 body, p, ol, ul, td, th {
   font-family: 'Kreon', arial, serif;
+  font-size: 16px;
   font-size: 1.6rem;
 }
 
 a {
+  font-size: 16px;
   font-size: 1.6rem;
   text-decoration: none;
   color: #000;

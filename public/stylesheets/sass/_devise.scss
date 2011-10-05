@@ -21,6 +21,7 @@ body.sessions.new, body.registrations {
         width: 500px;
         margin-bottom: 25px;
         @include text-field();
+        font-size: 24px;
         font-size: 2.4rem;
       }
       input[type="checkbox"] {
@@ -29,6 +30,7 @@ body.sessions.new, body.registrations {
       }
       input[type="submit"] {
         @include button($red);
+        font-size: 18px;
         font-size: 1.8rem;
         float: right;
       }

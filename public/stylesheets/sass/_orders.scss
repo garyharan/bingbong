@@ -12,6 +12,7 @@ body.orders.index {
         margin-bottom: 10px;
         margin-top: 50px;
         a {
+          font-size: 24px;
           font-size: 2.4rem;
         }
       }
@@ -72,6 +73,7 @@ body.orders.show {
         margin: 0 0 0 400px;
         .pending, .refused, .accepted {
           padding: 20px;
+          font-size: 20px;
           font-size: 2rem;
           font-weight: bold;
           line-height: 2.4rem;
@@ -103,6 +105,7 @@ body.orders.show {
           background: $brown;
           color: $yellow;
           text-shadow: $shadow 0 0 5px;
+          font-size: 20px;
           font-size: 2rem;
           th {
             padding: 10px;
@@ -116,6 +119,7 @@ body.orders.show {
               font-weight: bold;
             }
             .subtotal, .tps, .tvq, .total {
+              font-size: 14px;
               font-size: 1.4rem;
               font-weight: bold;
               color: darken($brown, 5%);
@@ -173,6 +177,7 @@ body.orders.new, body.orders.create  {
         }
         #confirm_link {
           width: auto;
+          font-size: 22px;
           font-size: 2.2rem;
           @include button($green);
         }
@@ -188,6 +193,7 @@ body.orders.new, body.orders.create  {
           background: $brown;
           color: $yellow;
           text-shadow: $shadow 0 0 5px;
+          font-size: 20px;
           font-size: 2rem;
           th {
             padding: 10px;
@@ -201,6 +207,7 @@ body.orders.new, body.orders.create  {
               font-weight: bold;
             }
             .subtotal, .tps, .tvq, .total {
+              font-size: 14px;
               font-size: 1.4rem;
               font-weight: bold;
               color: darken($brown, 5%);

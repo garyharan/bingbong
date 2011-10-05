@@ -20,6 +20,7 @@ body.shops.show {
       h1 {  width: 500px; }
       h1 span.distance {
         margin-left: 10px;
+        font-size: 15px;
         font-size: 1.5rem;
         color: #666;
       }
@@ -27,6 +28,7 @@ body.shops.show {
         position: absolute;
         bottom: 10px;
         right: 10px;
+        font-size: 18px;
         font-size: 1.8rem;
         @include button($green);
       }
@@ -59,6 +61,7 @@ body.shops.show {
           padding: 10px;
         }
         #confirm_link {
+          font-size: 17px;
           font-size: 1.7rem;
           @include button($green);
           margin: 10px;
@@ -74,6 +77,7 @@ body.shops.show {
           background: $brown;
           color: $yellow;
           text-shadow: $shadow 0 0 5px;
+          font-size: 20px;
           font-size: 2rem;
           th {
             padding: 10px;
@@ -124,6 +128,7 @@ body.shops.show {
             }
           }
           .subtotal, .delivery, .tps, .tvq, .total {
+            font-size: 14px;
             font-size: 1.4rem;
             font-weight: bold;
             color: darken($brown, 5%);

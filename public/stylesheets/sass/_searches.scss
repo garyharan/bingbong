@@ -13,6 +13,7 @@ body.searches {
       #tag_line {
         font-family: 'Kreon', arial, serif;
         font-weight: bold;
+        font-size: 24px;
         font-size: 2.4rem;
         color: #666;
         float: right;
@@ -44,6 +45,7 @@ body.searches {
       input {
         margin: 20px;
         @include text-field;
+        font-size: 30px;
         font-size: 3rem;
         width: 600px;
       }
@@ -58,6 +60,7 @@ body.searches {
           margin: 0 auto;
           width: 450px;
           margin-top: 10px;
+          font-size: 18px;
           font-size: 1.8rem;
           @include button($green);
           padding-top: 14px;
@@ -109,6 +112,7 @@ body.searches {
         }
         h1 span.distance {
           margin-left: 10px;
+          font-size: 15px;
           font-size: 1.5rem;
           color: transparentize(darken($yellow, 20%), 0.5);
           text-shadow: transparentize($shadow, 0.5) 0px 0px 4px;
@@ -117,6 +121,7 @@ body.searches {
           position: absolute;
           bottom: 10px;
           right: 10px;
+          font-size: 18px;
           font-size: 1.8rem;
           @include button($red);
         }
