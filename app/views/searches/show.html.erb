@@ -12,6 +12,7 @@
   <div>
     <% if @search.shops.blank? then %>
       <p>Désolé, nous n'avons aucun restaurants à proximité de votre adresse.</p>
+      <p>Avez-vous tenté avec votre nom de ville ou votre code postal?</p>
     <% else %>
       <%= render @search.shops %>
     <% end %>

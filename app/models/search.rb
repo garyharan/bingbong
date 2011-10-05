@@ -6,7 +6,8 @@ class Search < ActiveRecord::Base
   end
 
   def find_shops
-    @shops = Shop.near(fetch_coordinates).select { |shop| 
+    # FIXME : Near limited to 8 miles ... add that to the database
+    @shops = Shop.near(fetch_coordinates, 8).select { |shop|
       shop.open? # FIXME why the fuck can't I use the scope here?
     }
   end
