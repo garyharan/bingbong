@@ -4,12 +4,11 @@ class DeliveryAddressesController < ApplicationController
   before_filter :find_delivery_address, :only => [:edit, :update, :destroy]
 
   def index
-    @delivery_addresses = current_user.delivery_addresses
+    @delivery_addresses = current_user.delivery_addresses.current
     @delivery_address = DeliveryAddress.new
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @delivery_addresses }
     end
   end
 
@@ -18,7 +17,6 @@ class DeliveryAddressesController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render :xml => @delivery_address }
     end
   end
 
@@ -31,11 +29,9 @@ class DeliveryAddressesController < ApplicationController
     respond_to do |format|
       if @delivery_address.save
         flash[:notice] = 'Votre nouvelle adresse est enregistrée.'
-        format.html { redirect_to(:action => :index) }
-        format.xml  { render :xml => @delivery_address, :status => :created, :location => @delivery_address }
+        format.js
       else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @delivery_address.errors, :status => :unprocessable_entity }
+        format.js { render :errors }
       end
     end
   end
@@ -45,10 +41,8 @@ class DeliveryAddressesController < ApplicationController
       if @delivery_address.update_attributes(params[:delivery_address])
         flash[:notice] = 'Votre adresse a été modifiée avec succès.'
         format.html { redirect_to :back }
-        format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
-        format.xml  { render :xml => @delivery_address.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -58,8 +52,7 @@ class DeliveryAddressesController < ApplicationController
     @delivery_address.save!
 
     respond_to do |format|
-      format.html { redirect_to(:back) }
-      format.xml  { head :ok }
+      format.js
     end
   end
 

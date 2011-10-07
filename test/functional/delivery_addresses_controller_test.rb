@@ -19,10 +19,11 @@ class DeliveryAddressesControllerTest < ActionController::TestCase
 
   test "should create delivery_address" do
     assert_difference('DeliveryAddress.count') do
-      post :create, :delivery_address => @delivery_address.attributes
+      xhr :post, :create, :delivery_address => @delivery_address.attributes
     end
 
-    assert_redirected_to delivery_addresses_path
+    assert_template :create, "we did not render the rjs file create.js.erb"
+    assert_response :success
   end
 
   test "should get edit" do
@@ -37,11 +38,11 @@ class DeliveryAddressesControllerTest < ActionController::TestCase
   end
 
   test "should destroy delivery_address" do
-    @request.env["HTTP_REFERER"] = "back"
     assert_difference('DeliveryAddress.where(:deleted => true).count', 1) do
-      delete :destroy, :id => @delivery_address.to_param
+      xhr :delete, :destroy, :id => @delivery_address.to_param
     end
 
-    assert_redirected_to "back"
+    assert_template :destroy, "we did not render the rjs file destroy.js.erb"
+    assert_response :success
   end
 end

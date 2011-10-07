@@ -9,9 +9,9 @@
 <div id="confirm">
   <div id="container">
     <div id="extras">
+      <%= render "delivery_addresses/list", :addresses => current_user.delivery_addresses.current %>
       <%= form_for(@order) do |f| %>
         <%= f.hidden_field :shop_id %>
-        <%= render "delivery_addresses/list", :addresses => current_user.delivery_addresses %>
         <%= f.hidden_field :delivery_address_id, :value => @current_address_id %>
         <p>Vous recevrez un email lorsque la commande sera reçue.</p>
         <%= f.submit "Confirmer la commande", :id => "confirm_link" %>

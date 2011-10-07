@@ -1,0 +1,17 @@
+.address{:id => dom_id(delivery_address), "delivery_address_id" => delivery_address.id}
+  = link_to "✕", delivery_address_path(delivery_address), :method => :delete, :confirm => "Êtes vous certain de vouloir effacer cette adresse?", :remote => true, :class => "delete"
+  .full
+    = succeed "," do
+      = delivery_address.address
+      - unless delivery_address.apartment.blank?
+        = "Apt. #{delivery_address.apartment}"
+    = succeed "," do
+      = delivery_address.city
+    = delivery_address.formatted_zip_code
+  .phone_number
+    = delivery_address.formatted_phone_number
+  .note
+    = delivery_address.note
+
+  -# .actions
+    -# TODO : implement for orders/new= link_to 'Modifier', edit_delivery_address_path(address)

@@ -4,7 +4,7 @@ class SearchesController < ApplicationController
   def index
     @search = Search.new
     if user_signed_in?
-      @delivery_addresses = current_user.delivery_addresses.limit(5).order("updated_at DESC").all
+      @delivery_addresses = current_user.delivery_addresses.limit(5).order("updated_at DESC").current
     end
   end
 

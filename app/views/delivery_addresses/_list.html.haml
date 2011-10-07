@@ -1,23 +1,7 @@
 .addresses
   - addresses.each do |address|
     - next if address.id.nil?
-    .address{"delivery_address_id" => address.id}
-      = link_to "✕", delivery_address_path(address), :method => :delete, :confirm => "Êtes vous certain de vouloir effacer cette adresse?", :class => "delete"
-      .full
-        = succeed "," do
-          = address.address
-          - unless address.apartment.blank?
-            = "Apt. #{address.apartment}"
-        = succeed "," do
-          = address.city
-        = address.formatted_zip_code
-      .phone_number
-        = address.formatted_phone_number
-      .note
-        = address.note
-
-      -# .actions
-        -# TODO : implement for orders/new= link_to 'Modifier', edit_delivery_address_path(address)
+    = render address
 
   - if addresses.blank?
     #new_delivery_address.address{"delivery_address_id"=>"new"}
