@@ -21,6 +21,7 @@ gem 'rake', '~> 0.8.7'
 gem 'redhillonrails_core'
 
 gem 'heroku'
+gem 'taps'
 
 group :development, :test do
   gem 'autotest-rails'
