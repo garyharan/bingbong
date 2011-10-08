@@ -93,13 +93,13 @@ class OrderTest < ActiveSupport::TestCase
 
   test "#call_options should return options for Tropo" do
     expected = {
-      :name      => @client.name,
-      :address   => @order.delivery_address.address_string,
+      :name      => CGI::escape(@client.name),
+      :address   => CGI::escape(@order.delivery_address.address_string),
       :order_id  => @order.id,
       :shop_id   => @shop.id,
-      :shop_name => @shop.name,
+      :shop_name => CGI::escape(@shop.name),
       :number    => @shop.phone_number,
-      :orders    => @order.order_string,
+      :orders    => CGI::escape(@order.order_string),
       :code      => @order.validation_code,
       :url       => "http://grandmenu.com"
     }
