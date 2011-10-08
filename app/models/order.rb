@@ -120,13 +120,13 @@ class Order < ActiveRecord::Base
 
   def call_options
     {
-      :name      => delivery_address.client.name,
-      :address   => delivery_address.address_string,
+      :name      => CGI::escape(delivery_address.client.name),
+      :address   => CGI::escape(delivery_address.address_string),
       :order_id  => id,
       :shop_id   => shop.id,
-      :shop_name => shop.name,
+      :shop_name => CGI::escape(shop.name),
       :number    => shop.phone_number,
-      :orders    => order_string,
+      :orders    => CGI::escape(order_string),
       :code      => validation_code,
       :url       => TROPO_CALLBACK_ADDRESS
     }

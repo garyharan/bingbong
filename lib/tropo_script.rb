@@ -1,5 +1,11 @@
 require "net/http"
 require "uri"
+require "cgi"
+
+$orders = CGI::unescape($orders)
+$name = CGI::unescape($name)
+$address = CGI::unescape($address)
+$shop_name = CGI::unescape($shop_name)
 
 def answer_server(answer)
   count = 0
@@ -24,7 +30,8 @@ def answer_server(answer)
 end
 
 def slow_message(message)
-  "<prosody rate='-95%'>#{message}</prosody>"
+  #"<prosody rate='-95%'>#{message}</prosody>"
+  message
 end
 
 def talk(message)
@@ -63,7 +70,7 @@ end
 # Say strings
 orders_string = $orders.split(";").map do |order|
     slow_message(order)
-  end.join(".") + ". "
+  end.join(". ") + ". "
 
 name_string = "#{$name}."
 
@@ -97,11 +104,12 @@ while (!stop) do
 
   asked_string << menu_string
 
+  log "SPOKEN string : #{asked_string}"
   result = ask("<speak>#{asked_string}</speak>",
     :mode => "dtmf",
     :choices => menu_options.keys.join(","),
     :attempts => 99,
-    :voice => "Juliette",
+    :voice => "Florence",
     :recognizer => "fr-ca",
     :bargein => true,
     :onBadChoice => lambda { |event|
