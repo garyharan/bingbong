@@ -1,7 +1,7 @@
 if ($('#<%= dom_id @line %>').length){
-  $('#<%= dom_id @line %>').replaceWith("<%= escape_javascript(render(@line)) %>")
+  $('#<%= dom_id @line %>').replaceWith("<%= escape_javascript(render(@line, :modifiable => true)) %>")
 } else {
-  $('#lines').append("<%= escape_javascript(render(@line)) %>")
+  $('#lines').append("<%= escape_javascript(render(@line, :modifiable => true)) %>")
 }
 $('#<%= dom_id @line %>').effect('highlight')
 $('#totals').replaceWith("<%= escape_javascript(render(:partial => "lines/totals")) %>")

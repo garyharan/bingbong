@@ -1,7 +1,7 @@
 <% if @line.quantity == 0 -%>
   $('#<%= dom_id @line %>').remove()
 <% else -%>
-  $('#<%= dom_id @line %>').replaceWith("<%= escape_javascript(render(@line)) %>")
+  $('#<%= dom_id @line %>').replaceWith("<%= escape_javascript(render(@line, :modifiable => true)) %>")
 <% end -%>
 $('#<%= dom_id @line %>').effect('highlight')
 $('#totals').replaceWith("<%= escape_javascript(render(:partial => "lines/totals")) %>")
