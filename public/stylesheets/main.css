@@ -525,7 +525,7 @@ body.shops.show #menu {
         text-align: center;
         padding-top: 15px; }
       body.shops.show #menu #categories table tbody td[colspan] {
-        height: 20px;
+        height: 10px;
         padding-top: 0px;
         padding-bottom: 15px; }
         body.shops.show #menu #categories table tbody td[colspan].description {
