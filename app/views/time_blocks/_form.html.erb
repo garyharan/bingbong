@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :weekday %><br />
-    <%= f.select :weekday, TimeBlocksHelper::WEEKDAYS.each_with_index.collect {|day, index| [day, index + 1] } %>
+    <%= f.select :weekday, TimeBlocksHelper::WEEKDAYS.each_with_index.collect {|day, index| [day, index] } %>
   </div>
 
   <div class="field">
