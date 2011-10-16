@@ -33,14 +33,16 @@
     </td>
   <% end -%>
 </tr>
-<tr class="description">
-  <td colspan="<%= product.category.sizes.count + 2 %>" class="description">
-    <% if @shop.owned_by?(current_user) %>
-      <%= form_for [@shop, product.category, product], :method => :put, :remote => true do |f| %>
-        <%= f.text_field :description, :id => dom_id(product, 'description'), :size => 75, :'data-onblur' => :submit, :placeholder => 'description' %>
-      <% end -%>
-    <% else %>
-      <%= product.description %>
-    <% end %>
-  </td>
-</tr>
+<% if !product.description.blank? || @shop.owned_by?(current_user) %>
+  <tr class="description">
+    <td colspan="<%= product.category.sizes.count + 2 %>" class="description">
+      <% if @shop.owned_by?(current_user) %>
+        <%= form_for [@shop, product.category, product], :method => :put, :remote => true do |f| %>
+          <%= f.text_field :description, :id => dom_id(product, 'description'), :size => 75, :'data-onblur' => :submit, :placeholder => 'description' %>
+        <% end -%>
+      <% else %>
+        <%= product.description %>
+      <% end %>
+    </td>
+  </tr>
+<% end %>
