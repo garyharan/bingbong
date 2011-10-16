@@ -520,7 +520,6 @@ body.shops.show #menu {
       body.shops.show #menu #categories table tbody tr.description {
         border-bottom: 1px solid #ddd; }
       body.shops.show #menu #categories table tbody td {
-        height: 30px;
         padding: 6px;
         text-align: center;
         padding-top: 15px; }
