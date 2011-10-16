@@ -1,7 +1,9 @@
 <tbody id="<%= dom_id line %>">
   <tr>
     <td class="arrow">
-      <%= link_to "▲", line_path(line, :line => { :quantity => (line.quantity+1) }), :method => :put, :remote => true, :class => "up" %>
+      <% if modifiable %>
+        <%= link_to "▲", line_path(line, :line => { :quantity => (line.quantity+1) }), :method => :put, :remote => true, :class => "up" %>
+      <% end %>
     </td>
     <td rowspan="2"><%= pluralize line.quantity, line.item.product.category.name.singularize.downcase %></td>
     <td rowspan="2"><%= line.item.name.downcase %></td>
@@ -10,7 +12,9 @@
   </tr>
   <tr>
     <td class="arrow">
-      <%= link_to "▼", line_path(line, :line => { :quantity => (line.quantity-1) }), :method => :put, :remote => true, :class => "down" %>
+      <% if modifiable %>
+        <%= link_to "▼", line_path(line, :line => { :quantity => (line.quantity-1) }), :method => :put, :remote => true, :class => "down" %>
+      <% end %>
     </td>
   </tr>
 </tbody>

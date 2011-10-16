@@ -23,57 +23,9 @@
           Votre commande
         </th>
       </thead>
-      <tfoot id="totals">
-        <tr>
-          <td colspan="3" class="subtotal price">
-            Sous-total:
-          </td>
-          <td class="subtotal">
-            <%= number_to_currency(@order.subtotal_amount, :unit => "$") %>
-          </td>
-        </tr>
-        <tr>
-          <td colspan="3" class="tps">
-            TPS:
-          </td>
-          <td class="tps">
-            <%= number_to_currency(@order.gst_amount, :unit => "$")  %>
-          </td>
-        </tr>
-        <tr>
-          <td colspan="3" class="tvq">
-            TVQ:
-          </td>
-          <td class="tvq">
-            <%= number_to_currency(@order.pst_amount, :unit => "$")  %>
-          </td>
-        </tr>
-        <tr class="total_line">
-          <td colspan="3" class="total">
-            Total:
-          </td>
-          <td class="total">
-            <%= number_to_currency(@order.total_amount, :unit => "$")  %>
-          </td>
-        </tr>
-        <tr class="total_gm_points">
-          <td colspan="3" class="total">
-            Points gagnés:
-          </td>
-          <td class="total">
-            <%= @order.gm_points %>
-          </td>
-        </tr>
-      </tfoot>
+      <%= render "lines/totals" %>
       <% @order.lines.each do |line| -%>
-        <tbody id="<%= dom_id line %>">
-          <tr>
-            <td rowspan="2"><%= pluralize line.quantity, line.item.product.category.name.singularize.downcase %></td>
-            <td rowspan="2"><%= line.item.name.downcase %></td>
-            <td rowspan="2"><%= line.item.size.name.downcase %></td>
-            <td rowspan="2" class="price"><%= number_to_currency(line.item.price * line.quantity, :unit => "$") %></td>
-          </tr>
-        </tbody>
+        <%= render @order.lines, :modifiable => false %>
       <% end -%>
     </table>
   </div>

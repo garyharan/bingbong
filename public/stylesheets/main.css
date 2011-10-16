@@ -819,6 +819,10 @@ body.orders.new div#confirm, body.orders.create div#confirm {
         padding: 10px; }
       body.orders.new div#confirm #container table#confirm_order tbody td:last-child, body.orders.create div#confirm #container table#confirm_order tbody td:last-child {
         text-align: right; }
+      body.orders.new div#confirm #container table#confirm_order tbody td.arrow, body.orders.create div#confirm #container table#confirm_order tbody td.arrow {
+        padding: 0;
+        margin: 0;
+        width: 0; }
 
 #flashes {
   width: 100%;

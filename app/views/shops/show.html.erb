@@ -29,7 +29,7 @@
           </tr>
         </thead>
         <%= render :partial => "lines/totals" %>
-        <%= render @lines %>
+        <%= render @lines, :modifiable => true %>
       </table>
       <%= render :partial => "lines/confirmation" %>
     <% else -%>

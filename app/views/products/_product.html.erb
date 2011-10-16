@@ -22,13 +22,13 @@
             <%= f.text_field :price, :size => 4, :'data-onblur' => :submit, :class => "price_field" %>
           <% end -%>
         <% else -%>
-          <%= link_to(@item.price, lines_path(:line => {:shop_id => @shop.id, :item_id => @item.id}), 
+          <%= link_to(number_to_currency(@item.price), lines_path(:line => {:shop_id => @shop.id, :item_id => @item.id}),
                     :method => :post, :remote => true, 
                     :class => 'price_link',
                     :id => dom_id(@item, 'link')) if @item.price  %>
         <% end %>
       <% else %>
-        <%= @item.price %>
+        <%= number_to_currency(@item.price) %>
       <% end %>
     </td>
   <% end -%>
