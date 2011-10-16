@@ -37,6 +37,10 @@ class Shops::OrdersController < ApplicationController
         order.refuse!
         order.answer!
         success = true
+      when "hungup"
+        order.hungup!
+        log_call_error "Hungup call : #{params.inspect}"
+        success = true
       else
         log_call_error "Unknown result : #{params[:result]}"
       end

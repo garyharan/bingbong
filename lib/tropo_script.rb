@@ -55,9 +55,9 @@ end
 menu_options["4"] = new_options("4", "tout répéter") do
   {:to_say => [:order, :name, :address]}
 end
-menu_options["6"] = new_options("6", "appeler le client") do
-  {:transfert => true}
-end
+#menu_options["6"] = new_options("6", "appeler le client") do
+#  {:transfert => true}
+#end
 menu_options["*"] = new_options("étoile", "accepter la commande") do
   talk("Vous avez accepté la commande. Merci!")
   {:result => :accept}
@@ -126,8 +126,13 @@ while (!stop) do
     }
   )
 
-  log("SCRIPT_LOGGING : result.value: #{result.value}, event.choice.utterance: #{result.choice.utterance}, event.choice.interpretation: #{result.choice.interpretation}");
-
+  if result.choice.nil?
+    log("SCRIPT_LOGGING : Hangup during selection")
+    answer = {:result => "hangup"}
+    break
+  else
+    log("SCRIPT_LOGGING : result.value: #{result.value}, event.choice.utterance: #{result.choice.utterance}, event.choice.interpretation: #{result.choice.interpretation}");
+  end
   answer = menu_options.fetch(result.value) do
     block = lambda do
       talk("Je n'ai pas reconnu votre réponse.")

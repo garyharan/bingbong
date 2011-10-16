@@ -1,3 +1,4 @@
+# coding : utf-8
 class DeliveryAddress < ActiveRecord::Base
 
   belongs_to :client, :class_name => "User"
@@ -38,8 +39,21 @@ class DeliveryAddress < ActiveRecord::Base
     end
   end
 
+  def expanded_address
+    address.gsub(/st-/i, "saint-")
+  end
+
+  def expanded_city
+    city.gsub(/st-/i, "saint-")
+  end
+
   def address_string
-    "#{address}, #{city}"
+    a = expanded_address
+    a += ", appartement #{apartment}" unless apartment.blank?
+    a += ", #{expanded_city}, téléphone #{phone_number}"
+    a += ", note, #{note}" unless note.blank?
+
+    a
   end
 
   private

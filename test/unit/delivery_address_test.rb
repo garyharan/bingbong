@@ -1,3 +1,4 @@
+# coding : utf-8
 require 'test_helper'
 
 class DeliveryAddressTest < ActiveSupport::TestCase
@@ -93,6 +94,30 @@ class DeliveryAddressTest < ActiveSupport::TestCase
   end
 
   test "#address_string" do
-    assert_equal @delivery_address.address_string, "1234 Any road, A City"
+    assert_equal @delivery_address.address_string, "1234 Any road, appartement 1, A City, téléphone 1234567890, note, Knock 3 times"
+  end
+
+  test "#expanded_address" do
+    assert_equal @delivery_address.expanded_address, "1234 Any road"
+    @delivery_address.address = "1234 st-hubert"
+    assert_equal @delivery_address.expanded_address, "1234 saint-hubert"
+    @delivery_address.address = "1234 St-hubert"
+    assert_equal @delivery_address.expanded_address, "1234 saint-hubert"
+    @delivery_address.address = "1234 ST-hubert"
+    assert_equal @delivery_address.expanded_address, "1234 saint-hubert"
+    @delivery_address.address = "1234 Saint-hubert"
+    assert_equal @delivery_address.expanded_address, "1234 Saint-hubert"
+  end
+
+  test "#expanded_city" do
+    assert_equal @delivery_address.expanded_city, "A City"
+    @delivery_address.city = "st-hubert"
+    assert_equal @delivery_address.expanded_city, "saint-hubert"
+    @delivery_address.city = "St-hubert"
+    assert_equal @delivery_address.expanded_city, "saint-hubert"
+    @delivery_address.city = "ST-hubert"
+    assert_equal @delivery_address.expanded_city, "saint-hubert"
+    @delivery_address.city = "Saint-hubert"
+    assert_equal @delivery_address.expanded_city, "Saint-hubert"
   end
 end

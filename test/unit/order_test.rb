@@ -39,6 +39,12 @@ class OrderTest < ActiveSupport::TestCase
     assert_equal "calling", @order.call_state
   end
 
+  test "should transition ringing to call_state when hungup" do
+    @order.ring!
+    @order.hungup!
+    assert_equal "call_pending", @order.call_state
+  end
+
   test "should create an order_state_transition record when ringing" do
     @order.ring!
     assert_equal [{"call_pending" => "calling"}], @order.state_transitions.map{|st| {st.from => st.to}}
@@ -81,10 +87,21 @@ class OrderTest < ActiveSupport::TestCase
     @order.lines.each_with_index do |line, index|
       line.quantity = index + 1
     end
+    @order.lines[0].item.product.name = "bbq chicken"
+    @order.lines[1].item.product.name = "cheeseburger"
 
     expected = ""
     @items.each_with_index do |item, index|
-      expected << "#{index + 1} #{item.product.category.name}, #{item.size.order_name}, #{item.product.name};"
+      product_name = case index
+                     when 0
+                       "barbekiou chicken"
+                     when 1
+                       "cheesebeurgueur"
+                     else
+                       item.product.name
+                     end
+
+      expected << "#{index + 1} #{item.product.category.name}, #{item.size.order_name}, #{product_name};"
     end
     expected = expected[0..-2]
 

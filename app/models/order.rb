@@ -53,6 +53,10 @@ class Order < ActiveRecord::Base
       transition :calling => same
     end
 
+    event :hungup do
+      transition :calling => :call_pending
+    end
+
     before_transition OrderStateMachineObserver.method(:audit_order)
   end
 
@@ -104,17 +108,25 @@ class Order < ActiveRecord::Base
   end
 
   def order_string
-    lines.map do |line|
+    s = lines.map do |line|
       "#{line.quantity} #{line.item.product.category.name}, #{line.item.size.order_name}, #{line.item.product.name}"
     end.join(";")
+    unless s.blank?
+      s.gsub!(/\bb\.?b\.?q\.?\b/i, 'barbekiou')
+      s.gsub!(/burger\b/i, 'beurgueur')
+    end
+    s
   end
 
-  def call
-    if Rails.env.production?
-      RestClient.post(TROPO_SESSION_API_URL, call_options.merge(
+  def call(phone_number = nil)
+    if Rails.env.production? || (phone_number.class == String || phone_number.class == Fixnum)
+      options = call_options.merge(
         :action => "create",
         :token  => TROPO_TOKEN_ID
-      ))
+      )
+      options[:number] = phone_number unless phone_number.blank? #For manual test
+
+      RestClient.post(TROPO_SESSION_API_URL, options)
     end
   end
 
