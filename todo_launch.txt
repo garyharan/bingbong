@@ -1,6 +1,6 @@
 1. Pizza Unik : Thé et Café =. 1.50 => devrait être séparé
-2. Prix ne sont pas sous la forme \d+.\d{2}$
-3. Les items sans description devrait être shrinké (peut-être seulement afficher la description on mouse-over)
+2. DONE => Prix ne sont pas sous la forme \d+.\d{2}$
+3. DONE => Les items sans description devrait être shrinké (peut-être seulement afficher la description on mouse-over)
 4. Menu, $ change de ligne
 5. Les adresses Ajax ne fonctionne pas => il faut accepter le formulaire 2 fois => plus de menu la 2e fois
 6. Enlever l'option 6
