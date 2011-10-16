@@ -1,0 +1,8 @@
+if ($("#error_explanation").length == 0) {
+  $("#new_delivery_address").prepend("<div id='error_explanation'></div>")
+}
+
+$("#error_explanation").html("<ul>")
+<% @delivery_address.errors.full_messages.each do |msg| %>
+  $("#error_explanation ul").append("<li><%= msg %></li>")
+<% end %>

@@ -24,9 +24,7 @@
         </th>
       </thead>
       <%= render "lines/totals" %>
-      <% @order.lines.each do |line| -%>
-        <%= render @order.lines, :modifiable => false %>
-      <% end -%>
+      <%= render @order.lines, :modifiable => false %>
     </table>
   </div>
 </div>

@@ -26,6 +26,15 @@ class DeliveryAddressesControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  test "should be able to render errors delivery_address" do
+    assert_difference('DeliveryAddress.count', 0) do
+      xhr :post, :create, :delivery_address => @delivery_address.attributes.merge(:address => nil)
+    end
+
+    assert_template :errors, "we did not render the rjs file errors.js.erb"
+    assert_response :success
+  end
+
   test "should get edit" do
     get :edit, :id => @delivery_address.to_param
     assert_response :success
