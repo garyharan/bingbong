@@ -30,7 +30,7 @@ class Shop < ActiveRecord::Base
   end
 
   def owned_by?(owner)
-    self.owner == owner
+    !owner.nil? && self.owner == owner
   end
 
   def delivery_fee_to(order)
